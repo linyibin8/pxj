@@ -1,0 +1,2350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>知进拍学 后端展示</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --header-height: 56px;
+      --history-width: 292px;
+      --context-width: 420px;
+      --resizer-width: 8px;
+    }
+    * { box-sizing: border-box; }
+    html { height: 100%; overflow: hidden; }
+    body { height: 100vh; height: 100dvh; min-height: 0; margin: 0; display: flex; flex-direction: column; overflow: hidden; background: #f6f7f9; color: #15171a; }
+    header { flex: 0 0 var(--header-height); height: var(--header-height); min-height: var(--header-height); max-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 0 18px; overflow: hidden; background: #ffffff; border-bottom: 1px solid #dde1e7; }
+    h1 { flex: 0 0 auto; font-size: 18px; margin: 0; white-space: nowrap; }
+    main { flex: 1 1 auto; min-height: 0; overflow: hidden; display: grid; }
+    aside, section { min-height: 0; overflow: hidden; }
+    aside { border-right: 1px solid #dde1e7; background: #ffffff; }
+    button.session { width: 100%; border: 0; border-bottom: 1px solid #edf0f3; background: transparent; padding: 14px; text-align: left; cursor: pointer; }
+    button.session:hover, button.session.active { background: #eef5ff; }
+    .muted { color: #667085; font-size: 12px; }
+    .header-actions { min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 12px; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scrollbar-width: none; }
+    .header-actions::-webkit-scrollbar { display: none; }
+    .header-actions a { color: #175cd3; font-size: 13px; text-decoration: none; }
+    .header-actions button { min-height: 32px; border: 1px solid #c7d0dc; border-radius: 7px; background: #ffffff; color: #1d2939; padding: 0 10px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+    .header-actions button:hover { background: #f2f4f7; }
+    .header-actions button.primary { border-color: #175cd3; background: #175cd3; color: #ffffff; }
+    .header-actions a.global-panel-link { border: 1px solid #175cd3; border-radius: 6px; background: #175cd3; color: #ffffff; padding: 7px 10px; }
+    .header-actions a.global-panel-link:hover { filter: brightness(.98); }
+    .account-status { display: inline-flex; align-items: center; gap: 6px; max-width: 260px; border: 1px solid #d0d5dd; border-radius: 999px; padding: 5px 9px; background: #f8fafc; color: #344054; font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+    .account-status strong { overflow: hidden; text-overflow: ellipsis; }
+    .viewer { display: grid; gap: 12px; padding: 14px; align-content: start; }
+    .summary-card, .pair-row, .panel-launch-card, .process-card, .device-control-card, .coach-card, .capture-card, .memory-card { background: #ffffff; border: 1px solid #dde1e7; border-radius: 8px; }
+    .summary-card { padding: 14px; white-space: pre-wrap; line-height: 1.55; }
+    .summary-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .summary-head strong { display: block; }
+    .summary-action { border: 1px solid #b9c4d0; border-radius: 6px; background: #ffffff; color: #1d2939; padding: 7px 10px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+    .summary-action:hover { background: #f2f4f7; }
+    .summary-action:disabled { cursor: wait; color: #98a2b3; }
+    .visualization-actions { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin: 8px 0; }
+    .visualization-button { min-height: 30px; border: 1px solid #0e9384; border-radius: 7px; background: #f0fdfa; color: #0f766e; padding: 0 10px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+    .visualization-button:hover { background: #ccfbf1; }
+    .visualization-button:disabled { cursor: wait; border-color: #d0d5dd; background: #f2f4f7; color: #98a2b3; }
+    .visualization-status { flex: 1 1 240px; min-width: 180px; color: #667085; font-size: 12px; line-height: 1.35; }
+    .pairs { display: grid; gap: 12px; }
+    .pair-row { display: grid; grid-template-columns: minmax(300px, 38%) minmax(0, 1fr); min-height: 152px; overflow: hidden; }
+    .thumbs { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; padding: 12px; border-right: 1px solid #edf0f3; background: #fbfcfe; }
+    .thumb { width: min(100%, 172px); flex: 1 1 150px; border: 1px solid #dde1e7; border-radius: 6px; overflow: hidden; background: #ffffff; }
+    .thumb img { width: 100%; display: block; cursor: zoom-in; background: #edf0f3; aspect-ratio: 16 / 9; object-fit: contain; }
+    .thumb .cap { padding: 5px 6px; font-size: 11px; color: #475467; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .thumb.image-error { min-height: 88px; display: flex; align-items: center; justify-content: center; color: #667085; font-size: 11px; text-align: center; }
+    .thumb.image-error img, .thumb.image-error .cap { display: none; }
+    .thumb.image-error::before { content: "图片加载失败"; padding: 8px; }
+    .analysis-card { padding: 14px; white-space: pre-wrap; line-height: 1.55; min-width: 0; overflow-wrap: anywhere; }
+    .analysis-title { display: block; margin-bottom: 8px; }
+    .analysis-body { white-space: pre-wrap; }
+    .panel-launch-card, .process-card, .device-control-card, .coach-card, .capture-card, .memory-card { padding: 14px; }
+    .control-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .control-head strong { display: block; }
+    .control-status { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; border: 1px solid #d0d5dd; border-radius: 999px; padding: 2px 9px; font-size: 12px; color: #344054; background: #f8fafc; white-space: nowrap; }
+    .control-status.online { border-color: #abefc6; color: #067647; background: #ecfdf3; }
+    .control-status.offline { border-color: #fedf89; color: #b54708; background: #fffaeb; }
+    .control-grid { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .control-button { min-height: 50px; border: 1px solid #b9c4d0; border-radius: 8px; background: #ffffff; color: #1d2939; padding: 9px; cursor: pointer; text-align: left; display: grid; gap: 3px; align-content: center; }
+    .control-button:hover { background: #f2f4f7; }
+    .control-button.primary { border-color: #175cd3; background: #f5f8ff; color: #175cd3; }
+    .control-button.danger { border-color: #fda29b; color: #b42318; }
+    .control-button:disabled { cursor: wait; color: #98a2b3; background: #f8fafc; border-color: #d0d5dd; }
+    .control-button strong { font-size: 13px; }
+    .control-button.wide { grid-column: 1 / -1; }
+    .control-goal { display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr) auto; margin-top: 10px; }
+    .control-goal textarea { min-height: 40px; border: 1px solid #b9c4d0; border-radius: 6px; padding: 8px 10px; font: inherit; font-size: 13px; resize: vertical; line-height: 1.4; }
+    .control-goal button { border: 1px solid #175cd3; border-radius: 6px; background: #175cd3; color: #ffffff; padding: 0 12px; cursor: pointer; }
+    .command-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .command-pill { border: 1px solid #d0d5dd; border-radius: 999px; padding: 3px 8px; color: #475467; background: #f8fafc; font-size: 12px; }
+    .command-pill.applied { border-color: #abefc6; color: #067647; background: #ecfdf3; }
+    .command-pill.failed, .command-pill.expired { border-color: #fda29b; color: #b42318; background: #fff4f2; }
+    .command-pill.delivered, .command-pill.pending { border-color: #fedf89; color: #b54708; background: #fffaeb; }
+    .panel-actions { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .panel-button { min-height: 72px; border: 1px solid #c7d7fe; border-radius: 8px; background: #f8fbff; color: #1d2939; padding: 12px; cursor: pointer; text-align: left; display: grid; gap: 6px; align-content: start; }
+    .panel-button:hover { background: #eef5ff; border-color: #84caff; }
+    .panel-button strong { font-size: 14px; }
+    .strategy-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .strategy-field { border-top: 1px solid #edf0f3; padding-top: 8px; line-height: 1.45; }
+    .strategy-field:first-child { border-top: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip { border: 1px solid #c6d7ef; background: #f2f7ff; color: #175cd3; border-radius: 999px; padding: 3px 8px; font-size: 12px; }
+    .chip.good { border-color: #abefc6; background: #ecfdf3; color: #067647; }
+    .chip.warn { border-color: #fedf89; background: #fffaeb; color: #b54708; }
+    .coach-card { display: grid; gap: 12px; }
+    .coach-grid { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .coach-field { display: grid; gap: 5px; min-width: 0; }
+    .coach-field label { color: #344054; font-size: 12px; font-weight: 600; }
+    .coach-field select, .coach-field textarea { width: 100%; border: 1px solid #b9c4d0; border-radius: 7px; background: #ffffff; color: #15171a; font: inherit; font-size: 13px; line-height: 1.4; }
+    .coach-field select { height: 36px; padding: 0 9px; }
+    .coach-field textarea { min-height: 58px; max-height: 132px; resize: vertical; padding: 8px 9px; grid-column: 1 / -1; }
+    .coach-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .coach-actions button { min-height: 34px; border: 1px solid #175cd3; border-radius: 7px; background: #175cd3; color: #ffffff; padding: 0 11px; cursor: pointer; font-size: 12px; }
+    .coach-actions button.secondary { border-color: #b9c4d0; background: #ffffff; color: #1d2939; }
+    .coach-actions button:disabled { cursor: wait; border-color: #d0d5dd; background: #f2f4f7; color: #98a2b3; }
+    .context-toggles { display: grid; gap: 7px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .context-toggle { min-height: 30px; display: flex; align-items: center; gap: 7px; color: #344054; font-size: 12px; }
+    .context-toggle input { width: 15px; height: 15px; accent-color: #175cd3; }
+    .capture-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(94px, 1fr)); }
+    .capture-tile { min-width: 0; border: 1px solid #dde1e7; border-radius: 7px; overflow: hidden; background: #fbfcfe; color: #475467; cursor: zoom-in; text-align: left; padding: 0; }
+    .capture-tile:hover { border-color: #84caff; background: #f5faff; }
+    .capture-tile img { width: 100%; display: block; aspect-ratio: 4 / 3; object-fit: contain; background: #eef2f6; }
+    .capture-tile span { display: block; padding: 5px 6px; font-size: 11px; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .capture-tile.rejected { opacity: .68; }
+    .capture-tile.duplicate span::after { content: " · 重复"; color: #b42318; }
+    .capture-tile.image-error { min-height: 88px; display: grid; place-items: center; padding: 8px; color: #667085; font-size: 11px; line-height: 1.35; text-align: center; cursor: default; }
+    .capture-tile.image-error img, .capture-tile.image-error span { display: none; }
+    .capture-tile.image-error::before { content: "缩略图不可用"; }
+    .capture-empty { border: 1px dashed #c7d0dc; border-radius: 7px; padding: 14px; color: #667085; font-size: 12px; line-height: 1.45; background: #fbfcfe; }
+    .message-captures { display: flex; flex-wrap: wrap; gap: 7px; }
+    .message-capture { width: 112px; border: 1px solid #d0d5dd; border-radius: 7px; overflow: hidden; background: #ffffff; cursor: zoom-in; padding: 0; color: #475467; }
+    .message-capture img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block; background: #eef2f6; }
+    .message-capture span { display: block; padding: 4px 6px; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .message-capture.image-error { height: 78px; display: grid; place-items: center; padding: 8px; color: #667085; font-size: 11px; line-height: 1.35; text-align: center; cursor: default; }
+    .message-capture.image-error img, .message-capture.image-error span { display: none; }
+    .message-capture.image-error::before { content: "缩略图不可用"; }
+    .memory-list { display: grid; gap: 8px; }
+    .memory-row { display: grid; gap: 4px; border-top: 1px solid #edf0f3; padding-top: 8px; line-height: 1.45; }
+    .memory-row:first-child { border-top: 0; padding-top: 0; }
+    .learning-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .learning-head strong { display: block; }
+    .learning-grid { display: grid; gap: 8px; }
+    .learning-item { border-top: 1px solid #edf0f3; padding-top: 8px; line-height: 1.45; }
+    .learning-item:first-child { border-top: 0; padding-top: 0; }
+    .learning-type { display: inline-block; min-width: 44px; color: #175cd3; font-size: 12px; font-weight: 600; }
+    .mistake-type { color: #b42318; }
+    .process-type { color: #027a48; }
+    .qa-thread { display: grid; gap: 12px; }
+    .qa-followup-form { display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr) auto; align-items: end; padding: 10px; border: 1px solid #d6e4ff; border-radius: 8px; background: #f8fbff; }
+    .qa-followup-form label { display: grid; gap: 5px; min-width: 0; color: #344054; font-size: 12px; font-weight: 600; }
+    .qa-followup-input { width: 100%; min-height: 38px; border: 1px solid #b9c4d0; border-radius: 6px; background: #ffffff; padding: 8px 10px; font: inherit; font-size: 13px; resize: vertical; line-height: 1.4; }
+    .qa-followup-button { min-height: 38px; border: 1px solid #175cd3; border-radius: 6px; background: #175cd3; color: #ffffff; padding: 0 12px; cursor: pointer; white-space: nowrap; }
+    .qa-followup-button:disabled { border-color: #b9c4d0; background: #eef2f6; color: #98a2b3; cursor: wait; }
+    .qa-turn { border-top: 1px solid #edf0f3; padding-top: 12px; }
+    .qa-turn:first-child { border-top: 0; padding-top: 0; }
+    .qa-question-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .qa-question { display: grid; gap: 4px; min-width: 0; }
+    .qa-question strong { font-size: 14px; line-height: 1.35; }
+    .qa-image-link { color: #175cd3; text-decoration: none; white-space: nowrap; font-size: 12px; }
+    .qa-answer-layout { display: grid; gap: 10px; grid-template-columns: minmax(132px, 220px) minmax(0, 1fr); align-items: start; }
+    .qa-frame-preview { display: block; border: 1px solid #d0d5dd; border-radius: 8px; overflow: hidden; background: #f8fafc; text-decoration: none; color: #475467; }
+    .qa-frame-preview img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #eef2f6; }
+    .qa-frame-preview span { display: block; padding: 6px 8px; font-size: 12px; }
+    .qa-rich-answer { display: grid; gap: 7px; }
+    .qa-card-section { border: 1px solid #edf0f4; border-left: 3px solid #cbd5e1; border-radius: 10px; background: #ffffff; padding: 9px 12px 10px; line-height: 1.6; }
+    .qa-card-section h4 { display: flex; align-items: center; gap: 6px; margin: 0 0 5px; font-size: 12px; font-weight: 700; letter-spacing: .02em; color: #475467; }
+    .qa-card-section .qa-ico { font-size: 13px; line-height: 1; }
+    .qa-card-section p { margin: 0; font-size: 14px; color: #1d2939; }
+    .qa-card-section ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 14px; color: #1d2939; }
+    .qa-card-section li { padding-left: 2px; }
+    .qa-card-section li::marker { color: #98a2b3; font-size: 12px; }
+    .qa-topic   { border-left-color: #2563eb; background: #f8fbff; }
+    .qa-topic h4 { color: #1d4ed8; }
+    .qa-facts, .qa-idea { border-left-color: #0e9384; background: #f4fefb; }
+    .qa-facts h4, .qa-idea h4 { color: #0e7c70; }
+    .qa-student { border-left-color: #7a5af8; background: #f8f6ff; }
+    .qa-student h4 { color: #6938ef; }
+    .qa-check { border-left-color: #16a34a; background: #f5fdf8; }
+    .qa-check h4 { color: #157f3c; }
+    .qa-warning { border-left-color: #f04438; background: #fffbfa; }
+    .qa-warning h4 { color: #d92d20; }
+    .qa-steps { border-left-color: #f79009; background: #fffcf5; }
+    .qa-steps h4 { color: #b54708; }
+    .qa-fix, .qa-result { border-left-color: #12b76a; background: #f5fdf8; }
+    .qa-fix h4, .qa-result h4 { color: #027a48; }
+    .qa-follow { border-left-color: #2e90fa; background: #f5faff; }
+    .qa-follow h4 { color: #175cd3; }
+    .qa-knowledge { border-left-color: #9333ea; background: #fbf7ff; }
+    .qa-knowledge h4 { color: #7e22ce; }
+    .qa-plain-reply { display: block; }
+    .qa-plain-reply p { margin: 0 0 6px; font-size: 14px; color: #1d2939; line-height: 1.6; }
+    .qa-plain-reply p:last-child { margin-bottom: 0; }
+    .qa-math { display: inline-block; padding: 1px 5px; border-radius: 5px; background: rgba(23, 92, 211, .08); color: #175cd3; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .qa-plain-text { white-space: pre-wrap; line-height: 1.55; }
+    .thumb.duplicate { opacity: .62; }
+    .thumb.duplicate .cap::after { content: " · 重复"; color: #b42318; }
+    .load-more { border: 1px solid #b9c4d0; border-radius: 6px; background: #ffffff; color: #1d2939; padding: 10px 12px; cursor: pointer; font-size: 13px; }
+    .load-more:hover { background: #f2f4f7; }
+    .load-more:disabled { cursor: wait; color: #98a2b3; }
+    .empty-pair { padding: 12px; color: #667085; font-size: 12px; }
+    .logs { border-left: 1px solid #dde1e7; background: #101828; color: #d0d5dd; padding: 12px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; }
+    .log { padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .workspace { flex: 1 1 auto; min-height: 0; height: auto; overflow: hidden; display: grid; grid-template-columns: var(--history-width) var(--resizer-width) minmax(460px, 1fr) var(--resizer-width) var(--context-width); background: #f3f5f8; }
+    .pane-resizer { position: relative; z-index: 4; min-width: var(--resizer-width); cursor: col-resize; background: #eef1f5; touch-action: none; }
+    .pane-resizer::before { content: ""; position: absolute; inset: 0 3px; border-left: 1px solid transparent; border-right: 1px solid transparent; transition: border-color .15s ease, background .15s ease; }
+    .pane-resizer:hover::before, .pane-resizer.active::before { border-color: #84caff; background: #d1e9ff; }
+    body.resizing-panes { cursor: col-resize; user-select: none; }
+    .history-pane { display: grid; grid-template-rows: auto minmax(0, 1fr); min-width: 0; border-right: 1px solid #dde1e7; background: #ffffff; overflow: hidden; }
+    .history-head { padding: 14px; border-bottom: 1px solid #edf0f3; }
+    .history-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+    .history-title strong { font-size: 14px; }
+    .history-list { overflow: auto; }
+    .chat-pane { min-width: 0; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: #f7f8fb; }
+    .chat-hero { padding: 14px 18px; border-bottom: 1px solid #dde1e7; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
+    .chat-hero-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .chat-hero h2 { margin: 0 0 6px; font-size: 18px; line-height: 1.3; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .hero-pill { display: inline-flex; align-items: center; min-height: 24px; border: 1px solid #d0d5dd; border-radius: 999px; background: #ffffff; padding: 2px 9px; color: #344054; font-size: 12px; }
+    .chat-thread { min-height: 0; overflow: auto; padding: 18px max(18px, calc((100% - 860px) / 2)); display: grid; align-content: start; gap: 14px; }
+    .chat-message { display: grid; gap: 7px; max-width: min(780px, 92%); }
+    .chat-message.user { justify-self: end; }
+    .chat-message.assistant { justify-self: start; }
+    .message-meta { display: flex; align-items: center; gap: 8px; color: #667085; font-size: 12px; }
+    .chat-message.user .message-meta { justify-content: flex-end; }
+    .chat-bubble { border: 1px solid #dce3ec; border-radius: 8px; padding: 12px 13px; background: #ffffff; line-height: 1.58; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+    .chat-bubble .qa-rich-answer { white-space: normal; }
+    .chat-message.user .chat-bubble { border-color: #175cd3; background: #175cd3; color: #ffffff; }
+    .message-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+    .message-actions button, .composer-tools button, .context-tabs button { min-height: 32px; border: 1px solid #c7d0dc; border-radius: 7px; background: #ffffff; color: #1d2939; padding: 0 10px; cursor: pointer; font-size: 12px; }
+    .message-actions button:hover, .composer-tools button:hover, .context-tabs button:hover { background: #f2f4f7; }
+    .message-actions button.primary, .composer-tools button.primary { border-color: #175cd3; background: #f5f8ff; color: #175cd3; }
+    .chat-composer { display: grid; gap: 10px; padding: 12px 16px 16px; border-top: 1px solid #dde1e7; background: #ffffff; }
+    .composer-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+    .composer-status { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: #667085; font-size: 12px; }
+    .composer-input { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; }
+    .composer-input textarea { min-height: 46px; max-height: 140px; border: 1px solid #b9c4d0; border-radius: 8px; padding: 10px 12px; font: inherit; line-height: 1.45; resize: vertical; }
+    .composer-input button { min-height: 46px; border: 1px solid #175cd3; border-radius: 8px; background: #175cd3; color: #ffffff; padding: 0 16px; cursor: pointer; }
+    .composer-input button:disabled, .composer-tools button:disabled { cursor: wait; border-color: #d0d5dd; background: #f2f4f7; color: #98a2b3; }
+    .context-pane { min-width: 0; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr); border-left: 1px solid #dde1e7; background: #ffffff; }
+    .context-tabs { display: flex; gap: 6px; padding: 10px; border-bottom: 1px solid #edf0f3; overflow-x: auto; }
+    .context-tabs button.active { border-color: #175cd3; background: #eef5ff; color: #175cd3; }
+    .context-stack { min-height: 0; overflow: auto; padding: 12px; }
+    .context-view { display: grid; gap: 12px; }
+    .context-view[hidden] { display: none !important; }
+    .context-card { background: #ffffff; border: 1px solid #dde1e7; border-radius: 8px; padding: 14px; }
+    .inline-frame-shell { min-height: 0; height: calc(100vh - var(--header-height) - 82px); height: calc(100dvh - var(--header-height) - 82px); display: grid; grid-template-rows: auto minmax(0, 1fr); padding: 0; overflow: hidden; }
+    .inline-frame-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #edf0f3; }
+    .inline-frame-head a { color: #175cd3; font-size: 12px; text-decoration: none; }
+    .inline-frame { width: 100%; min-height: 0; height: 100%; border: 0; background: #ffffff; }
+    .context-pane .logs { border-left: 0; border-radius: 8px; min-height: 360px; max-height: none; }
+    .materials-note { padding: 10px 12px; border: 1px solid #dde1e7; border-radius: 8px; background: #f8fafc; color: #475467; font-size: 12px; line-height: 1.5; }
+    .context-pane .summary-card, .context-pane .panel-launch-card, .context-pane .process-card, .context-pane .device-control-card, .context-pane .coach-card, .context-pane .capture-card, .context-pane .memory-card { border-radius: 8px; }
+    .auth-dialog { width: min(560px, calc(100vw - 32px)); border: 1px solid #d0d5dd; border-radius: 8px; padding: 0; background: #ffffff; color: #15171a; box-shadow: 0 24px 80px rgba(16,24,40,.22); }
+    .auth-dialog::backdrop { background: rgba(15,23,42,.36); }
+    .auth-shell { display: grid; gap: 14px; padding: 18px; }
+    .auth-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .auth-head h3 { margin: 0 0 4px; font-size: 18px; }
+    .auth-head button { border: 0; background: transparent; color: #667085; cursor: pointer; font-size: 18px; line-height: 1; }
+    .auth-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 3px; border: 1px solid #d0d5dd; border-radius: 8px; background: #f8fafc; }
+    .auth-tabs button { min-height: 34px; border: 0; border-radius: 6px; background: transparent; color: #344054; cursor: pointer; font-size: 13px; }
+    .auth-tabs button.active { background: #ffffff; color: #175cd3; box-shadow: 0 1px 2px rgba(16,24,40,.08); }
+    .auth-form, .model-form { display: grid; gap: 10px; }
+    .auth-form[hidden], .model-form[hidden] { display: none !important; }
+    .auth-grid, .model-grid { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .auth-field, .model-field { display: grid; gap: 5px; min-width: 0; color: #344054; font-size: 12px; font-weight: 600; }
+    .auth-field.wide, .model-field.wide { grid-column: 1 / -1; }
+    .auth-field input, .model-field input, .model-field select { width: 100%; height: 38px; border: 1px solid #b9c4d0; border-radius: 7px; padding: 0 10px; font: inherit; font-size: 13px; background: #ffffff; color: #15171a; }
+    .auth-actions, .model-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .auth-actions button, .model-actions button { min-height: 36px; border: 1px solid #175cd3; border-radius: 7px; background: #175cd3; color: #ffffff; padding: 0 12px; cursor: pointer; }
+    .auth-actions button.secondary, .model-actions button.secondary { border-color: #b9c4d0; background: #ffffff; color: #1d2939; }
+    .auth-error { min-height: 18px; color: #b42318; font-size: 12px; }
+    .profile-list, .model-list, .ops-grid { display: grid; gap: 8px; }
+    .profile-list { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .profile-pill, .model-row, .ops-row { border: 1px solid #dde1e7; border-radius: 8px; background: #fbfcfe; padding: 9px; line-height: 1.4; }
+    .profile-pill strong, .model-row strong, .ops-row strong { display: block; font-size: 13px; }
+    .ops-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    dialog { width: min(96vw, 1280px); max-height: 92vh; border: 0; padding: 0; background: #000; }
+    dialog img { width: 100%; max-height: 92vh; display: block; object-fit: contain; }
+    @media (max-width: 1180px) {
+      .workspace { grid-template-columns: 260px minmax(0, 1fr); }
+      .pane-resizer { display: none; }
+      .context-pane { display: none; }
+    }
+    @media (max-width: 920px) {
+      header { align-items: center; padding: 0 14px; flex-direction: row; }
+      .header-actions { flex-wrap: nowrap; justify-content: flex-start; }
+      .workspace { height: auto; min-height: 0; grid-template-columns: 1fr; grid-template-rows: 156px minmax(0, 1fr); }
+      .history-pane { display: grid; grid-template-rows: minmax(0, 1fr); max-height: none; border-right: 0; border-bottom: 1px solid #dde1e7; }
+      .history-head { display: none; }
+      .history-list { display: flex; overflow-x: auto; overflow-y: hidden; }
+      button.session { min-width: 236px; border-bottom: 0; border-right: 1px solid #edf0f3; }
+      .chat-pane { min-height: 0; }
+      .chat-thread { padding: 14px 12px; }
+      .chat-message { max-width: 100%; }
+      .composer-input { grid-template-columns: 1fr; }
+      .panel-actions, .control-grid, .coach-grid, .context-toggles { grid-template-columns: 1fr; }
+      .control-goal { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 840px) { .pair-row { grid-template-columns: 1fr; } .thumbs { border-right: 0; border-bottom: 1px solid #edf0f3; } }
+    @media (max-width: 700px) { .qa-followup-form, .qa-answer-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>知进拍学 学习工作台</h1>
+    <div class="header-actions">
+      <span class="account-status" id="accountStatus"><strong>访客模式</strong></span>
+      <button class="primary" type="button" id="accountButton">账号</button>
+      <button type="button" id="modelButton">模型</button>
+      <a class="global-panel-link" href="/session-panel" data-open-url="/session-panel" data-open-title="全局学习中心" data-open-meta="全局学习清单、错题、复习队列和长期画像">全局学习中心</a>
+      <a href="/assets" data-open-assets="learning">学习资产</a>
+      <a href="/prompts" data-open-url="/prompts" data-open-title="提示词配置" data-open-meta="在右侧调整提示词，不离开当前对话">提示词配置</a>
+      <span class="muted">pxj.evowit.com</span>
+    </div>
+  </header>
+  <main class="workspace">
+    <aside class="history-pane">
+      <div class="history-head">
+        <div class="history-title">
+          <strong>对话历史</strong>
+          <button class="summary-action" type="button" id="newSession">新对话</button>
+        </div>
+        <div class="muted">选择一个回合后，聊天、画面和学习资产会在同一工作台联动。</div>
+      </div>
+      <div class="history-list" id="sessions"></div>
+    </aside>
+
+    <div class="pane-resizer" data-resizer="history" role="separator" aria-orientation="vertical" aria-label="调整左侧历史宽度"></div>
+
+    <section class="chat-pane">
+      <div class="chat-hero">
+        <div class="chat-hero-row">
+          <div>
+            <h2 id="chatTitle">学习对话</h2>
+            <div class="muted" id="chatSubtitle">正在载入最近回合...</div>
+            <div class="hero-meta" id="chatMeta"></div>
+          </div>
+          <button class="summary-action" type="button" id="openLiveContext">查看材料</button>
+        </div>
+      </div>
+      <section class="chat-thread" id="chatThread"></section>
+      <form class="chat-composer" id="chatComposer">
+        <div class="composer-status" id="composerStatus"></div>
+        <div class="composer-tools">
+          <button class="primary" type="button" data-command="voice_question">语音提问</button>
+          <button type="button" data-command="single_capture">拍题解析</button>
+          <button type="button" data-command="start_burst">智能观察</button>
+          <button type="button" data-command="stop_burst">停止观察</button>
+          <button type="button" data-open-panel="learning">学习清单</button>
+          <button type="button" data-open-panel="mistakes">错题本</button>
+          <button type="button" data-open-panel="review">复习队列</button>
+          <button type="button" data-open-panel="profile">长期画像</button>
+        </div>
+        <div class="composer-input">
+          <textarea id="chatInput" name="question" rows="1" placeholder="直接追问当前回合，例如：第二题为什么这样算？帮我整理这轮错题。"></textarea>
+          <button id="chatSend" type="submit">发送</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="pane-resizer" data-resizer="context" role="separator" aria-orientation="vertical" aria-label="调整右侧上下文宽度"></div>
+
+    <aside class="context-pane">
+      <div class="context-tabs" id="contextTabs">
+        <button class="active" type="button" data-context="live">概要</button>
+        <button type="button" data-context="materials">材料</button>
+        <button type="button" data-context="coach">教练</button>
+        <button type="button" data-context="panel">内嵌页面</button>
+        <button type="button" data-context="logs">日志</button>
+      </div>
+      <div class="context-stack">
+        <section class="context-view" data-context-view="live">
+          <article class="device-control-card" id="deviceControl"></article>
+          <article class="capture-card" id="captureStrip"></article>
+          <article class="summary-card" id="summary"></article>
+          <article class="panel-launch-card" id="panelLaunch"></article>
+        </section>
+        <section class="context-view" data-context-view="materials" hidden>
+          <div class="materials-note">这里集中放详细问答、过程记录和画面解析。默认不展开，避免打断中间对话。</div>
+          <article class="process-card" id="qaEvents"></article>
+          <article class="process-card" id="process"></article>
+          <div class="pairs" id="pairs"></div>
+        </section>
+        <section class="context-view" data-context-view="coach" hidden>
+          <article class="coach-card" id="coachPanel"></article>
+          <article class="memory-card" id="memoryPanel"></article>
+        </section>
+        <section class="context-view" data-context-view="panel" hidden>
+          <article class="context-card inline-frame-shell">
+            <div class="inline-frame-head">
+              <div>
+                <strong id="inlineFrameTitle">内嵌页面</strong>
+                <div class="muted" id="inlineFrameMeta">从聊天消息或右侧按钮打开学习资产、错题本、提示词等页面。</div>
+              </div>
+              <a id="inlineFrameExternal" href="/session-panel" target="_blank" rel="noopener">新窗口</a>
+            </div>
+            <iframe class="inline-frame" id="inlineFrame" title="内嵌学习页面" src="about:blank"></iframe>
+          </article>
+        </section>
+        <section class="context-view" data-context-view="logs" hidden>
+          <section class="logs" id="logs"></section>
+        </section>
+      </div>
+    </aside>
+  </main>
+  <dialog id="zoom" onclick="this.close()"><img id="zoomImg" alt=""></dialog>
+  <dialog class="auth-dialog" id="accountDialog">
+    <div class="auth-shell">
+      <div class="auth-head">
+        <div>
+          <h3>账号与模型</h3>
+          <div class="muted" id="accountDialogMeta">登录后会按账号隔离历史、知识库和模型配置。</div>
+        </div>
+        <button type="button" id="closeAccountDialog" aria-label="关闭">×</button>
+      </div>
+      <div class="auth-tabs">
+        <button class="active" type="button" data-auth-tab="login">登录</button>
+        <button type="button" data-auth-tab="register">注册</button>
+      </div>
+      <form class="auth-form" id="loginForm">
+        <div class="auth-grid">
+          <label class="auth-field wide">邮箱<input name="email" type="email" autocomplete="email" required></label>
+          <label class="auth-field wide">密码<input name="password" type="password" autocomplete="current-password" required></label>
+        </div>
+        <div class="auth-actions">
+          <button type="submit">登录</button>
+          <button class="secondary" type="button" id="logoutButton">退出登录</button>
+          <span class="auth-error" id="loginError"></span>
+        </div>
+      </form>
+      <form class="auth-form" id="registerForm" hidden>
+        <div class="auth-grid">
+          <label class="auth-field">邮箱<input name="email" type="email" autocomplete="email" required></label>
+          <label class="auth-field">密码<input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+          <label class="auth-field">姓名<input name="display_name" autocomplete="name"></label>
+          <label class="auth-field">学生姓名<input name="student_name"></label>
+          <label class="auth-field wide">账号名称<input name="account_name"></label>
+        </div>
+        <div class="auth-actions">
+          <button type="submit">注册并登录</button>
+          <span class="auth-error" id="registerError"></span>
+        </div>
+      </form>
+      <section class="process-card">
+        <div class="learning-head">
+          <strong>身份</strong>
+          <span class="muted" id="profileCount">未登录</span>
+        </div>
+        <div class="profile-list" id="profileList"></div>
+      </section>
+      <section class="process-card">
+        <div class="learning-head">
+          <strong>模型配置</strong>
+          <span class="muted" id="activeModelStatus">默认模型</span>
+        </div>
+        <div class="model-list" id="modelList"></div>
+        <form class="model-form" id="modelForm">
+          <div class="model-grid">
+            <label class="model-field">平台
+              <select name="provider">
+                <option value="evowit">EvoWit / 内部</option>
+                <option value="openai">OpenAI</option>
+                <option value="anthropic">Anthropic</option>
+                <option value="gemini">Gemini</option>
+                <option value="zhipu">智谱</option>
+                <option value="openai-compatible">OpenAI-compatible</option>
+              </select>
+            </label>
+            <label class="model-field">名称<input name="name" placeholder="我的模型网关"></label>
+            <label class="model-field wide">Base URL<input name="base_url" placeholder="https://api.openai.com/v1"></label>
+            <label class="model-field">模型名<input name="model" placeholder="gpt-4.1-mini"></label>
+            <label class="model-field">API Key<input name="api_key" type="password" autocomplete="off" placeholder="保存后会加密"></label>
+            <label class="model-field">最大并发<input name="max_concurrency" type="number" min="1" max="64" value="1"></label>
+          </div>
+          <div class="model-actions">
+            <button type="submit">保存为默认模型</button>
+            <span class="auth-error" id="modelError"></span>
+          </div>
+        </form>
+      </section>
+      <section class="process-card">
+        <div class="learning-head">
+          <strong>数据平台</strong>
+          <span class="muted" id="opsStatus">未加载</span>
+        </div>
+        <div class="ops-grid" id="opsGrid"></div>
+      </section>
+    </div>
+  </dialog>
+  <script>
+    let current = new URLSearchParams(location.search).get("session_id");
+    let lastLog = 0;
+    let sessionData = null;
+    let sessionLoading = false;
+    let qaSubmitting = false;
+    let deviceControlData = null;
+    let controlSubmitting = false;
+    let shouldAutoSelectSession = !current;
+    let authState = { authenticated: false, auth: {}, profiles: [], active_model_config: null };
+    let modelPlatforms = [];
+    let latestObservability = null;
+    const authTokenStorageKey = "pxj.authToken";
+    const controlTokenStorageKey = "pxj.controlToken";
+    const analysisPageSize = 20;
+    const sessionsEl = document.querySelector("#sessions");
+    const chatTitleEl = document.querySelector("#chatTitle");
+    const chatSubtitleEl = document.querySelector("#chatSubtitle");
+    const chatMetaEl = document.querySelector("#chatMeta");
+    const chatThreadEl = document.querySelector("#chatThread");
+    const chatComposerEl = document.querySelector("#chatComposer");
+    const composerStatusEl = document.querySelector("#composerStatus");
+    const chatInputEl = document.querySelector("#chatInput");
+    const chatSendEl = document.querySelector("#chatSend");
+    const newSessionButton = document.querySelector("#newSession");
+    const openLiveContextButton = document.querySelector("#openLiveContext");
+    const contextTabsEl = document.querySelector("#contextTabs");
+    const contextStackEl = document.querySelector(".context-stack");
+    const inlineFrameEl = document.querySelector("#inlineFrame");
+    const inlineFrameTitleEl = document.querySelector("#inlineFrameTitle");
+    const inlineFrameMetaEl = document.querySelector("#inlineFrameMeta");
+    const inlineFrameExternalEl = document.querySelector("#inlineFrameExternal");
+    const deviceControlEl = document.querySelector("#deviceControl");
+    const captureStripEl = document.querySelector("#captureStrip");
+    const summaryEl = document.querySelector("#summary");
+    const panelLaunchEl = document.querySelector("#panelLaunch");
+    const coachPanelEl = document.querySelector("#coachPanel");
+    const memoryPanelEl = document.querySelector("#memoryPanel");
+    const qaEventsEl = document.querySelector("#qaEvents");
+    const processEl = document.querySelector("#process");
+    const pairsEl = document.querySelector("#pairs");
+    const logsEl = document.querySelector("#logs");
+    const accountStatusEl = document.querySelector("#accountStatus");
+    const accountButtonEl = document.querySelector("#accountButton");
+    const modelButtonEl = document.querySelector("#modelButton");
+    const accountDialogEl = document.querySelector("#accountDialog");
+    const closeAccountDialogEl = document.querySelector("#closeAccountDialog");
+    const loginFormEl = document.querySelector("#loginForm");
+    const registerFormEl = document.querySelector("#registerForm");
+    const loginErrorEl = document.querySelector("#loginError");
+    const registerErrorEl = document.querySelector("#registerError");
+    const modelErrorEl = document.querySelector("#modelError");
+    const logoutButtonEl = document.querySelector("#logoutButton");
+    const profileCountEl = document.querySelector("#profileCount");
+    const profileListEl = document.querySelector("#profileList");
+    const activeModelStatusEl = document.querySelector("#activeModelStatus");
+    const modelListEl = document.querySelector("#modelList");
+    const modelFormEl = document.querySelector("#modelForm");
+    const opsStatusEl = document.querySelector("#opsStatus");
+    const opsGridEl = document.querySelector("#opsGrid");
+    const workspaceEl = document.querySelector(".workspace");
+    const paneLayoutStorageKey = "pxj.dashboardPaneLayout";
+    const defaultPaneLayout = { history: 292, context: 420 };
+    const coachPreferenceStorageKey = "pxj.dashboardCoachPreferences";
+    const contextInclusionStorageKey = "pxj.dashboardContextInclusion";
+    const learningModes = [
+      ["single_problem", "拍题", "识别题目、学生答案和卡点"],
+      ["homework", "写作业", "关注书写过程、停顿和订正"],
+      ["answer_check", "检查", "先核对答案和过程，再给订正方向"],
+      ["review", "复习", "围绕错题、知识点和相似题安排复习"]
+    ];
+    const coachDepths = [
+      ["hint_first", "先提示", "先给可尝试的一小步"],
+      ["step_by_step", "分步讲", "一步步讲清推理过程"],
+      ["check_only", "只检查", "只判断对错和下一步订正"],
+      ["full_explain", "完整讲", "给完整解析、结论和巩固动作"]
+    ];
+    const defaultCoachPreference = { learningMode: "single_problem", coachDepth: "hint_first", studentGoal: "" };
+    const defaultContextInclusion = {
+      visual: true,
+      observation: true,
+      history: true,
+      mistakes: true,
+      knowledge: true,
+      memory: true,
+      strategy: true,
+      debug: false
+    };
+    const contextLabels = {
+      visual: "画面",
+      observation: "观察",
+      history: "历史",
+      mistakes: "错题",
+      knowledge: "知识点",
+      memory: "记忆",
+      strategy: "策略",
+      debug: "调试"
+    };
+    let coachPreference = loadCoachPreference();
+    let contextInclusion = loadContextInclusion();
+    let coachSubmitting = false;
+    let latestMemoryData = null;
+    let paneLayout = { ...defaultPaneLayout };
+
+    function authToken() {
+      return localStorage.getItem(authTokenStorageKey) || "";
+    }
+
+    function setAuthToken(token) {
+      if (token) localStorage.setItem(authTokenStorageKey, token);
+      else localStorage.removeItem(authTokenStorageKey);
+    }
+
+    function installAuthenticatedFetch() {
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (input, init = {}) => {
+        const url = typeof input === "string" ? input : input?.url || "";
+        const target = new URL(url, location.href);
+        const headers = new Headers(init.headers || (typeof input !== "string" ? input.headers : undefined) || {});
+        const token = authToken();
+        if (token && target.origin === location.origin && !headers.has("Authorization")) {
+          headers.set("Authorization", `Bearer ${token}`);
+        }
+        const nextInit = { ...init, headers, credentials: init.credentials || "same-origin" };
+        if (typeof input !== "string" && input instanceof Request) {
+          return originalFetch(new Request(input, nextInit));
+        }
+        return originalFetch(input, nextInit);
+      };
+    }
+
+    installAuthenticatedFetch();
+
+    function optionByValue(options, value) {
+      return options.find(option => option[0] === value) || options[0];
+    }
+
+    function loadCoachPreference() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(coachPreferenceStorageKey) || "null");
+        if (saved && typeof saved === "object") {
+          return {
+            ...defaultCoachPreference,
+            learningMode: optionByValue(learningModes, saved.learningMode || saved.learning_mode)?.[0] || defaultCoachPreference.learningMode,
+            coachDepth: optionByValue(coachDepths, saved.coachDepth || saved.coach_depth)?.[0] || defaultCoachPreference.coachDepth,
+            studentGoal: String(saved.studentGoal || saved.student_goal || "")
+          };
+        }
+      } catch {}
+      return { ...defaultCoachPreference };
+    }
+
+    function saveCoachPreference() {
+      localStorage.setItem(coachPreferenceStorageKey, JSON.stringify(coachPreference));
+    }
+
+    function loadContextInclusion() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(contextInclusionStorageKey) || "null");
+        if (saved && typeof saved === "object") {
+          return Object.fromEntries(Object.entries(defaultContextInclusion).map(([key, value]) => [key, saved[key] ?? value]));
+        }
+      } catch {}
+      return { ...defaultContextInclusion };
+    }
+
+    function saveContextInclusion() {
+      localStorage.setItem(contextInclusionStorageKey, JSON.stringify(contextInclusion));
+    }
+
+    function learningModeTitle(value = coachPreference.learningMode) {
+      return optionByValue(learningModes, value)?.[1] || "拍题";
+    }
+
+    function coachDepthTitle(value = coachPreference.coachDepth) {
+      return optionByValue(coachDepths, value)?.[1] || "先提示";
+    }
+
+    function learningModePhrase(value = coachPreference.learningMode) {
+      const option = optionByValue(learningModes, value);
+      return `学习场景=${option[1]}，${option[2]}`;
+    }
+
+    function coachDepthPhrase(value = coachPreference.coachDepth) {
+      const option = optionByValue(coachDepths, value);
+      return `回答方式=${option[1]}，${option[2]}`;
+    }
+
+    function coachReportStyle() {
+      return `${learningModePhrase()}；${coachDepthPhrase()}；PC端三栏工作台`;
+    }
+
+    function coachAssistantFocus() {
+      return [
+        "学习教练偏好",
+        learningModePhrase(),
+        coachDepthPhrase(),
+        "优先围绕当前问题、当前抓拍缩略图和本回合上下文回答",
+        "需要复盘时，把错因、知识点、下一步小任务写清楚"
+      ].join("；");
+    }
+
+    function contextEnabledLabels() {
+      return Object.entries(contextInclusion)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => contextLabels[key])
+        .filter(Boolean);
+    }
+
+    function syncCoachPreferenceFromSession(session = {}) {
+      let changed = false;
+      const focus = `${session.assistant_focus || ""} ${session.report_style || ""}`;
+      const goal = String(session.student_goal || "");
+      const modeHit = learningModes.find(([value, title]) => focus.includes(value) || focus.includes(`学习场景=${title}`));
+      const depthHit = coachDepths.find(([value, title]) => focus.includes(value) || focus.includes(`回答方式=${title}`));
+      if (modeHit && coachPreference.learningMode !== modeHit[0]) {
+        coachPreference.learningMode = modeHit[0];
+        changed = true;
+      }
+      if (depthHit && coachPreference.coachDepth !== depthHit[0]) {
+        coachPreference.coachDepth = depthHit[0];
+        changed = true;
+      }
+      if (goal && coachPreference.studentGoal !== goal) {
+        coachPreference.studentGoal = goal;
+        changed = true;
+      }
+      if (changed) saveCoachPreference();
+    }
+
+    function qaContextPayload(question, options = {}) {
+      const imageCount = Number(sessionData?.image_count || sessionData?.images?.length || 0);
+      const capture = latestCaptureImages(sessionData, 1)[0] || null;
+      return {
+        transcript: question,
+        turn: Number(sessionData?.qa_count || (sessionData?.qa_events || []).length || 0) + 1,
+        ui: options.ui || "dashboard_chat",
+        platform: "pc_dashboard",
+        learning_mode: coachPreference.learningMode,
+        learning_mode_title: learningModeTitle(),
+        coach_depth: coachPreference.coachDepth,
+        coach_depth_title: coachDepthTitle(),
+        student_goal: coachPreference.studentGoal || sessionData?.session?.student_goal || "",
+        strategy_context: {
+          learning_mode: coachPreference.learningMode,
+          learning_mode_title: learningModeTitle(),
+          coach_depth: coachPreference.coachDepth,
+          coach_depth_title: coachDepthTitle(),
+          assistant_focus: coachAssistantFocus()
+        },
+        context_inclusion: { ...contextInclusion },
+        context_use_policy: {
+          include_visual: contextInclusion.visual,
+          include_observation: contextInclusion.observation,
+          include_history: contextInclusion.history,
+          include_mistakes: contextInclusion.mistakes,
+          include_knowledge: contextInclusion.knowledge,
+          include_memory: contextInclusion.memory,
+          include_strategy: contextInclusion.strategy,
+          debug: contextInclusion.debug,
+          pc_dashboard_note: "PC端不预览相机，只使用iPhone已回传抓拍缩略图和会话上下文。"
+        },
+        observation_context: {
+          is_active: Boolean(deviceControlData?.latest_device?.state?.is_observing ?? deviceControlData?.latest_device?.state?.is_bursting),
+          upload_state: deviceControlData?.latest_device?.state?.upload_state || "",
+          latest_capture_filename: capture?.filename || "",
+          captured_frame_count: imageCount
+        },
+        current_frame_policy: contextInclusion.visual && capture ? "reuse_recent_session_thumbnail" : "text_only_from_pc",
+        selected_image_filename: capture?.filename || ""
+      };
+    }
+
+    function controlHeaders() {
+      const token = localStorage.getItem(controlTokenStorageKey) || "";
+      return token ? { "X-PAI-Control-Token": token } : {};
+    }
+
+    function isResizableWorkspace() {
+      return window.matchMedia("(min-width: 1181px)").matches;
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function workspaceWidth() {
+      return workspaceEl?.getBoundingClientRect().width || window.innerWidth;
+    }
+
+    function clampedPaneLayout(next = paneLayout) {
+      const total = workspaceWidth();
+      const handleTotal = 16;
+      const minHistory = 220;
+      const minChat = 460;
+      const minContext = 300;
+      const maxSide = Math.max(minHistory, total - minChat - minContext - handleTotal);
+      let history = clamp(Number(next.history) || defaultPaneLayout.history, minHistory, Math.min(420, maxSide));
+      const maxContext = Math.max(minContext, total - minChat - history - handleTotal);
+      let context = clamp(Number(next.context) || defaultPaneLayout.context, minContext, Math.min(560, maxContext));
+      const remainingChat = total - history - context - handleTotal;
+      if (remainingChat < minChat) {
+        const shortage = minChat - remainingChat;
+        const contextRoom = Math.max(0, context - minContext);
+        const contextReduction = Math.min(shortage, contextRoom);
+        context -= contextReduction;
+        history = clamp(history - (shortage - contextReduction), minHistory, Math.min(420, maxSide));
+      }
+      return { history: Math.round(history), context: Math.round(context) };
+    }
+
+    function applyPaneLayout(save = false) {
+      if (!workspaceEl) return;
+      if (!isResizableWorkspace()) {
+        document.documentElement.style.removeProperty("--history-width");
+        document.documentElement.style.removeProperty("--context-width");
+        return;
+      }
+      paneLayout = clampedPaneLayout(paneLayout);
+      document.documentElement.style.setProperty("--history-width", `${paneLayout.history}px`);
+      document.documentElement.style.setProperty("--context-width", `${paneLayout.context}px`);
+      if (save) {
+        localStorage.setItem(paneLayoutStorageKey, JSON.stringify(paneLayout));
+      }
+    }
+
+    function loadPaneLayout() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(paneLayoutStorageKey) || "null");
+        if (saved && typeof saved === "object") {
+          paneLayout = {
+            history: Number(saved.history) || defaultPaneLayout.history,
+            context: Number(saved.context) || defaultPaneLayout.context
+          };
+        }
+      } catch {
+        paneLayout = { ...defaultPaneLayout };
+      }
+      applyPaneLayout(false);
+    }
+
+    function setupPaneResizers() {
+      document.querySelectorAll("[data-resizer]").forEach(handle => {
+        handle.addEventListener("pointerdown", event => {
+          if (!isResizableWorkspace()) return;
+          event.preventDefault();
+          handle.setPointerCapture?.(event.pointerId);
+          const side = handle.dataset.resizer;
+          const startX = event.clientX;
+          const start = { ...paneLayout };
+          handle.classList.add("active");
+          document.body.classList.add("resizing-panes");
+
+          const onPointerMove = moveEvent => {
+            const delta = moveEvent.clientX - startX;
+            if (side === "history") {
+              paneLayout = clampedPaneLayout({ ...start, history: start.history + delta });
+            } else {
+              paneLayout = clampedPaneLayout({ ...start, context: start.context - delta });
+            }
+            applyPaneLayout(false);
+          };
+
+          const finish = () => {
+            handle.classList.remove("active");
+            document.body.classList.remove("resizing-panes");
+            window.removeEventListener("pointermove", onPointerMove);
+            window.removeEventListener("pointerup", finish);
+            window.removeEventListener("pointercancel", finish);
+            applyPaneLayout(true);
+          };
+
+          window.addEventListener("pointermove", onPointerMove);
+          window.addEventListener("pointerup", finish, { once: true });
+          window.addEventListener("pointercancel", finish, { once: true });
+        });
+      });
+      window.addEventListener("resize", () => applyPaneLayout(false));
+    }
+
+    function promptControlToken() {
+      const token = prompt("请输入 iPhone 多屏控制口令");
+      if (token == null) return false;
+      localStorage.setItem(controlTokenStorageKey, token.trim());
+      return true;
+    }
+
+    async function loadSessions() {
+      if (authState.auth?.auth_required && !authState.authenticated) {
+        renderAuthRequiredState();
+        return;
+      }
+      const res = await fetch("/api/sessions");
+      if (res.status === 401) {
+        renderAuthRequiredState();
+        return;
+      }
+      if (!res.ok) return;
+      const data = await res.json();
+      sessionsEl.innerHTML = data.sessions.map(s => `
+        <button class="session ${s.id === current ? "active" : ""}" data-id="${s.id}">
+          <strong>${escapeHtml(s.title)}</strong><br>
+          <span class="muted">${escapeHtml(s.mode)} · ${escapeHtml(s.status)}</span><br>
+          <span class="muted">${Number(s.image_count || 0)} 张 · ${Number(s.analysis_count || 0)} 条解析 · 错题 ${Number(s.mistake_count || 0)}</span><br>
+          ${s.student_goal ? `<span class="muted">${escapeHtml(s.student_goal).slice(0, 56)}</span><br>` : ""}
+          <span class="muted">${new Date(s.created_at).toLocaleString()}</span>
+        </button>`).join("");
+      const hadCurrent = Boolean(current);
+      if (!current && shouldAutoSelectSession && data.sessions[0]) current = data.sessions[0].id;
+      document.querySelectorAll(".session").forEach(btn => btn.onclick = () => {
+        current = btn.dataset.id;
+        shouldAutoSelectSession = true;
+        sessionData = null;
+        loadSession(true);
+        loadDeviceControl();
+        loadSessions();
+      });
+      if (current && (!hadCurrent || !sessionData || sessionData.session.id !== current)) loadSession(true);
+      if (current) loadDeviceControl();
+      if (!current) {
+        renderChatMessages(null);
+        renderCaptureStrip(null);
+        renderCoachPanel();
+        renderMemoryPanel();
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function renderAuthRequiredState() {
+      sessionsEl.innerHTML = `
+        <div class="capture-empty">
+          当前已开启账号登录。请先登录或注册，再查看自己的历史记录和知识库。
+          <div style="margin-top:10px"><button class="summary-action" type="button" data-login-now>登录 / 注册</button></div>
+        </div>`;
+      sessionsEl.querySelector("[data-login-now]")?.addEventListener("click", () => openAccountDialog("login"));
+      chatTitleEl.textContent = "请先登录";
+      chatSubtitleEl.textContent = "登录后会自动加载你的学习历史。";
+      chatMetaEl.innerHTML = "";
+      renderChatMessages(null);
+      renderCaptureStrip(null);
+      renderMemoryPanel();
+    }
+
+    function providerLabel(provider) {
+      return {
+        evowit: "EvoWit",
+        openai: "OpenAI",
+        anthropic: "Anthropic",
+        gemini: "Gemini",
+        zhipu: "智谱",
+        "openai-compatible": "OpenAI-compatible"
+      }[provider] || provider || "模型";
+    }
+
+    function activeModel() {
+      return authState.active_model_config || latestObservability?.model_health?.active_config || null;
+    }
+
+    function renderAccountPanel() {
+      const user = authState.user || {};
+      const profiles = authState.profiles || [];
+      const model = activeModel();
+      accountStatusEl.innerHTML = authState.authenticated
+        ? `<strong>${escapeHtml(user.display_name || user.email || "已登录")}</strong><span>${escapeHtml(providerLabel(model?.provider))}</span>`
+        : `<strong>访客模式</strong><span>${authState.auth?.auth_required ? "需登录" : "可试用"}</span>`;
+      logoutButtonEl.disabled = !authState.authenticated;
+      profileCountEl.textContent = authState.authenticated ? `${profiles.length} 个身份` : "未登录";
+      profileListEl.innerHTML = profiles.length
+        ? profiles.map(profile => `
+          <div class="profile-pill">
+            <strong>${escapeHtml(profile.display_name || "未命名")}</strong>
+            <div class="muted">${escapeHtml(profile.profile_type || "")}${profile.relation ? ` · ${escapeHtml(profile.relation)}` : ""}</div>
+          </div>`).join("")
+        : `<div class="muted">注册时会自动创建家长和学生身份，之后可继续添加老师身份。</div>`;
+      activeModelStatusEl.textContent = model ? `${providerLabel(model.provider)} · ${model.model || "未设置模型"}` : "系统默认";
+      modelListEl.innerHTML = model
+        ? `<div class="model-row">
+            <strong>${escapeHtml(model.name || providerLabel(model.provider))}</strong>
+            <div class="muted">${escapeHtml(model.base_url || "")}</div>
+            <div class="muted">模型 ${escapeHtml(model.model || "")} · 并发 ${Number(model.max_concurrency || 1)} · ${model.api_key_configured ? "已配置 Key" : "使用系统 Key"}</div>
+          </div>`
+        : `<div class="muted">默认使用内部模型 100.64.0.5，也可以登录后配置自己的模型平台。</div>`;
+      if (modelFormEl && model) {
+        modelFormEl.provider.value = model.provider || "openai-compatible";
+        modelFormEl.name.value = model.name || "";
+        modelFormEl.base_url.value = model.base_url || "";
+        modelFormEl.model.value = model.model || "";
+        modelFormEl.max_concurrency.value = Number(model.max_concurrency || 1);
+      }
+      renderOpsPanel();
+    }
+
+    function renderOpsPanel() {
+      const obs = latestObservability || {};
+      const gate = obs.llm_gate || {};
+      const usage = obs.llm_usage || {};
+      const health = obs.model_health || {};
+      opsStatusEl.textContent = obs.account_id ? `${health.busy ? "繁忙" : "可用"} · 24h ${Number(usage.total || 0)} 次` : "未加载";
+      const byModel = (usage.by_model || []).slice(0, 5)
+        .map(m => `<div class="muted">· ${escapeHtml(m.model || m.provider || "?")}：${Number(m.count || 0)} 次</div>`).join("");
+      opsGridEl.innerHTML = `
+        <div class="ops-row"><strong>${Number(gate.inflight || 0)} / ${Number(gate.max_concurrency || 0)}</strong><div class="muted">当前生成 / 最大并发</div></div>
+        <div class="ops-row"><strong>${Number(gate.waiting || 0)}</strong><div class="muted">排队请求</div></div>
+        <div class="ops-row"><strong>${(Number(usage.success_rate || 0) * 100).toFixed(0)}%</strong><div class="muted">24h 成功率（${Number(usage.done || 0)}/${Number(usage.total || 0)}）</div></div>
+        <div class="ops-row"><strong>${Number(usage.avg_duration_ms || 0)}ms</strong><div class="muted">平均耗时</div></div>
+        <div class="ops-row" style="grid-column:1/-1"><strong>${escapeHtml(gate.active_provider || "evowit")} · ${escapeHtml(gate.active_model || "")}</strong><div class="muted">${health.busy ? "繁忙" : "空闲"} · 当前模型${byModel ? "（近 24h 分布）" : ""}</div>${byModel}</div>
+      `;
+    }
+
+    async function loadAuthState({ refreshData = false } = {}) {
+      try {
+        const res = await fetch("/api/auth/me");
+        if (res.status === 401) {
+          setAuthToken("");
+          authState = { authenticated: false, auth: { auth_required: true }, profiles: [], active_model_config: null };
+          renderAccountPanel();
+          renderAuthRequiredState();
+          openAccountDialog("login");
+          return authState;
+        }
+        authState = await res.json();
+      } catch {
+        authState = { authenticated: false, auth: {}, profiles: [], active_model_config: null };
+      }
+      renderAccountPanel();
+      await Promise.allSettled([loadModelConfigs(), loadObservability()]);
+      if (refreshData) {
+        await loadSessions();
+        await loadMemory();
+      }
+      return authState;
+    }
+
+    async function loadModelConfigs() {
+      try {
+        const platformsRes = await fetch("/api/model-platforms");
+        if (platformsRes.ok) modelPlatforms = (await platformsRes.json()).platforms || [];
+        const res = await fetch("/api/model-configs");
+        if (!res.ok) return;
+        const data = await res.json();
+        authState.active_model_config = data.active || authState.active_model_config;
+        if ((data.configs || []).length) {
+          modelListEl.innerHTML = data.configs.map(item => `
+            <div class="model-row">
+              <strong>${escapeHtml(item.name || providerLabel(item.provider))}${item.is_default ? " · 默认" : ""}</strong>
+              <div class="muted">${escapeHtml(providerLabel(item.provider))} · ${escapeHtml(item.model || "")}</div>
+              <div class="muted">${escapeHtml(item.base_url || "")}</div>
+            </div>`).join("");
+        }
+        const model = activeModel();
+        activeModelStatusEl.textContent = model ? `${providerLabel(model.provider)} · ${model.model || "未设置模型"}` : "系统默认";
+        accountStatusEl.innerHTML = authState.authenticated
+          ? `<strong>${escapeHtml(authState.user?.display_name || authState.user?.email || "已登录")}</strong><span>${escapeHtml(providerLabel(model?.provider))}</span>`
+          : accountStatusEl.innerHTML;
+      } catch {}
+    }
+
+    async function loadObservability() {
+      try {
+        const res = await fetch("/api/observability");
+        if (!res.ok) return;
+        latestObservability = await res.json();
+        renderOpsPanel();
+      } catch {}
+    }
+
+    function openAccountDialog(tab = "login") {
+      setAuthTab(tab);
+      renderAccountPanel();
+      accountDialogEl.showModal();
+    }
+
+    function setAuthTab(tab) {
+      document.querySelectorAll("[data-auth-tab]").forEach(button => {
+        button.classList.toggle("active", button.dataset.authTab === tab);
+      });
+      loginFormEl.hidden = tab !== "login";
+      registerFormEl.hidden = tab !== "register";
+    }
+
+    async function submitAuthForm(form, mode) {
+      const errorEl = mode === "register" ? registerErrorEl : loginErrorEl;
+      errorEl.textContent = "";
+      const payload = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch(`/api/auth/${mode}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+        setAuthToken(data.access_token || "");
+        authState = {
+          authenticated: true,
+          user: data.user,
+          profiles: data.profiles || [],
+          auth: data.auth || authState.auth || {},
+          active_model_config: data.active_model_config || authState.active_model_config
+        };
+        await loadAuthState({ refreshData: true });
+        accountDialogEl.close();
+      } catch (error) {
+        errorEl.textContent = error.message || "请求失败";
+      }
+    }
+
+    async function submitModelConfig(event) {
+      event.preventDefault();
+      modelErrorEl.textContent = "";
+      if (!authState.authenticated) {
+        modelErrorEl.textContent = "请先登录";
+        openAccountDialog("login");
+        return;
+      }
+      const payload = Object.fromEntries(new FormData(modelFormEl).entries());
+      payload.is_default = true;
+      payload.max_concurrency = Number(payload.max_concurrency || 1);
+      try {
+        const res = await fetch("/api/model-configs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+        authState.active_model_config = data.active || data.config || authState.active_model_config;
+        modelFormEl.api_key.value = "";
+        await Promise.allSettled([loadModelConfigs(), loadObservability()]);
+        modelErrorEl.textContent = "已保存";
+      } catch (error) {
+        modelErrorEl.textContent = error.message || "保存失败";
+      }
+    }
+
+    function switchContext(name) {
+      document.querySelectorAll("[data-context-view]").forEach(view => {
+        view.hidden = view.dataset.contextView !== name;
+      });
+      contextTabsEl.querySelectorAll("[data-context]").forEach(button => {
+        button.classList.toggle("active", button.dataset.context === name);
+      });
+    }
+
+    function openInlinePage(url, title, meta = "") {
+      inlineFrameEl.src = url;
+      inlineFrameTitleEl.textContent = title;
+      inlineFrameMetaEl.textContent = meta || url;
+      inlineFrameExternalEl.href = url;
+      switchContext("panel");
+    }
+
+    function openSessionPanel(panel) {
+      const params = new URLSearchParams();
+      if (current && !["review", "profile"].includes(panel)) params.set("session_id", current);
+      if (panel) params.set("panel", panel);
+      const title = {
+        mistakes: "错题本",
+        learning: "学习清单",
+        strategy: "动态学习策略",
+        review: "复习队列",
+        profile: "长期画像"
+      }[panel] || "学习中心";
+      openInlinePage(`/session-panel?${params.toString()}`, title, current ? "当前回合内容" : "全局学习中心");
+    }
+
+    function openAssets(kind = "") {
+      const params = new URLSearchParams();
+      if (current) params.set("session_id", current);
+      if (kind) params.set("kind", kind);
+      const url = `/assets${params.toString() ? `?${params.toString()}` : ""}`;
+      openInlinePage(url, kind === "mistake" ? "错题资产" : "学习资产", "在当前页面内浏览资产，不打断对话");
+    }
+
+    function visualizationLabel(item = {}) {
+      if (item.visualization?.url) return "打开可视化";
+      if (item.visualization_candidate) return "生成可视化";
+      return "";
+    }
+
+    function renderVisualizationAction(sourceType, item = {}) {
+      const label = visualizationLabel(item);
+      if (!label) return "";
+      const url = item.visualization?.url || "";
+      const reason = item.visualization_reason || item.visualization?.trigger_reason || "几何或空间思维内容";
+      return `
+        <div class="visualization-actions">
+          <button class="visualization-button" type="button"
+            data-visualize-source="${escapeHtml(sourceType)}"
+            data-visualize-id="${escapeHtml(item.id || "")}"
+            data-visualize-url="${escapeHtml(url)}"
+            title="${escapeHtml(reason)}">${escapeHtml(label)}</button>
+          <span class="visualization-status" data-visualize-status>
+            ${url ? "已生成，可在本条回复下点击“打开可视化”。" : "适合做图形演示，点击后生成；完成后会自动打开，也会留在本条回复下。"}
+          </span>
+        </div>`;
+    }
+
+    function refreshVisualizationInSession(sourceType, sourceId, visualization) {
+      if (!sessionData || !visualization) return;
+      const items = sourceType === "qa_event" ? (sessionData.qa_events || []) : (sessionData.analyses || []);
+      const item = items.find(row => String(row.id || "") === String(sourceId || ""));
+      if (item) item.visualization = visualization;
+    }
+
+    async function generateVisualization(button) {
+      if (!button) return;
+      const existingUrl = button.dataset.visualizeUrl || "";
+      const sourceType = button.dataset.visualizeSource || "";
+      const sourceId = button.dataset.visualizeId || "";
+      if (existingUrl) {
+        openInlinePage(existingUrl, "可视化讲解", "已生成的交互 HTML 教学页面");
+        return;
+      }
+      button.disabled = true;
+      const previousText = button.textContent;
+      const statusEl = button.parentElement?.querySelector("[data-visualize-status]");
+      if (statusEl) statusEl.textContent = queueHint("可视化") + " 完成后可在本条回复下点「打开可视化」。";
+      button.textContent = "生成中...";
+      try {
+        const res = await fetch("/api/visualizations", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ source_type: sourceType, source_id: sourceId, session_id: current || "" })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+        const visualization = data.visualization || {};
+        if (!visualization.url) throw new Error(visualization.error || "未返回可打开页面");
+        refreshVisualizationInSession(sourceType, sourceId, visualization);
+        openInlinePage(visualization.url, visualization.title || "可视化讲解", visualization.trigger_reason || "交互 HTML 教学页面");
+        button.dataset.visualizeUrl = visualization.url;
+        button.textContent = "打开可视化";
+        if (statusEl) statusEl.textContent = "已生成，可在本条回复下点击“打开可视化”。";
+      } catch (error) {
+        alert(`可视化生成失败：${error.message || error}`);
+        button.textContent = previousText || "生成可视化";
+        if (statusEl) statusEl.textContent = "生成失败，可稍后在本条回复下重试。";
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    function showMaterials() {
+      switchContext("materials");
+    }
+
+    function shortId(value) {
+      return value ? String(value).slice(0, 8) : "";
+    }
+
+    function formatDateTime(value) {
+      if (!value) return "未知";
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? value : date.toLocaleString();
+    }
+
+    function imageUrl(filename) {
+      return `/images/${encodeURIComponent(filename)}`;
+    }
+
+    function thumbnailUrl(filename) {
+      return `/api/images/${encodeURIComponent(filename)}/thumbnail`;
+    }
+
+    function imageLabel(image = {}, index = 0) {
+      const kind = image.kind === "qa" ? "问答抓拍" : image.kind === "single" ? "拍题" : image.kind === "burst" ? "观察" : "画面";
+      const seq = image.sequence_index != null ? `#${image.sequence_index}` : `#${index + 1}`;
+      return `${kind} ${seq}`;
+    }
+
+    function latestCaptureImages(data = sessionData, limit = 8) {
+      const images = [...(data?.images || [])];
+      const qaImages = (data?.qa_events || [])
+        .flatMap(event => [
+          event.selected_image_filename ? {
+            id: event.selected_image_id || event.image_id || event.selected_image_filename,
+            filename: event.selected_image_filename,
+            kind: "qa",
+            created_at: event.created_at,
+            captured_at: event.created_at,
+            source_label: event.image_context_mode === "current_frame" ? "问答抓拍" : "沿用画面"
+          } : null,
+          event.uploaded_image_filename && event.uploaded_image_filename !== event.selected_image_filename ? {
+            id: event.uploaded_image_id || event.uploaded_image_filename,
+            filename: event.uploaded_image_filename,
+            kind: "qa",
+            created_at: event.created_at,
+            captured_at: event.created_at,
+            source_label: "未采用抓拍",
+            rejected: true
+          } : null
+        ])
+        .filter(Boolean);
+      const seen = new Set();
+      return [...images, ...qaImages]
+        .filter(image => image?.filename && !seen.has(image.filename) && seen.add(image.filename))
+        .sort((a, b) => String(b.captured_at || b.created_at || "").localeCompare(String(a.captured_at || a.created_at || "")) || Number(b.sequence_index || 0) - Number(a.sequence_index || 0))
+        .slice(0, limit);
+    }
+
+    function truncateText(value, limit = 1200) {
+      const text = String(value || "").trim();
+      return text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
+    }
+
+    function sessionStatusText(session = {}) {
+      return [
+        session.mode || "qa",
+        session.status || "created",
+        session.id ? shortId(session.id) : ""
+      ].filter(Boolean).join(" · ");
+    }
+
+    function renderChatShell(data) {
+      const session = data?.session || null;
+      chatTitleEl.textContent = session?.title || "新的学习对话";
+      chatSubtitleEl.textContent = session
+        ? (session.student_goal || "可以直接追问、拍题、启动智能观察，也可以在右侧打开本回合材料。")
+        : "从这里直接提问，系统会自动创建一个学习问答回合。";
+      chatMetaEl.innerHTML = session
+        ? `
+          <span class="hero-pill">${escapeHtml(sessionStatusText(session))}</span>
+          <span class="hero-pill">${Number(data.image_count || data.images?.length || 0)} 张画面</span>
+          <span class="hero-pill">${Number(data.qa_count || data.qa_events?.length || 0)} 轮问答</span>
+          <span class="hero-pill">${Number(data.mistake_items?.length || 0)} 条错题候选</span>
+          <span class="hero-pill">${escapeHtml(learningModeTitle())} · ${escapeHtml(coachDepthTitle())}</span>`
+        : `
+          <span class="hero-pill">聊天优先</span>
+          <span class="hero-pill">拍题/智能观察/复习都从对话进入</span>
+          <span class="hero-pill">${escapeHtml(learningModeTitle())} · ${escapeHtml(coachDepthTitle())}</span>`;
+      renderComposerStatus();
+    }
+
+    function renderComposerStatus() {
+      const labels = contextEnabledLabels();
+      composerStatusEl.innerHTML = `
+        <span class="chip good">${escapeHtml(learningModeTitle())}</span>
+        <span class="chip">${escapeHtml(coachDepthTitle())}</span>
+        <span class="muted">上下文：${escapeHtml(labels.length ? labels.join("、") : "未启用")}</span>`;
+    }
+
+    function renderMessageCaptures(images = []) {
+      const captures = images.filter(image => image?.filename).slice(0, 4);
+      if (!captures.length) return "";
+      return `
+        <div class="message-captures">
+          ${captures.map((image, index) => `
+            <button class="message-capture" type="button" data-open-image="${escapeHtml(image.filename)}">
+              <img src="${thumbnailUrl(image.filename)}" alt="${escapeHtml(image.original_name || image.filename)}" loading="lazy" decoding="async">
+              <span>${escapeHtml(image.source_label || imageLabel(image, index))}</span>
+            </button>
+          `).join("")}
+        </div>`;
+    }
+
+    function plainQAAnswer(event) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = safeQAHtml(event);
+      return (tmp.textContent || event.answer || "等待回答...").trim();
+    }
+
+    function renderChatMessages(data) {
+      renderChatShell(data);
+      const session = data?.session || {};
+      const messages = [];
+      if (!data) {
+        messages.push({
+          role: "assistant",
+          title: "知进拍学",
+          body: "把问题直接发过来就行。需要看图片时，可以点拍题解析或让 iPhone 开始语音提问。",
+          actions: [
+            ["voice_question", "语音提问", "primary"],
+            ["single_capture", "拍题解析", ""],
+            ["start_burst", "智能观察", ""]
+          ]
+        });
+      } else {
+        messages.push({
+          role: "assistant",
+          title: "回合已连接",
+          body: session.student_goal
+            ? `本轮目标：${session.student_goal}`
+            : "当前回合已经连接。你可以继续追问，也可以打开右侧上下文看画面、解析、错题和学习清单。",
+          actions: [
+            ["materials", "查看材料", "primary"],
+            ["learning", "学习清单", ""],
+            ["mistakes", "错题本", ""]
+          ]
+        });
+        const events = [...(data.qa_events || [])].reverse().slice(-18);
+        events.forEach(event => {
+          messages.push({
+            role: "user",
+            title: event.trigger_type || "提问",
+            time: event.created_at,
+            body: event.question || "未记录问题"
+          });
+          messages.push({
+            role: "assistant",
+            title: event.status === "failed" ? "回答失败" : "AI 回答",
+            time: event.created_at,
+            body: truncateText(plainQAAnswer(event), 1400),
+            bodyHtml: event.status === "failed" ? "" : safeQAHtml(event),
+            image: event.selected_image_filename || event.image_filename || "",
+            captures: [
+              event.selected_image_filename ? {
+                filename: event.selected_image_filename,
+                kind: "qa",
+                source_label: event.image_context_mode === "current_frame" ? "本轮画面" : "沿用画面"
+              } : null,
+              event.uploaded_image_filename && event.uploaded_image_filename !== event.selected_image_filename ? {
+                filename: event.uploaded_image_filename,
+                kind: "qa",
+                source_label: "抓拍未采用"
+              } : null
+            ].filter(Boolean),
+            visualizationSourceType: "qa_event",
+            visualizationItem: event,
+            actions: [
+              ["materials", "查看记录", "primary"],
+              ["voice_question", "继续语音", ""]
+            ]
+          });
+        });
+        const finalAnalysis = data.final_analysis || latestFinalAnalysis(data.analyses || []);
+        if (finalAnalysis || session.summary) {
+          messages.push({
+            role: "assistant",
+            title: "全回合解析",
+            body: truncateText(finalAnalysis?.content || session.summary || "全回合解析生成中...", 1600),
+            actions: [
+              ["materials", "查看全文", "primary"],
+              ["learning", "学习清单", ""],
+              ["mistakes", "错题本", ""]
+            ]
+          });
+        }
+      }
+
+      chatThreadEl.innerHTML = messages.map(message => {
+        const time = message.time ? ` · ${escapeHtml(new Date(message.time).toLocaleString())}` : "";
+        const image = message.image
+          ? `<div class="message-actions"><button type="button" data-open-image="${escapeHtml(message.image)}">查看画面</button></div>`
+          : "";
+        const actions = (message.actions || []).map(([action, label, cls]) => {
+          if (["learning", "mistakes", "strategy", "review", "profile"].includes(action)) {
+            return `<button class="${cls || ""}" type="button" data-open-panel="${action}">${escapeHtml(label)}</button>`;
+          }
+          if (action === "live") return `<button class="${cls || ""}" type="button" data-context-button="live">${escapeHtml(label)}</button>`;
+          if (action === "materials") return `<button class="${cls || ""}" type="button" data-context-button="materials">${escapeHtml(label)}</button>`;
+          return `<button class="${cls || ""}" type="button" data-command="${action}">${escapeHtml(label)}</button>`;
+        }).join("");
+        const visualizationAction = message.visualizationSourceType
+          ? renderVisualizationAction(message.visualizationSourceType, message.visualizationItem || {})
+          : "";
+        return `
+          <article class="chat-message ${message.role}">
+            <div class="message-meta"><span>${escapeHtml(message.title || "")}${time}</span></div>
+            <div class="chat-bubble">${message.bodyHtml ? message.bodyHtml : escapeHtml(message.body || "")}</div>
+            ${renderMessageCaptures(message.captures || [])}
+            ${visualizationAction}
+            ${image}
+            ${actions ? `<div class="message-actions">${actions}</div>` : ""}
+          </article>`;
+      }).join("");
+      chatThreadEl.querySelectorAll(".message-capture img").forEach(img => {
+        img.onerror = () => img.closest(".message-capture")?.classList.add("image-error");
+      });
+      chatThreadEl.scrollTop = chatThreadEl.scrollHeight;
+    }
+
+    async function createChatSession(initialGoal = "") {
+      const form = new FormData();
+      form.append("device_id", "dashboard");
+      form.append("mode", "qa");
+      form.append("title", "网页聊天学习回合");
+      form.append("report_style", coachReportStyle());
+      form.append("assistant_focus", coachAssistantFocus());
+      const goal = coachPreference.studentGoal || initialGoal;
+      if (goal) form.append("student_goal", goal);
+      const res = await fetch("/api/sessions", { method: "POST", body: form });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      current = data.session_id;
+      shouldAutoSelectSession = true;
+      sessionData = null;
+      history.replaceState(null, "", current ? `/?session_id=${encodeURIComponent(current)}` : "/");
+      await loadSessions();
+      await loadSession(true);
+      return current;
+    }
+
+    async function syncCoachPreference() {
+      const studentGoalInput = coachPanelEl.querySelector("[data-coach-field='studentGoal']");
+      if (studentGoalInput) {
+        coachPreference.studentGoal = String(studentGoalInput.value || "").trim();
+        saveCoachPreference();
+      }
+      coachSubmitting = true;
+      renderCoachPanel();
+      try {
+        if (current) {
+          const res = await fetch(`/api/sessions/${current}/strategy`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              student_goal: coachPreference.studentGoal,
+              report_style: coachReportStyle(),
+              assistant_focus: coachAssistantFocus()
+            })
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          await loadSession(true);
+        }
+        if (deviceControlData?.latest_device) {
+          await sendControlCommand("set_goal", {
+            student_goal: coachPreference.studentGoal,
+            learning_mode: coachPreference.learningMode,
+            coach_depth: coachPreference.coachDepth,
+            report_style: coachReportStyle(),
+            assistant_focus: coachAssistantFocus()
+          }, { silentNoDevice: true });
+        }
+      } catch (error) {
+        alert(`同步学习教练失败：${error.message || error}`);
+      } finally {
+        coachSubmitting = false;
+        renderCoachPanel();
+        renderComposerStatus();
+      }
+    }
+
+    function safeQAHtml(event) {
+      const html = String(event.answer_html || "");
+      if (html.includes("<script") || html.includes("onerror=") || html.includes("onload=")) {
+        return `<div class="qa-plain-text">${escapeHtml(event.answer || "等待回答...")}</div>`;
+      }
+      return html || `<div class="qa-plain-text">${escapeHtml(event.answer || "等待回答...")}</div>`;
+    }
+
+    function formatLabel(value, fallback = "未知") {
+      return escapeHtml(value || fallback);
+    }
+
+    function scopeLabel(scope) {
+      return { single: "单张解析", batch: "批次解析" }[scope] || escapeHtml(scope || "解析");
+    }
+
+    function imagesForAnalysis(analysis, images) {
+      if (analysis.scope === "batch" && analysis.batch_id) {
+        return images.filter(img => img.batch_id === analysis.batch_id);
+      }
+      if (analysis.scope === "single") {
+        const singles = images.filter(img => img.kind === "single" && !img.batch_id);
+        return singles.length ? singles : images.filter(img => !img.batch_id);
+      }
+      return [];
+    }
+
+    function renderThumbs(images) {
+      if (!images.length) return `<div class="empty-pair">暂无对应图片</div>`;
+      return images.map((img, index) => {
+        const imageUrl = `/images/${encodeURIComponent(img.filename)}`;
+        const thumbUrl = `/api/images/${encodeURIComponent(img.filename)}/thumbnail`;
+        return `
+          <div class="thumb ${img.novelty_status === "duplicate" ? "duplicate" : ""}">
+            <img src="${thumbUrl}" alt="${escapeHtml(img.original_name || img.filename)}" loading="lazy" decoding="async" data-full="${imageUrl}">
+            <div class="cap" title="${escapeHtml(img.signal_summary || img.original_name || img.filename)}">${formatLabel(img.kind, "图片")} ${index + 1}</div>
+          </div>`;
+      }).join("");
+    }
+
+    function learningTypeLabel(type) {
+      return { question: "题目", section: "板块", knowledge: "知识点", answer: "作答" }[type] || type || "记录";
+    }
+
+    function parseList(value) {
+      if (Array.isArray(value)) return value;
+      if (!value) return [];
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function needLabel(tag) {
+      return {
+        mistake_book: "整理错题本",
+        knowledge_points: "提炼知识点",
+        step_check: "检查步骤",
+        answer_check: "核对答案",
+        explain: "生成讲解",
+        report: "学习报告",
+        capture_quality: "补拍提醒",
+        revision_trace: "订正痕迹"
+      }[tag] || tag;
+    }
+
+    function strategyMeta(session = {}) {
+      const needs = parseList(session.inferred_needs);
+      return needs.length ? `${needs.length} 个推断需求` : "等待学生要求或画面线索";
+    }
+
+    function learningMeta(items = []) {
+      const counts = items.reduce((acc, item) => {
+        const key = item.item_type || "unknown";
+        acc[key] = (acc[key] || 0) + 1;
+        return acc;
+      }, {});
+      const total = items.length;
+      return total
+        ? `题目 ${counts.question || 0} · 板块 ${counts.section || 0} · 知识点 ${counts.knowledge || 0} · 作答 ${counts.answer || 0}`
+        : "暂无结构化记录";
+    }
+
+    function renderPanelLaunch(data) {
+      const sessionId = data.session?.id || current || "";
+      const openButton = (panel, title, meta) => `
+        <button class="panel-button" type="button" data-panel="${panel}" aria-label="在新窗口打开本回合${escapeHtml(title)}">
+          <strong>${escapeHtml(title)}</strong>
+          <span class="muted">${escapeHtml(meta)}</span>
+        </button>`;
+      panelLaunchEl.innerHTML = `
+        <div class="learning-head">
+          <strong>本回合内容</strong>
+          <span class="muted">点击按钮查看该回合相关内容</span>
+        </div>
+        <div class="panel-actions">
+          ${openButton("mistakes", "错题本候选", (data.mistake_items || []).length ? `${data.mistake_items.length} 条` : "暂无明确错题")}
+          ${openButton("learning", "学习清单", learningMeta(data.learning_items || []))}
+          ${openButton("strategy", "动态学习策略", strategyMeta(data.session || {}))}
+          ${openButton("review", "复习队列", "全局到期复习")}
+          ${openButton("profile", "长期画像", "薄弱点与记忆")}
+          <button class="panel-button" type="button" data-assets="mistake">
+            <strong>错题资产</strong>
+            <span class="muted">筛选、检索和沉淀</span>
+          </button>
+        </div>`;
+      panelLaunchEl.querySelectorAll("[data-panel]").forEach(button => {
+        button.onclick = event => {
+          event.stopPropagation();
+          if (!sessionId) return;
+          openSessionPanel(button.dataset.panel);
+        };
+      });
+      panelLaunchEl.querySelectorAll("[data-assets]").forEach(button => {
+        button.onclick = event => {
+          event.stopPropagation();
+          openAssets(button.dataset.assets);
+        };
+      });
+    }
+
+    function renderCaptureStrip(data = sessionData) {
+      const captures = latestCaptureImages(data, 8);
+      const total = Number(data?.image_count || data?.images?.length || 0);
+      captureStripEl.innerHTML = `
+        <div class="learning-head">
+          <strong>抓拍缩略图</strong>
+          <span class="muted">${total ? `${total} 张画面` : "暂无画面"}</span>
+        </div>
+        ${captures.length ? `
+          <div class="capture-grid">
+            ${captures.map((image, index) => `
+              <button class="capture-tile ${image.rejected ? "rejected" : ""} ${image.novelty_status === "duplicate" ? "duplicate" : ""}" type="button" data-open-image="${escapeHtml(image.filename)}">
+                <img src="${thumbnailUrl(image.filename)}" alt="${escapeHtml(image.original_name || image.filename)}" loading="lazy" decoding="async">
+                <span title="${escapeHtml(image.signal_summary || image.source_label || image.filename)}">${escapeHtml(image.source_label || imageLabel(image, index))}</span>
+              </button>
+            `).join("")}
+          </div>`
+          : `<div class="capture-empty">PC 端不打开相机预览。iPhone 拍题、语音问答或智能观察上传后，这里会显示最近抓拍缩略图。</div>`}`;
+    }
+
+    function renderCoachPanel() {
+      const modeOptions = learningModes.map(([value, title, detail]) => `<option value="${escapeHtml(value)}" ${coachPreference.learningMode === value ? "selected" : ""}>${escapeHtml(title)} · ${escapeHtml(detail)}</option>`).join("");
+      const depthOptions = coachDepths.map(([value, title, detail]) => `<option value="${escapeHtml(value)}" ${coachPreference.coachDepth === value ? "selected" : ""}>${escapeHtml(title)} · ${escapeHtml(detail)}</option>`).join("");
+      const toggles = Object.entries(contextLabels).map(([key, label]) => `
+        <label class="context-toggle">
+          <input type="checkbox" data-context-include="${escapeHtml(key)}" ${contextInclusion[key] ? "checked" : ""}>
+          <span>${escapeHtml(label)}</span>
+        </label>`).join("");
+      coachPanelEl.innerHTML = `
+        <div class="learning-head">
+          <strong>学习教练</strong>
+          <span class="muted">${escapeHtml(learningModeTitle())} · ${escapeHtml(coachDepthTitle())}</span>
+        </div>
+        <div class="coach-grid">
+          <div class="coach-field">
+            <label for="learningModeSelect">学习场景</label>
+            <select id="learningModeSelect" data-coach-field="learningMode">${modeOptions}</select>
+          </div>
+          <div class="coach-field">
+            <label for="coachDepthSelect">回答方式</label>
+            <select id="coachDepthSelect" data-coach-field="coachDepth">${depthOptions}</select>
+          </div>
+          <div class="coach-field" style="grid-column: 1 / -1;">
+            <label for="studentGoalInput">本轮目标</label>
+            <textarea id="studentGoalInput" data-coach-field="studentGoal" maxlength="1200" placeholder="例如：先提示，不要直接给答案；重点检查错因并整理知识点。">${escapeHtml(coachPreference.studentGoal || sessionData?.session?.student_goal || "")}</textarea>
+          </div>
+        </div>
+        <div class="context-toggles">${toggles}</div>
+        <div class="coach-actions">
+          <button type="button" data-sync-coach ${coachSubmitting ? "disabled" : ""}>同步到 iPhone/本回合</button>
+          <button class="secondary" type="button" data-open-panel="strategy">查看策略</button>
+          <span class="muted">${escapeHtml(contextEnabledLabels().join("、") || "未启用上下文")}</span>
+        </div>`;
+      coachPanelEl.querySelectorAll("[data-coach-field]").forEach(field => {
+        field.onchange = () => {
+          coachPreference[field.dataset.coachField] = field.value;
+          saveCoachPreference();
+          renderComposerStatus();
+          renderCoachPanel();
+        };
+        if (field.tagName === "TEXTAREA") {
+          field.oninput = () => {
+            coachPreference[field.dataset.coachField] = field.value;
+            saveCoachPreference();
+            renderComposerStatus();
+          };
+        }
+      });
+      coachPanelEl.querySelectorAll("[data-context-include]").forEach(input => {
+        input.onchange = () => {
+          contextInclusion[input.dataset.contextInclude] = input.checked;
+          saveContextInclusion();
+          renderComposerStatus();
+          renderCoachPanel();
+        };
+      });
+      const syncButton = coachPanelEl.querySelector("[data-sync-coach]");
+      if (syncButton) syncButton.onclick = syncCoachPreference;
+    }
+
+    function renderMemoryPanel(data = latestMemoryData) {
+      const profile = data?.profile || {};
+      const events = data?.events || [];
+      const profileText = profile.profile || "暂未形成长期画像。";
+      const rows = events.slice(0, 6).map(event => `
+        <div class="memory-row">
+          <strong>${escapeHtml(event.message_type || event.source || "memory")}</strong>
+          <div>${escapeHtml(truncateText(event.text || "", 160))}</div>
+          <div class="muted">${escapeHtml(formatDateTime(event.created_at))}</div>
+        </div>`).join("");
+      memoryPanelEl.innerHTML = `
+        <div class="learning-head">
+          <strong>记忆与画像</strong>
+          <span class="muted">${Number(profile.source_count || events.length || 0)} 条来源</span>
+        </div>
+        <div class="memory-list">
+          <div class="memory-row">
+            <strong>长期画像</strong>
+            <div>${escapeHtml(truncateText(profileText, 520))}</div>
+          </div>
+          ${rows || `<div class="muted">问答、手动形成记忆和错题沉淀会出现在这里。</div>`}
+        </div>`;
+    }
+
+    async function loadMemory() {
+      if (authState.auth?.auth_required && !authState.authenticated) return;
+      try {
+        const res = await fetch("/api/memory?limit=20");
+        if (!res.ok) return;
+        latestMemoryData = await res.json();
+        renderMemoryPanel(latestMemoryData);
+      } catch {
+        memoryPanelEl.innerHTML = `<div class="muted">记忆暂时不可用</div>`;
+      }
+    }
+
+    function controlCommandLabel(type) {
+      return {
+        single_capture: "拍题",
+        start_burst: "开始观察",
+        stop_burst: "停止观察",
+        voice_question: "语音",
+        ok_followup: "OK 追问",
+        end_qa: "结束问答",
+        set_goal: "同步目标"
+      }[type] || type || "命令";
+    }
+
+    function renderDeviceControl() {
+      const device = deviceControlData?.latest_device || null;
+      const state = device?.state || {};
+      const online = Boolean(device?.online);
+      const stale = device?.stale_seconds == null ? "未知" : `${Number(device.stale_seconds).toFixed(1)}s`;
+      const commands = deviceControlData?.recent_commands || [];
+      const commandRows = commands.slice(0, 6).map(command => `
+        <span class="command-pill ${escapeHtml(command.status || "")}" title="${escapeHtml(command.error || command.created_at || "")}">
+          ${escapeHtml(controlCommandLabel(command.command_type))} · ${escapeHtml(command.status || "pending")}
+        </span>`).join("");
+      const goalValue = escapeHtml(state.student_goal || sessionData?.session?.student_goal || "");
+      const observing = Boolean(state.is_observing ?? state.is_bursting);
+      deviceControlEl.innerHTML = `
+        <div class="control-head">
+          <div>
+            <strong>iPhone 多屏控制</strong>
+            <div class="muted">
+              ${device ? `设备 ${escapeHtml(String(device.device_id || "").slice(0, 12))} · 回合 ${escapeHtml(String(device.session_id || "未绑定").slice(0, 8))} · ${escapeHtml(state.upload_state || "待机")}` : "等待 iPhone 打开 App 后自动连接"}
+            </div>
+          </div>
+          <span class="control-status ${online ? "online" : "offline"}">${online ? "在线" : "离线"} · ${stale}</span>
+        </div>
+        <div class="control-grid">
+          <button class="control-button primary" type="button" data-command="single_capture" ${controlSubmitting ? "disabled" : ""}>
+            <strong>拍题解析</strong><span class="muted">抓拍当前画面</span>
+          </button>
+          <button class="control-button" type="button" data-command="${observing ? "stop_burst" : "start_burst"}" ${controlSubmitting ? "disabled" : ""}>
+            <strong>${observing ? "停止观察" : "智能观察"}</strong><span class="muted">${observing ? "结束并生成总结" : "后台收集过程上下文"}</span>
+          </button>
+          <button class="control-button primary" type="button" data-command="voice_question" ${controlSubmitting ? "disabled" : ""}>
+            <strong>语音提问</strong><span class="muted">${escapeHtml(state.qa_state || "让 iPhone 开始听")}</span>
+          </button>
+          <button class="control-button" type="button" data-command="ok_followup" ${controlSubmitting ? "disabled" : ""}>
+            <strong>OK 追问</strong><span class="muted">打断朗读并继续问</span>
+          </button>
+          <button class="control-button danger wide" type="button" data-command="end_qa" ${controlSubmitting ? "disabled" : ""}>
+            <strong>结束问答</strong><span class="muted">停止本轮语音/朗读状态</span>
+          </button>
+        </div>
+        <form class="control-goal" data-control-goal>
+          <textarea name="goal" rows="1" maxlength="1200" placeholder="同步到 iPhone 的本轮帮助目标">${goalValue}</textarea>
+          <button type="submit" ${controlSubmitting ? "disabled" : ""}>同步目标</button>
+        </form>
+        <div class="command-list">${commandRows || `<span class="muted">暂无远程命令</span>`}</div>`;
+      deviceControlEl.querySelectorAll("[data-command]").forEach(button => {
+        button.onclick = event => {
+          event.stopPropagation();
+          sendControlCommand(button.dataset.command);
+        };
+      });
+      const form = deviceControlEl.querySelector("[data-control-goal]");
+      if (form) form.onsubmit = event => {
+        event.preventDefault();
+        const goal = String(form.querySelector("textarea[name='goal']")?.value || "").trim();
+        sendControlCommand("set_goal", { student_goal: goal });
+      };
+    }
+
+    async function loadDeviceControl() {
+      if (authState.auth?.auth_required && !authState.authenticated) return;
+      const params = new URLSearchParams();
+      if (current) params.set("session_id", current);
+      try {
+        let res = await fetch(`/api/device-control?${params.toString()}`, { headers: controlHeaders() });
+        if (res.status === 401 && promptControlToken()) {
+          res = await fetch(`/api/device-control?${params.toString()}`, { headers: controlHeaders() });
+        }
+        if (!res.ok) return;
+        deviceControlData = await res.json();
+        const state = deviceControlData?.latest_device?.state || {};
+        if (state.learning_mode || state.coach_depth || state.student_goal) {
+          let changed = false;
+          if (state.learning_mode && optionByValue(learningModes, state.learning_mode)?.[0] !== coachPreference.learningMode) {
+            coachPreference.learningMode = optionByValue(learningModes, state.learning_mode)[0];
+            changed = true;
+          }
+          if (state.coach_depth && optionByValue(coachDepths, state.coach_depth)?.[0] !== coachPreference.coachDepth) {
+            coachPreference.coachDepth = optionByValue(coachDepths, state.coach_depth)[0];
+            changed = true;
+          }
+          if (state.student_goal && state.student_goal !== coachPreference.studentGoal) {
+            coachPreference.studentGoal = String(state.student_goal);
+            changed = true;
+          }
+          if (changed) {
+            saveCoachPreference();
+            renderComposerStatus();
+            renderCoachPanel();
+          }
+        }
+        renderDeviceControl();
+      } catch {
+        deviceControlEl.innerHTML = `<div class="muted">iPhone 控制状态暂时不可用</div>`;
+      }
+    }
+
+    async function sendControlCommand(commandType, payload = {}, options = {}) {
+      controlSubmitting = true;
+      renderDeviceControl();
+      try {
+        let res = await fetch("/api/control-commands", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", ...controlHeaders() },
+          body: JSON.stringify({
+            command_type: commandType,
+            session_id: current || "",
+            source: "dashboard",
+            payload
+          })
+        });
+        if (res.status === 401 && promptControlToken()) {
+          res = await fetch("/api/control-commands", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", ...controlHeaders() },
+            body: JSON.stringify({
+              command_type: commandType,
+              session_id: current || "",
+              source: "dashboard",
+              payload
+            })
+          });
+        }
+        if (!res.ok) {
+          const text = await res.text();
+          if (options.silentNoDevice && res.status === 409) return;
+          throw new Error(text || `HTTP ${res.status}`);
+        }
+        await loadDeviceControl();
+      } catch (error) {
+        alert(`远程控制失败：${error.message || error}`);
+      } finally {
+        controlSubmitting = false;
+        renderDeviceControl();
+      }
+    }
+
+    function renderReportEvents(events = []) {
+      const rows = events.slice(0, 20).map(event => `
+        <div class="learning-item">
+          <span class="learning-type process-type">${escapeHtml(event.event_type || "event")}</span>
+          <strong>${escapeHtml(event.title || "生成依据")}</strong>
+          <div class="muted">${escapeHtml(event.created_at || "未知")}</div>
+          <div>${escapeHtml(event.content || "")}</div>
+        </div>`).join("");
+      processEl.innerHTML = `
+        <div class="learning-head">
+          <strong>报告生成依据</strong>
+          <span class="muted">${events.length ? `${events.length} 条过程记录` : "暂无过程记录"}</span>
+        </div>
+        <div class="learning-grid">${rows || `<div class="muted">学生要求、策略更新、批次学习资产和最终报告上下文会记录在这里。</div>`}</div>`;
+    }
+
+    function renderQAEvents(events = []) {
+      const rows = events.slice(0, 12).map(event => {
+        const usedFilename = event.selected_image_filename || event.image_filename;
+        const uploadedFilename = event.uploaded_image_filename || "";
+        const image = usedFilename
+          ? `<a class="qa-image-link" href="/images/${encodeURIComponent(usedFilename)}" target="_blank" rel="noopener">查看画面</a>`
+          : "";
+        const uploadedImage = uploadedFilename && uploadedFilename !== usedFilename
+          ? `<a class="qa-image-link" href="/images/${encodeURIComponent(uploadedFilename)}" target="_blank" rel="noopener">本轮抓拍未采用</a>`
+          : "";
+        const frame = usedFilename
+          ? `<a class="qa-frame-preview" href="/images/${encodeURIComponent(usedFilename)}" target="_blank" rel="noopener">
+              <img src="/api/images/${encodeURIComponent(usedFilename)}/thumbnail" alt="本轮画面">
+              <span>${event.image_context_mode === "current_frame" ? "本轮画面" : "沿用画面"}</span>
+            </a>`
+          : "";
+        const visualizationAction = renderVisualizationAction("qa_event", event);
+        return `
+          <div class="qa-turn">
+            <div class="qa-question-row">
+              <div class="qa-question">
+                <span class="learning-type process-type">${escapeHtml(event.trigger_type || "qa")}</span>
+                <strong>${escapeHtml(event.question || "未记录问题")}</strong>
+                <div class="muted">${escapeHtml(event.created_at || "未知")} · ${escapeHtml(event.status || "running")}</div>
+              </div>
+              ${image}${uploadedImage}
+            </div>
+            ${visualizationAction}
+            <div class="${frame ? "qa-answer-layout" : ""}">
+              ${frame}
+              ${safeQAHtml(event)}
+            </div>
+          </div>`;
+      }).join("");
+      qaEventsEl.innerHTML = `
+        <div class="learning-head">
+          <strong>AI 问答记录</strong>
+          <span class="muted">${events.length ? `${events.length} 轮问答` : "暂无问答"}</span>
+        </div>
+        <form class="qa-followup-form" data-qa-followup>
+          <label>
+            继续追问
+            <textarea class="qa-followup-input" name="question" rows="1" placeholder="例如：为什么这里要这样算？第二题再讲一遍。"></textarea>
+          </label>
+          <button class="qa-followup-button" type="submit" ${current ? "" : "disabled"}>${qaSubmitting ? "发送中..." : "发送"}</button>
+        </form>
+        <div class="qa-thread">${rows || `<div class="muted">语音、指向、OK 追问和结束手势触发的问答会显示在这里。</div>`}</div>`;
+      const form = qaEventsEl.querySelector("[data-qa-followup]");
+      if (form) form.onsubmit = submitQAFollowup;
+    }
+
+    async function submitQAFollowup(event) {
+      event.preventDefault();
+      if (!current || qaSubmitting) return;
+      const form = event.currentTarget;
+      const input = form.querySelector("textarea[name='question']");
+      const question = String(input?.value || "").trim();
+      if (!question) {
+        input?.focus();
+        return;
+      }
+      await sendChatQuestion(question, {
+        input,
+        triggerType: "dashboard_followup",
+        source: "dashboard",
+        ui: "dashboard_followup"
+      });
+    }
+
+    async function sendChatQuestion(question, options = {}) {
+      if (qaSubmitting) return;
+      if (authState.auth?.auth_required && !authState.authenticated) {
+        openAccountDialog("login");
+        return;
+      }
+      if (!current) {
+        await createChatSession(question.slice(0, 120));
+      }
+      if (!current) return;
+      qaSubmitting = true;
+      chatSendEl.disabled = true;
+      renderQAEvents(sessionData?.qa_events || []);
+      renderChatMessages(sessionData);
+      const body = new FormData();
+      body.append("question", question);
+      body.append("trigger_type", options.triggerType || "dashboard_chat");
+      body.append("source", options.source || "dashboard");
+      body.append("context", JSON.stringify(qaContextPayload(question, options)));
+      try {
+        const res = await fetch(`/api/sessions/${current}/qa`, { method: "POST", body });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (options.input) options.input.value = "";
+        await loadSession(true);
+      } catch (error) {
+        alert(`追问失败：${error.message || error}`);
+      } finally {
+        qaSubmitting = false;
+        chatSendEl.disabled = false;
+        renderQAEvents(sessionData?.qa_events || []);
+        renderChatMessages(sessionData);
+      }
+    }
+
+    function renderAnalysisRow(analysis, images) {
+      const matchedImages = imagesForAnalysis(analysis, images);
+      const visualizationAction = renderVisualizationAction("analysis", analysis);
+      const batch = analysis.batch_id ? ` · batch ${escapeHtml(analysis.batch_id.slice(0, 8))}` : "";
+      return `
+        <div class="pair-row">
+          <div class="thumbs">${renderThumbs(matchedImages)}</div>
+          <article class="analysis-card">
+            <strong class="analysis-title">${scopeLabel(analysis.scope)} · ${formatLabel(analysis.status, "pending")}${batch}</strong>${escapeHtml(analysis.content || "分析中...")}
+          </article>
+        </div>`;
+    }
+
+    function attachAnalysisVisualizationActions(analyses = []) {
+      pairsEl.querySelectorAll(".analysis-card").forEach((card, index) => {
+        const analysis = analyses[index];
+        if (!analysis || !visualizationLabel(analysis) || card.querySelector("[data-visualize-source='analysis']")) return;
+        const title = card.querySelector(".analysis-title");
+        if (title) title.insertAdjacentHTML("afterend", renderVisualizationAction("analysis", analysis));
+      });
+    }
+
+    function latestFinalAnalysis(analyses) {
+      return analyses.filter(analysis => analysis.scope === "final").at(-1);
+    }
+
+    function queueHint(kindLabel) {
+      const obs = latestObservability || {};
+      const g = obs.llm_gate || {};
+      const u = obs.llm_usage || {};
+      const realtimeBusy = (Number(g.inflight_realtime || 0) + Number(g.waiting_realtime || 0)) > 0;
+      const ahead = Number(g.waiting_background || 0) + Number(g.inflight_background || 0);
+      const avgSec = Math.max(20, Math.round(Number(u.avg_duration_ms || 0) / 1000) || 30);
+      const etaSec = (ahead + 1) * avgSec;
+      const eta = etaSec >= 90 ? `约 ${Math.round(etaSec / 60)} 分钟` : `约 ${etaSec} 秒`;
+      if (realtimeBusy) {
+        return `⏳ 已让行：语音/问答正在优先使用模型，${kindLabel}会在空闲后自动继续。本页每几秒自动刷新。`;
+      }
+      return `⏳ ${kindLabel}生成中：前方 ${ahead} 个后台任务，预计还需${eta}。本页自动刷新，完成后显示。`;
+    }
+
+    function renderSummary(data) {
+      const finalAnalysis = data.final_analysis || latestFinalAnalysis(data.analyses);
+      const generatedSummary = data.session.report_generated_at && data.session.summary;
+      const title = finalAnalysis
+        ? `全回合解析 · ${formatLabel(finalAnalysis.status, "pending")}`
+        : "全回合解析";
+      let body = "尚未生成全回合解析。请在 iPhone 端结束本回合，或点击右侧按钮生成。";
+      let canGenerate = data.images.length > 0;
+
+      if (finalAnalysis) {
+        const pending = !finalAnalysis.content && ["running", "pending", "queued", "analyzing"].includes(String(finalAnalysis.status || ""));
+        body = finalAnalysis.content || (pending ? queueHint("全回合解析") : "全回合解析生成中...");
+        canGenerate = finalAnalysis.status === "failed";
+      } else if (generatedSummary) {
+        body = data.session.summary;
+        canGenerate = false;
+      }
+
+      const action = canGenerate
+        ? `<button class="summary-action" type="button" data-finish>生成全回合解析</button>`
+        : "";
+      summaryEl.innerHTML = `<div class="summary-head"><strong>${title}</strong>${action}</div>${escapeHtml(body)}`;
+      const button = summaryEl.querySelector("[data-finish]");
+      if (button) button.onclick = finishSession;
+    }
+
+    function mergeUniqueById(items) {
+      const seen = new Set();
+      return items.filter(item => {
+        if (!item || seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+    }
+
+    function mergeSessionPage(existing, page) {
+      if (!existing || existing.session.id !== page.session.id) return page;
+      return {
+        ...page,
+        images: mergeUniqueById([...page.images, ...existing.images])
+          .sort((a, b) => (a.sequence_index || 0) - (b.sequence_index || 0) || String(a.created_at).localeCompare(String(b.created_at))),
+        analyses: mergeUniqueById([...page.analyses, ...existing.analyses])
+          .sort((a, b) => String(a.created_at).localeCompare(String(b.created_at))),
+        has_more_analyses: page.analysis_count > mergeUniqueById([...page.analyses, ...existing.analyses]).length
+      };
+    }
+
+    function renderSession(data) {
+      syncCoachPreferenceFromSession(data.session || {});
+      const pairedAnalyses = data.analyses.filter(analysis => analysis.scope !== "final");
+      renderChatMessages(data);
+      renderCaptureStrip(data);
+      renderSummary(data);
+      renderPanelLaunch(data);
+      renderCoachPanel();
+      renderMemoryPanel();
+      renderQAEvents(data.qa_events || []);
+      renderReportEvents(data.report_events || []);
+      const rows = pairedAnalyses.length
+        ? pairedAnalyses.map(analysis => renderAnalysisRow(analysis, data.images)).join("")
+        : `<div class="pair-row"><div class="thumbs">${renderThumbs(data.images)}</div><article class="analysis-card">等待大模型解析...</article></div>`;
+      const loaded = pairedAnalyses.length;
+      const total = Number(data.analysis_count || loaded);
+      const more = data.has_more_analyses
+        ? `<button class="load-more" type="button" data-load-more>加载更多解析（${loaded}/${total}）</button>`
+        : "";
+      pairsEl.innerHTML = rows + more;
+      attachAnalysisVisualizationActions(pairedAnalyses);
+      pairsEl.querySelectorAll("img[data-full]").forEach(img => {
+        img.onclick = () => zoom(img.dataset.full);
+        img.onerror = () => img.parentElement.classList.add("image-error");
+      });
+      captureStripEl.querySelectorAll("[data-open-image]").forEach(button => {
+        button.onclick = event => {
+          event.stopPropagation();
+          if (button.classList.contains("image-error")) return;
+          zoom(imageUrl(button.dataset.openImage));
+        };
+      });
+      captureStripEl.querySelectorAll("img").forEach(img => {
+        img.onerror = () => img.closest(".capture-tile")?.classList.add("image-error");
+      });
+      const loadMoreButton = pairsEl.querySelector("[data-load-more]");
+      if (loadMoreButton) loadMoreButton.onclick = loadMoreAnalyses;
+    }
+
+    async function loadSession(replace = false) {
+      if (authState.auth?.auth_required && !authState.authenticated) return;
+      if (!current || sessionLoading) return;
+      sessionLoading = true;
+      try {
+        const res = await fetch(`/api/sessions/${current}/overview?analysis_limit=${analysisPageSize}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        sessionData = replace ? data : mergeSessionPage(sessionData, data);
+        renderSession(sessionData);
+      } finally {
+        sessionLoading = false;
+      }
+    }
+
+    async function loadMoreAnalyses() {
+      if (!current || !sessionData) return;
+      const button = pairsEl.querySelector("[data-load-more]");
+      if (button) {
+        button.disabled = true;
+        button.textContent = "加载中...";
+      }
+      const offset = sessionData.analyses.length;
+      const res = await fetch(`/api/sessions/${current}/overview?analysis_limit=${analysisPageSize}&analysis_offset=${offset}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      sessionData = mergeSessionPage(sessionData, data);
+      renderSession(sessionData);
+    }
+
+    async function finishSession() {
+      const button = summaryEl.querySelector("[data-finish]");
+      if (button) {
+        button.disabled = true;
+        button.textContent = "生成中...";
+      }
+      const form = new FormData();
+      form.append("device_id", "dashboard");
+      const res = await fetch(`/api/sessions/${current}/finish`, { method: "POST", body: form });
+      if (!res.ok) {
+        summaryEl.innerHTML = `<div class="summary-head"><strong>全回合解析</strong></div>${escapeHtml("触发失败，请稍后重试。")}`;
+        return;
+      }
+      await loadSession();
+    }
+
+    function zoom(src) {
+      document.querySelector("#zoomImg").src = src;
+      document.querySelector("#zoom").showModal();
+    }
+
+    async function loadLogs() {
+      if (authState.auth?.auth_required && !authState.authenticated) return;
+      const res = await fetch(`/api/logs?after_id=${lastLog}`);
+      const data = await res.json();
+      for (const log of data.logs) {
+        lastLog = Math.max(lastLog, log.id);
+        const div = document.createElement("div");
+        div.className = "log";
+        div.textContent = `[${new Date(log.created_at).toLocaleTimeString()}] ${log.source}/${log.level}: ${log.message}`;
+        logsEl.append(div);
+      }
+      while (logsEl.children.length > 200) logsEl.firstChild.remove();
+      logsEl.scrollTop = logsEl.scrollHeight;
+    }
+
+    function handleWorkspaceClick(event) {
+      const visualizeButton = event.target.closest("[data-visualize-source]");
+      if (visualizeButton) {
+        event.preventDefault();
+        generateVisualization(visualizeButton);
+        return;
+      }
+      const urlLink = event.target.closest("[data-open-url]");
+      if (urlLink) {
+        event.preventDefault();
+        openInlinePage(urlLink.dataset.openUrl, urlLink.dataset.openTitle || urlLink.textContent.trim(), urlLink.dataset.openMeta || "");
+        return;
+      }
+      const assetsLink = event.target.closest("[data-open-assets]");
+      if (assetsLink) {
+        event.preventDefault();
+        openAssets(assetsLink.dataset.openAssets || "");
+        return;
+      }
+      const panelButton = event.target.closest("[data-open-panel]");
+      if (panelButton) {
+        openSessionPanel(panelButton.dataset.openPanel);
+        return;
+      }
+      const commandButton = event.target.closest("[data-command]");
+      if (commandButton) {
+        sendControlCommand(commandButton.dataset.command);
+        return;
+      }
+      const contextButton = event.target.closest("[data-context-button]");
+      if (contextButton) {
+        switchContext(contextButton.dataset.contextButton);
+        return;
+      }
+      const imageButton = event.target.closest("[data-open-image]");
+      if (imageButton) {
+        zoom(`/images/${encodeURIComponent(imageButton.dataset.openImage)}`);
+      }
+    }
+
+    contextTabsEl.addEventListener("click", event => {
+      const button = event.target.closest("[data-context]");
+      if (!button) return;
+      switchContext(button.dataset.context);
+    });
+
+    document.querySelectorAll("[data-auth-tab]").forEach(button => {
+      button.onclick = () => setAuthTab(button.dataset.authTab);
+    });
+    accountButtonEl.onclick = () => openAccountDialog(authState.authenticated ? "login" : "login");
+    modelButtonEl.onclick = () => openAccountDialog(authState.authenticated ? "login" : "login");
+    closeAccountDialogEl.onclick = () => accountDialogEl.close();
+    loginFormEl.onsubmit = event => {
+      event.preventDefault();
+      submitAuthForm(loginFormEl, "login");
+    };
+    registerFormEl.onsubmit = event => {
+      event.preventDefault();
+      submitAuthForm(registerFormEl, "register");
+    };
+    logoutButtonEl.onclick = async () => {
+      setAuthToken("");
+      authState = { authenticated: false, auth: authState.auth || {}, profiles: [], active_model_config: null };
+      current = "";
+      sessionData = null;
+      latestMemoryData = null;
+      latestObservability = null;
+      history.replaceState(null, "", "/");
+      renderAccountPanel();
+      accountDialogEl.close();
+      await loadAuthState({ refreshData: true });
+    };
+    modelFormEl.onsubmit = submitModelConfig;
+
+    document.querySelector(".header-actions").addEventListener("click", handleWorkspaceClick);
+    chatThreadEl.addEventListener("click", handleWorkspaceClick);
+    document.querySelector(".composer-tools").addEventListener("click", handleWorkspaceClick);
+    contextStackEl.addEventListener("click", handleWorkspaceClick);
+
+    chatComposerEl.onsubmit = async event => {
+      event.preventDefault();
+      const question = chatInputEl.value.trim();
+      if (!question) {
+        chatInputEl.focus();
+        return;
+      }
+      await sendChatQuestion(question, { input: chatInputEl });
+    };
+
+    chatInputEl.addEventListener("keydown", event => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        chatComposerEl.requestSubmit();
+      }
+    });
+
+    newSessionButton.onclick = () => {
+      current = "";
+      shouldAutoSelectSession = false;
+      sessionData = null;
+      history.replaceState(null, "", "/");
+      renderChatMessages(null);
+      renderCaptureStrip(null);
+      renderCoachPanel();
+      loadSessions();
+      chatInputEl.focus();
+    };
+
+    openLiveContextButton.onclick = () => switchContext("materials");
+
+    loadPaneLayout();
+    setupPaneResizers();
+    renderChatMessages(null);
+    renderCaptureStrip(null);
+    renderCoachPanel();
+    renderMemoryPanel();
+
+    setInterval(loadSessions, 5000);
+    setInterval(() => loadSession(), 3000);
+    setInterval(loadDeviceControl, 2000);
+    setInterval(loadMemory, 30000);
+    setInterval(loadObservability, 10000);
+    setInterval(loadLogs, 1000);
+    loadAuthState({ refreshData: true }).then(() => {
+      loadDeviceControl();
+      loadLogs();
+    });
+  </script>
+</body>
+</html>

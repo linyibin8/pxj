@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>学习栏目</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow-x: hidden; background: #f6f7f9; color: #15171a; }
+    header { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 0 18px; background: #ffffff; border-bottom: 1px solid #dde1e7; }
+    h1 { margin: 0; font-size: 18px; }
+    a { color: #175cd3; text-decoration: none; }
+    main { display: grid; gap: 12px; padding: 14px; }
+    button { min-height: 36px; border: 1px solid #b9c4d0; border-radius: 6px; background: #ffffff; color: #1d2939; padding: 0 12px; cursor: pointer; font-size: 13px; }
+    button:hover { background: #f2f4f7; }
+    button:disabled { cursor: wait; color: #98a2b3; background: #f8fafc; }
+    textarea { width: 100%; min-height: 54px; border: 1px solid #c7d0dc; border-radius: 6px; padding: 8px 9px; background: #ffffff; color: #15171a; font: inherit; font-size: 13px; line-height: 1.4; resize: vertical; }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+    .muted { color: #667085; font-size: 12px; line-height: 1.45; }
+    .panel, .item { background: #ffffff; border: 1px solid #dde1e7; border-radius: 8px; }
+    .panel { padding: 14px; }
+    .title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .title-row strong { display: block; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tabs button.active { border-color: #175cd3; background: #eef5ff; color: #175cd3; }
+    .content { display: grid; gap: 10px; }
+    .item { padding: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+    .item-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .item-title { font-weight: 700; }
+    .badge { display: inline-flex; align-items: center; min-height: 22px; border: 1px solid #c6d7ef; background: #f2f7ff; color: #175cd3; border-radius: 999px; padding: 2px 8px; font-size: 12px; white-space: nowrap; }
+    .badge.mistake { border-color: #fda29b; background: #fff4f2; color: #b42318; }
+    .badge.review { border-color: #fedf89; background: #fffaeb; color: #b54708; }
+    .badge.due { border-color: #fda29b; background: #fff4f2; color: #b42318; }
+    .badge.mastered { border-color: #abefc6; background: #ecfdf3; color: #067647; }
+    .badge.ignored { border-color: #d0d5dd; background: #f8fafc; color: #475467; }
+    .field-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .field { border-top: 1px solid #edf0f3; padding-top: 8px; }
+    .field:first-child { border-top: 0; }
+    .field b { display: block; margin-bottom: 3px; color: #344054; font-size: 12px; }
+    .session-link { color: #175cd3; font-size: 12px; text-decoration: none; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip { border: 1px solid #c6d7ef; background: #f2f7ff; color: #175cd3; border-radius: 999px; padding: 3px 8px; font-size: 12px; }
+    .chip.warn { border-color: #fedf89; background: #fffaeb; color: #b54708; }
+    .metric-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .metric { border: 1px solid #edf0f3; border-radius: 8px; padding: 10px; background: #fbfcfe; }
+    .metric strong { display: block; font-size: 18px; line-height: 1.2; }
+    .section-title { margin: 8px 0 4px; color: #344054; font-size: 13px; font-weight: 700; }
+    .list-lines { display: grid; gap: 6px; margin-top: 6px; }
+    .line-item { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #edf0f3; padding-top: 6px; }
+    .line-item:first-child { border-top: 0; padding-top: 0; }
+    .line-item span:last-child { color: #667085; font-size: 12px; white-space: nowrap; }
+    .review-form { display: grid; gap: 7px; border-top: 1px solid #edf0f3; padding-top: 9px; margin-top: 9px; }
+    .review-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+    .review-actions button { min-height: 30px; padding: 0 9px; font-size: 12px; }
+    .review-actions button.correct { border-color: #abefc6; color: #067647; }
+    .review-actions button.incorrect { border-color: #fda29b; color: #b42318; }
+    .review-actions button.postpone { border-color: #fedf89; color: #b54708; }
+    .review-actions button.mastered { border-color: #abefc6; color: #067647; }
+    .review-message { color: #667085; font-size: 12px; }
+    .review-message.error { color: #b42318; }
+    .review-message.ok { color: #067647; }
+    .evidence-strip { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 8px; }
+    .thumb { width: 108px; aspect-ratio: 16 / 9; object-fit: contain; display: block; border: 1px solid #d0d5dd; border-radius: 6px; background: #f8fafc; }
+    .empty { padding: 24px; text-align: center; color: #667085; }
+    .loading { padding: 24px; color: #667085; }
+    @media (min-width: 900px) {
+      main { padding: 16px; }
+      .content.learning { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .content.mistakes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .item.wide { grid-column: 1 / -1; }
+    }
+    @media (min-width: 1180px) {
+      .content.learning { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      header { height: auto; align-items: flex-start; padding: 12px 14px; flex-direction: column; }
+      main { padding: 12px; }
+      .title-row, .item-head { flex-direction: column; align-items: flex-start; }
+      .tabs { display: grid; grid-template-columns: 1fr; }
+      .tabs button { width: 100%; text-align: left; }
+      .field-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">学习栏目</h1>
+    <div class="header-actions">
+      <a id="backLink" href="/">回合展示</a>
+      <a id="assetLink" href="/assets">学习资产</a>
+      <span class="muted" id="sessionMeta">加载中...</span>
+    </div>
+  </header>
+  <main>
+    <section class="panel">
+      <div class="title-row">
+        <div>
+          <strong id="panelTitle">学习栏目</strong>
+          <div class="muted" id="panelSummary">加载中...</div>
+        </div>
+        <button type="button" id="refresh">刷新</button>
+      </div>
+      <div class="tabs" id="tabs"></div>
+    </section>
+    <section class="content" id="content">
+      <div class="loading">加载中...</div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const authTokenStorageKey = "pxj.authToken";
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (input, init = {}) => {
+        const url = typeof input === "string" ? input : (input && input.url) || "";
+        const target = new URL(url, location.href);
+        const headers = new Headers(init.headers || (typeof input !== "string" ? input.headers : undefined) || {});
+        const token = localStorage.getItem(authTokenStorageKey) || "";
+        if (token && target.origin === location.origin && !headers.has("Authorization")) {
+          headers.set("Authorization", `Bearer ${token}`);
+        }
+        return originalFetch(input, { ...init, headers, credentials: init.credentials || "same-origin" });
+      };
+    })();
+    const query = new URLSearchParams(location.search);
+    const sessionId = query.get("session_id") || "";
+    const isGlobal = !sessionId;
+    let currentPanel = query.get("panel") || "learning";
+    let latest = null;
+    const reviewingIds = new Set();
+    const reviewMessages = new Map();
+    const basePanels = {
+      mistakes: "错题本候选",
+      learning: "学习清单",
+      strategy: "动态学习策略"
+    };
+    const globalPanels = {
+      review: "待复习",
+      profile: "长期画像/薄弱点"
+    };
+    const els = {
+      pageTitle: document.querySelector("#pageTitle"),
+      panelTitle: document.querySelector("#panelTitle"),
+      panelSummary: document.querySelector("#panelSummary"),
+      sessionMeta: document.querySelector("#sessionMeta"),
+      backLink: document.querySelector("#backLink"),
+      assetLink: document.querySelector("#assetLink"),
+      refresh: document.querySelector("#refresh"),
+      tabs: document.querySelector("#tabs"),
+      content: document.querySelector("#content")
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function parseList(value) {
+      if (Array.isArray(value)) return value;
+      if (!value) return [];
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function shortId(value) {
+      return value ? String(value).slice(0, 8) : "";
+    }
+
+    function learningTypeLabel(type) {
+      return { question: "题目", section: "板块", knowledge: "知识点", answer: "作答" }[type] || type || "记录";
+    }
+
+    function statusLabel(status) {
+      return {
+        suspected: "疑似错题",
+        confirmed: "已确认",
+        incomplete: "未完成",
+        corrected: "已订正",
+        mastered: "已掌握",
+        ignored: "已忽略"
+      }[status] || status || "候选";
+    }
+
+    function panels() {
+      return isGlobal ? { ...basePanels, ...globalPanels } : basePanels;
+    }
+
+    function reviewStateLabel(state) {
+      return {
+        queued: "待复习",
+        scheduled: "已安排",
+        reviewing: "复习中",
+        done: "本轮已复习",
+        mastered: "长期掌握",
+        ignored: "已忽略"
+      }[state] || state || "待复习";
+    }
+
+    function reviewBadgeClass(item = {}) {
+      if (item.status === "mastered" || item.review_state === "mastered") return "mastered";
+      if (item.status === "ignored" || item.review_state === "ignored") return "ignored";
+      if (isReviewDue(item)) return "due";
+      return "review";
+    }
+
+    function isReviewDue(item = {}) {
+      if (item.is_due != null) return Boolean(item.is_due);
+      if (!item.next_review_at) return false;
+      const date = new Date(item.next_review_at);
+      return !Number.isNaN(date.getTime()) && date.getTime() <= Date.now();
+    }
+
+    function formatDateTime(value) {
+      if (!value) return "未安排";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return date.toLocaleString();
+    }
+
+    function reviewActionLabel(result) {
+      return {
+        correct: "复习正确",
+        incorrect: "复习错误",
+        postpone: "延后",
+        mastered: "已掌握"
+      }[result] || result;
+    }
+
+    function reviewEventPayload(result, note) {
+      return {
+        result,
+        review_note: note,
+        note,
+        source: "session_panel"
+      };
+    }
+
+    function needLabel(tag) {
+      return {
+        mistake_book: "整理错题本",
+        knowledge_points: "提炼知识点",
+        step_check: "检查步骤",
+        answer_check: "核对答案",
+        explain: "生成讲解",
+        report: "学习报告",
+        capture_quality: "补拍提醒",
+        revision_trace: "订正痕迹"
+      }[tag] || tag;
+    }
+
+    function sessionLink(sessionIdValue, title) {
+      if (!sessionIdValue) return "";
+      return `<a class="session-link" href="/?session_id=${encodeURIComponent(sessionIdValue)}">回合：${escapeHtml(title || shortId(sessionIdValue))}</a>`;
+    }
+
+    function evidenceImages(item) {
+      const details = parseList(item.source_image_details);
+      const images = details
+        .filter(detail => detail && detail.thumbnail_url)
+        .slice(0, 6)
+        .map(detail => `
+          <a href="${escapeHtml(detail.image_url || detail.thumbnail_url)}" target="_blank" rel="noopener" title="seq ${Number(detail.sequence_index || 0)} · ${escapeHtml(detail.captured_at || "")}">
+            <img class="thumb" src="${escapeHtml(detail.thumbnail_url)}" alt="证据图">
+          </a>`)
+        .join("");
+      if (images) return `<div class="evidence-strip">${images}</div>`;
+      const count = parseList(item.source_image_ids).length;
+      return count ? `<div class="muted">${count} 张图，旧数据暂无缩略图明细</div>` : "";
+    }
+
+    function mistakeIdOf(item = {}) {
+      return item.id || item.mistake_id || "";
+    }
+
+    function reviewMessageFor(mistakeId) {
+      const cached = reviewMessages.get(mistakeId);
+      return `<div class="review-message ${escapeHtml(cached?.tone || "")}" data-review-message-for="${escapeHtml(mistakeId)}">${escapeHtml(cached?.message || "")}</div>`;
+    }
+
+    function reviewActionForm(item = {}) {
+      const mistakeId = mistakeIdOf(item);
+      if (!mistakeId) return `<div class="muted">缺少错题 ID，暂不能记录复习。</div>`;
+      const disabled = reviewingIds.has(mistakeId) ? "disabled" : "";
+      const placeholder = item.review_note ? `上次笔记：${item.review_note}` : "复习笔记，可写错因、订正情况或下次提醒";
+      return `
+        <div class="review-form">
+          <textarea data-review-note-for="${escapeHtml(mistakeId)}" maxlength="300" placeholder="${escapeHtml(placeholder)}" ${disabled}></textarea>
+          <div class="review-actions">
+            <button class="correct" type="button" data-review-action="correct" data-mistake-id="${escapeHtml(mistakeId)}" ${disabled}>复习正确</button>
+            <button class="incorrect" type="button" data-review-action="incorrect" data-mistake-id="${escapeHtml(mistakeId)}" ${disabled}>复习错误</button>
+            <button class="postpone" type="button" data-review-action="postpone" data-mistake-id="${escapeHtml(mistakeId)}" ${disabled}>延后</button>
+            <button class="mastered" type="button" data-review-action="mastered" data-mistake-id="${escapeHtml(mistakeId)}" ${disabled}>已掌握</button>
+          </div>
+          ${reviewMessageFor(mistakeId)}
+        </div>`;
+    }
+
+    function reviewScheduleText(item = {}) {
+      const dueLabel = isReviewDue(item) ? "已到期" : "未到期";
+      const parts = [
+        `到期：${dueLabel}`,
+        `下次：${formatDateTime(item.next_review_at)}`,
+        `次数：${Number(item.review_count || 0)}`,
+        `上次：${formatDateTime(item.last_reviewed_at)}`
+      ];
+      if (item.review_note) parts.push(`笔记：${item.review_note}`);
+      return parts;
+    }
+
+    function renderTabs() {
+      els.tabs.innerHTML = Object.entries(panels()).map(([key, label]) => `
+        <button class="${key === currentPanel ? "active" : ""}" type="button" data-panel="${key}">${escapeHtml(label)}</button>
+      `).join("");
+      els.tabs.querySelectorAll("[data-panel]").forEach(button => {
+        button.onclick = () => {
+          currentPanel = button.dataset.panel;
+          const next = new URL(location.href);
+          next.searchParams.set("panel", currentPanel);
+          history.replaceState(null, "", next);
+          render();
+        };
+      });
+    }
+
+    function learningSummary(items = []) {
+      const counts = items.reduce((acc, item) => {
+        const key = item.item_type || "unknown";
+        acc[key] = (acc[key] || 0) + 1;
+        return acc;
+      }, {});
+      return items.length
+        ? `题目 ${counts.question || 0} · 板块 ${counts.section || 0} · 知识点 ${counts.knowledge || 0} · 作答 ${counts.answer || 0}`
+        : "暂无结构化记录";
+    }
+
+    function renderLearning(items = []) {
+      els.content.className = "content learning";
+      els.panelSummary.textContent = learningSummary(items);
+      els.content.innerHTML = items.length ? items.map(item => `
+        <article class="item">
+          <div class="item-head">
+            <div class="item-title">${escapeHtml(item.title || item.content)}</div>
+            <span class="badge">${escapeHtml(learningTypeLabel(item.item_type))}</span>
+          </div>
+          <div>${escapeHtml(item.content || "")}</div>
+          <div class="muted">${escapeHtml(item.subject || "未识别")} · ${escapeHtml(item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ") || "未识别")}</div>
+          <div class="muted">${escapeHtml(item.first_seen_at || "未知")} → ${escapeHtml(item.last_seen_at || "未知")} · 证据 ${Number(item.evidence_count || 1)}</div>
+          ${isGlobal ? sessionLink(item.session_id, item.session_title) : ""}
+          ${evidenceImages(item)}
+        </article>
+      `).join("") : `<div class="empty item wide">等待批次解析后自动写入题目、板块和知识点。</div>`;
+    }
+
+    function renderMistakes(items = []) {
+      els.content.className = "content mistakes";
+      els.panelSummary.textContent = items.length ? `${items.length} 条` : "暂无明确错题";
+      els.content.innerHTML = items.length ? items.map(item => {
+        const knowledge = parseList(item.knowledge_points);
+        return `
+          <article class="item">
+            <div class="item-head">
+              <div class="item-title">${escapeHtml(item.title || item.question_text || "错题候选")}</div>
+              <span class="badge mistake">${escapeHtml(statusLabel(item.status))}</span>
+            </div>
+            <div class="field-grid">
+              <div class="field"><b>题目</b>${escapeHtml(item.question_text || "题目未识别")}</div>
+              <div class="field"><b>答案</b>学生：${escapeHtml(item.student_answer || "未识别")}<br>参考：${escapeHtml(item.expected_answer || "未识别")}</div>
+              <div class="field"><b>错因/证据</b>${escapeHtml(item.error_reason || item.evidence || "未识别")}</div>
+              <div class="field"><b>订正/下一步</b>${escapeHtml(item.correction || "未识别")}<br>${escapeHtml(item.next_action || "未识别")}</div>
+            </div>
+            <div class="chips">${knowledge.map(text => `<span class="chip">${escapeHtml(text)}</span>`).join("") || `<span class="muted">知识点未识别</span>`}</div>
+            ${(item.review_state || item.next_review_at || item.review_count != null) ? `<div class="muted">复习：${escapeHtml(reviewStateLabel(item.review_state))} · 下次 ${escapeHtml(formatDateTime(item.next_review_at))} · ${Number(item.review_count || 0)} 次</div>` : ""}
+            <div class="muted">${escapeHtml(item.subject || "未识别")} · ${escapeHtml(item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ") || "未识别")} · ${escapeHtml(item.first_seen_at || "未知")} → ${escapeHtml(item.last_seen_at || "未知")}</div>
+            ${isGlobal ? sessionLink(item.session_id, item.session_title) : ""}
+            ${evidenceImages(item)}
+          </article>
+        `;
+      }).join("") : `<div class="empty item wide">当画面出现错误、订正、划掉、空白或反复停留时，系统会把候选错题写到这里。</div>`;
+    }
+
+    function renderStrategy(session = {}, sessions = []) {
+      if (isGlobal) return renderGlobalStrategy(sessions);
+      const needs = parseList(session.inferred_needs);
+      els.content.className = "content strategy";
+      els.panelSummary.textContent = needs.length ? `${needs.length} 个推断需求` : "等待学生要求或画面线索";
+      els.content.innerHTML = `
+        <article class="item wide">
+          <div class="field-grid">
+            <div class="field">
+              <b>目标</b>
+              ${escapeHtml(session.student_goal || "未输入，系统会根据画面动态判断。")}
+            </div>
+            <div class="field">
+              <b>风格</b>
+              ${escapeHtml(session.report_style || "默认：清晰、可复盘。")}
+            </div>
+            <div class="field">
+              <b>关注</b>
+              ${escapeHtml(session.assistant_focus || "暂无额外关注点。")}
+            </div>
+          </div>
+          <div class="chips">${needs.map(tag => `<span class="chip">${escapeHtml(needLabel(tag))}</span>`).join("") || `<span class="muted">暂无推断标签</span>`}</div>
+        </article>`;
+    }
+
+    function renderReviewQueue(queue = {}) {
+      const items = queue.items || [];
+      const error = queue.error || "";
+      els.content.className = "content mistakes";
+      els.panelSummary.textContent = error
+        ? "待复习接口暂不可用"
+        : items.length ? `${Number(queue.total || items.length)} 条待复习` : "暂无待复习错题";
+      els.content.innerHTML = error
+        ? `<div class="empty item wide">待复习接口加载失败：${escapeHtml(error)}</div>`
+        : items.length ? items.map(item => {
+          const knowledge = parseList(item.knowledge_points);
+          const schedule = reviewScheduleText(item);
+          return `
+            <article class="item">
+              <div class="item-head">
+                <div class="item-title">${escapeHtml(item.title || item.question_text || "待复习错题")}</div>
+                <span class="badge ${reviewBadgeClass(item)}">${escapeHtml(isReviewDue(item) ? "已到期" : reviewStateLabel(item.review_state))}</span>
+              </div>
+              <div class="field-grid">
+                <div class="field"><b>题目</b>${escapeHtml(item.question_text || item.content || "题目未识别")}</div>
+                <div class="field"><b>答案</b>学生：${escapeHtml(item.student_answer || "未识别")}<br>参考：${escapeHtml(item.expected_answer || "未识别")}</div>
+                <div class="field"><b>错因</b>${escapeHtml(item.error_reason || item.evidence || "未识别")}</div>
+                <div class="field"><b>复习安排</b>${schedule.map(text => escapeHtml(text)).join("<br>")}</div>
+              </div>
+              <div class="chips">${knowledge.map(text => `<span class="chip">${escapeHtml(text)}</span>`).join("") || `<span class="muted">知识点未识别</span>`}</div>
+              <div class="muted">${escapeHtml(statusLabel(item.status))} · ${escapeHtml(item.subject || "未识别")} · ${escapeHtml(item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ") || "未识别")}</div>
+              ${sessionLink(item.session_id, item.session_title)}
+              ${reviewActionForm(item)}
+            </article>
+          `;
+        }).join("") : `<div class="empty item wide">复习队列为空。后端写入 next_review_at 后会在这里显示。</div>`;
+    }
+
+    function renderKeyValueList(value, emptyText) {
+      if (Array.isArray(value)) {
+        return value.length
+          ? `<div class="list-lines">${value.map(item => {
+            if (item && typeof item === "object") {
+              const name = item.name || item.label || item.knowledge_point || item.type || item.subject || item.title || "项目";
+              const score = item.score ?? item.count ?? item.weight ?? item.level ?? item.ratio ?? "";
+              return `<div class="line-item"><span>${escapeHtml(name)}</span><span>${escapeHtml(score)}</span></div>`;
+            }
+            return `<div class="line-item"><span>${escapeHtml(item)}</span><span></span></div>`;
+          }).join("")}</div>`
+          : `<div class="muted">${escapeHtml(emptyText)}</div>`;
+      }
+      if (value && typeof value === "object") {
+        const entries = Object.entries(value);
+        return entries.length
+          ? `<div class="list-lines">${entries.map(([key, val]) => `<div class="line-item"><span>${escapeHtml(key)}</span><span>${escapeHtml(typeof val === "object" ? JSON.stringify(val) : val)}</span></div>`).join("")}</div>`
+          : `<div class="muted">${escapeHtml(emptyText)}</div>`;
+      }
+      return `<div class="muted">${escapeHtml(emptyText)}</div>`;
+    }
+
+    function entryCount(value) {
+      if (Array.isArray(value)) return value.length;
+      if (value && typeof value === "object") return Object.keys(value).length;
+      return 0;
+    }
+
+    function objectList(value) {
+      if (Array.isArray(value)) return value;
+      if (value && typeof value === "object") return Object.values(value);
+      return [];
+    }
+
+    function renderRecentSessions(value = []) {
+      const sessions = objectList(value);
+      return sessions.length ? sessions.map(session => {
+        if (!session || typeof session !== "object") {
+          return `<article class="item"><div class="item-title">${escapeHtml(session)}</div></article>`;
+        }
+        return `
+        <article class="item">
+          <div class="item-head">
+            <div class="item-title">${escapeHtml(session.title || "学习回合")}</div>
+            <span class="badge">${escapeHtml(session.status || "unknown")}</span>
+          </div>
+          <div class="muted">学习条目 ${Number(session.learning_count || 0)} · 错题 ${Number(session.mistake_count || 0)} · ${escapeHtml(session.updated_at || session.created_at || "未知")}</div>
+          ${sessionLink(session.id || session.session_id, "打开回合")}
+        </article>`;
+      }).join("") : `<div class="muted">暂无近期回合画像。</div>`;
+    }
+
+    function renderRecentReviewEvents(value = []) {
+      const events = objectList(value);
+      return events.length ? events.map(event => {
+        if (!event || typeof event !== "object") {
+          return `<div class="line-item"><span>${escapeHtml(event)}</span><span></span></div>`;
+        }
+        const title = event.title || event.question_text || event.mistake_title || event.mistake_id || "复习记录";
+        const result = event.result || event.outcome || event.status || "未知";
+        const at = event.reviewed_at || event.created_at || event.event_at || "";
+        const note = event.review_note || event.note || "";
+        return `
+          <div class="line-item">
+            <span>${escapeHtml(title)}${note ? `<br><span class="muted">${escapeHtml(note)}</span>` : ""}</span>
+            <span>${escapeHtml(reviewActionLabel(result))}${at ? `<br>${escapeHtml(formatDateTime(at))}` : ""}</span>
+          </div>`;
+      }).join("") : `<div class="muted">暂无复习事件记录，后端支持后会自动显示。</div>`;
+    }
+
+    function renderProfile(profileEnvelope = {}) {
+      const profile = profileEnvelope.profile || {};
+      const error = profileEnvelope.error || "";
+      els.content.className = "content profile";
+      if (error) {
+        els.panelSummary.textContent = "画像接口暂不可用";
+        els.content.innerHTML = `<div class="empty item wide">长期画像接口加载失败：${escapeHtml(error)}</div>`;
+        return;
+      }
+      const weak = profile.weak_knowledge_points || [];
+      const errors = profile.common_error_types || [];
+      const breakdown = profile.subject_breakdown || {};
+      const recent = profile.recent_sessions || [];
+      const reviewSummary = profile.review_summary || profileEnvelope.review_summary || {};
+      const recentReviewEvents = profile.recent_review_events || profileEnvelope.recent_review_events || [];
+      const recentMarkup = renderRecentSessions(recent);
+      els.panelSummary.textContent = `${entryCount(weak)} 个薄弱点 · ${entryCount(errors)} 类常见错误 · ${entryCount(recent)} 个近期回合 · ${entryCount(recentReviewEvents)} 条复习记录`;
+      els.content.innerHTML = `
+        <article class="item wide">
+          <div class="metric-grid">
+            <div class="metric"><strong>${entryCount(weak)}</strong><span class="muted">薄弱知识点</span></div>
+            <div class="metric"><strong>${entryCount(errors)}</strong><span class="muted">常见错误类型</span></div>
+            <div class="metric"><strong>${entryCount(breakdown)}</strong><span class="muted">涉及科目</span></div>
+            <div class="metric"><strong>${entryCount(recent)}</strong><span class="muted">近期回合</span></div>
+            <div class="metric"><strong>${entryCount(recentReviewEvents)}</strong><span class="muted">近期复习</span></div>
+          </div>
+        </article>
+        <article class="item">
+          <div class="section-title">复习概览</div>
+          ${renderKeyValueList(reviewSummary, "暂无复习概览，后端支持 review_summary 后会显示")}
+        </article>
+        <article class="item">
+          <div class="section-title">近期复习事件</div>
+          <div class="list-lines">${renderRecentReviewEvents(recentReviewEvents)}</div>
+        </article>
+        <article class="item">
+          <div class="section-title">薄弱知识点</div>
+          ${renderKeyValueList(weak, "暂无薄弱知识点")}
+        </article>
+        <article class="item">
+          <div class="section-title">常见错误类型</div>
+          ${renderKeyValueList(errors, "暂无常见错误类型")}
+        </article>
+        <article class="item">
+          <div class="section-title">科目分布</div>
+          ${renderKeyValueList(breakdown, "暂无科目分布")}
+        </article>
+        <article class="item wide">
+          <div class="section-title">近期回合</div>
+        </article>
+        ${recentMarkup}`;
+    }
+
+    function renderGlobalStrategy(sessions = []) {
+      const tagCounts = {};
+      sessions.forEach(session => {
+        parseList(session.inferred_needs).forEach(tag => {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+      });
+      const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+      els.content.className = "content strategy";
+      els.panelSummary.textContent = sessions.length ? `${sessions.length} 个有策略记录的回合` : "暂无动态策略记录";
+      els.content.innerHTML = `
+        <article class="item wide">
+          <div class="item-head">
+            <div class="item-title">全局动态学习策略</div>
+            <span class="badge">${sessions.length} 个回合</span>
+          </div>
+          <div class="chips">${tags.map(([tag, count]) => `<span class="chip">${escapeHtml(needLabel(tag))} ${count}</span>`).join("") || `<span class="muted">暂无推断标签</span>`}</div>
+        </article>
+        ${sessions.length ? sessions.map(session => `
+          <article class="item">
+            <div class="item-head">
+              <div class="item-title">${escapeHtml(session.title || "学习回合")}</div>
+              <span class="badge">${escapeHtml(session.status || "unknown")}</span>
+            </div>
+            <div class="field-grid">
+              <div class="field"><b>目标</b>${escapeHtml(session.student_goal || "未输入")}</div>
+              <div class="field"><b>风格</b>${escapeHtml(session.report_style || "默认")}</div>
+              <div class="field"><b>关注</b>${escapeHtml(session.assistant_focus || "暂无额外关注点")}</div>
+            </div>
+            <div class="chips">${parseList(session.inferred_needs).map(tag => `<span class="chip">${escapeHtml(needLabel(tag))}</span>`).join("") || `<span class="muted">暂无推断标签</span>`}</div>
+            <div class="muted">学习条目 ${Number(session.learning_count || 0)} · 错题 ${Number(session.mistake_count || 0)} · ${escapeHtml(session.updated_at || session.created_at || "未知")}</div>
+            ${sessionLink(session.id, "打开回合")}
+          </article>
+        `).join("") : `<div class="empty item wide">暂无动态策略记录。</div>`}`;
+    }
+
+    function render() {
+      if (!latest) return;
+      const availablePanels = panels();
+      if (!availablePanels[currentPanel]) currentPanel = "learning";
+      const title = availablePanels[currentPanel];
+      const scopedTitle = isGlobal ? `全局学习中心 · ${title}` : title;
+      els.pageTitle.textContent = scopedTitle;
+      els.panelTitle.textContent = scopedTitle;
+      document.title = `${scopedTitle} · pxj`;
+      renderTabs();
+      if (currentPanel === "mistakes") renderMistakes(latest.mistake_items || []);
+      if (currentPanel === "learning") renderLearning(latest.learning_items || []);
+      if (currentPanel === "strategy") renderStrategy(latest.session || {}, latest.strategy_sessions || []);
+      if (currentPanel === "review") renderReviewQueue(latest.review_queue || {});
+      if (currentPanel === "profile") renderProfile(latest.student_profile || {});
+    }
+
+    async function fetchJsonOrError(url) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return { error: `HTTP ${res.status}` };
+        return await res.json();
+      } catch (error) {
+        return { error: error.message };
+      }
+    }
+
+    function reviewNoteValue(mistakeId) {
+      const note = Array.from(els.content.querySelectorAll("[data-review-note-for]"))
+        .find(element => element.dataset.reviewNoteFor === mistakeId);
+      return note ? note.value.trim() : "";
+    }
+
+    function showReviewMessage(mistakeId, message, tone = "") {
+      reviewMessages.set(mistakeId, { message, tone });
+      const target = Array.from(els.content.querySelectorAll("[data-review-message-for]"))
+        .find(element => element.dataset.reviewMessageFor === mistakeId);
+      if (!target) return;
+      target.className = `review-message ${tone}`.trim();
+      target.textContent = message;
+    }
+
+    async function submitReviewEvent(mistakeId, result) {
+      const note = reviewNoteValue(mistakeId);
+      let failedMessage = "";
+      reviewingIds.add(mistakeId);
+      render();
+      try {
+        const res = await fetch(`/api/mistakes/${encodeURIComponent(mistakeId)}/review-events`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(reviewEventPayload(result, note))
+        });
+        if (!res.ok) {
+          const detail = await res.text();
+          throw new Error(detail || `HTTP ${res.status}`);
+        }
+        await load();
+        showReviewMessage(mistakeId, `${reviewActionLabel(result)}已记录`, "ok");
+      } catch (error) {
+        failedMessage = error.message;
+      } finally {
+        reviewingIds.delete(mistakeId);
+        render();
+        if (failedMessage) {
+          showReviewMessage(mistakeId, `复习记录提交失败：${failedMessage}`, "error");
+        }
+      }
+    }
+
+    async function load() {
+      els.refresh.disabled = true;
+      els.content.innerHTML = `<div class="loading item">加载中...</div>`;
+      const res = await fetch(isGlobal
+        ? `/api/learning-columns?page_size=40`
+        : `/api/sessions/${encodeURIComponent(sessionId)}/overview?analysis_limit=1`);
+      if (!res.ok) {
+        els.refresh.disabled = false;
+        els.content.innerHTML = `<div class="empty item">加载失败：HTTP ${res.status}</div>`;
+        return;
+      }
+      latest = await res.json();
+      if (isGlobal) {
+        const [reviewQueue, studentProfile] = await Promise.all([
+          fetchJsonOrError("/api/review-queue?due_only=false&page_size=40"),
+          fetchJsonOrError("/api/student-profile")
+        ]);
+        latest.review_queue = reviewQueue;
+        latest.student_profile = studentProfile;
+      }
+      els.refresh.disabled = false;
+      const session = latest.session || {};
+      if (isGlobal) {
+        const reviewTotal = latest.review_queue?.total ?? latest.review_queue?.items?.length ?? 0;
+        els.sessionMeta.textContent = `全局 · 学习清单 ${Number(latest.learning_total || 0)} · 错题 ${Number(latest.mistake_total || 0)} · 待复习 ${Number(reviewTotal || 0)}`;
+        els.backLink.href = "/";
+        els.assetLink.href = "/assets";
+      } else {
+        els.sessionMeta.textContent = `${session.title || "学习回合"} · ${shortId(session.id)}`;
+        els.backLink.href = `/?session_id=${encodeURIComponent(session.id || sessionId)}`;
+        els.assetLink.href = `/assets?session_id=${encodeURIComponent(session.id || sessionId)}`;
+      }
+      render();
+    }
+
+    els.refresh.onclick = load;
+    els.content.addEventListener("click", event => {
+      const button = event.target.closest("[data-review-action]");
+      if (!button || button.disabled) return;
+      submitReviewEvent(button.dataset.mistakeId, button.dataset.reviewAction);
+    });
+    load();
+  </script>
+</body>
+</html>

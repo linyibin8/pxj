@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07DA53DBDD5863CB522B61D6 /* iPadHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B16F35007DC16E6CC2BC24 /* iPadHistoryView.swift */; };
+		0FF08DBF3B7CB6D1FF03D346 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894AB031968CB82A191C1F6 /* ContentView.swift */; };
+		1B1F52CACB742C7AEADFA07E /* iPadMistakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3B8A7F0D05CBD1CF92903 /* iPadMistakesView.swift */; };
+		1E8341D26E24C2DE9AF63613 /* iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD962ED0311636A1090FF /* iPhoneUITests.swift */; };
+		22F4F8EF5B99EA2C58A3D7C8 /* PXJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B04BE8FD8C9C7C137B15ABE /* PXJUITests.swift */; };
+		3329E7431CD21B9CDCAD37F3 /* IntentRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731D8769BCC3EED740E408A /* IntentRouting.swift */; };
+		4399DD74820D45EBF9370F25 /* iPadLearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F427B016EE454A3E74F7D4 /* iPadLearnView.swift */; };
+		45F432EF71C1C0B1642E9C27 /* PXJApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70F85F158D5D169ACB4E1F3 /* PXJApp.swift */; };
+		53C4FFBC5351486F77DE8250 /* IntentProposalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19EF5A064F13B8A6F4365D /* IntentProposalCard.swift */; };
+		5F29931A9555C8B310177FF2 /* QuestionGradingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C6046A7D59D1BAD40489D /* QuestionGradingOverlay.swift */; };
+		6331F37F649573A8EA00BAA7 /* iPadMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29660699DDDF48A4C7BACF9A /* iPadMemoryView.swift */; };
+		70961A2C02A9F6AF3EFF01FD /* iPadSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65020209AE37BCFDCB3E67 /* iPadSettingsView.swift */; };
+		7B2D54206A7B574DBB216CBD /* MemoryProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF79E8209CBB79B93DFAD26 /* MemoryProfileState.swift */; };
+		83DC526A4D480BAA88B45D0D /* iPadRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDCC8BBE82D152EBBB37E90 /* iPadRoot.swift */; };
+		87B2759975E7337663DDC00E /* QuestionRegionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147862D1B8C8ED98782974 /* QuestionRegionOverlay.swift */; };
+		922408CB9938409739AB3B88 /* QuestionSegmenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BA4FB96F0C562E67BE8D0 /* QuestionSegmenter.swift */; };
+		961B85480183126EDFF6B40A /* MemoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A832C3A48CBCFFFB0BA5EF7 /* MemoryModels.swift */; };
+		A11589374C62B299A943C204 /* QuestionExtractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DE8C961D098564E4E603D /* QuestionExtractView.swift */; };
+		BCB3A3A8E4F0B5E82BAA163C /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7CDABE1F8F02C75BB7DB37 /* Auth.swift */; };
+		C7650D0C5416FFB49017C94A /* MemoryDeltaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CFC682A54D09472D86261 /* MemoryDeltaCard.swift */; };
+		D3E6E5BABF71B1BABE8DECBD /* IntentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9611C210DCA5A1585B79D437 /* IntentModels.swift */; };
+		E8C51D6B3C2ED094AC6FD3A6 /* LearningProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A920FC833648007AEFB2F /* LearningProfileView.swift */; };
+		E9D17450C6347281B174F36A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B79FD5C8650C2BE91A14F24 /* Assets.xcassets */; };
+		FFEDB172FADD9F727025479F /* iPadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582952824E2F21751B864BFD /* iPadUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BF4ED143F54E49C5B519D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 873A795CB54F5A914E835CD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1390C2DFF6717E4E4C358690;
+			remoteInfo = PXJ;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F8A920FC833648007AEFB2F /* LearningProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningProfileView.swift; sourceTree = "<group>"; };
+		1A832C3A48CBCFFFB0BA5EF7 /* MemoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryModels.swift; sourceTree = "<group>"; };
+		29660699DDDF48A4C7BACF9A /* iPadMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadMemoryView.swift; sourceTree = "<group>"; };
+		2C147862D1B8C8ED98782974 /* QuestionRegionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRegionOverlay.swift; sourceTree = "<group>"; };
+		3B6BA4FB96F0C562E67BE8D0 /* QuestionSegmenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSegmenter.swift; sourceTree = "<group>"; };
+		3F3C6046A7D59D1BAD40489D /* QuestionGradingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGradingOverlay.swift; sourceTree = "<group>"; };
+		4F7CDABE1F8F02C75BB7DB37 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		57B16F35007DC16E6CC2BC24 /* iPadHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadHistoryView.swift; sourceTree = "<group>"; };
+		582952824E2F21751B864BFD /* iPadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadUITests.swift; sourceTree = "<group>"; };
+		65E3B8A7F0D05CBD1CF92903 /* iPadMistakesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadMistakesView.swift; sourceTree = "<group>"; };
+		6E19EF5A064F13B8A6F4365D /* IntentProposalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProposalCard.swift; sourceTree = "<group>"; };
+		73F427B016EE454A3E74F7D4 /* iPadLearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadLearnView.swift; sourceTree = "<group>"; };
+		7B79FD5C8650C2BE91A14F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		809D85740B86815E6B2E02C9 /* PXJ.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PXJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9611C210DCA5A1585B79D437 /* IntentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentModels.swift; sourceTree = "<group>"; };
+		9B04BE8FD8C9C7C137B15ABE /* PXJUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXJUITests.swift; sourceTree = "<group>"; };
+		9B2EDA22C48CB69B0A5561FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD0CFC682A54D09472D86261 /* MemoryDeltaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDeltaCard.swift; sourceTree = "<group>"; };
+		BE65020209AE37BCFDCB3E67 /* iPadSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadSettingsView.swift; sourceTree = "<group>"; };
+		BEF79E8209CBB79B93DFAD26 /* MemoryProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryProfileState.swift; sourceTree = "<group>"; };
+		BFDCC8BBE82D152EBBB37E90 /* iPadRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadRoot.swift; sourceTree = "<group>"; };
+		C92FD962ED0311636A1090FF /* iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneUITests.swift; sourceTree = "<group>"; };
+		CDB075EAAFF517080602A2F1 /* PXJUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PXJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D894AB031968CB82A191C1F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EC6DE8C961D098564E4E603D /* QuestionExtractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExtractView.swift; sourceTree = "<group>"; };
+		F70F85F158D5D169ACB4E1F3 /* PXJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXJApp.swift; sourceTree = "<group>"; };
+		F731D8769BCC3EED740E408A /* IntentRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentRouting.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		01A8AF1C3E346DE7706AD172 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7B79FD5C8650C2BE91A14F24 /* Assets.xcassets */,
+				4F7CDABE1F8F02C75BB7DB37 /* Auth.swift */,
+				D894AB031968CB82A191C1F6 /* ContentView.swift */,
+				9B2EDA22C48CB69B0A5561FF /* Info.plist */,
+				F70F85F158D5D169ACB4E1F3 /* PXJApp.swift */,
+				EC6DE8C961D098564E4E603D /* QuestionExtractView.swift */,
+				3F3C6046A7D59D1BAD40489D /* QuestionGradingOverlay.swift */,
+				2C147862D1B8C8ED98782974 /* QuestionRegionOverlay.swift */,
+				3B6BA4FB96F0C562E67BE8D0 /* QuestionSegmenter.swift */,
+				739960128636D78F61539E4D /* Intent */,
+				ABF4D28DD511AF30E72ACD96 /* iPad */,
+				18AAC82E47AF5094510F5043 /* Memory */,
+			);
+			name = App;
+			path = PXJ/App;
+			sourceTree = "<group>";
+		};
+		18AAC82E47AF5094510F5043 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				0F8A920FC833648007AEFB2F /* LearningProfileView.swift */,
+				BD0CFC682A54D09472D86261 /* MemoryDeltaCard.swift */,
+				1A832C3A48CBCFFFB0BA5EF7 /* MemoryModels.swift */,
+				BEF79E8209CBB79B93DFAD26 /* MemoryProfileState.swift */,
+			);
+			path = Memory;
+			sourceTree = "<group>";
+		};
+		534917F296A99E77F479CCE8 = {
+			isa = PBXGroup;
+			children = (
+				01A8AF1C3E346DE7706AD172 /* App */,
+				F66A336B055F12C8C7F40391 /* PXJUITests */,
+				A863FE7D0B3FF5723D11CB2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		739960128636D78F61539E4D /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				9611C210DCA5A1585B79D437 /* IntentModels.swift */,
+				6E19EF5A064F13B8A6F4365D /* IntentProposalCard.swift */,
+				F731D8769BCC3EED740E408A /* IntentRouting.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		A863FE7D0B3FF5723D11CB2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				809D85740B86815E6B2E02C9 /* PXJ.app */,
+				CDB075EAAFF517080602A2F1 /* PXJUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABF4D28DD511AF30E72ACD96 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				57B16F35007DC16E6CC2BC24 /* iPadHistoryView.swift */,
+				73F427B016EE454A3E74F7D4 /* iPadLearnView.swift */,
+				29660699DDDF48A4C7BACF9A /* iPadMemoryView.swift */,
+				65E3B8A7F0D05CBD1CF92903 /* iPadMistakesView.swift */,
+				BFDCC8BBE82D152EBBB37E90 /* iPadRoot.swift */,
+				BE65020209AE37BCFDCB3E67 /* iPadSettingsView.swift */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		F66A336B055F12C8C7F40391 /* PXJUITests */ = {
+			isa = PBXGroup;
+			children = (
+				582952824E2F21751B864BFD /* iPadUITests.swift */,
+				C92FD962ED0311636A1090FF /* iPhoneUITests.swift */,
+				9B04BE8FD8C9C7C137B15ABE /* PXJUITests.swift */,
+			);
+			path = PXJUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1390C2DFF6717E4E4C358690 /* PXJ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 107BE4DC45460927AAEA1EB9 /* Build configuration list for PBXNativeTarget "PXJ" */;
+			buildPhases = (
+				2D2AB0EFFFB11597F2894E6E /* Sources */,
+				71CB8317F94A761BE6B4DA29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PXJ;
+			packageProductDependencies = (
+			);
+			productName = PXJ;
+			productReference = 809D85740B86815E6B2E02C9 /* PXJ.app */;
+			productType = "com.apple.product-type.application";
+		};
+		401BE55642458945B0E0714A /* PXJUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46C1D3F3D57FE145CA5C037 /* Build configuration list for PBXNativeTarget "PXJUITests" */;
+			buildPhases = (
+				84F7FBB851F147C0EC04218F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B947CC578A3BCB051DD9005 /* PBXTargetDependency */,
+			);
+			name = PXJUITests;
+			packageProductDependencies = (
+			);
+			productName = PXJUITests;
+			productReference = CDB075EAAFF517080602A2F1 /* PXJUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		873A795CB54F5A914E835CD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1390C2DFF6717E4E4C358690 = {
+						DevelopmentTeam = N3G45G5H74;
+					};
+					401BE55642458945B0E0714A = {
+						DevelopmentTeam = N3G45G5H74;
+						TestTargetID = 1390C2DFF6717E4E4C358690;
+					};
+				};
+			};
+			buildConfigurationList = DED3086109C5556F0B395717 /* Build configuration list for PBXProject "PXJ" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 534917F296A99E77F479CCE8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A863FE7D0B3FF5723D11CB2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1390C2DFF6717E4E4C358690 /* PXJ */,
+				401BE55642458945B0E0714A /* PXJUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71CB8317F94A761BE6B4DA29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9D17450C6347281B174F36A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D2AB0EFFFB11597F2894E6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB3A3A8E4F0B5E82BAA163C /* Auth.swift in Sources */,
+				0FF08DBF3B7CB6D1FF03D346 /* ContentView.swift in Sources */,
+				D3E6E5BABF71B1BABE8DECBD /* IntentModels.swift in Sources */,
+				53C4FFBC5351486F77DE8250 /* IntentProposalCard.swift in Sources */,
+				3329E7431CD21B9CDCAD37F3 /* IntentRouting.swift in Sources */,
+				E8C51D6B3C2ED094AC6FD3A6 /* LearningProfileView.swift in Sources */,
+				C7650D0C5416FFB49017C94A /* MemoryDeltaCard.swift in Sources */,
+				961B85480183126EDFF6B40A /* MemoryModels.swift in Sources */,
+				7B2D54206A7B574DBB216CBD /* MemoryProfileState.swift in Sources */,
+				45F432EF71C1C0B1642E9C27 /* PXJApp.swift in Sources */,
+				A11589374C62B299A943C204 /* QuestionExtractView.swift in Sources */,
+				5F29931A9555C8B310177FF2 /* QuestionGradingOverlay.swift in Sources */,
+				87B2759975E7337663DDC00E /* QuestionRegionOverlay.swift in Sources */,
+				922408CB9938409739AB3B88 /* QuestionSegmenter.swift in Sources */,
+				07DA53DBDD5863CB522B61D6 /* iPadHistoryView.swift in Sources */,
+				4399DD74820D45EBF9370F25 /* iPadLearnView.swift in Sources */,
+				6331F37F649573A8EA00BAA7 /* iPadMemoryView.swift in Sources */,
+				1B1F52CACB742C7AEADFA07E /* iPadMistakesView.swift in Sources */,
+				83DC526A4D480BAA88B45D0D /* iPadRoot.swift in Sources */,
+				70961A2C02A9F6AF3EFF01FD /* iPadSettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84F7FBB851F147C0EC04218F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F4F8EF5B99EA2C58A3D7C8 /* PXJUITests.swift in Sources */,
+				FFEDB172FADD9F727025479F /* iPadUITests.swift in Sources */,
+				1E8341D26E24C2DE9AF63613 /* iPhoneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B947CC578A3BCB051DD9005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1390C2DFF6717E4E4C358690 /* PXJ */;
+			targetProxy = 6BF4ED143F54E49C5B519D16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0947761F7F2260499ECABD0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0A94C80B82C915BC8A4BF67C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_NAME = PXJ;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3G45G5H74;
+				INFOPLIST_FILE = PXJ/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin8.pxj;
+				PRODUCT_NAME = PXJ;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21E643894B5EFCC0AF751C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = N3G45G5H74;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin8.pxj.UITests;
+				TEST_TARGET_NAME = PXJ;
+			};
+			name = Debug;
+		};
+		60BF6AC039BBA7802EB5E327 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		C9F15FC966BA758EF8A8AED2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = N3G45G5H74;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin8.pxj.UITests;
+				TEST_TARGET_NAME = PXJ;
+			};
+			name = Release;
+		};
+		E1102B1DE76F18FB2B245FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_NAME = PXJ;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N3G45G5H74;
+				INFOPLIST_FILE = PXJ/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin8.pxj;
+				PRODUCT_NAME = PXJ;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		107BE4DC45460927AAEA1EB9 /* Build configuration list for PBXNativeTarget "PXJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A94C80B82C915BC8A4BF67C /* Debug */,
+				E1102B1DE76F18FB2B245FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DED3086109C5556F0B395717 /* Build configuration list for PBXProject "PXJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0947761F7F2260499ECABD0B /* Debug */,
+				60BF6AC039BBA7802EB5E327 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E46C1D3F3D57FE145CA5C037 /* Build configuration list for PBXNativeTarget "PXJUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21E643894B5EFCC0AF751C01 /* Debug */,
+				C9F15FC966BA758EF8A8AED2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 873A795CB54F5A914E835CD9 /* Project object */;
+}

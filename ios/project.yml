@@ -1,0 +1,36 @@
+name: PXJ
+options:
+  bundleIdPrefix: com.linyibin8
+targets:
+  PXJ:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: PXJ/App
+    settings:
+      base:
+        PRODUCT_NAME: PXJ
+        PRODUCT_BUNDLE_IDENTIFIER: com.linyibin8.pxj
+        DEVELOPMENT_TEAM: N3G45G5H74
+        APP_NAME: PXJ
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+        INFOPLIST_FILE: PXJ/App/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        LD_RUNPATH_SEARCH_PATHS: $(inherited) @executable_path/Frameworks
+        SWIFT_VERSION: 5.0
+        TARGETED_DEVICE_FAMILY: "1,2"
+  PXJUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: PXJUITests
+    dependencies:
+      - target: PXJ
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.linyibin8.pxj.UITests
+        DEVELOPMENT_TEAM: N3G45G5H74
+        TEST_TARGET_NAME: PXJ

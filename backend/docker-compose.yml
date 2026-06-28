@@ -1,0 +1,41 @@
+name: pxj
+services:
+  pxj:
+    build: .
+    container_name: pxj
+    restart: unless-stopped
+    ports:
+      - "8038:8028"
+    volumes:
+      - ./data:/app/data
+    environment:
+      PXJ_PUBLIC_BASE_URL: https://pxj.evowit.com
+      PXJ_LLM_BASE_URL: http://100.64.0.5:39000/v1
+      PXJ_LLM_API_KEY: ollama
+      PXJ_LLM_MODEL: evowit-agent27b
+      PXJ_LLM_PROVIDER: evowit
+      # new-api gateway (internal, tailscale-only). Token injected via .env (gitignored).
+      PXJ_LLM_GATEWAY_URL: http://100.64.0.13:8031/v1
+      PXJ_LLM_GATEWAY_KEY: ${PXJ_LLM_GATEWAY_KEY:-}
+      # local bge-small-zh embedding service (TEI) for per-account semantic knowledge base
+      PXJ_EMBED_URL: http://100.64.0.13:8082
+      PXJ_LLM_MAX_CONCURRENCY: 1
+      PXJ_LLM_MIN_INTERVAL_SECONDS: 8
+      PXJ_LLM_QUEUE_WARN_SIZE: 3
+      # Free-tier cap on our default model (realtime calls/account/day); 0=unlimited.
+      # Users who set their own model key are never capped.
+      PXJ_FREE_DAILY_QUOTA: 200
+      # Per-account architecture: control.sqlite3 + data/accounts/<id>.sqlite3.
+      # No Redis/MySQL — per-account files keep reads fast; the LLM concurrency
+      # gate is in-process (single worker). Add Redis only when scaling to >1 worker.
+      PXJ_AUTH_REQUIRED: "true"
+      PXJ_REGISTRATION_ENABLED: "true"
+      PXJ_DEFAULT_ACCOUNT_ID: local
+      # Disable host-injected proxy (127.0.0.1:7897) so httpx reaches the LLM
+      # over tailscale directly (httpx does not honor CIDR no_proxy).
+      HTTP_PROXY: ""
+      HTTPS_PROXY: ""
+      http_proxy: ""
+      https_proxy: ""
+      NO_PROXY: "*"
+      no_proxy: "*"

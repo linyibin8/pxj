@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>学习资产分页浏览</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #f6f7f9; color: #15171a; }
+    header { height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; background: #ffffff; border-bottom: 1px solid #dde1e7; }
+    h1 { font-size: 18px; margin: 0; }
+    main { display: grid; gap: 12px; padding: 14px; }
+    a { color: #175cd3; text-decoration: none; }
+    .header-actions { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .panel, .table-wrap { background: #ffffff; border: 1px solid #dde1e7; border-radius: 8px; }
+    .panel { padding: 12px; }
+    .filters { display: grid; grid-template-columns: 150px 160px 170px 150px 150px 150px minmax(180px, 1fr) 100px auto; gap: 10px; align-items: end; }
+    label { display: grid; gap: 5px; color: #475467; font-size: 12px; }
+    select, input, textarea { border: 1px solid #c7d0dc; border-radius: 6px; background: #ffffff; color: #15171a; font: inherit; font-size: 13px; min-width: 0; }
+    select, input { height: 36px; padding: 0 9px; }
+    textarea { padding: 8px 9px; line-height: 1.4; resize: vertical; }
+    button { height: 36px; border: 1px solid #b9c4d0; border-radius: 6px; background: #ffffff; color: #1d2939; padding: 0 12px; cursor: pointer; font-size: 13px; }
+    button:hover { background: #f2f4f7; }
+    button.primary { background: #175cd3; border-color: #175cd3; color: #ffffff; }
+    button:disabled { cursor: wait; color: #98a2b3; background: #f8fafc; }
+    .meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; color: #667085; font-size: 12px; margin-top: 10px; }
+    .pager { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+    .table-wrap { overflow: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 1720px; }
+    th, td { border-bottom: 1px solid #edf0f3; padding: 10px 12px; vertical-align: top; text-align: left; font-size: 13px; }
+    th { position: sticky; top: 0; background: #fbfcfe; color: #475467; font-weight: 600; z-index: 1; }
+    tbody tr:hover { background: #f8fbff; }
+    .kind { display: inline-block; min-width: 52px; color: #175cd3; font-weight: 600; font-size: 12px; }
+    .status { color: #b42318; }
+    .status-stack { display: grid; gap: 6px; min-width: 130px; }
+    .status-pill { display: inline-flex; width: fit-content; align-items: center; border: 1px solid #c6d7ef; background: #f2f7ff; color: #175cd3; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+    .status-pill.danger { border-color: #fda29b; background: #fff4f2; color: #b42318; }
+    .status-pill.warn { border-color: #fedf89; background: #fffaeb; color: #b54708; }
+    .status-pill.ok { border-color: #abefc6; background: #ecfdf3; color: #067647; }
+    .status-pill.muted { border-color: #d0d5dd; background: #f8fafc; color: #475467; }
+    .muted { color: #667085; font-size: 12px; }
+    .content { max-width: 420px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
+    .small { max-width: 220px; overflow-wrap: anywhere; }
+    .mini { max-width: 150px; overflow-wrap: anywhere; }
+    .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+    .chip { border: 1px solid #c6d7ef; background: #f2f7ff; color: #175cd3; border-radius: 999px; padding: 2px 7px; font-size: 12px; }
+    .evidence-strip { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+    .thumb { width: 86px; aspect-ratio: 16 / 9; object-fit: contain; display: block; border: 1px solid #d0d5dd; border-radius: 6px; background: #f8fafc; }
+    .doc { margin-top: 7px; color: #475467; font-size: 12px; white-space: pre-wrap; max-height: 108px; overflow: auto; border-left: 2px solid #dde6f6; padding-left: 8px; }
+    .field { display: grid; gap: 2px; margin-bottom: 6px; }
+    .field b { font-size: 12px; color: #344054; }
+    .action-stack { display: grid; gap: 8px; min-width: 230px; }
+    .action-title { color: #344054; font-size: 12px; font-weight: 700; }
+    .actions, .review-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+    .actions button { height: 30px; padding: 0 9px; font-size: 12px; }
+    .actions button.confirm { border-color: #84caff; color: #175cd3; }
+    .actions button.ignore { border-color: #d0d5dd; color: #475467; }
+    .actions button.corrected { border-color: #fedf89; color: #b54708; }
+    .actions button.mastered { border-color: #abefc6; color: #067647; }
+    .review-form { display: grid; gap: 6px; border-top: 1px solid #edf0f3; padding-top: 8px; }
+    .review-note { width: 100%; min-height: 54px; }
+    .review-actions button { height: 30px; padding: 0 9px; font-size: 12px; }
+    .review-actions button.correct { border-color: #abefc6; color: #067647; }
+    .review-actions button.incorrect { border-color: #fda29b; color: #b42318; }
+    .review-actions button.postpone { border-color: #fedf89; color: #b54708; }
+    .review-actions button.mastered { border-color: #abefc6; color: #067647; }
+    .row-message { color: #667085; font-size: 12px; margin-top: 6px; }
+    .row-message.error { color: #b42318; }
+    .row-message.ok { color: #067647; }
+    .empty { padding: 28px; text-align: center; color: #667085; }
+    @media (max-width: 980px) {
+      .filters { grid-template-columns: 1fr 1fr; }
+      .pager { margin-left: 0; }
+    }
+    @media (max-width: 640px) {
+      header { align-items: flex-start; height: auto; padding: 12px; gap: 8px; flex-direction: column; }
+      .filters { grid-template-columns: 1fr; }
+      .meta { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>学习资产分页浏览</h1>
+    <div class="header-actions">
+      <a href="/">回合展示</a>
+      <a href="/prompts">提示词配置</a>
+      <span class="muted">learning_items / mistake_items</span>
+    </div>
+  </header>
+  <main>
+    <section class="panel">
+      <form class="filters" id="filters">
+        <label>
+          数据类型
+          <select id="kind" name="kind">
+            <option value="learning">结构化学习条目</option>
+            <option value="mistake">错题本候选</option>
+          </select>
+        </label>
+        <label>
+          学习条目类型
+          <select id="itemType" name="item_type">
+            <option value="">全部</option>
+            <option value="question">题目</option>
+            <option value="section">板块</option>
+            <option value="knowledge">知识点</option>
+            <option value="answer">作答</option>
+          </select>
+        </label>
+        <label>
+          错题生命周期
+          <select id="status" name="status">
+            <option value="">全部生命周期</option>
+            <option value="suspected">疑似错题</option>
+            <option value="confirmed">已确认</option>
+            <option value="incomplete">未完成</option>
+            <option value="corrected">已订正</option>
+            <option value="mastered">已掌握</option>
+            <option value="ignored">已忽略</option>
+          </select>
+        </label>
+        <label>
+          错误类型
+          <input id="errorType" name="error_type" placeholder="计算错误 / 审题错误" />
+        </label>
+        <label>
+          科目
+          <input id="subject" name="subject" placeholder="数学 / 语文" />
+        </label>
+        <label>
+          页面/题号
+          <input id="location" name="location" placeholder="第 3 页 / 第 5 题" />
+        </label>
+        <label>
+          关键词
+          <input id="query" name="q" placeholder="搜索题目、知识点、错因、答案、文档" />
+        </label>
+        <label>
+          每页
+          <select id="pageSize" name="page_size">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+        <button class="primary" type="submit">筛选</button>
+      </form>
+      <div class="meta">
+        <span id="summary">加载中...</span>
+        <span id="activeFilters"></span>
+        <div class="pager">
+          <button type="button" id="prev">上一页</button>
+          <span id="pageText">第 1 页</span>
+          <button type="button" id="next">下一页</button>
+        </div>
+      </div>
+    </section>
+    <section class="table-wrap">
+      <table>
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden>暂无数据</div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const authTokenStorageKey = "pxj.authToken";
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (input, init = {}) => {
+        const url = typeof input === "string" ? input : (input && input.url) || "";
+        const target = new URL(url, location.href);
+        const headers = new Headers(init.headers || (typeof input !== "string" ? input.headers : undefined) || {});
+        const token = localStorage.getItem(authTokenStorageKey) || "";
+        if (token && target.origin === location.origin && !headers.has("Authorization")) {
+          headers.set("Authorization", `Bearer ${token}`);
+        }
+        return originalFetch(input, { ...init, headers, credentials: init.credentials || "same-origin" });
+      };
+    })();
+    let page = 1;
+    let latest = null;
+    let loading = false;
+    const patchingIds = new Set();
+    const reviewingIds = new Set();
+    const actionMessages = new Map();
+    const els = {
+      filters: document.querySelector("#filters"),
+      kind: document.querySelector("#kind"),
+      itemType: document.querySelector("#itemType"),
+      status: document.querySelector("#status"),
+      errorType: document.querySelector("#errorType"),
+      subject: document.querySelector("#subject"),
+      location: document.querySelector("#location"),
+      query: document.querySelector("#query"),
+      pageSize: document.querySelector("#pageSize"),
+      summary: document.querySelector("#summary"),
+      activeFilters: document.querySelector("#activeFilters"),
+      pageText: document.querySelector("#pageText"),
+      prev: document.querySelector("#prev"),
+      next: document.querySelector("#next"),
+      thead: document.querySelector("#thead"),
+      tbody: document.querySelector("#tbody"),
+      empty: document.querySelector("#empty")
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function shortId(value) {
+      return value ? String(value).slice(0, 8) : "";
+    }
+
+    function itemTypeLabel(type) {
+      return { question: "题目", section: "板块", knowledge: "知识点", answer: "作答" }[type] || type || "记录";
+    }
+
+    function statusLabel(status) {
+      return {
+        suspected: "疑似错题",
+        confirmed: "已确认",
+        incomplete: "未完成",
+        corrected: "已订正",
+        mastered: "已掌握",
+        ignored: "已忽略"
+      }[status] || status || "候选";
+    }
+
+    function reviewStateLabel(state) {
+      return {
+        queued: "待复习",
+        scheduled: "已安排",
+        reviewing: "复习中",
+        done: "本轮已复习",
+        mastered: "长期掌握",
+        ignored: "已忽略"
+      }[state] || state || "";
+    }
+
+    function statusTone(status) {
+      if (["mastered"].includes(status)) return "ok";
+      if (["ignored"].includes(status)) return "muted";
+      if (["corrected", "confirmed"].includes(status)) return "warn";
+      return "danger";
+    }
+
+    function reviewTone(state) {
+      if (["mastered"].includes(state)) return "ok";
+      if (["ignored"].includes(state)) return "muted";
+      if (["scheduled", "reviewing"].includes(state)) return "warn";
+      return "";
+    }
+
+    function formatDateTime(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return date.toLocaleString();
+    }
+
+    function listValue(value) {
+      if (Array.isArray(value)) return value;
+      if (!value) return [];
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function setKindControls() {
+      const mistake = els.kind.value === "mistake";
+      els.itemType.disabled = mistake;
+      els.status.disabled = !mistake;
+      els.errorType.disabled = !mistake;
+    }
+
+    function params() {
+      const p = new URLSearchParams();
+      p.set("kind", els.kind.value);
+      p.set("page", String(page));
+      p.set("page_size", els.pageSize.value);
+      if (els.kind.value === "learning" && els.itemType.value) p.set("item_type", els.itemType.value);
+      if (els.kind.value === "mistake" && els.status.value) p.set("status", els.status.value);
+      if (els.kind.value === "mistake" && els.errorType.value.trim()) p.set("error_type", els.errorType.value.trim());
+      if (els.subject.value.trim()) p.set("subject", els.subject.value.trim());
+      if (els.location.value.trim()) p.set("location", els.location.value.trim());
+      if (els.query.value.trim()) p.set("q", els.query.value.trim());
+      const urlSession = new URL(location.href).searchParams.get("session_id");
+      if (urlSession) p.set("session_id", urlSession);
+      return p;
+    }
+
+    function setSelectFromUrl(element, value) {
+      if (!value) return;
+      const exists = Array.from(element.options).some(option => option.value === value);
+      if (exists) element.value = value;
+    }
+
+    function initializeFromUrl() {
+      const query = new URL(location.href).searchParams;
+      setSelectFromUrl(els.kind, query.get("kind"));
+      setSelectFromUrl(els.itemType, query.get("item_type"));
+      setSelectFromUrl(els.status, query.get("status"));
+      setSelectFromUrl(els.pageSize, query.get("page_size"));
+      els.errorType.value = query.get("error_type") || "";
+      els.subject.value = query.get("subject") || "";
+      els.location.value = query.get("location") || "";
+      els.query.value = query.get("q") || "";
+      const requestedPage = Number(query.get("page") || 1);
+      page = Number.isFinite(requestedPage) && requestedPage > 0 ? Math.floor(requestedPage) : 1;
+    }
+
+    async function load(options = {}) {
+      if (loading && !options.force) return;
+      loading = true;
+      els.summary.textContent = "加载中...";
+      els.prev.disabled = true;
+      els.next.disabled = true;
+      setKindControls();
+      try {
+        const res = await fetch(`/api/assets?${params().toString()}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        latest = await res.json();
+        render(latest);
+      } catch (error) {
+        els.summary.textContent = `加载失败：${error.message}`;
+        els.tbody.innerHTML = "";
+        els.empty.hidden = false;
+      } finally {
+        loading = false;
+      }
+    }
+
+    function render(data) {
+      const start = data.total ? (data.page - 1) * data.page_size + 1 : 0;
+      const end = (data.page - 1) * data.page_size + data.items.length;
+      els.summary.textContent = `共 ${Number(data.total || 0)} 条，当前 ${start}-${end}`;
+      els.pageText.textContent = `第 ${data.page} 页`;
+      els.prev.disabled = !data.has_prev;
+      els.next.disabled = !data.has_next;
+      els.activeFilters.textContent = renderActiveFilters(data.filters || {});
+      if (data.kind === "mistake") {
+        renderMistakeTable(data.items || []);
+      } else {
+        renderLearningTable(data.items || []);
+      }
+      els.empty.hidden = Boolean(data.items && data.items.length);
+    }
+
+    function renderActiveFilters(filters) {
+      const parts = [];
+      if (filters.session_id) parts.push(`回合=${shortId(filters.session_id)}`);
+      if (filters.item_type) parts.push(`类型=${itemTypeLabel(filters.item_type)}`);
+      if (filters.status) parts.push(`生命周期=${statusLabel(filters.status)}`);
+      if (filters.error_type) parts.push(`错误类型=${filters.error_type}`);
+      if (filters.subject) parts.push(`科目=${filters.subject}`);
+      if (filters.location) parts.push(`位置=${filters.location}`);
+      if (filters.q) parts.push(`关键词=${filters.q}`);
+      return parts.length ? parts.join(" · ") : "无筛选";
+    }
+
+    function evidenceImages(item) {
+      const details = listValue(item.source_image_details);
+      const fromDetails = details
+        .filter(detail => detail && detail.thumbnail_url)
+        .slice(0, 4)
+        .map(detail => `
+          <a href="${escapeHtml(detail.image_url || detail.thumbnail_url)}" target="_blank" title="seq ${Number(detail.sequence_index || 0)} · ${escapeHtml(detail.captured_at || "")}">
+            <img class="thumb" src="${escapeHtml(detail.thumbnail_url)}" alt="证据图">
+          </a>`)
+        .join("");
+      if (fromDetails) return `<div class="evidence-strip">${fromDetails}</div>`;
+      const count = listValue(item.source_image_ids).length;
+      return count ? `<div class="muted">${count} 张图，旧数据暂无缩略图明细</div>` : `<div class="muted">暂无图片证据</div>`;
+    }
+
+    function locationText(item) {
+      const parts = [item.subject, item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ")].filter(Boolean);
+      return parts.length ? parts.join(" · ") : "未识别";
+    }
+
+    function mistakeStatusBlock(item) {
+      const reviewLabel = reviewStateLabel(item.review_state);
+      const reviewBits = [];
+      if (item.next_review_at) reviewBits.push(`下次：${formatDateTime(item.next_review_at)}`);
+      if (item.review_count != null) reviewBits.push(`复习 ${Number(item.review_count || 0)} 次`);
+      if (item.last_reviewed_at) reviewBits.push(`上次：${formatDateTime(item.last_reviewed_at)}`);
+      if (item.review_note) reviewBits.push(item.review_note);
+      return `
+        <div class="status-stack">
+          <span class="status-pill ${statusTone(item.status)}">${escapeHtml(statusLabel(item.status))}</span>
+          ${reviewLabel ? `<span class="status-pill ${reviewTone(item.review_state)}">${escapeHtml(reviewLabel)}</span>` : ""}
+          ${reviewBits.length ? `<div class="muted">${escapeHtml(reviewBits.join(" · "))}</div>` : ""}
+        </div>`;
+    }
+
+    function mistakeActionPayload(action) {
+      return {
+        confirm: { status: "confirmed", review_state: "queued", review_note: "人工确认错题" },
+        ignore: { status: "ignored", review_state: "ignored", review_note: "人工忽略" },
+        corrected: { status: "corrected", review_state: "queued", review_note: "已完成订正" },
+        mastered: { status: "mastered", review_state: "mastered", review_note: "已掌握" }
+      }[action] || {};
+    }
+
+    function reviewEventPayload(result, note) {
+      return {
+        result,
+        review_note: note,
+        note,
+        source: "assets_page"
+      };
+    }
+
+    function reviewActionLabel(result) {
+      return {
+        correct: "复习正确",
+        incorrect: "复习错误",
+        postpone: "延后",
+        mastered: "已掌握"
+      }[result] || result;
+    }
+
+    function reviewForm(item) {
+      const id = item.id || item.mistake_id;
+      const disabled = reviewingIds.has(id) ? "disabled" : "";
+      const placeholder = item.review_note ? `上次笔记：${item.review_note}` : "复习笔记，可写错因、订正情况或下次提醒";
+      return `
+        <div class="review-form">
+          <div class="action-title">本次复习</div>
+          <textarea class="review-note" data-review-note-for="${escapeHtml(id)}" maxlength="300" placeholder="${escapeHtml(placeholder)}" ${disabled}></textarea>
+          <div class="review-actions">
+            <button class="correct" type="button" data-review-action="correct" data-mistake-id="${escapeHtml(id)}" ${disabled}>复习正确</button>
+            <button class="incorrect" type="button" data-review-action="incorrect" data-mistake-id="${escapeHtml(id)}" ${disabled}>复习错误</button>
+            <button class="postpone" type="button" data-review-action="postpone" data-mistake-id="${escapeHtml(id)}" ${disabled}>延后</button>
+            <button class="mastered" type="button" data-review-action="mastered" data-mistake-id="${escapeHtml(id)}" ${disabled}>已掌握</button>
+          </div>
+        </div>`;
+    }
+
+    function mistakeActions(item) {
+      const id = item.id || item.mistake_id;
+      if (!id) return `<span class="muted">缺少错题 ID</span>`;
+      const disabled = patchingIds.has(id) ? "disabled" : "";
+      return `
+        <div class="action-stack" data-actions-for="${escapeHtml(id)}">
+          <div>
+            <div class="action-title">错题状态</div>
+            <div class="actions">
+              <button class="confirm" type="button" data-mistake-action="confirm" data-mistake-id="${escapeHtml(id)}" ${disabled}>确认</button>
+              <button class="ignore" type="button" data-mistake-action="ignore" data-mistake-id="${escapeHtml(id)}" ${disabled}>忽略</button>
+              <button class="corrected" type="button" data-mistake-action="corrected" data-mistake-id="${escapeHtml(id)}" ${disabled}>已订正</button>
+              <button class="mastered" type="button" data-mistake-action="mastered" data-mistake-id="${escapeHtml(id)}" ${disabled}>已掌握</button>
+            </div>
+          </div>
+          ${reviewForm(item)}
+          <div class="row-message ${escapeHtml(actionMessages.get(id)?.tone || "")}" data-action-message-for="${escapeHtml(id)}">${escapeHtml(actionMessages.get(id)?.message || "")}</div>
+        </div>
+      `;
+    }
+
+    function actionMessageElement(mistakeId) {
+      return Array.from(els.tbody.querySelectorAll("[data-action-message-for]"))
+        .find(element => element.dataset.actionMessageFor === mistakeId);
+    }
+
+    function showActionMessage(mistakeId, message, tone = "") {
+      actionMessages.set(mistakeId, { message, tone });
+      const target = actionMessageElement(mistakeId);
+      if (!target) return;
+      target.className = `row-message ${tone}`.trim();
+      target.textContent = message;
+    }
+
+    function renderLearningTable(items) {
+      els.thead.innerHTML = `
+        <tr>
+          <th>类型</th>
+          <th>科目/位置</th>
+          <th>内容</th>
+          <th>回合</th>
+          <th>来源</th>
+          <th>时间/序号</th>
+          <th>证据</th>
+        </tr>`;
+      els.tbody.innerHTML = items.map(item => `
+        <tr>
+          <td><span class="kind">${escapeHtml(itemTypeLabel(item.item_type))}</span></td>
+          <td class="mini">
+            <div>${escapeHtml(item.subject || "未识别")}</div>
+            <div class="muted">${escapeHtml(item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ") || "未识别")}</div>
+          </td>
+          <td class="content"><strong>${escapeHtml(item.title || item.content)}</strong><br>${escapeHtml(item.content || "")}</td>
+          <td class="small">
+            <a href="/?session_id=${encodeURIComponent(item.session_id)}">${escapeHtml(item.session_title || "学习回合")}</a>
+            <div class="muted">${escapeHtml(shortId(item.session_id))} · ${escapeHtml(item.session_status || "")}</div>
+          </td>
+          <td class="small">
+            batch=${escapeHtml(shortId(item.batch_id))}<br>
+            analysis=${escapeHtml(shortId(item.analysis_id))}
+          </td>
+          <td class="small">
+            <div>${escapeHtml(item.first_seen_at || "未知")}</div>
+            <div class="muted">→ ${escapeHtml(item.last_seen_at || "未知")}</div>
+            <div class="muted">seq ${Number(item.first_sequence_index || 0)}-${Number(item.last_sequence_index || 0)}</div>
+          </td>
+          <td class="small">
+            <div>${Number(item.evidence_count || 1)} 次</div>
+            <div class="muted">${escapeHtml(item.source_summary || `${listValue(item.source_image_ids).length} 张图`)}</div>
+            ${evidenceImages(item)}
+            <div class="muted">${escapeHtml(item.confidence || "")}</div>
+          </td>
+        </tr>`).join("");
+    }
+
+    function renderMistakeTable(items) {
+      els.thead.innerHTML = `
+        <tr>
+          <th>状态</th>
+          <th>科目/页面</th>
+          <th>题目/答案</th>
+          <th>错在哪里</th>
+          <th>订正/下一步</th>
+          <th>知识点</th>
+          <th>回合</th>
+          <th>来源</th>
+          <th>时间</th>
+          <th>操作</th>
+        </tr>`;
+      els.tbody.innerHTML = items.map(item => {
+        const knowledge = listValue(item.knowledge_points);
+        return `
+          <tr>
+            <td>${mistakeStatusBlock(item)}</td>
+            <td class="mini">
+              <div>${escapeHtml(item.subject || "未识别")}</div>
+              <div class="muted">${escapeHtml(item.location_ref || [item.page_ref, item.question_ref].filter(Boolean).join(" ") || "未识别")}</div>
+              ${item.error_type ? `<div class="chip">${escapeHtml(item.error_type)}</div>` : ""}
+            </td>
+            <td class="content">
+              <strong>${escapeHtml(item.title || item.question_text || "错题候选")}</strong><br>
+              ${escapeHtml(item.question_text || "题目未识别")}
+              <div class="muted">学生答案：${escapeHtml(item.student_answer || "未识别")}</div>
+              ${item.expected_answer ? `<div class="muted">参考答案：${escapeHtml(item.expected_answer)}</div>` : ""}
+            </td>
+            <td class="content">
+              <div class="field"><b>错因</b>${escapeHtml(item.error_reason || "未识别")}</div>
+              ${item.evidence ? `<div class="field"><b>证据原文</b><span class="muted">${escapeHtml(item.evidence)}</span></div>` : ""}
+              ${item.document_body ? `<div class="doc">${escapeHtml(item.document_body)}</div>` : ""}
+            </td>
+            <td class="content">
+              <div class="field"><b>订正</b>${escapeHtml(item.correction || "未识别")}</div>
+              <div class="field"><b>下一步</b>${escapeHtml(item.next_action || "未识别")}</div>
+            </td>
+            <td class="small"><div class="chips">${knowledge.map(text => `<span class="chip">${escapeHtml(text)}</span>`).join("") || `<span class="muted">未识别</span>`}</div></td>
+            <td class="small">
+              <a href="/?session_id=${encodeURIComponent(item.session_id)}">${escapeHtml(item.session_title || "学习回合")}</a>
+              <div class="muted">${escapeHtml(shortId(item.session_id))} · ${escapeHtml(item.session_status || "")}</div>
+            </td>
+            <td class="small">
+              batch=${escapeHtml(shortId(item.batch_id))}<br>
+              analysis=${escapeHtml(shortId(item.analysis_id))}<br>
+              <span class="muted">${escapeHtml(item.source_summary || `${listValue(item.source_image_ids).length} 张图`)}</span>
+              ${evidenceImages(item)}
+            </td>
+            <td class="small">
+              <div>${escapeHtml(item.first_seen_at || "未知")}</div>
+              <div class="muted">→ ${escapeHtml(item.last_seen_at || "未知")}</div>
+            </td>
+            <td>${mistakeActions(item)}</td>
+          </tr>`;
+      }).join("");
+    }
+
+    async function updateMistake(mistakeId, action) {
+      const payload = mistakeActionPayload(action);
+      let failedMessage = "";
+      patchingIds.add(mistakeId);
+      render(latest);
+      try {
+        const res = await fetch(`/api/mistakes/${encodeURIComponent(mistakeId)}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) {
+          const detail = await res.text();
+          throw new Error(detail || `HTTP ${res.status}`);
+        }
+        await load({ force: true });
+      } catch (error) {
+        failedMessage = error.message;
+      } finally {
+        patchingIds.delete(mistakeId);
+        render(latest);
+        if (failedMessage) {
+          showActionMessage(mistakeId, `更新失败：${failedMessage}`, "error");
+        }
+      }
+    }
+
+    function reviewNoteValue(mistakeId) {
+      const note = Array.from(els.tbody.querySelectorAll("[data-review-note-for]"))
+        .find(element => element.dataset.reviewNoteFor === mistakeId);
+      return note ? note.value.trim() : "";
+    }
+
+    async function submitReviewEvent(mistakeId, result) {
+      const note = reviewNoteValue(mistakeId);
+      let failedMessage = "";
+      reviewingIds.add(mistakeId);
+      render(latest);
+      try {
+        const res = await fetch(`/api/mistakes/${encodeURIComponent(mistakeId)}/review-events`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(reviewEventPayload(result, note))
+        });
+        if (!res.ok) {
+          const detail = await res.text();
+          throw new Error(detail || `HTTP ${res.status}`);
+        }
+        await load({ force: true });
+        showActionMessage(mistakeId, `${reviewActionLabel(result)}已记录`, "ok");
+      } catch (error) {
+        failedMessage = error.message;
+      } finally {
+        reviewingIds.delete(mistakeId);
+        render(latest);
+        if (failedMessage) {
+          showActionMessage(mistakeId, `复习记录提交失败：${failedMessage}`, "error");
+        }
+      }
+    }
+
+    els.filters.onsubmit = event => {
+      event.preventDefault();
+      page = 1;
+      load();
+    };
+    els.kind.onchange = () => {
+      page = 1;
+      setKindControls();
+      load();
+    };
+    els.prev.onclick = () => {
+      if (latest?.has_prev) {
+        page -= 1;
+        load();
+      }
+    };
+    els.next.onclick = () => {
+      if (latest?.has_next) {
+        page += 1;
+        load();
+      }
+    };
+    els.tbody.addEventListener("click", event => {
+      const reviewButton = event.target.closest("[data-review-action]");
+      if (reviewButton && !reviewButton.disabled) {
+        submitReviewEvent(reviewButton.dataset.mistakeId, reviewButton.dataset.reviewAction);
+        return;
+      }
+      const button = event.target.closest("[data-mistake-action]");
+      if (!button || button.disabled) return;
+      updateMistake(button.dataset.mistakeId, button.dataset.mistakeAction);
+    });
+    initializeFromUrl();
+    setKindControls();
+    load();
+  </script>
+</body>
+</html>
