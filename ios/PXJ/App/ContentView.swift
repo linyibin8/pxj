@@ -2995,7 +2995,7 @@ private struct ObservationDanmakuOverlay: View {
     }
 }
 
-private struct LiveQuestionRegionOverlay: View {
+struct LiveQuestionRegionOverlay: View {
     let imageSize: CGSize
     let candidates: [ObservationQuestionCandidate]
     let visible: Bool
@@ -12435,6 +12435,9 @@ final class AppState: ObservableObject {
 
     func prepareForObservationStart() {
         guard !isBursting else { return }
+        observationStopNoticeTask?.cancel()
+        observationStopNoticeTask = nil
+        observationStopNotice = nil
         if hasChatStarted || sessionId != nil || !qaAnswer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !recognizedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             startNewConversation()
             chatMessages.removeAll()
@@ -12703,16 +12706,7 @@ final class AppState: ObservableObject {
         let pendingText = pendingCount > 0 ? "，正异步传输到服务器" : "，正交给服务器后台处理"
         observationStopNotice = ObservationStopNotice(message: "\(countText)\(pendingText)，后台会自动生成该回合的报告。")
         observationStopNoticeTask?.cancel()
-        observationStopNoticeTask = Task { [weak self] in
-            try? await Task.sleep(nanoseconds: 5_500_000_000)
-            await MainActor.run {
-                guard let self else { return }
-                withAnimation(.easeInOut(duration: 0.22)) {
-                    self.observationStopNotice = nil
-                }
-                self.observationStopNoticeTask = nil
-            }
-        }
+        observationStopNoticeTask = nil
     }
 
     func cameraDidOpen(hostId: UUID) {

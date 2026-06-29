@@ -99,6 +99,9 @@ struct iPadLearnView: View {
         VStack(spacing: 16) {
             cameraStage
             observationButton
+            if let notice = state.observationStopNotice, !state.isBursting {
+                iPadObservationPostActions(state: state, notice: notice)
+            }
             if state.isBursting {
                 observationTicker   // #7 智能观察实时滚动文字（对齐 iPhone 的「直播」动态感）
             }
@@ -160,6 +163,12 @@ struct iPadLearnView: View {
             if state.cameraPreviewVisible {
                 CameraView(state: state)
                     .clipShape(RoundedRectangle(cornerRadius: 18))
+                LiveQuestionRegionOverlay(
+                    imageSize: state.observationQuestionOverlayImageSize,
+                    candidates: state.observationQuestionOverlayCandidates,
+                    visible: state.observationQuestionOverlayVisible
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 18))
             } else {
                 VStack(spacing: 10) {
                     Image(systemName: "camera.viewfinder")
@@ -393,6 +402,71 @@ struct iPadLearnView: View {
         state.submitTypedQuestion(text)
         draft = ""
         composerFocused = false
+    }
+}
+
+struct iPadObservationPostActions: View {
+    @ObservedObject var state: AppState
+    let notice: ObservationStopNotice
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 8) {
+                Image(systemName: "icloud.and.arrow.up")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.tint)
+                    .frame(width: 20)
+                Text("本轮观察")
+                    .font(.caption.weight(.semibold))
+                Spacer(minLength: 0)
+            }
+
+            Text(notice.message)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            HStack(spacing: 7) {
+                Button {
+                    state.generateObservationReportNow()
+                } label: {
+                    Label("报告", systemImage: "doc.text.magnifyingglass")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.small)
+                .accessibilityIdentifier("ipad-observation-report-action")
+
+                Button {
+                    state.extractAllObservationQuestions()
+                } label: {
+                    Label("题目", systemImage: "rectangle.stack.badge.plus")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+                .accessibilityIdentifier("ipad-observation-questions-action")
+
+                Button {
+                    state.extractObservationMistakes()
+                } label: {
+                    Label("错题", systemImage: "book.closed")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+                .accessibilityIdentifier("ipad-observation-mistakes-action")
+            }
+            .font(.caption.weight(.semibold))
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.systemBackground), in: RoundedRectangle(cornerRadius: 8))
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color(.separator).opacity(0.42), lineWidth: 1)
+        )
+        .accessibilityIdentifier("ipad-observation-stop-actions")
     }
 }
 
