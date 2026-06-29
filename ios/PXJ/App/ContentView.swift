@@ -9834,24 +9834,34 @@ final class AppState: ObservableObject {
             let status = await fetchObservationQuestionSetStatus(sessionId: sessionId)
             await refreshServerTasks()
             guard let status else { continue }
+            let taskStatus = status.latestTask?.status ?? ""
 
             if status.questionSetCount > 0 {
                 extractUniqueCount = status.questionSetCount
-                if let html = await fetchRestoreHTML(view: "restore") {
-                    extractRestoreHTML = html
-                    extractResultVisible = true
+                if taskStatus == "done" || taskStatus == "failed" || status.latestTask == nil {
+                    if let html = await fetchRestoreHTML(view: "restore") {
+                        extractRestoreHTML = html
+                        extractResultVisible = true
+                    }
+                    upsertStatusChatMessage(
+                        key: "observation-question-extract",
+                        title: taskStatus == "failed" ? "题目提取部分完成" : "题目提取完成",
+                        text: "已从本轮 \(imageCount) 张关键图提取并合并出 \(status.questionSetCount) 道题，可查看还原页/空白卷。",
+                        systemImage: taskStatus == "failed" ? "exclamationmark.triangle" : "checkmark.circle"
+                    )
+                    observationQuestionExtractionPollTask = nil
+                    return
                 }
                 upsertStatusChatMessage(
                     key: "observation-question-extract",
-                    title: "题目提取完成",
-                    text: "已从本轮 \(imageCount) 张关键图提取并合并出 \(status.questionSetCount) 道题，可查看还原页/空白卷。",
-                    systemImage: "checkmark.circle"
+                    title: "题目提取处理中",
+                    text: "已先识别到 \(status.questionSetCount) 道题，后台仍在合并剩余关键图；完成后会自动打开最终还原页。",
+                    systemImage: "clock",
+                    showsProgress: true
                 )
-                observationQuestionExtractionPollTask = nil
-                return
+                continue
             }
 
-            let taskStatus = status.latestTask?.status ?? ""
             if taskStatus == "done" {
                 upsertStatusChatMessage(
                     key: "observation-question-extract",
