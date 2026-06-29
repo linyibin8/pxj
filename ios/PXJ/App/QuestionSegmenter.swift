@@ -93,18 +93,23 @@ enum QuestionSegmenter {
         let avgHeight = lines.map { $0.rect.height }.reduce(0, +) / CGFloat(lines.count)
 
         let pad: CGFloat = 0.012
+        let layout = questionLayout(for: lines, avgHeight: avgHeight)
         var regions: [QuestionRegion] = []
 
         /// 由一组文字行生成题块矩形；yBottomOverride 把竖直下界延伸到下一题题号，
         /// 从而把「题号到下一题之间」的图形/留白也圈进来（密排题切得更全更准）。
-        func makeRegion(_ block: [TextLine], yBottomOverride: CGFloat?) -> QuestionRegion? {
+        func makeRegion(_ block: [TextLine], yBottomOverride: CGFloat?, isTerminalBlock: Bool) -> QuestionRegion? {
             guard let first = block.first else { return nil }
             var union = first.rect
             for line in block.dropFirst() { union = union.union(line.rect) }
-            if let yb = yBottomOverride, yb > union.minY {
-                union = CGRect(x: union.minX, y: union.minY, width: union.width, height: yb - union.minY)
-            }
-            let padded = clampRect(union.insetBy(dx: -pad, dy: -pad))
+            let expanded = expandedQuestionRect(
+                for: union,
+                block: block,
+                layout: layout,
+                yBottomOverride: yBottomOverride,
+                isTerminalBlock: isTerminalBlock
+            )
+            let padded = clampRect(expanded.insetBy(dx: -pad, dy: -pad))
             guard padded.width * padded.height >= 0.012 else { return nil }
             let text = block.map { $0.text }.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
             guard !text.isEmpty else { return nil }
@@ -119,7 +124,7 @@ enum QuestionSegmenter {
             for (a, start) in anchors.enumerated() {
                 let end = (a + 1 < anchors.count) ? anchors[a + 1] : lines.count
                 let yBottom = (a + 1 < anchors.count) ? lines[anchors[a + 1]].rect.minY - pad : nil
-                if let region = makeRegion(Array(lines[start..<end]), yBottomOverride: yBottom) {
+                if let region = makeRegion(Array(lines[start..<end]), yBottomOverride: yBottom, isTerminalBlock: a + 1 == anchors.count) {
                     regions.append(region)
                 }
             }
@@ -136,8 +141,12 @@ enum QuestionSegmenter {
                 } else { current.append(line) }
             }
             if !current.isEmpty { blocks.append(current) }
-            for block in blocks {
-                if let region = makeRegion(block, yBottomOverride: nil) { regions.append(region) }
+            for (idx, block) in blocks.enumerated() {
+                let nextTop = (idx + 1 < blocks.count) ? blocks[idx + 1].first?.rect.minY : nil
+                let yBottom = nextTop.map { $0 - pad }
+                if let region = makeRegion(block, yBottomOverride: yBottom, isTerminalBlock: idx + 1 == blocks.count) {
+                    regions.append(region)
+                }
             }
         }
 
@@ -199,6 +208,220 @@ enum QuestionSegmenter {
         var rect: CGRect
         var text: String
         var confidence: Double
+    }
+
+    // Layout estimate used to grow OCR-only boxes into practical question crops.
+    private struct QuestionLayout {
+        var contentRect: CGRect
+        var columns: [CGRect]
+        var medianLineHeight: CGFloat
+    }
+
+    private static func questionLayout(for lines: [TextLine], avgHeight: CGFloat) -> QuestionLayout {
+        guard let textRect = unionRect(for: lines) else {
+            let fallback = CGRect(x: 0.06, y: 0.04, width: 0.88, height: 0.88)
+            return QuestionLayout(contentRect: fallback, columns: [fallback], medianLineHeight: 0.018)
+        }
+
+        let safeAvgHeight = max(avgHeight, 0.012)
+        let medianHeight = max(median(lines.map { $0.rect.height }), safeAvgHeight)
+        let xPad = max(0.026, min(0.06, medianHeight * 2.2))
+        let safeMinX: CGFloat = 0.025
+        let safeMaxX: CGFloat = 0.975
+        let desiredWidth = min(safeMaxX - safeMinX, max(textRect.width + xPad * 2, 0.68))
+        let xSpan = boundedSpan(center: textRect.midX, length: desiredWidth, lower: safeMinX, upper: safeMaxX)
+
+        let topPad = max(0.012, medianHeight * 1.2)
+        let bottomPad = max(0.09, medianHeight * 5.0)
+        let minContentHeight = max(0.30, medianHeight * 10.0)
+        let minY = max(0, textRect.minY - topPad)
+        let maxY = min(0.985, max(textRect.maxY + bottomPad, minY + minContentHeight))
+        let contentRect = CGRect(x: xSpan.min, y: minY, width: xSpan.max - xSpan.min, height: max(0, maxY - minY))
+        let columns = questionColumns(for: lines, contentRect: contentRect, medianHeight: medianHeight)
+
+        return QuestionLayout(
+            contentRect: contentRect,
+            columns: columns.isEmpty ? [contentRect] : columns,
+            medianLineHeight: medianHeight
+        )
+    }
+
+    private static func expandedQuestionRect(
+        for textRect: CGRect,
+        block: [TextLine],
+        layout: QuestionLayout,
+        yBottomOverride: CGFloat?,
+        isTerminalBlock: Bool
+    ) -> CGRect {
+        let column = questionColumn(for: textRect, block: block, layout: layout)
+        var minX = textRect.minX
+        var maxX = textRect.maxX
+
+        if textRect.width < column.width * 0.92 {
+            minX = column.minX
+            maxX = column.maxX
+        } else {
+            let sidePad = min(0.02, column.width * 0.035)
+            minX = max(column.minX, textRect.minX - sidePad)
+            maxX = min(column.maxX, textRect.maxX + sidePad)
+        }
+
+        let minY = textRect.minY
+        var maxY = textRect.maxY
+        var hardBottom: CGFloat?
+        if let yb = yBottomOverride, yb > textRect.maxY {
+            let boundary = min(0.985, yb)
+            hardBottom = boundary
+            maxY = max(maxY, boundary)
+        }
+
+        let terminalWithoutBoundary = isTerminalBlock && hardBottom == nil
+        let minHeight = minimumQuestionHeight(for: textRect, column: column, layout: layout, terminal: terminalWithoutBoundary)
+        if maxY - minY < minHeight {
+            let desiredBottom = minY + minHeight
+            if let hardBottom = hardBottom {
+                maxY = min(hardBottom, max(maxY, desiredBottom))
+            } else {
+                maxY = max(maxY, desiredBottom)
+            }
+        }
+
+        if terminalWithoutBoundary {
+            maxY = max(maxY, terminalQuestionBottom(for: textRect, minY: minY, column: column, layout: layout))
+            let generatedHeightCap = min(max(0.42, layout.medianLineHeight * 14.0), 0.56)
+            maxY = min(maxY, minY + max(textRect.height, generatedHeightCap))
+        }
+
+        maxY = min(0.985, maxY)
+        return clampRect(CGRect(x: minX, y: minY, width: max(0, maxX - minX), height: max(0, maxY - minY)))
+    }
+
+    private static func questionColumns(for lines: [TextLine], contentRect: CGRect, medianHeight: CGFloat) -> [CGRect] {
+        let candidates = lines.filter { line in
+            line.rect.width <= contentRect.width * 0.72 &&
+            line.rect.midX >= contentRect.minX &&
+            line.rect.midX <= contentRect.maxX
+        }
+        guard candidates.count >= 4 else { return [contentRect] }
+
+        let centers = candidates.map { $0.rect.midX }.sorted()
+        var bestGap: CGFloat = 0
+        var bestIndex: Int?
+        for idx in 0..<(centers.count - 1) {
+            let leftCount = idx + 1
+            let rightCount = centers.count - leftCount
+            guard leftCount >= 2, rightCount >= 2 else { continue }
+            let gap = centers[idx + 1] - centers[idx]
+            if gap > bestGap {
+                bestGap = gap
+                bestIndex = idx
+            }
+        }
+
+        guard let splitIndex = bestIndex else { return [contentRect] }
+        let minGap = max(0.16, contentRect.width * 0.22)
+        guard bestGap >= minGap else { return [contentRect] }
+
+        let splitX = (centers[splitIndex] + centers[splitIndex + 1]) / 2
+        let crossingCount = lines.filter { $0.rect.minX < splitX && $0.rect.maxX > splitX }.count
+        guard crossingCount <= max(1, lines.count / 5) else { return [contentRect] }
+
+        let leftLines = lines.filter { $0.rect.midX < splitX }
+        let rightLines = lines.filter { $0.rect.midX >= splitX }
+        guard !leftLines.isEmpty, !rightLines.isEmpty else { return [contentRect] }
+
+        let leftWidth = splitX - contentRect.minX
+        let rightWidth = contentRect.maxX - splitX
+        guard leftWidth >= 0.24, rightWidth >= 0.24 else { return [contentRect] }
+
+        return [
+            questionColumnRect(xMin: contentRect.minX, xMax: splitX, lines: leftLines, contentRect: contentRect, medianHeight: medianHeight),
+            questionColumnRect(xMin: splitX, xMax: contentRect.maxX, lines: rightLines, contentRect: contentRect, medianHeight: medianHeight)
+        ]
+    }
+
+    private static func questionColumnRect(xMin: CGFloat, xMax: CGFloat, lines: [TextLine], contentRect: CGRect, medianHeight: CGFloat) -> CGRect {
+        let bottomPad = max(0.09, medianHeight * 5.0)
+        let minColumnHeight = max(0.30, medianHeight * 10.0)
+        let lineMaxY = lines.map { $0.rect.maxY }.max() ?? contentRect.maxY
+        let maxY = min(0.985, max(lineMaxY + bottomPad, contentRect.minY + minColumnHeight))
+        return CGRect(x: xMin, y: contentRect.minY, width: max(0, xMax - xMin), height: max(0, maxY - contentRect.minY))
+    }
+
+    private static func questionColumn(for textRect: CGRect, block: [TextLine], layout: QuestionLayout) -> CGRect {
+        guard layout.columns.count > 1 else { return layout.contentRect }
+        if textRect.width >= layout.contentRect.width * 0.70 { return layout.contentRect }
+
+        var best = layout.columns[0]
+        var bestScore = -CGFloat.greatestFiniteMagnitude
+        for column in layout.columns {
+            var score = horizontalOverlap(textRect, column) * 2.0
+            for line in block {
+                if line.rect.midX >= column.minX && line.rect.midX <= column.maxX {
+                    score += 0.05
+                }
+            }
+            score -= abs(textRect.midX - column.midX) * 0.1
+            if score > bestScore {
+                bestScore = score
+                best = column
+            }
+        }
+        return best
+    }
+
+    private static func minimumQuestionHeight(for textRect: CGRect, column: CGRect, layout: QuestionLayout, terminal: Bool) -> CGFloat {
+        let byLine = layout.medianLineHeight * (terminal ? 8.0 : 5.0)
+        let byColumn = column.width * (terminal ? 0.30 : 0.20)
+        let floor: CGFloat = terminal ? 0.20 : 0.12
+        let cap: CGFloat = terminal ? 0.38 : 0.28
+        let desired = max(floor, max(byLine, byColumn))
+        return min(max(textRect.height, desired), cap)
+    }
+
+    private static func terminalQuestionBottom(for textRect: CGRect, minY: CGFloat, column: CGRect, layout: QuestionLayout) -> CGFloat {
+        let extra = max(0.07, layout.medianLineHeight * 3.5)
+        let desired = max(column.maxY, textRect.maxY + extra)
+        return min(0.985, max(desired, minY + minimumQuestionHeight(for: textRect, column: column, layout: layout, terminal: true)))
+    }
+
+    private static func unionRect(for lines: [TextLine]) -> CGRect? {
+        guard let first = lines.first else { return nil }
+        var rect = first.rect
+        for line in lines.dropFirst() {
+            rect = rect.union(line.rect)
+        }
+        return rect
+    }
+
+    private static func median(_ values: [CGFloat]) -> CGFloat {
+        guard !values.isEmpty else { return 0 }
+        let sorted = values.sorted()
+        let mid = sorted.count / 2
+        if sorted.count % 2 == 0 {
+            return (sorted[mid - 1] + sorted[mid]) / 2
+        }
+        return sorted[mid]
+    }
+
+    private static func boundedSpan(center: CGFloat, length: CGFloat, lower: CGFloat, upper: CGFloat) -> (min: CGFloat, max: CGFloat) {
+        let available = max(0, upper - lower)
+        let span = min(max(0, length), available)
+        var minValue = center - span / 2
+        var maxValue = center + span / 2
+        if minValue < lower {
+            maxValue += lower - minValue
+            minValue = lower
+        }
+        if maxValue > upper {
+            minValue -= maxValue - upper
+            maxValue = upper
+        }
+        return (max(lower, minValue), min(upper, maxValue))
+    }
+
+    private static func horizontalOverlap(_ lhs: CGRect, _ rhs: CGRect) -> CGFloat {
+        max(0, min(lhs.maxX, rhs.maxX) - max(lhs.minX, rhs.minX))
     }
 
     /// 四角，归一化、左下原点（Vision 原生）。topLeft 等指“视觉上的”角，与 CIFilter 一致。
