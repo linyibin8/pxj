@@ -11190,6 +11190,59 @@ def _observe_simhash(stem: str) -> str:
     return f"{out:016x}"
 
 
+_OBSERVE_PLACEHOLDER_STEM_SIGNALS = (
+    "题目文字未识别",
+    "题干文字未识别",
+    "题目文字被遮挡",
+    "题干文字被遮挡",
+    "文字未识别",
+    "仅可见图示",
+    "仅见图示",
+    "仅见插图",
+)
+
+_OBSERVE_PLACEHOLDER_CONTEXT_SIGNALS = (
+    "结合图示",
+    "图示为",
+    "含房屋",
+    "含插图",
+    "含图示",
+)
+
+_OBSERVE_GENERIC_STEM_NORMS = {
+    "做一做填一填",
+}
+
+
+def _observe_question_placeholder(stem: str) -> bool:
+    compact = re.sub(r"[\s()（）【】\[\]{}「」『』。，、；;：:,.!?！？]+", "", stem or "")
+    if not compact:
+        return True
+    if any(signal in compact for signal in _OBSERVE_PLACEHOLDER_STEM_SIGNALS):
+        return True
+    if ("未识别" in compact or "被遮挡" in compact) and any(
+        signal in compact for signal in _OBSERVE_PLACEHOLDER_CONTEXT_SIGNALS
+    ):
+        return True
+    return False
+
+
+def _observe_question_too_generic(question: dict) -> bool:
+    stem_norm = _observe_normalize_stem(question.get("stem") or "")
+    return not (question.get("number") or "").strip() and stem_norm in _OBSERVE_GENERIC_STEM_NORMS
+
+
+def _observe_question_should_keep(question: dict) -> bool:
+    stem = (question.get("stem") or "").strip()
+    if not stem or stem in {"未识别", "无法识别", "看不清"}:
+        return False
+    if _observe_question_placeholder(stem):
+        return False
+    if _observe_question_too_generic(question):
+        return False
+    return True
+
+
 def _build_observe_response(raw: str, do_grade: bool) -> dict:
     """把观察台单图提取的视觉模型原始文本解析成稳定契约。复用题目分割的鲁棒 JSON 抽取
     （_extract_segmentation_object）。每题清洗 index/number/subject/qtype/stem/options/blanks/
@@ -11238,6 +11291,8 @@ def _build_observe_response(raw: str, do_grade: bool) -> dict:
                 "fingerprint": hashlib.sha1(stem_norm.encode("utf-8")).hexdigest() if stem_norm else "",
                 "simhash": _observe_simhash(stem),
             }
+            if not _observe_question_should_keep(question):
+                continue
             if do_grade:
                 verdict = str(entry.get("verdict") or "").strip()
                 if verdict not in _GRADING_VERDICTS:
@@ -11399,12 +11454,19 @@ def _questions_look_same(a: dict, b: dict) -> bool:
         return True
     same_number = bool(a.get("number")) and str(a.get("number")) == str(b.get("number"))
     same_type = bool(a.get("qtype")) and str(a.get("qtype")) == str(b.get("qtype"))
+    one_unnumbered = bool(a.get("number")) != bool(b.get("number"))
     common_prefix = _common_prefix_len(stem_a, stem_b)
+    if same_number and shorter_stem_len >= 4 and (stem_a in stem_b or stem_b in stem_a):
+        return True
     if shorter_stem_len >= 10 and stem_similarity >= 0.98:
         return True
     if same_number and shorter_stem_len >= 12 and common_prefix >= 8 and stem_similarity >= 0.32:
         return True
     if same_number and shorter_stem_len >= 10 and common_prefix >= min(14, shorter_stem_len):
+        return True
+    if same_number and shorter_stem_len >= 6 and stem_similarity >= 0.42:
+        return True
+    if one_unnumbered and shorter_stem_len >= 14 and stem_similarity >= 0.56 and (same_type or similarity >= 0.54):
         return True
     if shorter_stem_len >= 18 and stem_similarity >= 0.94:
         return True
@@ -11419,35 +11481,82 @@ def _questions_look_same(a: dict, b: dict) -> bool:
     return False
 
 
+def _question_quality_score(question: dict) -> int:
+    stem = question.get("stem") or ""
+    stem_norm = _question_stem_norm_text(question)
+    score = min(len(stem_norm), 220)
+    if (question.get("number") or "").strip():
+        score += 28
+    if (question.get("qtype") or "").strip() and question.get("qtype") != "其它":
+        score += 4
+    if question.get("figure_note"):
+        score += 3
+    if isinstance(question.get("options"), list):
+        score += min(12, len(question["options"]) * 3)
+    if "未识别" in stem or "被遮挡" in stem:
+        score -= 35
+    if _observe_question_too_generic(question):
+        score -= 120
+    if _observe_question_placeholder(stem):
+        score -= 1000
+    return score
+
+
+def _question_number_value(question: dict) -> int | None:
+    match = re.search(r"\d+", str(question.get("number") or ""))
+    if not match:
+        return None
+    try:
+        return int(match.group(0))
+    except ValueError:
+        return None
+
+
+def _order_question_set_if_safe(questions: list[dict]) -> list[dict]:
+    numbered = [_question_number_value(question) for question in questions]
+    present_numbers = [number for number in numbered if number is not None]
+    if len(present_numbers) < 2:
+        return questions
+    # 多页练习经常会从 1 重新编号；这种情况保留拍摄顺序，避免跨页乱序。
+    if len(set(present_numbers)) != len(present_numbers):
+        return questions
+    if len(present_numbers) < max(2, len(questions) - 1):
+        return questions
+    return [
+        item
+        for _, item in sorted(
+            enumerate(questions),
+            key=lambda pair: (
+                _question_number_value(pair[1]) if _question_number_value(pair[1]) is not None else 10**6 + pair[0],
+                pair[0],
+            ),
+        )
+    ]
+
+
 def _dedupe_question_set(questions: list[dict]) -> list[dict]:
     result: list[dict] = []
     for question in questions:
-        stem = (question.get("stem") or "").strip()
-        if not stem or stem in {"未识别", "无法识别", "看不清"}:
+        if not _observe_question_should_keep(question):
             continue
-        if any(_questions_look_same(question, existing) for existing in result):
+        replaced = False
+        for index, existing in enumerate(result):
+            if _questions_look_same(question, existing):
+                if _question_quality_score(question) > _question_quality_score(existing) + 6:
+                    result[index] = question
+                replaced = True
+                break
+        if replaced:
             continue
         result.append(question)
-    return result
+    return _order_question_set_if_safe(result)
 
 
 def _consolidate_question_set(prior: list[dict], new: list[dict]) -> list[dict]:
     """把本张图新提取的题并入已有题目集并去重（服务端是唯一去重者，两端一致）。
-    fingerprint 精确命中跳过；否则 simhash/题干相似度命中视为近似同题跳过。保留先到题。"""
-    result = _dedupe_question_set(prior)
-    seen_fp = {q.get("fingerprint") for q in result if q.get("fingerprint")}
-    for q in new:
-        if not (q.get("stem") or "").strip():
-            continue
-        fp = q.get("fingerprint") or ""
-        if fp and fp in seen_fp:
-            continue
-        if any(_questions_look_same(q, e) for e in result):
-            continue
-        result.append(q)
-        if fp:
-            seen_fp.add(fp)
-    return result
+    fingerprint 精确命中跳过；否则 simhash/题干相似度命中视为近似同题。
+    同题同时出现短版/占位版/完整版时，保留更完整的版本。"""
+    return _dedupe_question_set([*prior, *new])
 
 
 def _latest_question_set(session_id: str) -> list[dict]:
@@ -11535,13 +11644,43 @@ async def _extract_questions_from_stored_image(
     }
 
 
+def _question_extraction_signal_count(summary: str, label: str) -> int:
+    match = re.search(rf"{re.escape(label)}\s*(\d+)", summary or "")
+    if not match:
+        return 0
+    try:
+        return max(0, int(match.group(1)))
+    except ValueError:
+        return 0
+
+
+def _question_extraction_frame_score(row: dict) -> float:
+    summary = row.get("signal_summary") or ""
+    text_count = _question_extraction_signal_count(summary, "文字")
+    rect_count = _question_extraction_signal_count(summary, "矩形")
+    score = text_count * 10 + rect_count * 3
+    if text_count == 0:
+        score -= 80
+    if "学生在场" in summary or "手" in summary:
+        score -= 8
+    visual_distance = row.get("visual_distance")
+    try:
+        if visual_distance is not None and float(visual_distance) < 1.0:
+            score -= 4
+    except (TypeError, ValueError):
+        pass
+    return score
+
+
 def _question_extraction_filenames_for_session(session_id: str, limit: int = 80) -> list[str]:
-    """选择本轮观察里值得进入整轮提题的图片：跳过服务端已判定 invalid/duplicate 的帧。"""
+    """选择本轮观察里值得进入整轮提题的图片：跳过 invalid/duplicate，并从每个抓拍批次挑最清晰的一帧。"""
     limit = max(1, min(int(limit or 80), 160))
+    fetch_limit = max(limit * 4, limit)
     with connect() as conn:
         rows = conn.execute(
             """
-            SELECT images.filename
+            SELECT images.filename, images.batch_id, images.sequence_index, images.created_at,
+                   obs.visual_distance, COALESCE(obs.signal_summary, '') AS signal_summary
             FROM images
             LEFT JOIN session_observations obs ON obs.image_id = images.id
             WHERE images.session_id=?
@@ -11550,9 +11689,31 @@ def _question_extraction_filenames_for_session(session_id: str, limit: int = 80)
             ORDER BY images.sequence_index ASC, images.created_at ASC
             LIMIT ?
             """,
-            (session_id, limit),
+            (session_id, fetch_limit),
         ).fetchall()
-    return [row["filename"] for row in rows if row["filename"]]
+    best_by_batch: dict[str, dict] = {}
+    for raw_row in rows:
+        row = row_to_dict(raw_row)
+        filename = row.get("filename")
+        if not filename:
+            continue
+        batch_key = row.get("batch_id") or filename
+        current = best_by_batch.get(batch_key)
+        if current is None:
+            best_by_batch[batch_key] = row
+            continue
+        current_key = (_question_extraction_frame_score(current), current.get("sequence_index") or 0)
+        candidate_key = (_question_extraction_frame_score(row), row.get("sequence_index") or 0)
+        if candidate_key > current_key:
+            best_by_batch[batch_key] = row
+    selected = sorted(
+        best_by_batch.values(),
+        key=lambda item: (
+            item.get("sequence_index") if item.get("sequence_index") is not None else 10**9,
+            item.get("created_at") or "",
+        ),
+    )
+    return [row["filename"] for row in selected[:limit] if row.get("filename")]
 
 
 async def run_session_question_extraction(session_id: str, filenames: list[str], task_id: str | None = None) -> dict:
