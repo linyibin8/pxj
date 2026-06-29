@@ -96,6 +96,15 @@ struct iPadHistoryView: View {
                                 Label(session.studentGoal, systemImage: "target")
                                     .font(.footnote).foregroundStyle(.secondary)
                             }
+                            if session.questionCount > 0 {
+                                Button {
+                                    Task { await state.openExtractedQuestions(for: session) }
+                                } label: {
+                                    Label("题目（\(session.questionCount)）", systemImage: "rectangle.stack")
+                                }
+                                .buttonStyle(.bordered)
+                                .controlSize(.small)
+                            }
                         }
 
                         if loadingReport {

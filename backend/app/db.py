@@ -413,6 +413,32 @@ def _init_schema(conn: sqlite3.Connection) -> None:
                 FOREIGN KEY(analysis_id) REFERENCES analyses(id)
             );
 
+            CREATE TABLE IF NOT EXISTS extracted_questions (
+                id TEXT PRIMARY KEY,
+                session_id TEXT NOT NULL,
+                question_index INTEGER NOT NULL DEFAULT 0,
+                question_key TEXT NOT NULL,
+                number TEXT NOT NULL DEFAULT '',
+                subject TEXT NOT NULL DEFAULT '',
+                qtype TEXT NOT NULL DEFAULT '',
+                stem TEXT NOT NULL DEFAULT '',
+                options TEXT NOT NULL DEFAULT '[]',
+                blanks INTEGER NOT NULL DEFAULT 0,
+                figure_note TEXT NOT NULL DEFAULT '',
+                has_student_answer INTEGER NOT NULL DEFAULT 0,
+                student_answer TEXT NOT NULL DEFAULT '',
+                fingerprint TEXT NOT NULL DEFAULT '',
+                simhash TEXT NOT NULL DEFAULT '',
+                src_filename TEXT NOT NULL DEFAULT '',
+                payload TEXT NOT NULL DEFAULT '{}',
+                first_seen_at TEXT NOT NULL DEFAULT '',
+                last_seen_at TEXT NOT NULL DEFAULT '',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                FOREIGN KEY(session_id) REFERENCES sessions(id),
+                UNIQUE(session_id, question_key)
+            );
+
             CREATE TABLE IF NOT EXISTS qa_events (
                 id TEXT PRIMARY KEY,
                 session_id TEXT NOT NULL,
@@ -619,6 +645,25 @@ def _init_schema(conn: sqlite3.Connection) -> None:
         ensure_column(conn, "mistake_items", "corrected_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "mistake_items", "mastered_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "mistake_items", "detection_method", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "question_index", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "extracted_questions", "question_key", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "number", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "subject", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "qtype", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "stem", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "options", "TEXT NOT NULL DEFAULT '[]'")
+        ensure_column(conn, "extracted_questions", "blanks", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "extracted_questions", "figure_note", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "has_student_answer", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "extracted_questions", "student_answer", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "fingerprint", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "simhash", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "src_filename", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "payload", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "extracted_questions", "first_seen_at", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "last_seen_at", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "created_at", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "updated_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "review_events", "event_type", "TEXT NOT NULL DEFAULT 'review'")
         ensure_column(conn, "review_events", "note", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "review_events", "source", "TEXT NOT NULL DEFAULT ''")
@@ -777,6 +822,9 @@ def _init_schema(conn: sqlite3.Connection) -> None:
         conn.execute("CREATE INDEX IF NOT EXISTS idx_mistake_items_session_status ON mistake_items(session_id, status, first_seen_at)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_mistake_items_review ON mistake_items(status, review_state, next_review_at)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_report_events_session ON report_events(session_id, id)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_session_order ON extracted_questions(session_id, question_index)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_session_updated ON extracted_questions(session_id, updated_at DESC)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_key ON extracted_questions(question_key)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_qa_events_session_created ON qa_events(session_id, created_at DESC)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_qa_events_image ON qa_events(image_id)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_visualizations_session ON teaching_visualizations(session_id, created_at DESC)")

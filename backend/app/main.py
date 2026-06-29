@@ -9507,7 +9507,15 @@ def list_sessions(request: Request, include_summary: bool = False) -> dict:
                     (SELECT COUNT(*) FROM images WHERE images.session_id = sessions.id) AS image_count,
                     (SELECT COUNT(*) FROM analyses WHERE analyses.session_id = sessions.id) AS analysis_count,
                     (SELECT COUNT(*) FROM qa_events WHERE qa_events.session_id = sessions.id) AS qa_count,
-                    (SELECT COUNT(*) FROM mistake_items WHERE mistake_items.session_id = sessions.id) AS mistake_count
+                    (SELECT COUNT(*) FROM mistake_items WHERE mistake_items.session_id = sessions.id) AS mistake_count,
+                    (SELECT COUNT(*) FROM extracted_questions WHERE extracted_questions.session_id = sessions.id) AS stored_question_count,
+                    (
+                        SELECT content FROM report_events
+                        WHERE report_events.session_id = sessions.id
+                          AND event_type='question_set'
+                        ORDER BY id DESC
+                        LIMIT 1
+                    ) AS question_set_payload
                 FROM sessions
                 WHERE account_id=?
                 ORDER BY created_at DESC
@@ -9516,6 +9524,17 @@ def list_sessions(request: Request, include_summary: bool = False) -> dict:
                 (principal["account_id"],),
             )
         ]
+    for session in sessions:
+        stored_count = int(session.pop("stored_question_count", 0) or 0)
+        payload = session.pop("question_set_payload", "") or ""
+        question_count = stored_count
+        if question_count == 0 and payload:
+            try:
+                parsed = json.loads(payload)
+                question_count = len(parsed) if isinstance(parsed, list) else 0
+            except (json.JSONDecodeError, TypeError):
+                question_count = 0
+        session["question_count"] = question_count
     return {"sessions": sessions}
 
 
@@ -11575,6 +11594,116 @@ def _latest_question_set(session_id: str) -> list[dict]:
         return []
 
 
+def _question_storage_key(question: dict, index: int) -> str:
+    base = str(question.get("fingerprint") or "").strip()
+    if not base:
+        base = str(question.get("simhash") or "").strip()
+    if not base:
+        base = _question_norm_text(question)
+    if not base:
+        base = f"question-{index}"
+    return hashlib.sha1(base.encode("utf-8")).hexdigest()
+
+
+def _question_options_json(question: dict) -> str:
+    options = question.get("options")
+    return json_dumps(options if isinstance(options, list) else [])
+
+
+def _question_blanks_value(question: dict) -> int:
+    try:
+        return max(0, int(question.get("blanks") or 0))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _replace_session_extracted_questions(conn, session_id: str, qset: list[dict], now: str) -> None:
+    conn.execute("DELETE FROM extracted_questions WHERE session_id=?", (session_id,))
+    for index, question in enumerate(qset, start=1):
+        question_key = _question_storage_key(question, index)
+        conn.execute(
+            """
+            INSERT INTO extracted_questions(
+                id, session_id, question_index, question_key, number, subject, qtype, stem,
+                options, blanks, figure_note, has_student_answer, student_answer,
+                fingerprint, simhash, src_filename, payload, first_seen_at, last_seen_at,
+                created_at, updated_at
+            )
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """,
+            (
+                uuid.uuid4().hex,
+                session_id,
+                index,
+                question_key,
+                truncate_text(question.get("number") or "", 80),
+                truncate_text(question.get("subject") or "", 80),
+                truncate_text(question.get("qtype") or "", 80),
+                question.get("stem") or "",
+                _question_options_json(question),
+                _question_blanks_value(question),
+                question.get("figure_note") or "",
+                1 if question.get("has_student_answer") else 0,
+                question.get("student_answer") or "",
+                truncate_text(question.get("fingerprint") or "", 80),
+                truncate_text(question.get("simhash") or "", 80),
+                truncate_text(question.get("src_filename") or "", 240),
+                json_dumps(question),
+                now,
+                now,
+                now,
+                now,
+            ),
+        )
+
+
+def _stored_question_rows(session_id: str) -> list[dict]:
+    with connect() as conn:
+        rows = [
+            row_to_dict(row)
+            for row in conn.execute(
+                """
+                SELECT *
+                FROM extracted_questions
+                WHERE session_id=?
+                ORDER BY question_index ASC, created_at ASC
+                """,
+                (session_id,),
+            ).fetchall()
+        ]
+    return rows
+
+
+def _stored_questions_for_response(session_id: str) -> list[dict]:
+    rows = _stored_question_rows(session_id)
+    if rows:
+        result: list[dict] = []
+        for row in rows:
+            try:
+                payload = json.loads(row.get("payload") or "{}")
+            except (json.JSONDecodeError, TypeError):
+                payload = {}
+            if not isinstance(payload, dict):
+                payload = {}
+            payload.setdefault("number", row.get("number") or "")
+            payload.setdefault("subject", row.get("subject") or "")
+            payload.setdefault("qtype", row.get("qtype") or "")
+            payload.setdefault("stem", row.get("stem") or "")
+            payload.setdefault("figure_note", row.get("figure_note") or "")
+            payload.setdefault("fingerprint", row.get("fingerprint") or "")
+            payload.setdefault("simhash", row.get("simhash") or "")
+            payload.setdefault("src_filename", row.get("src_filename") or "")
+            result.append(payload)
+        return result
+    qset = _latest_question_set(session_id)
+    if qset:
+        now = utc_now()
+        with connect() as conn:
+            _replace_session_extracted_questions(conn, session_id, qset, now)
+        return qset
+    return []
+
+
 def _save_question_set(session_id: str, qset: list[dict]) -> None:
     """把题目集 upsert 成单条 report_events 行（避免逐张追加撑爆 overview 的 40 条窗口、也避免
     record_report_event 的 6000 字截断毁坏 JSON）。content 为完整 JSON（TEXT 列无长度限制）。"""
@@ -11592,6 +11721,7 @@ def _save_question_set(session_id: str, qset: list[dict]) -> None:
                 "INSERT INTO report_events(session_id, analysis_id, event_type, title, content, created_at) VALUES(?,?,?,?,?,?)",
                 (session_id, None, "question_set", "题目集", payload, now),
             )
+        _replace_session_extracted_questions(conn, session_id, qset, now)
         conn.commit()
 
 
@@ -11673,9 +11803,8 @@ def _question_extraction_frame_score(row: dict) -> float:
 
 
 def _question_extraction_filenames_for_session(session_id: str, limit: int = 80) -> list[str]:
-    """选择本轮观察里值得进入整轮提题的图片：跳过 invalid/duplicate，并从每个抓拍批次挑最清晰的一帧。"""
+    """选择本轮观察里值得进入整轮提题的图片：只跳过 invalid/duplicate，不按上传批次丢页。"""
     limit = max(1, min(int(limit or 80), 160))
-    fetch_limit = max(limit * 4, limit)
     with connect() as conn:
         rows = conn.execute(
             """
@@ -11689,37 +11818,29 @@ def _question_extraction_filenames_for_session(session_id: str, limit: int = 80)
             ORDER BY images.sequence_index ASC, images.created_at ASC
             LIMIT ?
             """,
-            (session_id, fetch_limit),
+            (session_id, limit),
         ).fetchall()
-    best_by_batch: dict[str, dict] = {}
+    selected: list[str] = []
+    seen: set[str] = set()
     for raw_row in rows:
         row = row_to_dict(raw_row)
         filename = row.get("filename")
-        if not filename:
-            continue
-        batch_key = row.get("batch_id") or filename
-        current = best_by_batch.get(batch_key)
-        if current is None:
-            best_by_batch[batch_key] = row
-            continue
-        current_key = (_question_extraction_frame_score(current), current.get("sequence_index") or 0)
-        candidate_key = (_question_extraction_frame_score(row), row.get("sequence_index") or 0)
-        if candidate_key > current_key:
-            best_by_batch[batch_key] = row
-    selected = sorted(
-        best_by_batch.values(),
-        key=lambda item: (
-            item.get("sequence_index") if item.get("sequence_index") is not None else 10**9,
-            item.get("created_at") or "",
-        ),
-    )
-    return [row["filename"] for row in selected[:limit] if row.get("filename")]
+        if filename and filename not in seen:
+            selected.append(filename)
+            seen.add(filename)
+    return selected
 
 
 async def run_session_question_extraction(session_id: str, filenames: list[str], task_id: str | None = None) -> dict:
     """后台整轮提题任务：串行处理会话图片，逐张写入同一个 question_set。"""
-    if not filenames:
-        filenames = _question_extraction_filenames_for_session(session_id)
+    current_filenames = _question_extraction_filenames_for_session(session_id)
+    merged_filenames: list[str] = []
+    seen_filenames: set[str] = set()
+    for filename in [*current_filenames, *filenames]:
+        if filename and filename not in seen_filenames:
+            merged_filenames.append(filename)
+            seen_filenames.add(filename)
+    filenames = merged_filenames
     initial_count = len(_latest_question_set(session_id))
     processed = 0
     failed = 0
@@ -11994,7 +12115,7 @@ def session_restore_page(session_id: str, request: Request, view: str = "restore
     principal = principal_from_request(request)
     with connect() as conn:
         require_account_session(conn, session_id, principal)
-    qset = _latest_question_set(session_id)
+    qset = _stored_questions_for_response(session_id)
     base_url = (get_settings().public_base_url or "").rstrip("/")
     return _render_restore_html(qset, "blank" if view == "blank" else "restore", base_url)
 
@@ -12016,11 +12137,26 @@ def session_question_set_status(session_id: str, request: Request) -> dict:
             """,
             (session_id,),
         ).fetchone()
-    qset = _latest_question_set(session_id)
+    qset = _stored_questions_for_response(session_id)
     return {
         "session_id": session_id,
         "question_set_count": len(qset),
         "latest_task": dict(task) if task else None,
+    }
+
+
+@app.get("/api/sessions/{session_id}/questions")
+def session_extracted_questions(session_id: str, request: Request) -> dict:
+    """返回本回合已经入库的题目列表，供历史入口/题库页读取。"""
+    init_db()
+    principal = principal_from_request(request)
+    with connect() as conn:
+        require_account_session(conn, session_id, principal)
+    questions = _stored_questions_for_response(session_id)
+    return {
+        "session_id": session_id,
+        "question_count": len(questions),
+        "questions": questions,
     }
 
 

@@ -432,6 +432,11 @@ private struct LandscapeLearningWorkbench: View {
                             selectedHistoryReport = report
                         }
                     }
+                },
+                onViewQuestions: { session in
+                    showHistory = false
+                    dismissKeyboard()
+                    Task { await state.openExtractedQuestions(for: session) }
                 }
             )
             .presentationDetents([.medium, .large])
@@ -2191,6 +2196,11 @@ private struct AssistantChatPanel: View {
                             selectedHistoryReport = report
                         }
                     }
+                },
+                onViewQuestions: { session in
+                    showHistory = false
+                    dismissKeyboard()
+                    Task { await state.openExtractedQuestions(for: session) }
                 }
             )
             .presentationDetents([.medium, .large])
@@ -5209,6 +5219,7 @@ private struct HistorySessionSheet: View {
     @ObservedObject var state: AppState
     let onStartNew: (HistorySessionSummary) -> Void
     let onViewReport: (HistorySessionSummary) -> Void
+    let onViewQuestions: (HistorySessionSummary) -> Void
 
     var body: some View {
         NavigationStack {
@@ -5250,6 +5261,17 @@ private struct HistorySessionSheet: View {
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .controlSize(.small)
+
+                                        if session.questionCount > 0 {
+                                            Button {
+                                                onViewQuestions(session)
+                                            } label: {
+                                                Label("题目", systemImage: "rectangle.stack")
+                                                    .frame(maxWidth: .infinity)
+                                            }
+                                            .buttonStyle(.bordered)
+                                            .controlSize(.small)
+                                        }
 
                                         Button {
                                             onViewReport(session)
@@ -5930,6 +5952,7 @@ struct HistorySessionSummary: Identifiable, Decodable {
     let analysisCount: Int
     let qaCount: Int
     let mistakeCount: Int
+    let questionCount: Int
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -5945,6 +5968,7 @@ struct HistorySessionSummary: Identifiable, Decodable {
         case analysisCount = "analysis_count"
         case qaCount = "qa_count"
         case mistakeCount = "mistake_count"
+        case questionCount = "question_count"
     }
 
     init(from decoder: Decoder) throws {
@@ -5962,6 +5986,7 @@ struct HistorySessionSummary: Identifiable, Decodable {
         analysisCount = (try? container.decode(Int.self, forKey: .analysisCount)) ?? 0
         qaCount = (try? container.decode(Int.self, forKey: .qaCount)) ?? 0
         mistakeCount = (try? container.decode(Int.self, forKey: .mistakeCount)) ?? 0
+        questionCount = (try? container.decode(Int.self, forKey: .questionCount)) ?? 0
     }
 
     /// 回合类型徽章：区分「实时对话」与「智能观察」（#4）。
@@ -5988,7 +6013,8 @@ struct HistorySessionSummary: Identifiable, Decodable {
     }
 
     var countSummary: String {
-        "\(imageCount) 张图 · \(qaCount) 次问答 · \(mistakeCount) 个错题"
+        let questionText = questionCount > 0 ? " · \(questionCount) 道题" : ""
+        return "\(imageCount) 张图\(questionText) · \(qaCount) 次问答 · \(mistakeCount) 个错题"
     }
 
     var displayTime: String {
@@ -8737,6 +8763,25 @@ final class AppState: ObservableObject {
                 content: networkErrorUserMessage(error),
                 qaPreview: "",
                 qaRounds: [],
+                systemImage: "exclamationmark.triangle"
+            )
+        }
+    }
+
+    func openExtractedQuestions(for session: HistorySessionSummary) async {
+        extractSessionId = session.id
+        if let status = await fetchObservationQuestionSetStatus(sessionId: session.id) {
+            extractUniqueCount = status.questionSetCount
+        } else {
+            extractUniqueCount = session.questionCount
+        }
+        if let html = await fetchRestoreHTML(view: "restore") {
+            extractRestoreHTML = html
+            extractResultVisible = true
+        } else {
+            appendStatusChatMessage(
+                title: "题目打开失败",
+                text: "没有读取到本回合题目。可以回到本轮观察后重新点击“题目”提取。",
                 systemImage: "exclamationmark.triangle"
             )
         }
@@ -13381,6 +13426,13 @@ final class AppState: ObservableObject {
         }
     }
 
+    private func waitForBurstUploadIdle(maxSeconds: Double = 18) async {
+        let deadline = Date().addingTimeInterval(maxSeconds)
+        while isFlushingBurst && Date() < deadline {
+            try? await Task.sleep(nanoseconds: 250_000_000)
+        }
+    }
+
     private func captureMetaJSON(for frames: [BurstFrame]) -> String {
         let payload = frames.map { frame -> [String: Any] in
             var item: [String: Any] = [
@@ -13522,6 +13574,23 @@ final class AppState: ObservableObject {
         )
         Task {
             do {
+                if isFlushingBurst {
+                    upsertStatusChatMessage(
+                        key: "observation-question-extract",
+                        title: "提取题目",
+                        text: "正在等待本轮关键图上传完成，随后开始识别题目。",
+                        systemImage: "icloud.and.arrow.up",
+                        showsProgress: true
+                    )
+                    await waitForBurstUploadIdle()
+                }
+                if !burstBuffer.isEmpty {
+                    await flushBurst(reason: "用户点击提取题目")
+                    await waitForBurstUploadIdle()
+                }
+                if shouldFinishAfterFlush {
+                    await finishBurstSessionIfReady()
+                }
                 let data = try await postForm(
                     path: "/api/sessions/\(sessionId)/extract-all-questions",
                     fields: ["limit": "80"],
