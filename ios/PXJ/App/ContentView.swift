@@ -3013,7 +3013,7 @@ struct LiveQuestionRegionOverlay: View {
     var body: some View {
         GeometryReader { geo in
             if visible && !candidates.isEmpty {
-                let display = QuestionRegionOverlay.imageDisplayRect(imageSize: imageSize, container: geo.size)
+                let display = QuestionRegionOverlay.imageAspectFillRect(imageSize: imageSize, container: geo.size)
                 ZStack(alignment: .topLeading) {
                     ForEach(candidates.indices, id: \.self) { index in
                         liveBox(candidates[index], in: display)
@@ -6822,6 +6822,30 @@ private struct BurstFrame {
     let bodyCount: Int
 }
 
+private struct ObservationQuestionCropUpload {
+    let files: [MultipartFile]
+    let manifestItems: [[String: Any]]
+    let frameRegionsBySequence: [Int: [[String: Any]]]
+    let newKeys: [String]
+    let duplicateCount: Int
+
+    var cropCount: Int { files.count }
+
+    var manifestJSON: String {
+        let payload: [String: Any] = [
+            "version": 1,
+            "source": "ios-observation-crop",
+            "crops": manifestItems
+        ]
+        guard JSONSerialization.isValidJSONObject(payload),
+              let data = try? JSONSerialization.data(withJSONObject: payload),
+              let text = String(data: data, encoding: .utf8) else {
+            return #"{"version":1,"source":"ios-observation-crop","crops":[]}"#
+        }
+        return text
+    }
+}
+
 struct ObservationQuestionCandidate {
     let index: Int
     let key: String
@@ -7399,6 +7423,7 @@ final class AppState: ObservableObject {
     private var nextBurstSequenceIndex = 0
     private var observationAcceptedFrameCount = 0
     private var observationQuestionSeenKeys: [String] = []
+    private var observationQuestionUploadedCropKeys: [String] = []
     private var observationQuestionScanBusy = false
     private var observationQuestionScanSerial = 0
     private var burstGeneration = 0
@@ -12686,6 +12711,7 @@ final class AppState: ObservableObject {
 
     private func resetObservationQuestionTracking() {
         observationQuestionSeenKeys.removeAll()
+        observationQuestionUploadedCropKeys.removeAll()
         observationQuestionCandidateCount = 0
         observationQuestionUniqueCount = 0
         observationQuestionDuplicateCount = 0
@@ -13390,26 +13416,32 @@ final class AppState: ObservableObject {
         qualityFeedback = .uploading("上传关键帧")
         log("上传智能观察批次：\(reason)，共 \(frames.count) 张")
         do {
-            let files = try frames.map { frame in
+            let cropUpload = await buildObservationQuestionCropUpload(for: frames)
+            var files = try frames.map { frame in
                 MultipartFile(field: "images", name: "burst-\(frame.sequenceIndex).jpg", mime: "image/jpeg", data: try jpegData(frame.image))
             }
-            let meta = captureMetaJSON(for: frames)
+            files.append(contentsOf: cropUpload.files)
+            let meta = captureMetaJSON(for: frames, cropRegionsBySequence: cropUpload.frameRegionsBySequence)
             _ = try await postForm(
                 path: "/api/sessions/\(sessionId)/batches",
                 fields: [
                     "device_id": UIDevice.current.identifierForVendor?.uuidString ?? "iphone",
                     "environment": "iPhone 固定机位，桌面课本/试卷学习场景",
-                    "capture_meta": meta
+                    "capture_meta": meta,
+                    "question_crop_manifest": cropUpload.manifestJSON
                 ],
                 files: files
             )
             uploadSucceeded = true
             if generation == burstGeneration {
+                observationQuestionUploadedCropKeys.append(contentsOf: cropUpload.newKeys)
                 uploadState = isBursting ? "智能观察中" : "已停止"
                 if !isBursting {
                     qualityFeedback = .observationStopped(collectedCount: observationAcceptedFrameCount, pendingCount: burstBuffer.count)
                 }
-                log("批次上传完成，后端将异步汇总学习报告")
+                let cropText = cropUpload.cropCount > 0 ? "，题目裁剪 \(cropUpload.cropCount) 张" : ""
+                let duplicateText = cropUpload.duplicateCount > 0 ? "，本地跳过重复 \(cropUpload.duplicateCount) 道" : ""
+                log("批次上传完成\(cropText)\(duplicateText)，后端将异步汇总学习报告")
             }
         } catch {
             if generation == burstGeneration {
@@ -13433,7 +13465,155 @@ final class AppState: ObservableObject {
         }
     }
 
-    private func captureMetaJSON(for frames: [BurstFrame]) -> String {
+    private func buildObservationQuestionCropUpload(for frames: [BurstFrame]) async -> ObservationQuestionCropUpload {
+        let uploadedKeys = observationQuestionUploadedCropKeys
+        return await withCheckedContinuation { continuation in
+            burstAnalysisQueue.async {
+                var files: [MultipartFile] = []
+                var manifestItems: [[String: Any]] = []
+                var regionsBySequence: [Int: [[String: Any]]] = [:]
+                var knownKeys = uploadedKeys
+                var newKeys: [String] = []
+                var duplicateCount = 0
+
+                for (frameOffset, frame) in frames.enumerated() {
+                    let regions = QuestionSegmenter.segmentForPreviewOverlay(frame.image)
+                    var frameRegions: [[String: Any]] = []
+
+                    for region in regions.prefix(12) {
+                        guard let rawText = region.ocrText?.trimmingCharacters(in: .whitespacesAndNewlines),
+                              let key = Self.extractScanKey(rawText) else { continue }
+                        let preview = rawText
+                            .replacingOccurrences(of: "\n", with: " ")
+                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                        let fingerprint = Self.observationQuestionFingerprint(key)
+                        let cropRect = Self.paddedObservationCropRect(region.normalizedRect)
+                        let duplicate = knownKeys.contains { Self.extractKeySimilar($0, key) }
+                        var regionPayload: [String: Any] = [
+                            "question_index": region.index,
+                            "questionIndex": region.index,
+                            "question_key": key,
+                            "questionKey": key,
+                            "fingerprint": fingerprint,
+                            "preview_text": String(preview.prefix(80)),
+                            "previewText": String(preview.prefix(80)),
+                            "ocr_text": rawText,
+                            "confidence": region.confidence,
+                            "normalized_rect": Self.rectPayload(region.normalizedRect),
+                            "normalizedRect": Self.rectPayload(region.normalizedRect),
+                            "crop_rect": Self.rectPayload(cropRect),
+                            "cropRect": Self.rectPayload(cropRect),
+                            "is_duplicate": duplicate,
+                            "isDuplicate": duplicate,
+                            "coordinate_space": "source_preview_frame"
+                        ]
+
+                        if duplicate {
+                            duplicateCount += 1
+                            frameRegions.append(regionPayload)
+                            continue
+                        }
+
+                        let cropped = QuestionSegmenter.crop(frame.image, to: cropRect)
+                        guard let data = try? Self.jpegDataForUpload(cropped, maxSide: 1200, quality: 0.82),
+                              data.count > 1024 else {
+                            frameRegions.append(regionPayload)
+                            continue
+                        }
+
+                        let filename = "qcrop-\(frame.sequenceIndex)-\(region.index).jpg"
+                        let fileIndex = files.count
+                        let cropHash = Self.dataFingerprint(data)
+                        files.append(MultipartFile(field: "question_crops", name: filename, mime: "image/jpeg", data: data))
+
+                        regionPayload["file_index"] = fileIndex
+                        regionPayload["fileIndex"] = fileIndex
+                        regionPayload["filename"] = filename
+                        regionPayload["crop_hash"] = cropHash
+                        regionPayload["cropHash"] = cropHash
+                        regionPayload["crop_prepared"] = true
+                        regionPayload["cropPrepared"] = true
+                        regionPayload["source_sequence_index"] = frame.sequenceIndex
+                        regionPayload["sourceSequenceIndex"] = frame.sequenceIndex
+                        regionPayload["source_image_index"] = frameOffset
+                        regionPayload["sourceImageIndex"] = frameOffset
+                        regionPayload["source_image_size"] = Self.sizePayload(frame.image.size)
+                        regionPayload["sourceImageSize"] = Self.sizePayload(frame.image.size)
+                        regionPayload["crop_image_size"] = Self.sizePayload(cropped.size)
+                        regionPayload["cropImageSize"] = Self.sizePayload(cropped.size)
+                        regionPayload["source"] = "ios-observation-crop"
+                        manifestItems.append(regionPayload)
+                        frameRegions.append(regionPayload)
+                        knownKeys.append(key)
+                        newKeys.append(key)
+                    }
+
+                    if !frameRegions.isEmpty {
+                        regionsBySequence[frame.sequenceIndex] = frameRegions
+                    }
+                }
+
+                continuation.resume(
+                    returning: ObservationQuestionCropUpload(
+                        files: files,
+                        manifestItems: manifestItems,
+                        frameRegionsBySequence: regionsBySequence,
+                        newKeys: newKeys,
+                        duplicateCount: duplicateCount
+                    )
+                )
+            }
+        }
+    }
+
+    nonisolated private static func paddedObservationCropRect(_ r: CGRect) -> CGRect {
+        let padX = r.width * 0.03
+        let padY = r.height * 0.12
+        let minX = max(0, r.minX - padX)
+        let minY = max(0, r.minY - padY)
+        let maxX = min(1, r.maxX + padX)
+        let maxY = min(1, r.maxY + padY)
+        return CGRect(x: minX, y: minY, width: max(0, maxX - minX), height: max(0, maxY - minY))
+    }
+
+    nonisolated private static func rectPayload(_ rect: CGRect) -> [String: Double] {
+        [
+            "x": Double(rect.minX),
+            "y": Double(rect.minY),
+            "width": Double(rect.width),
+            "height": Double(rect.height)
+        ]
+    }
+
+    nonisolated private static func sizePayload(_ size: CGSize) -> [String: Double] {
+        [
+            "width": Double(size.width),
+            "height": Double(size.height)
+        ]
+    }
+
+    nonisolated private static func dataFingerprint(_ data: Data) -> String {
+        var hash: UInt64 = 0xcbf29ce484222325
+        for byte in data {
+            hash ^= UInt64(byte)
+            hash = hash &* 0x100000001b3
+        }
+        return String(format: "%016llx", hash)
+    }
+
+    nonisolated private static func jpegDataForUpload(_ image: UIImage, maxSide: CGFloat, quality: CGFloat) throws -> Data {
+        let size = image.size
+        let ratio = min(1, maxSide / max(size.width, size.height))
+        let target = CGSize(width: size.width * ratio, height: size.height * ratio)
+        let renderer = UIGraphicsImageRenderer(size: target)
+        let resized = renderer.image { _ in image.draw(in: CGRect(origin: .zero, size: target)) }
+        guard let data = resized.jpegData(compressionQuality: quality) else {
+            throw URLError(.cannotDecodeContentData)
+        }
+        return data
+    }
+
+    private func captureMetaJSON(for frames: [BurstFrame], cropRegionsBySequence: [Int: [[String: Any]]] = [:]) -> String {
         let payload = frames.map { frame -> [String: Any] in
             var item: [String: Any] = [
                 "sequence_index": frame.sequenceIndex,
@@ -13480,6 +13660,10 @@ final class AppState: ObservableObject {
                 "text_tokens": frame.textTokens,
                 "source": "ios-video-preview"
             ]
+            if let questionRegions = cropRegionsBySequence[frame.sequenceIndex], !questionRegions.isEmpty {
+                item["question_regions"] = questionRegions
+                item["questionRegions"] = questionRegions
+            }
             if let visualDistance = frame.visualDistance, visualDistance.isFinite {
                 item["visual_distance"] = visualDistance
             }

@@ -95,4 +95,24 @@ struct QuestionRegionOverlay: View {
         let originY = (container.height - displaySize.height) / 2
         return CGRect(x: originX, y: originY, width: displaySize.width, height: displaySize.height)
     }
+
+    /// 计算 AVCaptureVideoPreviewLayer(.resizeAspectFill) 在容器内的实际图像矩形。
+    /// 智能观察实时绿框叠在相机预览层上，必须用 fill 坐标，否则横屏 iPad 上会偏。
+    static func imageAspectFillRect(imageSize: CGSize, container: CGSize) -> CGRect {
+        guard imageSize.width > 0, imageSize.height > 0,
+              container.width > 0, container.height > 0 else {
+            return CGRect(origin: .zero, size: container)
+        }
+        let imageAspect = imageSize.width / imageSize.height
+        let containerAspect = container.width / container.height
+        let displaySize: CGSize
+        if imageAspect > containerAspect {
+            displaySize = CGSize(width: container.height * imageAspect, height: container.height)
+        } else {
+            displaySize = CGSize(width: container.width, height: container.width / imageAspect)
+        }
+        let originX = (container.width - displaySize.width) / 2
+        let originY = (container.height - displaySize.height) / 2
+        return CGRect(x: originX, y: originY, width: displaySize.width, height: displaySize.height)
+    }
 }

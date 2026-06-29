@@ -430,6 +430,11 @@ def _init_schema(conn: sqlite3.Connection) -> None:
                 fingerprint TEXT NOT NULL DEFAULT '',
                 simhash TEXT NOT NULL DEFAULT '',
                 src_filename TEXT NOT NULL DEFAULT '',
+                source_image_id TEXT NOT NULL DEFAULT '',
+                source_crop_id TEXT NOT NULL DEFAULT '',
+                crop_filename TEXT NOT NULL DEFAULT '',
+                crop_rect TEXT NOT NULL DEFAULT '{}',
+                crop_hash TEXT NOT NULL DEFAULT '',
                 payload TEXT NOT NULL DEFAULT '{}',
                 first_seen_at TEXT NOT NULL DEFAULT '',
                 last_seen_at TEXT NOT NULL DEFAULT '',
@@ -437,6 +442,35 @@ def _init_schema(conn: sqlite3.Connection) -> None:
                 updated_at TEXT NOT NULL,
                 FOREIGN KEY(session_id) REFERENCES sessions(id),
                 UNIQUE(session_id, question_key)
+            );
+
+            CREATE TABLE IF NOT EXISTS session_question_crops (
+                id TEXT PRIMARY KEY,
+                session_id TEXT NOT NULL,
+                batch_id TEXT NOT NULL DEFAULT '',
+                image_id TEXT NOT NULL,
+                sequence_index INTEGER NOT NULL DEFAULT 0,
+                manifest_index INTEGER NOT NULL DEFAULT 0,
+                question_index INTEGER NOT NULL DEFAULT 0,
+                question_key TEXT NOT NULL DEFAULT '',
+                fingerprint TEXT NOT NULL DEFAULT '',
+                crop_hash TEXT NOT NULL DEFAULT '',
+                text_hash TEXT NOT NULL DEFAULT '',
+                normalized_rect TEXT NOT NULL DEFAULT '{}',
+                crop_rect TEXT NOT NULL DEFAULT '{}',
+                source_image_size TEXT NOT NULL DEFAULT '{}',
+                crop_image_size TEXT NOT NULL DEFAULT '{}',
+                preview_text TEXT NOT NULL DEFAULT '',
+                crop_filename TEXT NOT NULL DEFAULT '',
+                original_name TEXT NOT NULL DEFAULT '',
+                status TEXT NOT NULL DEFAULT 'ready',
+                source TEXT NOT NULL DEFAULT 'client_manifest',
+                confidence REAL,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                FOREIGN KEY(session_id) REFERENCES sessions(id),
+                FOREIGN KEY(image_id) REFERENCES images(id),
+                UNIQUE(session_id, image_id, manifest_index)
             );
 
             CREATE TABLE IF NOT EXISTS qa_events (
@@ -659,11 +693,37 @@ def _init_schema(conn: sqlite3.Connection) -> None:
         ensure_column(conn, "extracted_questions", "fingerprint", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "simhash", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "src_filename", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "source_image_id", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "source_crop_id", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "crop_filename", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "extracted_questions", "crop_rect", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "extracted_questions", "crop_hash", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "payload", "TEXT NOT NULL DEFAULT '{}'")
         ensure_column(conn, "extracted_questions", "first_seen_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "last_seen_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "created_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "extracted_questions", "updated_at", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "batch_id", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "image_id", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "sequence_index", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "session_question_crops", "manifest_index", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "session_question_crops", "question_index", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(conn, "session_question_crops", "question_key", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "fingerprint", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "crop_hash", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "text_hash", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "normalized_rect", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "session_question_crops", "crop_rect", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "session_question_crops", "source_image_size", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "session_question_crops", "crop_image_size", "TEXT NOT NULL DEFAULT '{}'")
+        ensure_column(conn, "session_question_crops", "preview_text", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "crop_filename", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "original_name", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "status", "TEXT NOT NULL DEFAULT 'ready'")
+        ensure_column(conn, "session_question_crops", "source", "TEXT NOT NULL DEFAULT 'client_manifest'")
+        ensure_column(conn, "session_question_crops", "confidence", "REAL")
+        ensure_column(conn, "session_question_crops", "created_at", "TEXT NOT NULL DEFAULT ''")
+        ensure_column(conn, "session_question_crops", "updated_at", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "review_events", "event_type", "TEXT NOT NULL DEFAULT 'review'")
         ensure_column(conn, "review_events", "note", "TEXT NOT NULL DEFAULT ''")
         ensure_column(conn, "review_events", "source", "TEXT NOT NULL DEFAULT ''")
@@ -825,6 +885,9 @@ def _init_schema(conn: sqlite3.Connection) -> None:
         conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_session_order ON extracted_questions(session_id, question_index)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_session_updated ON extracted_questions(session_id, updated_at DESC)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_extracted_questions_key ON extracted_questions(question_key)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_question_crops_session_order ON session_question_crops(session_id, sequence_index, manifest_index)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_question_crops_session_key ON session_question_crops(session_id, question_key)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_question_crops_image ON session_question_crops(image_id)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_qa_events_session_created ON qa_events(session_id, created_at DESC)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_qa_events_image ON qa_events(image_id)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_visualizations_session ON teaching_visualizations(session_id, created_at DESC)")
