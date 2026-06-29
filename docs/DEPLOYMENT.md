@@ -30,6 +30,16 @@ curl -fsS http://127.0.0.1:8038/health
 - `PXJ_AUTH_REQUIRED=true`
 - `PXJ_REGISTRATION_ENABLED=true`
 
+## 默认发布流程
+
+除非任务明确要求“只本地修改”或“暂不发布”，本项目所有有效代码改动完成后都要同步发布：
+
+1. 本地验证后端和关键接口。
+2. 部署生产后端并检查 `https://pxj.evowit.com/health`。
+3. 在 macstar 发布 iOS TestFlight 新 build。
+4. 查询 TestFlight 状态并做真机/iPad 验收。
+5. 在交付说明中写明后端版本、TestFlight 状态和未完成风险。
+
 ## 智能观察提题灰度
 
 发布步骤：
