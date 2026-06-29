@@ -5823,6 +5823,29 @@ struct ServerTasksResponse: Decodable {
     let tasks: [ServerBackgroundTask]
 }
 
+struct ObservationQuestionSetTask: Decodable {
+    let id: String
+    let status: String
+    let lastError: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, status
+        case lastError = "last_error"
+    }
+}
+
+struct ObservationQuestionSetResponse: Decodable {
+    let sessionId: String
+    let questionSetCount: Int
+    let latestTask: ObservationQuestionSetTask?
+
+    enum CodingKeys: String, CodingKey {
+        case sessionId = "session_id"
+        case questionSetCount = "question_set_count"
+        case latestTask = "latest_task"
+    }
+}
+
 struct TTSGenerateResponse: Decodable {
     let audioBase64: String
 
@@ -7356,6 +7379,7 @@ final class AppState: ObservableObject {
     private var strategySyncTask: Task<Void, Never>?
     private var observationGuideHideTask: Task<Void, Never>?
     private var observationStopNoticeTask: Task<Void, Never>?
+    private var observationQuestionExtractionPollTask: Task<Void, Never>?
     private var danmakuSuppressedUntil = Date.distantPast
     private var qaSubmissionGeneration = 0
     private var lastSyncedStrategySignature = ""
@@ -7398,7 +7422,7 @@ final class AppState: ObservableObject {
     private var remotePollIntervalSeconds: TimeInterval = 1.0
     private let remoteDeviceId = UIDevice.current.identifierForVendor?.uuidString ?? "iphone"
     private let burstAnalysisQueue = DispatchQueue(label: "com.pxj.burst-analysis", qos: .userInitiated)
-    private let burstBatchSize = 5
+    private let burstBatchSize = 3
     private let activeCaptureInterval: TimeInterval = 2.0
     private let similarCaptureInterval: TimeInterval = 4.0
     private let longSimilarCaptureInterval: TimeInterval = 8.0
@@ -9782,6 +9806,82 @@ final class AppState: ObservableObject {
             log("还原页获取失败：\(error.localizedDescription)", level: "error")
             return nil
         }
+    }
+
+    private func fetchObservationQuestionSetStatus(sessionId: String) async -> ObservationQuestionSetResponse? {
+        do {
+            let data = try await getData(path: "/api/sessions/\(sessionId)/question-set")
+            return try JSONDecoder().decode(ObservationQuestionSetResponse.self, from: data)
+        } catch {
+            log("题目集状态获取失败：\(networkErrorDescription(error))", level: "warning")
+            return nil
+        }
+    }
+
+    private func startObservationQuestionExtractionPolling(sessionId: String, imageCount: Int) {
+        observationQuestionExtractionPollTask?.cancel()
+        observationQuestionExtractionPollTask = Task { [weak self] in
+            await self?.pollObservationQuestionExtraction(sessionId: sessionId, imageCount: imageCount)
+        }
+    }
+
+    private func pollObservationQuestionExtraction(sessionId: String, imageCount: Int) async {
+        extractSessionId = sessionId
+        for _ in 0..<90 {
+            if Task.isCancelled { return }
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            if Task.isCancelled { return }
+            let status = await fetchObservationQuestionSetStatus(sessionId: sessionId)
+            await refreshServerTasks()
+            guard let status else { continue }
+
+            if status.questionSetCount > 0 {
+                extractUniqueCount = status.questionSetCount
+                if let html = await fetchRestoreHTML(view: "restore") {
+                    extractRestoreHTML = html
+                    extractResultVisible = true
+                }
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "题目提取完成",
+                    text: "已从本轮 \(imageCount) 张关键图提取并合并出 \(status.questionSetCount) 道题，可查看还原页/空白卷。",
+                    systemImage: "checkmark.circle"
+                )
+                observationQuestionExtractionPollTask = nil
+                return
+            }
+
+            let taskStatus = status.latestTask?.status ?? ""
+            if taskStatus == "done" {
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "未提取到题目",
+                    text: "后台已处理 \(imageCount) 张关键图，但没有形成稳定题目。请把试卷/书页铺满、拍清楚后再观察或用题目提取。",
+                    systemImage: "exclamationmark.triangle"
+                )
+                observationQuestionExtractionPollTask = nil
+                return
+            }
+            if taskStatus == "failed" {
+                let errorText = shortText(status.latestTask?.lastError ?? "后台题目提取任务失败", limit: 160)
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "题目提取失败",
+                    text: errorText,
+                    systemImage: "exclamationmark.triangle"
+                )
+                observationQuestionExtractionPollTask = nil
+                return
+            }
+        }
+
+        upsertStatusChatMessage(
+            key: "observation-question-extract",
+            title: "题目提取仍在后台处理",
+            text: "本轮 \(imageCount) 张关键图仍在后台排队/识别，稍后可从历史回合打开还原页。",
+            systemImage: "clock"
+        )
+        observationQuestionExtractionPollTask = nil
     }
 
     // MARK: - 题目提取「自动扫描」（实验）：开相机时端上每秒扫一次→按题文指纹跟踪→发现新题才异步识别入库。
@@ -12438,6 +12538,8 @@ final class AppState: ObservableObject {
         observationStopNoticeTask?.cancel()
         observationStopNoticeTask = nil
         observationStopNotice = nil
+        observationQuestionExtractionPollTask?.cancel()
+        observationQuestionExtractionPollTask = nil
         if hasChatStarted || sessionId != nil || !qaAnswer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !recognizedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             startNewConversation()
             chatMessages.removeAll()
@@ -12558,7 +12660,8 @@ final class AppState: ObservableObject {
         let scanSerial = observationQuestionScanSerial
         let seenKeys = observationQuestionSeenKeys
         Task.detached(priority: .utility) {
-            let regions = QuestionSegmenter.segment(image, fast: true)
+            // 观察框只在被采纳为关键帧的图片上跑，使用 accurate 分割以贴近“分题”功能的框选质量。
+            let regions = QuestionSegmenter.segment(image, fast: false)
             let candidates = regions.compactMap { region -> ObservationQuestionCandidate? in
                 guard let text = region.ocrText?.trimmingCharacters(in: .whitespacesAndNewlines),
                       let key = Self.extractScanKey(text) else { return nil }
@@ -13428,6 +13531,7 @@ final class AppState: ObservableObject {
                     extractRestoreHTML = html
                     extractResultVisible = true
                 }
+                startObservationQuestionExtractionPolling(sessionId: sessionId, imageCount: imageCount)
                 await refreshServerTasks()
             } catch {
                 upsertStatusChatMessage(

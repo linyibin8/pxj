@@ -128,6 +128,7 @@ FINAL_REPORT_DISTILLED_NOTES_CHAR_LIMIT = 14000
 FINAL_REPORT_DISTILL_MAX_TOKENS = 1600
 BATCH_PREVIOUS_CONTEXT_LIMIT = 5000
 BATCH_PREVIOUS_ANALYSIS_LIMIT = 6
+OBSERVATION_ANALYSIS_MAX_IMAGES = 3
 OBSERVATION_LOOKBACK_LIMIT = 80
 VISUAL_DUPLICATE_DISTANCE = 3.2
 VISUAL_TEXT_DUPLICATE_DISTANCE = 5.2
@@ -7997,6 +7998,11 @@ def chunk_text_blocks(blocks: list[str], max_chars: int) -> list[str]:
     return chunks
 
 
+def chunk_sequence(items: list, size: int) -> list[list]:
+    size = max(1, int(size or 1))
+    return [items[index:index + size] for index in range(0, len(items), size)]
+
+
 def build_distill_prompt(session: dict, images: list[dict], notes_chunk: str, chunk_index: int, chunk_count: int, stats: dict) -> str:
     start, end, total_seconds = report_time_bounds(session, images)
     timeline_lines = build_timeline_lines(session, images)
@@ -11270,10 +11276,69 @@ def _simhash_hamming(a: str, b: str) -> int:
         return 64
 
 
+def _question_norm_text(question: dict) -> str:
+    text = " ".join(
+        str(question.get(key) or "")
+        for key in ("stem", "number", "qtype", "subject")
+    )
+    options = question.get("options")
+    if isinstance(options, list):
+        text += " " + " ".join(str(item.get("text") or "") for item in options if isinstance(item, dict))
+    return "".join(ch.lower() for ch in text if ch.isalnum())
+
+
+def _text_gram_similarity(a: str, b: str) -> float:
+    if not a or not b:
+        return 0.0
+    shorter, longer = (a, b) if len(a) <= len(b) else (b, a)
+    if len(shorter) >= 16 and shorter in longer:
+        return 1.0
+    if len(shorter) < 12:
+        return 0.0
+    width = 2 if len(shorter) < 40 else 3
+    a_grams = {a[index:index + width] for index in range(0, max(1, len(a) - width + 1))}
+    b_grams = {b[index:index + width] for index in range(0, max(1, len(b) - width + 1))}
+    if not a_grams or not b_grams:
+        return 0.0
+    return len(a_grams & b_grams) / max(1, min(len(a_grams), len(b_grams)))
+
+
+def _questions_look_same(a: dict, b: dict) -> bool:
+    fp_a = a.get("fingerprint") or ""
+    fp_b = b.get("fingerprint") or ""
+    if fp_a and fp_a == fp_b:
+        return True
+    sh_a = a.get("simhash") or ""
+    sh_b = b.get("simhash") or ""
+    if sh_a and sh_b and _simhash_hamming(sh_a, sh_b) <= 3:
+        return True
+    norm_a = _question_norm_text(a)
+    norm_b = _question_norm_text(b)
+    similarity = _text_gram_similarity(norm_a, norm_b)
+    same_number = bool(a.get("number")) and str(a.get("number")) == str(b.get("number"))
+    same_type = bool(a.get("qtype")) and str(a.get("qtype")) == str(b.get("qtype"))
+    if similarity >= 0.86 and (same_number or same_type):
+        return True
+    if sh_a and sh_b and _simhash_hamming(sh_a, sh_b) <= 8 and similarity >= 0.72:
+        return True
+    return False
+
+
+def _dedupe_question_set(questions: list[dict]) -> list[dict]:
+    result: list[dict] = []
+    for question in questions:
+        if not (question.get("stem") or "").strip():
+            continue
+        if any(_questions_look_same(question, existing) for existing in result):
+            continue
+        result.append(question)
+    return result
+
+
 def _consolidate_question_set(prior: list[dict], new: list[dict]) -> list[dict]:
     """把本张图新提取的题并入已有题目集并去重（服务端是唯一去重者，两端一致）。
-    fingerprint 精确命中跳过；否则 simhash 十六进制 Hamming<=3 视为近似同题跳过。保留先到题。"""
-    result = list(prior)
+    fingerprint 精确命中跳过；否则 simhash/题干相似度命中视为近似同题跳过。保留先到题。"""
+    result = _dedupe_question_set(prior)
     seen_fp = {q.get("fingerprint") for q in result if q.get("fingerprint")}
     for q in new:
         if not (q.get("stem") or "").strip():
@@ -11281,8 +11346,7 @@ def _consolidate_question_set(prior: list[dict], new: list[dict]) -> list[dict]:
         fp = q.get("fingerprint") or ""
         if fp and fp in seen_fp:
             continue
-        sh = q.get("simhash") or ""
-        if sh and any(_simhash_hamming(sh, e.get("simhash") or "") <= 3 for e in result):
+        if any(_questions_look_same(q, e) for e in result):
             continue
         result.append(q)
         if fp:
@@ -11668,6 +11732,31 @@ def session_restore_page(session_id: str, request: Request, view: str = "restore
     return _render_restore_html(qset, "blank" if view == "blank" else "restore", base_url)
 
 
+@app.get("/api/sessions/{session_id}/question-set")
+def session_question_set_status(session_id: str, request: Request) -> dict:
+    """轻量返回整轮题目提取状态，供客户端在后台任务完成后刷新还原页。"""
+    init_db()
+    principal = principal_from_request(request)
+    with connect() as conn:
+        require_account_session(conn, session_id, principal)
+        task = conn.execute(
+            """
+            SELECT id, status, last_error, updated_at, finished_at
+            FROM task_runs
+            WHERE session_id=? AND task_kind='question_extraction_session'
+            ORDER BY created_at DESC
+            LIMIT 1
+            """,
+            (session_id,),
+        ).fetchone()
+    qset = _latest_question_set(session_id)
+    return {
+        "session_id": session_id,
+        "question_set_count": len(qset),
+        "latest_task": dict(task) if task else None,
+    }
+
+
 @app.post("/api/solve-single")
 async def solve_single(
     request: Request,
@@ -11912,29 +12001,45 @@ async def upload_batch(
         merged_context = previous_context
         if learning_context:
             merged_context = f"{previous_context}\n\n此前已结构化保存的学习条目：\n{learning_context}"
-        prompt = build_batch_prompt(environment, analysis_image_rows, merged_context, build_strategy_context(session_strategy(session)))
+        analysis_chunks = chunk_sequence(analysis_image_rows, OBSERVATION_ANALYSIS_MAX_IMAGES)
+        analysis_records: list[tuple[str, list[dict], list[str]]] = []
+        for chunk_rows in analysis_chunks:
+            chunk_analysis_id = uuid.uuid4().hex
+            chunk_filenames = [row["filename"] for row in chunk_rows]
+            analysis_records.append((chunk_analysis_id, chunk_rows, chunk_filenames))
         with connect() as conn:
-            conn.execute(
-                "INSERT INTO analyses(id, session_id, batch_id, scope, status, prompt, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                (analysis_id, session_id, batch_id, "batch", "running", prompt, now, now),
-            )
+            for chunk_analysis_id, chunk_rows, _ in analysis_records:
+                prompt = build_batch_prompt(environment, chunk_rows, merged_context, build_strategy_context(session_strategy(session)))
+                conn.execute(
+                    "INSERT INTO analyses(id, session_id, batch_id, scope, status, prompt, created_at, updated_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                    (chunk_analysis_id, session_id, batch_id, "batch", "running", prompt, now, now),
+                )
             conn.execute("UPDATE sessions SET status=?, updated_at=? WHERE id=?", ("analyzing", now, session_id))
+        analysis_id = analysis_records[0][0]
         emit_log(
             (
                 f"收到智能观察批次：{len(filenames)} 张，其中新增关键画面 {len(analysis_filenames)} 张，"
                 f"重复观察 {sum(1 for row in image_rows if row.get('novelty_status') == 'duplicate')} 张，"
-                f"无相关画面 {sum(1 for row in image_rows if row.get('novelty_status') == 'invalid')} 张"
+                f"无相关画面 {sum(1 for row in image_rows if row.get('novelty_status') == 'invalid')} 张；"
+                f"拆分为 {len(analysis_records)} 个小分析任务"
             ),
             session_id=session_id,
             device_id=device_id,
         )
-        task_id = record_task_run(
-            "vision_analysis",
-            session_id=session_id,
-            analysis_id=analysis_id,
-            payload={"scope": "batch", "batch_id": batch_id, "filenames": analysis_filenames},
-            priority=TASK_PRIORITY_BACKGROUND,
-        )
+        for chunk_index, (chunk_analysis_id, _, chunk_filenames) in enumerate(analysis_records, start=1):
+            record_task_run(
+                "vision_analysis",
+                session_id=session_id,
+                analysis_id=chunk_analysis_id,
+                payload={
+                    "scope": "batch",
+                    "batch_id": batch_id,
+                    "filenames": chunk_filenames,
+                    "chunk_index": chunk_index,
+                    "chunk_count": len(analysis_records),
+                },
+                priority=TASK_PRIORITY_BACKGROUND,
+            )
         background_tasks.add_task(execute_next_task_run_now)
     else:
         invalid_count = sum(1 for row in image_rows if row.get("novelty_status") == "invalid")
