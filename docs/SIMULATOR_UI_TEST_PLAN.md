@@ -51,3 +51,34 @@ The seeded session must include:
 - All generated tests pass on the Mac simulator host.
 - Test result bundles remain under `/Users/macstar/Code/PXJ/TestResults`.
 - Seeded backend data and uploaded historical photos are not deleted.
+
+## 2026-06-29 Run Result
+
+The Mac host was repaired by installing `Command Line Tools for Xcode 26.6`,
+which upgraded `/Library/Developer/PrivateFrameworks/CoreSimulator.framework`
+from `1051.54` to `1051.55`.
+
+Passed result bundles:
+
+- `/Users/macstar/Code/PXJ/TestResults/PXJHistoricalData-iPad-20260629-0930.xcresult`
+- `/Users/macstar/Code/PXJ/TestResults/PXJHistoricalData-iPhone-20260629-0932.xcresult`
+
+Run flow used:
+
+```bash
+xcodebuild build-for-testing \
+  -project PXJ.xcodeproj \
+  -scheme PXJ \
+  -configuration Debug \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath DerivedData/PXJHistorical-run-20260629-0925 \
+  CODE_SIGNING_ALLOWED=NO
+
+PXJ_UI_TEST_EMAIL='pxj-sim-history-20260629@example.com' \
+PXJ_UI_TEST_PASSWORD='<set locally>' \
+PXJ_HISTORY_TEST_MARKER='PXJ-HISTORY-SIM-20260629' \
+PXJ_HISTORY_SESSION_ID='78ab7fe859aa4d6fb5de9e6e7702a03a' \
+PXJ_HISTORY_MISTAKE_ID='45f9c00c27ff4f9a833ae950359944fc' \
+python3 scripts/patch_xctestrun_env.py \
+  DerivedData/PXJHistorical-run-20260629-0925/Build/Products/PXJ_PXJ_iphonesimulator26.5-arm64-x86_64.xctestrun
+```
