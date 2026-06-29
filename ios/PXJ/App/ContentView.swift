@@ -9888,15 +9888,16 @@ final class AppState: ObservableObject {
         }
     }
 
-    private func startObservationQuestionExtractionPolling(sessionId: String, imageCount: Int) {
+    private func startObservationQuestionExtractionPolling(sessionId: String, workSummary: String) {
         observationQuestionExtractionPollTask?.cancel()
         observationQuestionExtractionPollTask = Task { [weak self] in
-            await self?.pollObservationQuestionExtraction(sessionId: sessionId, imageCount: imageCount)
+            await self?.pollObservationQuestionExtraction(sessionId: sessionId, workSummary: workSummary)
         }
     }
 
-    private func pollObservationQuestionExtraction(sessionId: String, imageCount: Int) async {
+    private func pollObservationQuestionExtraction(sessionId: String, workSummary: String) async {
         extractSessionId = sessionId
+        let imageCount = workSummary
         for _ in 0..<90 {
             if Task.isCancelled { return }
             try? await Task.sleep(nanoseconds: 2_000_000_000)
@@ -13782,6 +13783,12 @@ final class AppState: ObservableObject {
                 )
                 let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
                 let imageCount = (json?["image_count"] as? Int) ?? 0
+                let sourceCount = (json?["source_count"] as? Int) ?? imageCount
+                let cropSourceCount = (json?["crop_source_count"] as? Int) ?? 0
+                let imageSourceCount = (json?["image_source_count"] as? Int) ?? max(0, sourceCount - cropSourceCount)
+                let workSummary = cropSourceCount > 0
+                    ? "\(cropSourceCount) 张题目裁剪图 + \(imageSourceCount) 张整图兜底"
+                    : "\(imageCount) 张关键图"
                 let setCount = (json?["question_set_count"] as? Int) ?? 0
                 extractSessionId = sessionId
                 extractUniqueCount = setCount
@@ -13791,11 +13798,17 @@ final class AppState: ObservableObject {
                     text: "将处理 \(imageCount) 张关键图；当前题集已有 \(setCount) 道题。后台完成后可从历史回合打开还原页/空白卷。",
                     systemImage: "checkmark.circle"
                 )
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "题目提取已排队",
+                    text: "将处理 \(workSummary)（原始关键图 \(imageCount) 张）；当前题集已有 \(setCount) 道题。后台完成后可从历史回合打开还原页 / 空白卷。",
+                    systemImage: "checkmark.circle"
+                )
                 if setCount > 0, let html = await fetchRestoreHTML(view: "restore") {
                     extractRestoreHTML = html
                     extractResultVisible = true
                 }
-                startObservationQuestionExtractionPolling(sessionId: sessionId, imageCount: imageCount)
+                startObservationQuestionExtractionPolling(sessionId: sessionId, workSummary: workSummary)
                 await refreshServerTasks()
             } catch {
                 upsertStatusChatMessage(

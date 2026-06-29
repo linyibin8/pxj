@@ -130,6 +130,7 @@ BATCH_PREVIOUS_CONTEXT_LIMIT = 5000
 BATCH_PREVIOUS_ANALYSIS_LIMIT = 6
 OBSERVATION_ANALYSIS_MAX_IMAGES = 3
 OBSERVATION_LOOKBACK_LIMIT = 80
+QUESTION_CROP_BATCH_SIZE = 6
 VISUAL_DUPLICATE_DISTANCE = 3.2
 VISUAL_TEXT_DUPLICATE_DISTANCE = 5.2
 TEXT_DUPLICATE_DISTANCE = 0.22
@@ -11899,6 +11900,38 @@ def _stored_question_rows(session_id: str) -> list[dict]:
 def _stored_questions_for_response(session_id: str) -> list[dict]:
     rows = _stored_question_rows(session_id)
     if rows:
+        crop_lookup: dict[str, str] | None = None
+
+        def lookup_crop_filename(row: dict) -> str:
+            nonlocal crop_lookup
+            existing = str(row.get("crop_filename") or "").strip()
+            if existing:
+                return existing
+            crop_id = str(row.get("source_crop_id") or "").strip()
+            crop_hash = str(row.get("crop_hash") or "").strip()
+            if not crop_id and not crop_hash:
+                return ""
+            if crop_lookup is None:
+                with connect() as conn:
+                    crop_rows = conn.execute(
+                        """
+                        SELECT id, crop_hash, crop_filename
+                        FROM session_question_crops
+                        WHERE session_id=? AND crop_filename!=''
+                        """,
+                        (session_id,),
+                    ).fetchall()
+                crop_lookup = {}
+                for crop_row in crop_rows:
+                    filename = str(crop_row["crop_filename"] or "").strip()
+                    if not filename:
+                        continue
+                    if crop_row["id"]:
+                        crop_lookup[f"id:{crop_row['id']}"] = filename
+                    if crop_row["crop_hash"]:
+                        crop_lookup[f"hash:{crop_row['crop_hash']}"] = filename
+            return crop_lookup.get(f"id:{crop_id}") or crop_lookup.get(f"hash:{crop_hash}") or ""
+
         result: list[dict] = []
         for row in rows:
             try:
@@ -11917,7 +11950,7 @@ def _stored_questions_for_response(session_id: str) -> list[dict]:
             payload.setdefault("src_filename", row.get("src_filename") or "")
             payload.setdefault("source_image_id", row.get("source_image_id") or "")
             payload.setdefault("source_crop_id", row.get("source_crop_id") or "")
-            payload.setdefault("crop_filename", row.get("crop_filename") or "")
+            payload["crop_filename"] = str(payload.get("crop_filename") or "").strip() or lookup_crop_filename(row)
             payload.setdefault("crop_rect", row.get("crop_rect") or "{}")
             payload.setdefault("crop_hash", row.get("crop_hash") or "")
             result.append(payload)
@@ -11952,6 +11985,107 @@ def _save_question_set(session_id: str, qset: list[dict]) -> None:
         conn.commit()
 
 
+def _apply_question_source_meta(question: dict, source_meta: dict, filename: str) -> None:
+    source_type = str(source_meta.get("type") or "").lower()
+    question["src_filename"] = source_meta.get("src_filename") or filename
+    if source_meta.get("source_image_id"):
+        question["source_image_id"] = source_meta.get("source_image_id")
+    if source_meta.get("source_crop_id"):
+        question["source_crop_id"] = source_meta.get("source_crop_id")
+        question["source_type"] = "question_crop"
+    crop_filename = str(source_meta.get("crop_filename") or "").strip()
+    if source_type == "crop" and not crop_filename:
+        crop_filename = str(source_meta.get("filename") or filename).strip()
+    if crop_filename:
+        question["crop_filename"] = crop_filename
+    if source_meta.get("crop_rect"):
+        question["crop_rect"] = source_meta.get("crop_rect")
+    if source_meta.get("crop_hash"):
+        question["crop_hash"] = source_meta.get("crop_hash")
+    if source_meta.get("client_question_key"):
+        question["client_question_key"] = source_meta.get("client_question_key")
+    if source_meta.get("client_ocr_text"):
+        question["client_ocr_text"] = source_meta.get("client_ocr_text")
+
+
+def _question_source_match_text(source: dict) -> str:
+    text = " ".join(
+        str(source.get(key) or "")
+        for key in ("client_ocr_text", "client_question_key", "question_index")
+    )
+    return "".join(ch.lower() for ch in text if ch.isalnum())
+
+
+def _best_source_for_extracted_question(question: dict, sources: list[dict], fallback_index: int) -> dict:
+    if not sources:
+        return {}
+    if len(sources) == 1:
+        return sources[0]
+    qnorm = _question_norm_text(question)
+    qnum = str(question.get("number") or "").strip()
+    best_source = sources[min(fallback_index, len(sources) - 1)]
+    best_score = -1.0
+    for index, source in enumerate(sources):
+        source_norm = _question_source_match_text(source)
+        score = _text_gram_similarity(qnorm, source_norm)
+        source_question_index = str(source.get("question_index") or "").strip()
+        if qnum and source_question_index and qnum == source_question_index:
+            score += 0.25
+        if qnum and source_norm.startswith(qnum):
+            score += 0.12
+        score -= abs(index - fallback_index) * 0.01
+        if score > best_score:
+            best_score = score
+            best_source = source
+    return best_source
+
+
+async def _extract_questions_from_stored_source_group(
+    session_id: str,
+    sources: list[dict],
+    *,
+    label_prefix: str = "extract_crop_batch",
+) -> dict:
+    settings = effective_llm_settings_for_session(session_id)
+    prompt = prompts.render_prompt("observe_extract")
+    if len(sources) > 1:
+        prompt += (
+            "\n\n补充：本次输入是按题裁剪图批量识别。"
+            "每张图片通常对应一道题或一道题的局部，请按图片顺序提取印刷题目，"
+            "同一道题重复出现时只保留更完整的一条。"
+        )
+    image_paths = [image_path_for_request(str(source.get("filename") or "")) for source in sources]
+    raw = await run_with_llm_gate(
+        f"{label_prefix}:{session_id[:8]} images={len(image_paths)}",
+        session_id,
+        lambda: llm.analyze_images(settings, prompt, image_paths),
+        priority=LLM_PRIORITY_QUESTION_EXTRACTION,
+    )
+    per = _build_observe_response(raw, do_grade=False)
+    for index, q in enumerate(per["questions"]):
+        matched_source = _best_source_for_extracted_question(q, sources, index)
+        _apply_question_source_meta(q, matched_source, matched_source.get("filename") or sources[0].get("filename") or "")
+    before = _latest_question_set(session_id)
+    consolidated = _consolidate_question_set(before, per["questions"])
+    _save_question_set(session_id, consolidated)
+    added_count = max(0, len(consolidated) - len(before))
+    crop_count = sum(1 for source in sources if source.get("type") == "crop")
+    emit_log(
+        (
+            f"题目批量提取完成：来源 {len(sources)} 个（裁剪题图 {crop_count}），"
+            f"本批 {len(per['questions'])} 题，新增 {added_count} 题，"
+            f"去重后题集 {len(consolidated)} 题，low_quality={per['low_quality']}"
+        ),
+        session_id=session_id,
+        source="extract",
+    )
+    return {
+        **per,
+        "question_set": consolidated,
+        "question_set_count": len(consolidated),
+    }
+
+
 async def _extract_questions_from_stored_image(
     session_id: str,
     filename: str,
@@ -11977,22 +12111,7 @@ async def _extract_questions_from_stored_image(
     per = _build_observe_response(raw, do_grade=False)
     source_meta = source_meta or {}
     for q in per["questions"]:
-        q["src_filename"] = source_meta.get("src_filename") or filename
-        if source_meta.get("source_image_id"):
-            q["source_image_id"] = source_meta.get("source_image_id")
-        if source_meta.get("source_crop_id"):
-            q["source_crop_id"] = source_meta.get("source_crop_id")
-            q["source_type"] = "question_crop"
-        if source_meta.get("crop_filename"):
-            q["crop_filename"] = source_meta.get("crop_filename")
-        if source_meta.get("crop_rect"):
-            q["crop_rect"] = source_meta.get("crop_rect")
-        if source_meta.get("crop_hash"):
-            q["crop_hash"] = source_meta.get("crop_hash")
-        if source_meta.get("client_question_key"):
-            q["client_question_key"] = source_meta.get("client_question_key")
-        if source_meta.get("client_ocr_text"):
-            q["client_ocr_text"] = source_meta.get("client_ocr_text")
+        _apply_question_source_meta(q, source_meta, filename)
     before = _latest_question_set(session_id)
     consolidated = _consolidate_question_set(before, per["questions"])
     _save_question_set(session_id, consolidated)
@@ -12141,6 +12260,7 @@ def _question_crop_sources_for_session(session_id: str, limit: int = 160) -> lis
             {
                 "type": "crop",
                 "filename": item.get("crop_filename") or "",
+                "crop_filename": item.get("crop_filename") or "",
                 "src_filename": item.get("src_filename") or "",
                 "source_image_id": item.get("image_id") or "",
                 "source_crop_id": item.get("id") or "",
@@ -12176,9 +12296,13 @@ def _normalize_question_source(source: dict) -> dict | None:
     source_type = str(source.get("type") or "image").strip().lower()
     if source_type not in {"crop", "image"}:
         source_type = "image"
+    crop_filename = str(source.get("crop_filename") or "").strip()
+    if source_type == "crop" and not crop_filename:
+        crop_filename = filename
     return {
         "type": source_type,
         "filename": filename,
+        "crop_filename": crop_filename,
         "src_filename": str(source.get("src_filename") or filename).strip(),
         "source_image_id": str(source.get("source_image_id") or "").strip(),
         "source_crop_id": str(source.get("source_crop_id") or "").strip(),
@@ -12203,6 +12327,8 @@ def _merge_question_extraction_sources(current_sources: list[dict], payload_sour
             continue
         seen.add(key)
         result.append(source)
+    if result:
+        return result
     for filename in legacy_filenames:
         source = _normalize_question_source({"type": "image", "filename": filename, "src_filename": filename})
         if not source:
@@ -12213,6 +12339,126 @@ def _merge_question_extraction_sources(current_sources: list[dict], payload_sour
         seen.add(key)
         result.append(source)
     return result
+
+
+async def _run_grouped_session_question_extraction(
+    *,
+    session_id: str,
+    task_id: str | None,
+    extraction_sources: list[dict],
+    initial_count: int,
+    crop_count: int,
+    image_count: int,
+) -> dict:
+    processed = 0
+    failed = 0
+    low_quality = 0
+    groups: list[list[dict]] = []
+    source_index = 0
+    while source_index < len(extraction_sources):
+        source = extraction_sources[source_index]
+        if source.get("type") == "crop":
+            group: list[dict] = []
+            while (
+                source_index < len(extraction_sources)
+                and extraction_sources[source_index].get("type") == "crop"
+                and len(group) < QUESTION_CROP_BATCH_SIZE
+            ):
+                group.append(extraction_sources[source_index])
+                source_index += 1
+            groups.append(group)
+            continue
+        groups.append([source])
+        source_index += 1
+
+    emit_log(
+        f"题目提取执行计划：{len(groups)} 个模型批次，来源 {len(extraction_sources)} 个（裁剪题图 {crop_count}、整图兜底 {image_count}）",
+        session_id=session_id,
+        source="extract",
+    )
+
+    for group_index, raw_group in enumerate(groups, start=1):
+        valid_group: list[dict] = []
+        for source in raw_group:
+            filename = source.get("filename") or ""
+            try:
+                path = image_path_for_request(filename)
+            except HTTPException:
+                failed += 1
+                emit_log(
+                    f"题目提取跳过缺失图片：{filename}",
+                    session_id=session_id,
+                    source="extract",
+                    level="warning",
+                )
+                continue
+            if not path.exists():
+                failed += 1
+                emit_log(
+                    f"题目提取跳过缺失图片：{filename}",
+                    session_id=session_id,
+                    source="extract",
+                    level="warning",
+                )
+                continue
+            valid_group.append(source)
+        if not valid_group:
+            continue
+        try:
+            if len(valid_group) > 1 and all(source.get("type") == "crop" for source in valid_group):
+                result = await _extract_questions_from_stored_source_group(
+                    session_id,
+                    valid_group,
+                    label_prefix="extract_crop_batch",
+                )
+            else:
+                source = valid_group[0]
+                filename = source.get("filename") or ""
+                result = await _extract_questions_from_stored_image(
+                    session_id,
+                    filename,
+                    source_text="observation_crop" if source.get("type") == "crop" else "observation",
+                    label_prefix="extract_crop" if source.get("type") == "crop" else "extract_all",
+                    source_meta=source,
+                )
+            processed += len(valid_group)
+            if result.get("low_quality"):
+                low_quality += len(valid_group)
+        except LLMTaskCancelled:
+            raise
+        except Exception as exc:
+            failed += len(valid_group)
+            filenames_text = ", ".join(str(source.get("filename") or "") for source in valid_group[:3])
+            if len(valid_group) > 3:
+                filenames_text += " ..."
+            emit_log(
+                f"题目提取失败：批次 {group_index}/{len(groups)}，来源 {len(valid_group)} 个，{filenames_text}：{truncate_text(str(exc), 180)}",
+                session_id=session_id,
+                source="extract",
+                level="warning",
+            )
+
+    final_count = len(_latest_question_set(session_id))
+    with connect() as conn:
+        conn.execute("UPDATE sessions SET updated_at=? WHERE id=?", (utc_now(), session_id))
+    emit_log(
+        (
+            f"本轮题目提取完成：处理 {processed}/{len(extraction_sources)} 个来源，失败 {failed} 个，"
+            f"低质量 {low_quality} 张，新增 {max(0, final_count - initial_count)} 道，题集共 {final_count} 道"
+        ),
+        session_id=session_id,
+        source="extract",
+    )
+    return {
+        "processed": processed,
+        "failed": failed,
+        "low_quality": low_quality,
+        "initial_count": initial_count,
+        "question_set_count": final_count,
+        "crop_source_count": crop_count,
+        "image_source_count": image_count,
+        "task_id": task_id or "",
+    }
 
 
 async def run_session_question_extraction(
@@ -12234,6 +12480,14 @@ async def run_session_question_extraction(
         f"本轮题目提取开始：待处理 {len(extraction_sources)} 个来源（裁剪题图 {crop_count}、整图兜底 {image_count}），已有题集 {initial_count} 道",
         session_id=session_id,
         source="extract",
+    )
+    return await _run_grouped_session_question_extraction(
+        session_id=session_id,
+        task_id=task_id,
+        extraction_sources=extraction_sources,
+        initial_count=initial_count,
+        crop_count=crop_count,
+        image_count=image_count,
     )
     for index, source in enumerate(extraction_sources, start=1):
         filename = source.get("filename") or ""
@@ -12387,6 +12641,7 @@ async def extract_all_session_questions(
     filenames = _question_extraction_filenames_for_session(session_id, limit=limit)
     sources = _question_extraction_sources_for_session(session_id, limit=limit)
     crop_source_count = sum(1 for source in sources if source.get("type") == "crop")
+    image_source_count = len(sources) - crop_source_count
     if existing:
         with connect() as conn:
             conn.execute(
@@ -12405,6 +12660,7 @@ async def extract_all_session_questions(
             "image_count": len(filenames),
             "source_count": len(sources),
             "raw_image_count": len(filenames),
+            "image_source_count": image_source_count,
             "crop_source_count": crop_source_count,
             "question_set_count": len(_latest_question_set(session_id)),
         }
@@ -12415,7 +12671,12 @@ async def extract_all_session_questions(
         priority=TASK_PRIORITY_QUESTION_EXTRACTION,
     )
     emit_log(
-        f"已排队提取本轮所有题目：{len(sources)} 个来源（裁剪题图 {crop_source_count}、原始关键图 {len(filenames)}）",
+        f"已排队提取本轮所有题目：{len(sources)} 个来源（裁剪题图 {crop_source_count}、整图兜底 {image_source_count}；原始关键图 {len(filenames)}）",
+        session_id=session_id,
+        source="extract",
+    )
+    emit_log(
+        f"题目提取来源明细：实际来源 {len(sources)} 个，裁剪题图 {crop_source_count} 个，整图兜底 {image_source_count} 个，原始关键图 {len(filenames)} 张",
         session_id=session_id,
         source="extract",
     )
@@ -12427,6 +12688,7 @@ async def extract_all_session_questions(
         "image_count": len(filenames),
         "source_count": len(sources),
         "raw_image_count": len(filenames),
+        "image_source_count": image_source_count,
         "crop_source_count": crop_source_count,
         "question_set_count": len(_latest_question_set(session_id)),
     }
