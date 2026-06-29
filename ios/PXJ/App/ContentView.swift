@@ -370,7 +370,7 @@ private struct LandscapeLearningWorkbench: View {
             }
 
             if let notice = state.observationStopNotice, !voiceFocusModeActive {
-                ObservationStopToast(notice: notice)
+                ObservationStopToast(state: state, notice: notice)
                     .padding(.horizontal, 18)
                     .padding(.bottom, 96)
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
@@ -899,6 +899,7 @@ private struct DesktopIntroPanel: View {
 }
 
 private struct ObservationStopToast: View {
+    @ObservedObject var state: AppState
     let notice: ObservationStopNotice
 
     var body: some View {
@@ -908,13 +909,40 @@ private struct ObservationStopToast: View {
                 .foregroundStyle(Color.accentColor)
                 .frame(width: 24, height: 24)
 
-            VStack(alignment: .leading, spacing: 3) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("本轮观察")
                     .font(.caption.weight(.semibold))
                 Text(notice.message)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
+
+                HStack(spacing: 7) {
+                    Button {
+                        state.generateObservationReportNow()
+                    } label: {
+                        Label("报告", systemImage: "doc.text.magnifyingglass")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+
+                    Button {
+                        state.extractAllObservationQuestions()
+                    } label: {
+                        Label("题目", systemImage: "rectangle.stack.badge.plus")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+
+                    Button {
+                        state.extractObservationMistakes()
+                    } label: {
+                        Label("错题", systemImage: "book.closed")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                }
+                .font(.caption.weight(.semibold))
             }
         }
         .padding(.horizontal, 14)
@@ -938,6 +966,13 @@ private struct ImmersiveStageBackground: View {
                 CameraView(state: state)
                     .ignoresSafeArea()
                     .accessibilityIdentifier("landscape-camera-preview")
+
+                LiveQuestionRegionOverlay(
+                    imageSize: state.observationQuestionOverlayImageSize,
+                    candidates: state.observationQuestionOverlayCandidates,
+                    visible: state.observationQuestionOverlayVisible
+                )
+                .ignoresSafeArea()
 
                 LinearGradient(
                     colors: [.clear, .black.opacity(0.12), .black.opacity(0.42)],
@@ -1547,9 +1582,16 @@ private struct LearningStagePanel: View {
                     .fill(Color(.systemBackground))
 
                 if stageIsLive {
-                    CameraView(state: state)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .accessibilityIdentifier("landscape-camera-preview")
+                    ZStack {
+                        CameraView(state: state)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .accessibilityIdentifier("landscape-camera-preview")
+                        LiveQuestionRegionOverlay(
+                            imageSize: state.observationQuestionOverlayImageSize,
+                            candidates: state.observationQuestionOverlayCandidates,
+                            visible: state.observationQuestionOverlayVisible
+                        )
+                    }
                 } else {
                     VStack(spacing: 10) {
                         Image(systemName: "camera.viewfinder")
@@ -2950,6 +2992,64 @@ private struct ObservationDanmakuOverlay: View {
             width: min(320, max(210, safeWidth * 0.34)),
             height: min(210, max(132, safeHeight * 0.36))
         )
+    }
+}
+
+private struct LiveQuestionRegionOverlay: View {
+    let imageSize: CGSize
+    let candidates: [ObservationQuestionCandidate]
+    let visible: Bool
+
+    var body: some View {
+        GeometryReader { geo in
+            if visible && !candidates.isEmpty {
+                let display = QuestionRegionOverlay.imageDisplayRect(imageSize: imageSize, container: geo.size)
+                ZStack(alignment: .topLeading) {
+                    ForEach(candidates.indices, id: \.self) { index in
+                        liveBox(candidates[index], in: display)
+                    }
+                }
+                .frame(width: geo.size.width, height: geo.size.height)
+            }
+        }
+        .allowsHitTesting(false)
+    }
+
+    @ViewBuilder
+    private func liveBox(_ candidate: ObservationQuestionCandidate, in display: CGRect) -> some View {
+        let rect = candidate.normalizedRect
+        let w = max(rect.width * display.width, 1)
+        let h = max(rect.height * display.height, 1)
+        let x = display.minX + rect.minX * display.width
+        let y = display.minY + rect.minY * display.height
+        let color = candidate.isDuplicate ? Color.white : Color.green
+        let label = "Q\(candidate.index) · fp \(String(candidate.fingerprint.prefix(6)))"
+
+        RoundedRectangle(cornerRadius: 6)
+            .fill(color.opacity(candidate.isDuplicate ? 0.05 : 0.12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 6)
+                    .strokeBorder(
+                        color.opacity(candidate.isDuplicate ? 0.62 : 0.95),
+                        style: StrokeStyle(lineWidth: candidate.isDuplicate ? 1.2 : 2.0, dash: candidate.isDuplicate ? [5, 4] : [])
+                    )
+            )
+            .frame(width: w, height: h)
+            .overlay(alignment: .topLeading) {
+                Text(label)
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundStyle(candidate.isDuplicate ? Color.primary : Color.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 3)
+                    .background(.regularMaterial, in: Capsule())
+                    .overlay(Capsule().stroke(color.opacity(0.42), lineWidth: 1))
+                    .padding(4)
+            }
+            .opacity(candidate.isDuplicate ? 0.72 : 1)
+            .position(x: x + w / 2, y: y + h / 2)
+            .accessibilityHidden(true)
     }
 }
 
@@ -5699,6 +5799,24 @@ struct ServerBackgroundTask: Identifiable, Decodable {
         default: return "排队中"
         }
     }
+
+    var laneText: String {
+        lane == "realtime" ? "实时优先" : "后台队列"
+    }
+
+    var systemImage: String {
+        let text = (label + " " + title).lowercased()
+        if text.contains("question") || text.contains("extract") || title.contains("题目") {
+            return "rectangle.stack.badge.plus"
+        }
+        if text.contains("report") || title.contains("报告") {
+            return "doc.text.magnifyingglass"
+        }
+        if text.contains("memory") || title.contains("记忆") {
+            return "brain.head.profile"
+        }
+        return "sparkles"
+    }
 }
 
 struct ServerTasksResponse: Decodable {
@@ -6655,6 +6773,15 @@ private struct BurstFrame {
     let bodyCount: Int
 }
 
+struct ObservationQuestionCandidate {
+    let index: Int
+    let key: String
+    let fingerprint: String
+    let preview: String
+    let normalizedRect: CGRect
+    let isDuplicate: Bool
+}
+
 struct QAFocus {
     var x: Double
     var y: Double
@@ -7067,6 +7194,14 @@ final class AppState: ObservableObject {
     @Published var ttsTotalSegmentCount = 0
     @Published var ttsServiceText = TTSService.local.displayName
     @Published var observationStopNotice: ObservationStopNotice?
+    @Published var observationQuestionCandidateCount = 0
+    @Published var observationQuestionUniqueCount = 0
+    @Published var observationQuestionDuplicateCount = 0
+    @Published var observationQuestionLastAction = ""
+    @Published var observationQuestionEvents: [String] = []
+    @Published var observationQuestionOverlayCandidates: [ObservationQuestionCandidate] = []
+    @Published var observationQuestionOverlayImageSize: CGSize = .zero
+    @Published var observationQuestionOverlayUpdatedAt: Date?
     @Published var isThinking = false
     @Published var cameraSheetVisible = false
     @Published var cameraPreviewVisible = false
@@ -7214,6 +7349,9 @@ final class AppState: ObservableObject {
     private var shouldFinishAfterFlush = false
     private var nextBurstSequenceIndex = 0
     private var observationAcceptedFrameCount = 0
+    private var observationQuestionSeenKeys: [String] = []
+    private var observationQuestionScanBusy = false
+    private var observationQuestionScanSerial = 0
     private var burstGeneration = 0
     private var strategySyncTask: Task<Void, Never>?
     private var observationGuideHideTask: Task<Void, Never>?
@@ -7394,6 +7532,11 @@ final class AppState: ObservableObject {
         !logs.isEmpty
     }
 
+    var observationQuestionOverlayVisible: Bool {
+        guard isBursting, inlineCameraPreviewVisible, let updatedAt = observationQuestionOverlayUpdatedAt else { return false }
+        return Date().timeIntervalSince(updatedAt) < 4.5
+    }
+
     var inlineCameraPreviewVisible: Bool {
         cameraPreviewVisible && !cameraSheetVisible && (cameraTaskKind == .qaFrame || cameraTaskKind == .extract || isBursting || cameraTaskKind == .burst || cameraTaskKind == .singleCapture)
     }
@@ -7411,10 +7554,18 @@ final class AppState: ObservableObject {
 
         if isBursting {
             let bufferedText = burstBuffer.isEmpty ? "等待有效画面" : "已保留 \(burstBuffer.count) 张关键帧"
+            let questionText: String
+            if observationQuestionUniqueCount > 0 {
+                questionText = "；题目指纹 \(observationQuestionUniqueCount) 新 / \(observationQuestionDuplicateCount) 重"
+            } else if observationQuestionScanBusy {
+                questionText = "；题目指纹扫描中"
+            } else {
+                questionText = ""
+            }
             tasks.append(RuntimeTaskItem(
                 id: "observation",
                 title: "智能观察运行中",
-                detail: "\(bufferedText)；作为问答背景和后续总结。",
+                detail: "\(bufferedText)\(questionText)；作为问答背景和后续总结。",
                 systemImage: "rectangle.stack.fill",
                 tone: .good,
                 showsProgress: true,
@@ -7570,6 +7721,21 @@ final class AppState: ObservableObject {
                 canOpen: false,
                 canClose: true,
                 closeTitle: "关闭",
+                closeSystemImage: "xmark.circle"
+            ))
+        }
+
+        for task in serverTasks.prefix(3) {
+            tasks.append(RuntimeTaskItem(
+                id: "server-task:\(task.id)",
+                title: task.title,
+                detail: "\(task.stateText) · \(task.laneText)",
+                systemImage: task.systemImage,
+                tone: .waiting,
+                showsProgress: true,
+                canOpen: false,
+                canClose: task.state != "cancelling",
+                closeTitle: "取消后台任务",
                 closeSystemImage: "xmark.circle"
             ))
         }
@@ -8158,11 +8324,12 @@ final class AppState: ObservableObject {
 
     private func observationContextSummary() -> String {
         guard isBursting else { return "未运行" }
+        let questionSuffix = observationQuestionUniqueCount > 0 ? " · 题目指纹 \(observationQuestionUniqueCount) 新/\(observationQuestionDuplicateCount) 重" : ""
         if let latest = burstBuffer.last {
-            return "已保留 \(burstBuffer.count) 张观察帧 · \(shortText(latest.signalSummary, limit: 24))"
+            return "已保留 \(burstBuffer.count) 张观察帧 · \(shortText(latest.signalSummary, limit: 24))\(questionSuffix)"
         }
         if uploadState == "智能观察中" || uploadState == "等待学习材料" || uploadState == "创建学习回合" {
-            return "后台运行中，等待有效画面"
+            return "后台运行中，等待有效画面\(questionSuffix)"
         }
         return uploadState
     }
@@ -8174,8 +8341,15 @@ final class AppState: ObservableObject {
         var lines = [
             "状态：\(isBursting ? "后台运行中" : "已停止")",
             "用途：作为即时问答的背景信息，也用于后续学习总结；不阻塞新对话和按住说话。",
-            "待上传观察帧：\(burstBuffer.count) 张"
+            "待上传观察帧：\(burstBuffer.count) 张",
+            "题目指纹：新题 \(observationQuestionUniqueCount) 道，重复合并 \(observationQuestionDuplicateCount) 道，候选 \(observationQuestionCandidateCount) 条"
         ]
+        if !observationQuestionLastAction.isEmpty {
+            lines.append("最近题目动态：\(observationQuestionLastAction)")
+        }
+        for event in observationQuestionEvents.suffix(4) {
+            lines.append("题目动态：\(event)")
+        }
         if let lastAcceptedAt {
             lines.append("最近有效观察：\(CaptureTimeFormatter.string(from: lastAcceptedAt))")
         }
@@ -8195,7 +8369,14 @@ final class AppState: ObservableObject {
             "role": "background_observation",
             "policy": "Use this as supporting process context for the current answer and later summary. Do not let old observation override the user's current question or the current QA frame.",
             "buffered_frame_count": burstBuffer.count,
-            "upload_state": uploadState
+            "upload_state": uploadState,
+            "question_fingerprint": [
+                "candidate_count": observationQuestionCandidateCount,
+                "unique_count": observationQuestionUniqueCount,
+                "duplicate_count": observationQuestionDuplicateCount,
+                "last_action": observationQuestionLastAction,
+                "recent_events": Array(observationQuestionEvents.suffix(6))
+            ]
         ]
         if let lastAcceptedAt {
             payload["last_accepted_at"] = CaptureTimeFormatter.string(from: lastAcceptedAt)
@@ -12130,6 +12311,11 @@ final class AppState: ObservableObject {
     }
 
     func closeRuntimeTask(_ id: String) {
+        if id.hasPrefix("server-task:") {
+            let taskId = String(id.dropFirst("server-task:".count))
+            Task { await cancelServerTask(taskId) }
+            return
+        }
         switch id {
         case "voice":
             cancelHoldToTalk()
@@ -12297,6 +12483,7 @@ final class AppState: ObservableObject {
         shouldFinishAfterFlush = false
         nextBurstSequenceIndex = 0
         observationAcceptedFrameCount = 0
+        resetObservationQuestionTracking()
         uploadState = sessionId == nil ? "创建学习回合" : "智能观察中"
         qualityFeedback = .preparing
         log("智能观察启动：从视频预览取关键帧，不触发拍照快门；画面有变化就缓存，并作为问答背景上下文")
@@ -12332,8 +12519,128 @@ final class AppState: ObservableObject {
         shouldFinishAfterFlush = false
         nextBurstSequenceIndex = 0
         observationAcceptedFrameCount = 0
+        resetObservationQuestionTracking()
         qualityFeedback = .waitingForMaterial
         startTimers(generation: generation)
+    }
+
+    private func resetObservationQuestionTracking() {
+        observationQuestionSeenKeys.removeAll()
+        observationQuestionCandidateCount = 0
+        observationQuestionUniqueCount = 0
+        observationQuestionDuplicateCount = 0
+        observationQuestionLastAction = ""
+        observationQuestionEvents.removeAll()
+        observationQuestionOverlayCandidates.removeAll()
+        observationQuestionOverlayImageSize = .zero
+        observationQuestionOverlayUpdatedAt = nil
+        observationQuestionScanBusy = false
+        observationQuestionScanSerial += 1
+    }
+
+    private func appendObservationQuestionEvent(_ message: String) {
+        observationQuestionLastAction = message
+        observationQuestionEvents.append(message)
+        if observationQuestionEvents.count > 12 {
+            observationQuestionEvents.removeFirst(observationQuestionEvents.count - 12)
+        }
+        log("题目指纹：\(message)")
+    }
+
+    private func scanObservationQuestionsIfNeeded(_ image: UIImage, frameSequence: Int, generation: Int, textCount: Int, rectangleCount: Int) {
+        guard generation == burstGeneration, isBursting, !observationQuestionScanBusy else { return }
+        guard textCount > 0 || rectangleCount > 0 else { return }
+        observationQuestionScanBusy = true
+        observationQuestionScanSerial += 1
+        let scanSerial = observationQuestionScanSerial
+        let seenKeys = observationQuestionSeenKeys
+        Task.detached(priority: .utility) {
+            let regions = QuestionSegmenter.segment(image, fast: true)
+            let candidates = regions.compactMap { region -> ObservationQuestionCandidate? in
+                guard let text = region.ocrText?.trimmingCharacters(in: .whitespacesAndNewlines),
+                      let key = Self.extractScanKey(text) else { return nil }
+                let preview = text
+                    .replacingOccurrences(of: "\n", with: " ")
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                let isDuplicate = seenKeys.contains { Self.extractKeySimilar($0, key) }
+                return ObservationQuestionCandidate(
+                    index: region.index,
+                    key: key,
+                    fingerprint: Self.observationQuestionFingerprint(key),
+                    preview: String(preview.prefix(36)),
+                    normalizedRect: region.normalizedRect,
+                    isDuplicate: isDuplicate
+                )
+            }
+            await MainActor.run {
+                self.finishObservationQuestionScan(
+                    candidates,
+                    imageSize: image.size,
+                    frameSequence: frameSequence,
+                    generation: generation,
+                    scanSerial: scanSerial
+                )
+            }
+        }
+    }
+
+    private func finishObservationQuestionScan(
+        _ candidates: [ObservationQuestionCandidate],
+        imageSize: CGSize,
+        frameSequence: Int,
+        generation: Int,
+        scanSerial: Int
+    ) {
+        guard scanSerial == observationQuestionScanSerial else { return }
+        observationQuestionScanBusy = false
+        guard generation == burstGeneration, isBursting else { return }
+        guard !candidates.isEmpty else {
+            if observationQuestionEvents.isEmpty {
+                appendObservationQuestionEvent("关键帧 #\(frameSequence) 暂未切出稳定题目指纹，继续观察")
+            }
+            return
+        }
+        observationQuestionOverlayCandidates = candidates
+        observationQuestionOverlayImageSize = imageSize
+        observationQuestionOverlayUpdatedAt = Date()
+
+        observationQuestionCandidateCount += candidates.count
+        var newCount = 0
+        var duplicateCount = 0
+        var firstNew: ObservationQuestionCandidate?
+        for candidate in candidates {
+            if candidate.isDuplicate {
+                duplicateCount += 1
+            } else {
+                observationQuestionSeenKeys.append(candidate.key)
+                newCount += 1
+                if firstNew == nil {
+                    firstNew = candidate
+                }
+            }
+        }
+        observationQuestionUniqueCount = observationQuestionSeenKeys.count
+        observationQuestionDuplicateCount += duplicateCount
+
+        if let firstNew {
+            let prefix = String(firstNew.fingerprint.prefix(8))
+            appendObservationQuestionEvent(
+                "关键帧 #\(frameSequence) 新题 \(newCount) 道、重复 \(duplicateCount) 道；Q\(firstNew.index) fp=\(prefix)；继续移动到下一题"
+            )
+        } else {
+            appendObservationQuestionEvent(
+                "关键帧 #\(frameSequence) 未发现新题，按题文指纹合并重复 \(duplicateCount) 道"
+            )
+        }
+    }
+
+    nonisolated private static func observationQuestionFingerprint(_ key: String) -> String {
+        var hash: UInt64 = 0xcbf29ce484222325
+        for byte in key.utf8 {
+            hash ^= UInt64(byte)
+            hash = hash &* 0x100000001b3
+        }
+        return String(format: "%016llx", hash)
     }
 
     func stopBurst() {
@@ -12693,6 +13000,13 @@ final class AppState: ObservableObject {
             }
             let actionText = shouldProbeSimilarScene ? "保留同页观察帧" : "检测到学习关键画面"
             log("\(actionText)，加入缓存：\(burstBuffer.count) 张（\(analysis.signals.summary)，变化 \(changeText)）")
+            scanObservationQuestionsIfNeeded(
+                image,
+                frameSequence: frame.sequenceIndex,
+                generation: generation,
+                textCount: frame.textCount,
+                rectangleCount: frame.rectangleCount
+            )
             if shouldProbeSimilarScene, stopBurstIfSceneIdle(at: now, generation: generation) { return }
             scheduleNextBurstCapture(generation: generation, interval: activeCaptureInterval)
         } else {
@@ -13056,6 +13370,145 @@ final class AppState: ObservableObject {
                 systemImage: "exclamationmark.triangle",
                 tone: .warning
             )
+            log("结束学习回合失败：\(networkErrorDescription(error))", level: "error")
+        }
+    }
+
+    func generateObservationReportNow() {
+        guard sessionId != nil else {
+            appendStatusChatMessage(title: "生成报告", text: "当前还没有学习回合，先开始一次智能观察。", systemImage: "doc.text.magnifyingglass")
+            return
+        }
+        shouldFinishAfterFlush = true
+        upsertStatusChatMessage(
+            key: "observation-final-report",
+            title: "生成报告",
+            text: "已提交生成学习报告；如果还有未上传关键帧，会先补传再汇总。",
+            systemImage: "doc.text.magnifyingglass",
+            showsProgress: true
+        )
+        Task {
+            if !burstBuffer.isEmpty {
+                await flushBurst(reason: "用户点击生成报告")
+            }
+            if shouldFinishAfterFlush {
+                await finishBurstSessionIfReady()
+            } else {
+                await requestObservationFinalReport(statusKey: "observation-final-report")
+            }
+            await refreshServerTasks()
+        }
+    }
+
+    func extractAllObservationQuestions() {
+        guard let sessionId else {
+            appendStatusChatMessage(title: "提取题目", text: "当前还没有学习回合，先开始一次智能观察。", systemImage: "rectangle.stack.badge.plus")
+            return
+        }
+        upsertStatusChatMessage(
+            key: "observation-question-extract",
+            title: "提取题目",
+            text: "已把本轮关键图排入题目提取队列，后台会按指纹合并重复题。",
+            systemImage: "rectangle.stack.badge.plus",
+            showsProgress: true
+        )
+        Task {
+            do {
+                let data = try await postForm(
+                    path: "/api/sessions/\(sessionId)/extract-all-questions",
+                    fields: ["limit": "80"],
+                    files: []
+                )
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                let imageCount = (json?["image_count"] as? Int) ?? 0
+                let setCount = (json?["question_set_count"] as? Int) ?? 0
+                extractSessionId = sessionId
+                extractUniqueCount = setCount
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "题目提取已排队",
+                    text: "将处理 \(imageCount) 张关键图；当前题集已有 \(setCount) 道题。后台完成后可从历史回合打开还原页/空白卷。",
+                    systemImage: "checkmark.circle"
+                )
+                if setCount > 0, let html = await fetchRestoreHTML(view: "restore") {
+                    extractRestoreHTML = html
+                    extractResultVisible = true
+                }
+                await refreshServerTasks()
+            } catch {
+                upsertStatusChatMessage(
+                    key: "observation-question-extract",
+                    title: "提取题目失败",
+                    text: networkErrorUserMessage(error),
+                    systemImage: "exclamationmark.triangle"
+                )
+            }
+        }
+    }
+
+    func extractObservationMistakes() {
+        guard sessionId != nil else {
+            appendStatusChatMessage(title: "提取错题", text: "当前还没有学习回合，先开始一次智能观察。", systemImage: "book.closed")
+            return
+        }
+        upsertStatusChatMessage(
+            key: "observation-mistake-extract",
+            title: "提取错题",
+            text: "已请求整理本轮错题候选；系统会先生成/刷新学习报告，再把可疑错题写入候选区。",
+            systemImage: "book.closed",
+            showsProgress: true
+        )
+        Task {
+            await requestObservationFinalReport(statusKey: "observation-mistake-extract")
+            await refreshReviewQueuePreview()
+            await refreshServerTasks()
+        }
+    }
+
+    private func requestObservationFinalReport(statusKey: String? = nil) async {
+        guard let sessionId else { return }
+        await syncStudentGoalIfNeeded()
+        uploadState = "生成报告"
+        qualityFeedback = CaptureQualityFeedback.uploading("生成报告")
+        do {
+            _ = try await postForm(
+                path: "/api/sessions/\(sessionId)/finish",
+                fields: ["device_id": UIDevice.current.identifierForVendor?.uuidString ?? "iphone"],
+                files: []
+            )
+            uploadState = "报告生成中"
+            qualityFeedback = CaptureQualityFeedback(
+                title: "报告生成中",
+                detail: "后端正在整理学习回合、题目线索和错题候选",
+                systemImage: "doc.text.magnifyingglass",
+                tone: .good
+            )
+            log("后端已开始生成学习回合总结报告")
+            if let statusKey {
+                upsertStatusChatMessage(
+                    key: statusKey,
+                    title: statusKey == "observation-mistake-extract" ? "错题提取处理中" : "报告生成中",
+                    text: statusKey == "observation-mistake-extract" ? "报告任务已排队，完成后会自动沉淀错题候选。" : "报告任务已排队，稍后可在历史回合查看。",
+                    systemImage: statusKey == "observation-mistake-extract" ? "book.closed" : "doc.text.magnifyingglass",
+                    showsProgress: true
+                )
+            }
+        } catch {
+            uploadState = "报告触发失败"
+            qualityFeedback = CaptureQualityFeedback(
+                title: "报告触发失败",
+                detail: networkErrorUserMessage(error),
+                systemImage: "exclamationmark.triangle",
+                tone: .warning
+            )
+            if let statusKey {
+                upsertStatusChatMessage(
+                    key: statusKey,
+                    title: "后台任务触发失败",
+                    text: networkErrorUserMessage(error),
+                    systemImage: "exclamationmark.triangle"
+                )
+            }
             log("结束学习回合失败：\(networkErrorDescription(error))", level: "error")
         }
     }

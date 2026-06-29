@@ -30,6 +30,22 @@ curl -fsS http://127.0.0.1:8038/health
 - `PXJ_AUTH_REQUIRED=true`
 - `PXJ_REGISTRATION_ENABLED=true`
 
+## 智能观察提题灰度
+
+发布步骤：
+
+1. 先部署后端，确认 `/api/sessions/{id}/extract-all-questions` 可排入 `question_extraction_session` 任务。
+2. 再发布 iOS TestFlight，验证观察中实时题框、停止后按钮和任务浮层。
+3. 灰度期优先给内部测试员开放，观察 `/api/tasks`、`llm_usage_events` 和日志中的 `source=extract`。
+4. 若后台队列堆积或实时问答变慢，回滚 iOS 入口或临时关闭用户引导，后端任务仍可安全保留。
+
+线上观测重点：
+
+- `question_extraction_session` 的 queued/running/failed 数量。
+- `final_report` 与 `vision_analysis` 的平均等待时间。
+- `题目提取完成` 日志中的处理张数、新增题数、low_quality 数。
+- 用户点击“错题”后错题候选数量，不应自动大量导入正式错题本。
+
 ## 域名与 Nginx
 
 DNS：

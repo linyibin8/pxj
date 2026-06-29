@@ -80,6 +80,7 @@ def task_display_title(label: str) -> str:
     table = (
         ("teaching_visualization", "生成可视化讲解"),
         ("final_report", "生成学习报告"),
+        ("question_extraction_session", "提取观察题目"),
         ("qa_session_summary", "生成问答小结"),
         ("memory_consolidation", "整理长期记忆"),
         ("memory_extract", "整理长期记忆"),
@@ -1155,7 +1156,17 @@ async def execute_task_run(task: dict) -> None:
             else:
                 reschedule_task_run(task_id, content)
             return
+        if task["task_kind"] == "question_extraction_session":
+            session_id = task.get("session_id") or payload.get("session_id")
+            if not session_id:
+                raise RuntimeError("question extraction task missing session_id")
+            filenames = [str(name) for name in payload.get("filenames") or [] if str(name or "").strip()]
+            await run_session_question_extraction(session_id, filenames, task_id=task_id)
+            mark_task_run(task_id, "done")
+            return
         raise RuntimeError(f"unknown task kind: {task['task_kind']}")
+    except LLMTaskCancelled as exc:
+        mark_task_run(task_id, "failed", error=str(exc) or "cancelled")
     except Exception as exc:
         reschedule_task_run(task_id, str(exc))
 
@@ -11315,6 +11326,140 @@ def _save_question_set(session_id: str, qset: list[dict]) -> None:
         conn.commit()
 
 
+async def _extract_questions_from_stored_image(
+    session_id: str,
+    filename: str,
+    *,
+    source_text: str,
+    label_prefix: str = "extract",
+) -> dict:
+    """对已经保存到 images 目录的一张图提题，并把结果合并进本会话 question_set。
+
+    这个内部函数不改 sessions.status/title；显式拍题提取和智能观察停止后的整轮提题共用它，
+    避免普通观察会话被误改成“题目提取”会话。
+    """
+    settings = effective_llm_settings_for_session(session_id)
+    prompt = prompts.render_prompt("observe_extract")
+    image_paths = [image_path_for_request(filename)]
+    raw = await run_with_llm_gate(
+        f"{label_prefix}:{session_id[:8]}",
+        session_id,
+        lambda: llm.analyze_images(settings, prompt, image_paths),
+        priority=LLM_PRIORITY_BACKGROUND,
+    )
+    per = _build_observe_response(raw, do_grade=False)
+    for q in per["questions"]:
+        q["src_filename"] = filename
+    before = _latest_question_set(session_id)
+    consolidated = _consolidate_question_set(before, per["questions"])
+    _save_question_set(session_id, consolidated)
+    added_count = max(0, len(consolidated) - len(before))
+    emit_log(
+        (
+            f"题目提取完成：图片 {filename} 本图 {len(per['questions'])} 题，"
+            f"新增 {added_count} 题，去重后题集 {len(consolidated)} 题，low_quality={per['low_quality']}"
+        ),
+        session_id=session_id,
+        device_id=source_text,
+        source="extract",
+    )
+    return {
+        "is_study_material": per["is_study_material"],
+        "questions": per["questions"],
+        "low_quality": per["low_quality"],
+        "question_set": consolidated,
+        "question_set_count": len(consolidated),
+        "added_count": added_count,
+        "filename": filename,
+        "raw": truncate_text(raw, 4000),
+    }
+
+
+def _question_extraction_filenames_for_session(session_id: str, limit: int = 80) -> list[str]:
+    """选择本轮观察里值得进入整轮提题的图片：跳过服务端已判定 invalid/duplicate 的帧。"""
+    limit = max(1, min(int(limit or 80), 160))
+    with connect() as conn:
+        rows = conn.execute(
+            """
+            SELECT images.filename
+            FROM images
+            LEFT JOIN session_observations obs ON obs.image_id = images.id
+            WHERE images.session_id=?
+              AND images.kind IN ('burst', 'single', 'extract', 'grade')
+              AND COALESCE(obs.novelty_status, 'unknown') NOT IN ('invalid', 'duplicate')
+            ORDER BY images.sequence_index ASC, images.created_at ASC
+            LIMIT ?
+            """,
+            (session_id, limit),
+        ).fetchall()
+    return [row["filename"] for row in rows if row["filename"]]
+
+
+async def run_session_question_extraction(session_id: str, filenames: list[str], task_id: str | None = None) -> dict:
+    """后台整轮提题任务：串行处理会话图片，逐张写入同一个 question_set。"""
+    if not filenames:
+        filenames = _question_extraction_filenames_for_session(session_id)
+    initial_count = len(_latest_question_set(session_id))
+    processed = 0
+    failed = 0
+    low_quality = 0
+    emit_log(
+        f"本轮题目提取开始：待处理 {len(filenames)} 张关键图，已有题集 {initial_count} 道",
+        session_id=session_id,
+        source="extract",
+    )
+    for index, filename in enumerate(filenames, start=1):
+        path = image_path_for_request(filename)
+        if not path.exists():
+            failed += 1
+            emit_log(
+                f"题目提取跳过缺失图片：{filename}",
+                session_id=session_id,
+                source="extract",
+                level="warning",
+            )
+            continue
+        try:
+            result = await _extract_questions_from_stored_image(
+                session_id,
+                filename,
+                source_text="observation",
+                label_prefix="extract_all",
+            )
+            processed += 1
+            if result.get("low_quality"):
+                low_quality += 1
+        except LLMTaskCancelled:
+            raise
+        except Exception as exc:
+            failed += 1
+            emit_log(
+                f"题目提取失败：{index}/{len(filenames)} {filename}；{truncate_text(str(exc), 180)}",
+                session_id=session_id,
+                source="extract",
+                level="warning",
+            )
+    final_count = len(_latest_question_set(session_id))
+    with connect() as conn:
+        conn.execute("UPDATE sessions SET updated_at=? WHERE id=?", (utc_now(), session_id))
+    emit_log(
+        (
+            f"本轮题目提取完成：处理 {processed}/{len(filenames)} 张，失败 {failed} 张，"
+            f"低质量 {low_quality} 张，新增 {max(0, final_count - initial_count)} 道，题集共 {final_count} 道"
+        ),
+        session_id=session_id,
+        source="extract",
+    )
+    return {
+        "processed": processed,
+        "failed": failed,
+        "low_quality": low_quality,
+        "initial_count": initial_count,
+        "question_set_count": final_count,
+        "task_id": task_id or "",
+    }
+
+
 @app.post("/api/sessions/{session_id}/extract-questions")
 async def extract_session_questions(
     session_id: str,
@@ -11340,15 +11485,12 @@ async def extract_session_questions(
         captured_at=utc_now(),
         capture_meta={"source": source_text, "purpose": "question_extraction"},
     )
-    settings = effective_llm_settings_for_session(session_id)
-    prompt = prompts.render_prompt("observe_extract")
-    image_paths = [image_path_for_request(filename)]
     try:
-        raw = await run_with_llm_gate(
-            f"extract:{session_id[:8]}",
+        result = await _extract_questions_from_stored_image(
             session_id,
-            lambda: llm.analyze_images(settings, prompt, image_paths),
-            priority=LLM_PRIORITY_BACKGROUND,
+            filename,
+            source_text=source_text,
+            label_prefix="extract",
         )
     except HTTPException:
         raise
@@ -11361,12 +11503,7 @@ async def extract_session_questions(
             level="warning",
         )
         raise HTTPException(502, "question extraction failed")
-    per = _build_observe_response(raw, do_grade=False)
-    for q in per["questions"]:
-        q["src_filename"] = filename
-    consolidated = _consolidate_question_set(_latest_question_set(session_id), per["questions"])
-    _save_question_set(session_id, consolidated)
-    subject = next((q.get("subject") for q in consolidated if q.get("subject")), "")
+    subject = next((q.get("subject") for q in result["question_set"] if q.get("subject")), "")
     title = (f"{subject} · 题目提取" if subject else "题目提取")
     with connect() as conn:
         conn.execute(
@@ -11374,19 +11511,65 @@ async def extract_session_questions(
             (utc_now(), title, session_id),
         )
         conn.commit()
-    emit_log(
-        f"题目提取完成：本图 {len(per['questions'])} 题，去重后题集 {len(consolidated)} 题，low_quality={per['low_quality']}",
+    return {
+        "is_study_material": result["is_study_material"],
+        "questions": result["questions"],
+        "low_quality": result["low_quality"],
+        "question_set": result["question_set"],
+        "question_set_count": result["question_set_count"],
+        "filename": filename,
+    }
+
+
+@app.post("/api/sessions/{session_id}/extract-all-questions")
+async def extract_all_session_questions(
+    session_id: str,
+    request: Request,
+    background_tasks: BackgroundTasks,
+    limit: int = Form(80),
+) -> dict:
+    """把本轮已保存的关键图片排入后台整轮提题任务，供“停止观察后提取所有题目”按钮调用。"""
+    init_db()
+    principal = principal_from_request(request)
+    with connect() as conn:
+        require_account_session(conn, session_id, principal)
+        existing = conn.execute(
+            """
+            SELECT id, status
+            FROM task_runs
+            WHERE session_id=? AND task_kind='question_extraction_session' AND status IN ('queued','running')
+            ORDER BY created_at DESC
+            LIMIT 1
+            """,
+            (session_id,),
+        ).fetchone()
+    filenames = _question_extraction_filenames_for_session(session_id, limit=limit)
+    if existing:
+        return {
+            "session_id": session_id,
+            "task_id": existing["id"],
+            "status": existing["status"],
+            "image_count": len(filenames),
+            "question_set_count": len(_latest_question_set(session_id)),
+        }
+    task_id = record_task_run(
+        "question_extraction_session",
         session_id=session_id,
-        device_id=source_text,
+        payload={"session_id": session_id, "filenames": filenames},
+        priority=TASK_PRIORITY_BACKGROUND,
+    )
+    emit_log(
+        f"已排队提取本轮所有题目：{len(filenames)} 张关键图",
+        session_id=session_id,
         source="extract",
     )
+    background_tasks.add_task(execute_next_task_run_now)
     return {
-        "is_study_material": per["is_study_material"],
-        "questions": per["questions"],
-        "low_quality": per["low_quality"],
-        "question_set": consolidated,
-        "question_set_count": len(consolidated),
-        "filename": filename,
+        "session_id": session_id,
+        "task_id": task_id,
+        "status": "queued",
+        "image_count": len(filenames),
+        "question_set_count": len(_latest_question_set(session_id)),
     }
 
 

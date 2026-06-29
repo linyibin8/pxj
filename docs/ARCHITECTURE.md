@@ -59,6 +59,29 @@ flowchart LR
 - 模型层：`llm.py` 调默认 OpenAI-compatible API；`embeddings.py` 负责语义向量。
 - 记忆层：`memory_store.py` 负责检索、加权、写入、状态更新和整理。
 
+## 智能观察提题链路
+
+```mermaid
+flowchart TD
+  Cam["iOS CameraView 预览帧"] --> Gate["BurstFrameAnalyzer 端上门控"]
+  Gate --> Scan["QuestionSegmenter fast 分题"]
+  Scan --> Overlay["实时题框 + fp 短码"]
+  Gate --> Batch["POST /api/sessions/{id}/batches"]
+  Batch --> Obs["session_observations 帧级去重"]
+  Obs --> Vision["vision_analysis 后台学习分析"]
+  Stop["停止观察"] --> Buttons["报告 / 题目 / 错题按钮"]
+  Buttons --> Finish["/finish final_report"]
+  Buttons --> ExtractAll["/extract-all-questions"]
+  ExtractAll --> Task["task_runs: question_extraction_session"]
+  Task --> QSet["report_events: question_set"]
+  QSet --> Restore["/restore-page 还原页/空白卷"]
+```
+
+- 实时框选只依赖端上 OCR/分题，不消耗 VLM。
+- 整轮题目提取只处理会话里非 `invalid/duplicate` 的关键图，走后台优先级。
+- `question_set` 仍保存在 `report_events`；未来需要来源证据、短题图像哈希和 seen_count 时，再迁移到 `session_question_observations`。
+- 后台任务通过 `/api/tasks` 暴露给 iOS 任务浮层，可查看排队/运行并取消。
+
 ## iOS 分层
 
 - `PXJApp.swift`：App 入口、测试环境自动登录。
