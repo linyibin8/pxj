@@ -21,6 +21,9 @@ targets:
         LD_RUNPATH_SEARCH_PATHS: $(inherited) @executable_path/Frameworks
         SWIFT_VERSION: 5.0
         TARGETED_DEVICE_FAMILY: "1,2"
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
   PXJUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -31,6 +34,8 @@ targets:
       - target: PXJ
     settings:
       base:
+        PRODUCT_NAME: PXJUITests
         PRODUCT_BUNDLE_IDENTIFIER: com.linyibin8.pxj.UITests
         DEVELOPMENT_TEAM: N3G45G5H74
         TEST_TARGET_NAME: PXJ
+        SWIFT_VERSION: 5.0

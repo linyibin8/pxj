@@ -70,9 +70,11 @@ struct iPadHistoryView: View {
                                 .foregroundStyle(.tertiary)
                         }
                         .padding(.vertical, 2)
+                        .accessibilityIdentifier("history-session-row-\(session.id)")
                         .tag(session.id)
                     }
                 }
+                .accessibilityIdentifier("ipad-history-list")
                 .listStyle(.plain)
             }
         }
@@ -130,6 +132,7 @@ struct iPadHistoryView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
+                        .accessibilityIdentifier("history-continue-button")
                     }
                     .padding(24)
                     .frame(maxWidth: 820, alignment: .leading)
@@ -139,6 +142,7 @@ struct iPadHistoryView: View {
                 ContentUnavailableCompat(title: "选择一条历史", systemImage: "sidebar.right", message: "在左侧选择一次学习记录查看报告。")
             }
         }
+        .accessibilityIdentifier("history-report-pane")
         .background(Color(.systemGroupedBackground))
     }
 

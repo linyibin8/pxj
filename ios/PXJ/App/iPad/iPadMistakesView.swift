@@ -62,6 +62,7 @@ struct iPadMistakesView: View {
                         }
                     }
                 }
+                .accessibilityIdentifier("ipad-mistake-list")
                 .listStyle(.sidebar)
             }
         }
@@ -90,6 +91,7 @@ struct iPadMistakesView: View {
             }
         }
         .padding(.vertical, 2)
+        .accessibilityIdentifier("mistake-row-\(item.id)")
         .tag(item.id)
     }
 
@@ -135,6 +137,7 @@ struct iPadMistakesView: View {
                                          message: "在左侧选择一道错题查看详情。")
             }
         }
+        .accessibilityIdentifier("mistake-detail-pane")
         .background(Color(.systemGroupedBackground))
     }
 
@@ -167,6 +170,7 @@ struct iPadMistakesView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("mistake-review-button")
 
                 Button {
                     guard !working else { return }
@@ -178,6 +182,7 @@ struct iPadMistakesView: View {
                 }
                 .buttonStyle(.bordered)
                 .tint(.green)
+                .accessibilityIdentifier("mistake-mastered-button")
 
                 Button {
                     guard !working else { return }
@@ -189,6 +194,7 @@ struct iPadMistakesView: View {
                 }
                 .buttonStyle(.bordered)
                 .tint(.orange)
+                .accessibilityIdentifier("mistake-keep-button")
             }
             .disabled(working || state.isPreparingReview)
         }
