@@ -12660,8 +12660,9 @@ final class AppState: ObservableObject {
         let scanSerial = observationQuestionScanSerial
         let seenKeys = observationQuestionSeenKeys
         Task.detached(priority: .utility) {
-            // 观察框只在被采纳为关键帧的图片上跑，使用 accurate 分割以贴近“分题”功能的框选质量。
-            let regions = QuestionSegmenter.segment(image, fast: false)
+            // Use the same corrected-page segmentation path as manual question picking,
+            // then map the regions back to preview coordinates.
+            let regions = QuestionSegmenter.segmentForPreviewOverlay(image)
             let candidates = regions.compactMap { region -> ObservationQuestionCandidate? in
                 guard let text = region.ocrText?.trimmingCharacters(in: .whitespacesAndNewlines),
                       let key = Self.extractScanKey(text) else { return nil }

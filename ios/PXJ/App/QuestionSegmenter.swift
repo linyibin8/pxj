@@ -152,6 +152,27 @@ enum QuestionSegmenter {
         return regions
     }
 
+    static func segmentForPreviewOverlay(_ image: UIImage) -> [QuestionRegion] {
+        let base = normalizedUp(image)
+        guard let quad = detectDocumentQuad(base),
+              quadArea(quad) >= 0.35,
+              !cornersTooObtuse(quad),
+              !deformationTooSmall(quad) else {
+            return segment(base, fast: false)
+        }
+        let corrected = rectify(base)
+        guard corrected.didCorrect else {
+            return segment(base, fast: false)
+        }
+        return segment(corrected.image, fast: false).compactMap { region in
+            let mapped = mapCorrectedRectToOriginal(region.normalizedRect, quad: quad)
+            guard mapped.width * mapped.height >= 0.006 else { return nil }
+            var copy = region
+            copy.normalizedRect = mapped
+            return copy
+        }
+    }
+
     // MARK: - 3. 裁剪子图
 
     /// 按归一化 rect（左上原点）裁出子图。clamp 到图内；失败返回原图。
@@ -260,6 +281,46 @@ enum QuestionSegmenter {
         let bboxArea = (maxX - minX) * (maxY - minY)
         guard bboxArea > 0 else { return true }
         return quadArea(q) / bboxArea > 0.97
+    }
+
+    private static func mapCorrectedRectToOriginal(_ rect: CGRect, quad: Quad) -> CGRect {
+        let corners = [
+            CGPoint(x: rect.minX, y: rect.minY),
+            CGPoint(x: rect.maxX, y: rect.minY),
+            CGPoint(x: rect.minX, y: rect.maxY),
+            CGPoint(x: rect.maxX, y: rect.maxY)
+        ].map { mapCorrectedPointToOriginal($0, quad: quad) }
+        let minX = corners.map { $0.x }.min() ?? rect.minX
+        let maxX = corners.map { $0.x }.max() ?? rect.maxX
+        let minY = corners.map { $0.y }.min() ?? rect.minY
+        let maxY = corners.map { $0.y }.max() ?? rect.maxY
+        return clampRect(
+            CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
+                .insetBy(dx: -0.004, dy: -0.004)
+        )
+    }
+
+    private static func mapCorrectedPointToOriginal(_ point: CGPoint, quad: Quad) -> CGPoint {
+        let topLeft = topLeftOriginPoint(quad.topLeft)
+        let topRight = topLeftOriginPoint(quad.topRight)
+        let bottomLeft = topLeftOriginPoint(quad.bottomLeft)
+        let bottomRight = topLeftOriginPoint(quad.bottomRight)
+        let x = max(0, min(1, point.x))
+        let y = max(0, min(1, point.y))
+        let top = interpolate(topLeft, topRight, amount: x)
+        let bottom = interpolate(bottomLeft, bottomRight, amount: x)
+        return interpolate(top, bottom, amount: y)
+    }
+
+    private static func topLeftOriginPoint(_ point: CGPoint) -> CGPoint {
+        CGPoint(x: point.x, y: 1 - point.y)
+    }
+
+    private static func interpolate(_ a: CGPoint, _ b: CGPoint, amount: CGFloat) -> CGPoint {
+        CGPoint(
+            x: a.x + (b.x - a.x) * amount,
+            y: a.y + (b.y - a.y) * amount
+        )
     }
 
     private static func interiorAngle(at p: CGPoint, _ a: CGPoint, _ b: CGPoint) -> CGFloat {

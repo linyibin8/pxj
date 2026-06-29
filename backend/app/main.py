@@ -198,10 +198,16 @@ TASK_RECOVERY_DELAY_SECONDS = 15
 TASK_RETRY_DELAY_SECONDS = 45
 TASK_STALE_RUNNING_SECONDS = 300
 LLM_PRIORITY_REALTIME = 0
+LLM_PRIORITY_QUESTION_EXTRACTION = 30
 LLM_PRIORITY_BACKGROUND = 100
+TASK_PRIORITY_QUESTION_EXTRACTION = 30
 TASK_PRIORITY_BACKGROUND = 100
 TASK_PRIORITY_FINAL_REPORT = 120
 TASK_PRIORITY_MEMORY = 150
+TASK_STALE_RUNNING_SECONDS_BY_KIND = {
+    "question_extraction_session": 1800,
+    "final_report": 1200,
+}
 MEMORY_CONSOLIDATION_INTERVAL_SECONDS = 3600
 MEMORY_EVENT_TEXT_LIMIT = 1200
 MEMORY_PROFILE_CHAR_LIMIT = 4000
@@ -287,7 +293,10 @@ def startup() -> None:
     init_db()
     settings = get_settings()
     app.mount("/images", StaticFiles(directory=settings.data_dir / "images"), name="images")
-    recover_interrupted_tasks()
+    for account_id in list_account_ids():
+        set_current_account(account_id)
+        recover_interrupted_tasks(force=True)
+    set_current_account(settings.default_account_id or DEFAULT_ACCOUNT_ID)
     schedule_memory_consolidation_if_due()
     try:
         loop = asyncio.get_running_loop()
@@ -430,20 +439,73 @@ def mark_task_run(task_id: str | None, status: str, *, error: str = "") -> None:
         pass
 
 
-def recover_interrupted_tasks() -> None:
+def recover_interrupted_tasks(*, force: bool = False) -> None:
     now = datetime.now(timezone.utc)
-    stale_before = (now - timedelta(seconds=TASK_STALE_RUNNING_SECONDS)).isoformat()
     now_text = now.isoformat()
     try:
         with connect() as conn:
             conn.execute(
                 """
                 UPDATE task_runs
-                SET status='queued', available_at=?, updated_at=?, last_error='recovered after process restart'
-                WHERE status='running' AND (started_at='' OR started_at < ?)
+                SET priority=?,
+                    attempts=CASE WHEN attempts >= max_attempts THEN MAX(0, max_attempts - 1) ELSE attempts END,
+                    updated_at=?
+                WHERE task_kind='question_extraction_session'
+                  AND status IN ('queued', 'running')
                 """,
-                (now_text, now_text, stale_before),
+                (TASK_PRIORITY_QUESTION_EXTRACTION, now_text),
             )
+            if force:
+                conn.execute(
+                    """
+                    UPDATE task_runs
+                    SET status='queued',
+                        attempts=CASE WHEN attempts >= max_attempts THEN MAX(0, max_attempts - 1) ELSE attempts END,
+                        available_at=?, updated_at=?, last_error='recovered after process restart'
+                    WHERE status='running'
+                    """,
+                    (now_text, now_text),
+                )
+            else:
+                for task_kind, seconds in TASK_STALE_RUNNING_SECONDS_BY_KIND.items():
+                    stale_before = (now - timedelta(seconds=seconds)).isoformat()
+                    conn.execute(
+                        """
+                        UPDATE task_runs
+                        SET status='queued',
+                            attempts=CASE WHEN attempts >= max_attempts THEN MAX(0, max_attempts - 1) ELSE attempts END,
+                            available_at=?, updated_at=?, last_error='recovered after long-running task timeout'
+                        WHERE status='running' AND task_kind=? AND (started_at='' OR started_at < ?)
+                        """,
+                        (now_text, now_text, task_kind, stale_before),
+                    )
+                stale_before = (now - timedelta(seconds=TASK_STALE_RUNNING_SECONDS)).isoformat()
+                known_kinds = tuple(TASK_STALE_RUNNING_SECONDS_BY_KIND.keys())
+                if known_kinds:
+                    placeholders = ",".join("?" for _ in known_kinds)
+                    conn.execute(
+                        f"""
+                        UPDATE task_runs
+                        SET status='queued',
+                            attempts=CASE WHEN attempts >= max_attempts THEN MAX(0, max_attempts - 1) ELSE attempts END,
+                            available_at=?, updated_at=?, last_error='recovered after running task timeout'
+                        WHERE status='running'
+                          AND task_kind NOT IN ({placeholders})
+                          AND (started_at='' OR started_at < ?)
+                        """,
+                        (now_text, now_text, *known_kinds, stale_before),
+                    )
+                else:
+                    conn.execute(
+                        """
+                        UPDATE task_runs
+                        SET status='queued',
+                            attempts=CASE WHEN attempts >= max_attempts THEN MAX(0, max_attempts - 1) ELSE attempts END,
+                            available_at=?, updated_at=?, last_error='recovered after running task timeout'
+                        WHERE status='running' AND (started_at='' OR started_at < ?)
+                        """,
+                        (now_text, now_text, stale_before),
+                    )
     except Exception:
         pass
 
@@ -11287,6 +11349,11 @@ def _question_norm_text(question: dict) -> str:
     return "".join(ch.lower() for ch in text if ch.isalnum())
 
 
+def _question_stem_norm_text(question: dict) -> str:
+    stem = str(question.get("stem") or "")
+    return "".join(ch.lower() for ch in stem if ch.isalnum())
+
+
 def _text_gram_similarity(a: str, b: str) -> float:
     if not a or not b:
         return 0.0
@@ -11303,6 +11370,15 @@ def _text_gram_similarity(a: str, b: str) -> float:
     return len(a_grams & b_grams) / max(1, min(len(a_grams), len(b_grams)))
 
 
+def _common_prefix_len(a: str, b: str) -> int:
+    count = 0
+    for left, right in zip(a, b):
+        if left != right:
+            break
+        count += 1
+    return count
+
+
 def _questions_look_same(a: dict, b: dict) -> bool:
     fp_a = a.get("fingerprint") or ""
     fp_b = b.get("fingerprint") or ""
@@ -11315,8 +11391,27 @@ def _questions_look_same(a: dict, b: dict) -> bool:
     norm_a = _question_norm_text(a)
     norm_b = _question_norm_text(b)
     similarity = _text_gram_similarity(norm_a, norm_b)
+    stem_a = _question_stem_norm_text(a)
+    stem_b = _question_stem_norm_text(b)
+    stem_similarity = _text_gram_similarity(stem_a, stem_b)
+    shorter_stem_len = min(len(stem_a), len(stem_b))
+    if shorter_stem_len >= 8 and (stem_a in stem_b or stem_b in stem_a):
+        return True
     same_number = bool(a.get("number")) and str(a.get("number")) == str(b.get("number"))
     same_type = bool(a.get("qtype")) and str(a.get("qtype")) == str(b.get("qtype"))
+    common_prefix = _common_prefix_len(stem_a, stem_b)
+    if shorter_stem_len >= 10 and stem_similarity >= 0.98:
+        return True
+    if same_number and shorter_stem_len >= 12 and common_prefix >= 8 and stem_similarity >= 0.32:
+        return True
+    if same_number and shorter_stem_len >= 10 and common_prefix >= min(14, shorter_stem_len):
+        return True
+    if shorter_stem_len >= 18 and stem_similarity >= 0.94:
+        return True
+    if same_number and shorter_stem_len >= 18 and stem_similarity >= 0.62:
+        return True
+    if same_type and shorter_stem_len >= 18 and stem_similarity >= 0.82:
+        return True
     if similarity >= 0.86 and (same_number or same_type):
         return True
     if sh_a and sh_b and _simhash_hamming(sh_a, sh_b) <= 8 and similarity >= 0.72:
@@ -11327,7 +11422,8 @@ def _questions_look_same(a: dict, b: dict) -> bool:
 def _dedupe_question_set(questions: list[dict]) -> list[dict]:
     result: list[dict] = []
     for question in questions:
-        if not (question.get("stem") or "").strip():
+        stem = (question.get("stem") or "").strip()
+        if not stem or stem in {"未识别", "无法识别", "看不清"}:
             continue
         if any(_questions_look_same(question, existing) for existing in result):
             continue
@@ -11409,7 +11505,7 @@ async def _extract_questions_from_stored_image(
         f"{label_prefix}:{session_id[:8]}",
         session_id,
         lambda: llm.analyze_images(settings, prompt, image_paths),
-        priority=LLM_PRIORITY_BACKGROUND,
+        priority=LLM_PRIORITY_QUESTION_EXTRACTION,
     )
     per = _build_observe_response(raw, do_grade=False)
     for q in per["questions"]:
@@ -11609,6 +11705,16 @@ async def extract_all_session_questions(
         ).fetchone()
     filenames = _question_extraction_filenames_for_session(session_id, limit=limit)
     if existing:
+        with connect() as conn:
+            conn.execute(
+                """
+                UPDATE task_runs
+                SET priority=CASE WHEN priority > ? THEN ? ELSE priority END, updated_at=?
+                WHERE id=?
+                """,
+                (TASK_PRIORITY_QUESTION_EXTRACTION, TASK_PRIORITY_QUESTION_EXTRACTION, utc_now(), existing["id"]),
+            )
+        background_tasks.add_task(execute_next_task_run_now)
         return {
             "session_id": session_id,
             "task_id": existing["id"],
@@ -11620,7 +11726,7 @@ async def extract_all_session_questions(
         "question_extraction_session",
         session_id=session_id,
         payload={"session_id": session_id, "filenames": filenames},
-        priority=TASK_PRIORITY_BACKGROUND,
+        priority=TASK_PRIORITY_QUESTION_EXTRACTION,
     )
     emit_log(
         f"已排队提取本轮所有题目：{len(filenames)} 张关键图",
