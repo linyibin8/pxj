@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-30T07:05:16.733522+00:00",
+  "readiness": {
+    "pilot_eval_ready": false,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 10,
+    "positive_images": 10,
+    "negative_images": 0,
+    "annotations": 256,
+    "split_groups": 5
+  },
+  "warnings": [
+    "synthetic_dense_fixture is diagnostic-only and must not be used to satisfy reviewed-data or release training readiness.",
+    "Use this fixture for cap/fallback stress, VLM pixel-cost estimates, and heuristic/Core ML regression tests."
+  ],
+  "profile_counts": {
+    "phone_dense_18": {
+      "images": 2,
+      "annotations": 36
+    },
+    "phone_cap_overflow_24": {
+      "images": 2,
+      "annotations": 48
+    },
+    "ipad_two_column_30": {
+      "images": 2,
+      "annotations": 60
+    },
+    "ipad_landscape_three_column_36": {
+      "images": 2,
+      "annotations": 72
+    },
+    "ipad_weak_textless_20": {
+      "images": 2,
+      "annotations": 40
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated",
+      "candidate_count": 262,
+      "image_count": 89,
+      "full_frame_only_bytes": 14060150,
+      "full_frame_resized_pixels": 127046400
+    }
+  ],
+  "settings": {
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "max_overcrop_ratio": 3.0,
+    "full_max_side": 1600
+  },
+  "counts": {
+    "images": 89,
+    "images_with_candidates": 71,
+    "candidate_count": 262,
+    "gt_box_count": 16,
+    "raw_represented_gt_key_count": 16,
+    "represented_gt_key_count": 16,
+    "duplicate_represented_gt_key_count": 0,
+    "covered_gt_key_count": 16,
+    "missed_gt_key_count": 0,
+    "matched_candidate_count": 16,
+    "reviewed_image_candidate_count": 64,
+    "unmatched_reviewed_candidate_count": 48,
+    "unverified_candidate_count": 198,
+    "overcrop_match_count": 0
+  },
+  "metrics": {
+    "represented_gt_recall": 1.0,
+    "reviewed_candidate_match_rate": 0.25,
+    "crop_pixels_vs_full_frame_pixels": 0.434122,
+    "crop_resized_pixels": 55153598,
+    "full_frame_resized_pixels": 127046400,
+    "crop_jpeg_bytes": 6932573,
+    "overcrop_ratio_median": 1.0,
+    "overcrop_ratio_p90": 1.954309,
+    "overcrop_ratio_max": 2.108142
+  },
+  "quality_flags": {
+    "dense_column_layout": 145,
+    "dense_single_column_layout": 10,
+    "few_text_lines": 88,
+    "near_full_page": 39,
+    "page:bright_page": 107,
+    "page:full_image_fallback": 155,
+    "short_block": 5,
+    "tall_block": 50
+  },
+  "outputs": {
+    "matches": "matches.jsonl",
+    "missed": "missed_gt.jsonl",
+    "unmatched_reviewed_candidates": "unmatched_reviewed_candidates.jsonl",
+    "unverified_candidates": "unverified_candidates.jsonl",
+    "overcrop": "overcrop_candidates.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  },
+  "ground_truth_manifests": [
+    "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\annotations\\manifest.jsonl"
+  ],
+  "dataset_root": ""
+}

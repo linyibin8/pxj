@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-30T09:23:34.800108+00:00",
+  "prelabel_root": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25",
+  "out": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench",
+  "images": 37,
+  "boxes": 220,
+  "high_risk_boxes": 219,
+  "default_rejected_boxes": 219,
+  "median_boxes_per_image": 6,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+  ]
+}

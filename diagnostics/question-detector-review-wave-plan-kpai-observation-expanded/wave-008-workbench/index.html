@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXJ Question Box Review</title>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --panel:#ffffff; --line:#d8dde6; --ink:#1c2430; --muted:#687386; --ok:#178c4f; --bad:#b42318; --wait:#9a6700; --blue:#1d5fd1; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+button, input, select, textarea { font: inherit; }
+button { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+button:hover { border-color: #9aa6b6; }
+button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+button.good { background: #eaf7ef; color: var(--ok); border-color: #9fd8b8; }
+button.bad { background: #fff0ee; color: var(--bad); border-color: #f2aaa3; }
+button.warn { background: #fff7e0; color: var(--wait); border-color: #e9ca75; }
+.app { display: grid; grid-template-columns: 310px minmax(480px, 1fr) 330px; gap: 10px; height: 100vh; padding: 10px; }
+.panel { min-height: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.topbar { display:flex; align-items:center; gap:8px; padding:10px; border-bottom:1px solid var(--line); background:#fff; }
+.topbar strong { margin-right:auto; }
+.list { overflow:auto; height: calc(100% - 102px); }
+.row { display:grid; grid-template-columns: 74px 1fr; gap:8px; padding:8px; border-bottom:1px solid #eef1f5; cursor:pointer; }
+.row.active { background:#eaf2ff; }
+.row img { width:74px; height:52px; object-fit:cover; border:1px solid var(--line); border-radius:4px; background:#eee; }
+.row-title { font-size:12px; word-break:break-all; }
+.row-meta { color:var(--muted); font-size:12px; margin-top:3px; }
+.stats { padding:8px 10px; color:var(--muted); border-bottom:1px solid var(--line); }
+.stage-wrap { height: calc(100% - 52px); overflow:auto; display:flex; align-items:flex-start; justify-content:center; padding:14px; }
+.stage { position:relative; display:inline-block; line-height:0; background:#e9edf3; box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.stage img { display:block; max-width:min(100%, 1120px); max-height:calc(100vh - 96px); width:auto; height:auto; }
+.box { position:absolute; border:3px solid var(--wait); background:rgba(255,190,0,.08); cursor:pointer; line-height:1; }
+.box.approved { border-color:var(--ok); background:rgba(23,140,79,.10); }
+.box.corrected { border-color:var(--blue); background:rgba(29,95,209,.10); }
+.box.rejected { border-color:var(--bad); background:rgba(180,35,24,.10); }
+.box.selected { outline:3px solid #111827; outline-offset:2px; }
+.box span { position:absolute; top:2px; left:3px; background:rgba(255,255,255,.85); border-radius:3px; padding:1px 4px; font-size:12px; color:#111827; }
+.side { height:100%; overflow:auto; padding:10px; }
+.box-card { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; }
+.box-card.selected { border-color:#111827; box-shadow:0 0 0 2px rgba(17,24,39,.12); }
+.box-head { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.box-head strong { margin-right:auto; }
+.badge { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:2px 7px; font-size:12px; color:var(--muted); margin:2px 3px 2px 0; }
+.grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin:8px 0; }
+.grid label { display:block; color:var(--muted); font-size:11px; }
+.grid input { width:100%; border:1px solid var(--line); border-radius:5px; padding:5px; }
+textarea { width:100%; min-height:110px; border:1px solid var(--line); border-radius:6px; padding:8px; }
+.muted { color:var(--muted); }
+.small { font-size:12px; }
+.footer-actions { display:flex; flex-wrap:wrap; gap:8px; padding:10px; border-top:1px solid var(--line); background:#fff; }
+</style>
+</head>
+<body>
+<script id="review-data" type="application/json">{"source": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded\\wave-008", "generated_at": "2026-06-30T15:24:05.582361+00:00", "items": [{"image": "images/58235995a9f24c56808659942cb84b35_segment_26e387dad01342d0a66ff874484ac002.jpg", "source_candidate": "positive/58235995a9f24c56808659942cb84b35_segment_26e387dad01342d0a66ff874484ac002.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "26e387dad01342d0a66ff874484ac002", "session_id": "58235995a9f24c56808659942cb84b35", "batch_id": "segment", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 1233, "y": 320, "width": 539, "height": 52}, "score": 0.3588, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1233, "y": 361, "width": 687, "height": 609}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1233, "y": 965, "width": 687, "height": 114}, "score": 0.8498, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 899, "y": 233, "width": 501, "height": 554, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 55, "dense_draft_box_count": 27, "draft_box_count": 3, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00001:58235995a9f24c56808659942cb84b35_segment_26e387dad01342d0a66ff874484ac002.jpg"}, {"image": "images/b1491bfb9d864c33ac282984c122650a_segment_e8df050b0063460d862eb8a99fb61ee7.jpg", "source_candidate": "positive/b1491bfb9d864c33ac282984c122650a_segment_e8df050b0063460d862eb8a99fb61ee7.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "e8df050b0063460d862eb8a99fb61ee7", "session_id": "b1491bfb9d864c33ac282984c122650a", "batch_id": "segment", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 287, "y": 0, "width": 1086, "height": 66}, "score": 0.3531, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 281, "y": 88, "width": 1377, "height": 992}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 205, "y": 0, "width": 1004, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 112, "dense_draft_box_count": 31, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00002:b1491bfb9d864c33ac282984c122650a_segment_e8df050b0063460d862eb8a99fb61ee7.jpg"}, {"image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg", "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "4aebbdc9a51e4cbfa8b7438220ec1ad1", "session_id": "b6f8a6accd404bfc9fb291b15cb44f09", "batch_id": "5b9389e1ba9d4fbba279c338a845e495", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 117, "y": 63, "width": 1024, "height": 44}, "score": 0.3536, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 117, "y": 188, "width": 1140, "height": 483}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 117, "y": 667, "width": 1125, "height": 108}, "score": 0.8317, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 85, "y": 46, "width": 948, "height": 519, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 55, "dense_draft_box_count": 11, "draft_box_count": 3, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00003:b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg"}, {"image": "images/91cf7b7586424ce3a308b42daf0ee2fc_b8730adcee9e40029d0731866cf18ee1_7fa6091ba168409596fba335d7b54790.jpg", "source_candidate": "positive/91cf7b7586424ce3a308b42daf0ee2fc_b8730adcee9e40029d0731866cf18ee1_7fa6091ba168409596fba335d7b54790.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "7fa6091ba168409596fba335d7b54790", "session_id": "91cf7b7586424ce3a308b42daf0ee2fc", "batch_id": "b8730adcee9e40029d0731866cf18ee1", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 1333, "y": 0, "width": 573, "height": 123}, "score": 0.467, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 513, "y": 166, "width": 1393, "height": 913}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 374, "y": 0, "width": 1016, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 84, "dense_draft_box_count": 19, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00004:91cf7b7586424ce3a308b42daf0ee2fc_b8730adcee9e40029d0731866cf18ee1_7fa6091ba168409596fba335d7b54790.jpg"}, {"image": "images/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_7f66cab14cd64c98be508bf4d47b52d7.jpg", "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_7f66cab14cd64c98be508bf4d47b52d7.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "7f66cab14cd64c98be508bf4d47b52d7", "session_id": "b6f8a6accd404bfc9fb291b15cb44f09", "batch_id": "c46d89729c7c41f9925c25e507afa69c", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 232, "y": 78, "width": 1318, "height": 177}, "score": 0.69, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 232, "y": 335, "width": 1129, "height": 495}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 377, "y": 852, "width": 1038, "height": 64}, "score": 0.4806, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 169, "y": 57, "width": 961, "height": 611, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 35, "dense_draft_box_count": 3, "draft_box_count": 3, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00005:b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_7f66cab14cd64c98be508bf4d47b52d7.jpg"}, {"image": "images/b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_e0cdd30fbd4b4e18a5426aa72f4903f9.jpg", "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_e0cdd30fbd4b4e18a5426aa72f4903f9.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "e0cdd30fbd4b4e18a5426aa72f4903f9", "session_id": "b6f8a6accd404bfc9fb291b15cb44f09", "batch_id": "37af35bdb2d24a6880578fb4d986299e", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 950, "y": 0, "width": 565, "height": 69}, "score": 0.3421, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 166, "y": 147, "width": 1140, "height": 284}, "score": 0.9, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 166, "y": 437, "width": 1349, "height": 173}, "score": 0.795, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 166, "y": 636, "width": 1307, "height": 139}, "score": 0.8731, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 121, "y": 0, "width": 984, "height": 565, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 68, "dense_draft_box_count": 13, "draft_box_count": 4, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00006:b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_e0cdd30fbd4b4e18a5426aa72f4903f9.jpg"}, {"image": "images/62f789a2bca9426097b607fb27aff5bd_qa_f9438c02be2e46c7802d8160dba2397f.jpg", "source_candidate": "positive/62f789a2bca9426097b607fb27aff5bd_qa_f9438c02be2e46c7802d8160dba2397f.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "f9438c02be2e46c7802d8160dba2397f", "session_id": "62f789a2bca9426097b607fb27aff5bd", "batch_id": "qa", "needs_box_label": true}, "width": 3200, "height": 2400, "boxes": [{"bbox_px": {"x": 2187, "y": 1097, "width": 1013, "height": 277}, "score": 0.655, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 2187, "y": 1333, "width": 1013, "height": 1067}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 957, "y": 480, "width": 443, "height": 570, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 41, "dense_draft_box_count": 6, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00007:62f789a2bca9426097b607fb27aff5bd_qa_f9438c02be2e46c7802d8160dba2397f.jpg"}, {"image": "images/4dd68b59b935466195b05543c884ff15_a6394dad9b6e42bb9802ef69ed2995d0_1af064f287ce4f8bbda5c52659a5e430.jpg", "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_a6394dad9b6e42bb9802ef69ed2995d0_1af064f287ce4f8bbda5c52659a5e430.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "1af064f287ce4f8bbda5c52659a5e430", "session_id": "4dd68b59b935466195b05543c884ff15", "batch_id": "a6394dad9b6e42bb9802ef69ed2995d0", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 369, "y": 256, "width": 1233, "height": 675}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 369, "y": 987, "width": 1233, "height": 53}, "score": 0.6982, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 269, "y": 187, "width": 899, "height": 572, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 47, "dense_draft_box_count": 14, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00008:4dd68b59b935466195b05543c884ff15_a6394dad9b6e42bb9802ef69ed2995d0_1af064f287ce4f8bbda5c52659a5e430.jpg"}, {"image": "images/e65858e27a964eac83306022bfff0238_c6c76da56699413190ccb2f3883a2ce9_6b6b65ff41e74d4f898f142d86943090.jpg", "source_candidate": "positive/e65858e27a964eac83306022bfff0238_c6c76da56699413190ccb2f3883a2ce9_6b6b65ff41e74d4f898f142d86943090.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "6b6b65ff41e74d4f898f142d86943090", "session_id": "e65858e27a964eac83306022bfff0238", "batch_id": "c6c76da56699413190ccb2f3883a2ce9", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 309, "y": 0, "width": 1488, "height": 938}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 225, "y": 0, "width": 1085, "height": 684, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 92, "dense_draft_box_count": 5, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00009:e65858e27a964eac83306022bfff0238_c6c76da56699413190ccb2f3883a2ce9_6b6b65ff41e74d4f898f142d86943090.jpg"}, {"image": "images/e65858e27a964eac83306022bfff0238_8aef0198a12246d192fabfba5ff47dc9_7824f53773b244c0b68fa9f8b71ca49f.jpg", "source_candidate": "positive/e65858e27a964eac83306022bfff0238_8aef0198a12246d192fabfba5ff47dc9_7824f53773b244c0b68fa9f8b71ca49f.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "7824f53773b244c0b68fa9f8b71ca49f", "session_id": "e65858e27a964eac83306022bfff0238", "batch_id": "8aef0198a12246d192fabfba5ff47dc9", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 352, "y": 0, "width": 1424, "height": 1020}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 257, "y": 0, "width": 1083, "height": 744, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 100, "dense_draft_box_count": 0, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00010:e65858e27a964eac83306022bfff0238_8aef0198a12246d192fabfba5ff47dc9_7824f53773b244c0b68fa9f8b71ca49f.jpg"}, {"image": "images/e65858e27a964eac83306022bfff0238_a3067b69e6454812b0abeb7660c55d58_a248b80cbc434b459eebd07c105d3a5c.jpg", "source_candidate": "positive/e65858e27a964eac83306022bfff0238_a3067b69e6454812b0abeb7660c55d58_a248b80cbc434b459eebd07c105d3a5c.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "a248b80cbc434b459eebd07c105d3a5c", "session_id": "e65858e27a964eac83306022bfff0238", "batch_id": "a3067b69e6454812b0abeb7660c55d58", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 635, "y": 0, "width": 1285, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 396, "y": 0, "width": 1004, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 108, "dense_draft_box_count": 15, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00011:e65858e27a964eac83306022bfff0238_a3067b69e6454812b0abeb7660c55d58_a248b80cbc434b459eebd07c105d3a5c.jpg"}, {"image": "images/e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_af04ae4f77804e94957e76c4d1b42abe.jpg", "source_candidate": "positive/e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_af04ae4f77804e94957e76c4d1b42abe.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "af04ae4f77804e94957e76c4d1b42abe", "session_id": "e65858e27a964eac83306022bfff0238", "batch_id": "96d852d81a084ef5848237d5a09177be", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 581, "y": 0, "width": 1339, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 424, "y": 0, "width": 976, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 116, "dense_draft_box_count": 4, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00012:e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_af04ae4f77804e94957e76c4d1b42abe.jpg"}, {"image": "images/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg", "source_candidate": "positive/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "5d62cc35f71c489bbee200386727962b", "session_id": "bb68c98c9ca44664b1582da1b6c2251b", "batch_id": "38bb212b2ac0464ca82c6be32fc9ce27", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 73, "y": 439, "width": 673, "height": 480}, "score": 0.54, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"]}], "metadata": {"page_rect_processing": {"x": 53, "y": 320, "width": 491, "height": 467, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 2, "dense_draft_box_count": 0, "draft_box_count": 1, "quarantine_reasons": ["too_few_text_lines"], "rejected_draft_boxes": [{"bbox_px": {"x": 73, "y": 439, "width": 673, "height": 480}, "score": 0.54, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"]}]}, "annotation_status": "manual_page_review_required", "review_id": "00013:bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg"}, {"image": "images/4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d7406b9769681114685c57.jpg", "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d7406b9769681114685c57.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "1ac1d97cc7d7406b9769681114685c57", "session_id": "4dd68b59b935466195b05543c884ff15", "batch_id": "9db099c581b24a49828df2456d7db46a", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 1236, "y": 208, "width": 680, "height": 73}, "score": 0.608, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1238, "y": 532, "width": 472, "height": 240}, "score": 0.61, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1266, "y": 765, "width": 484, "height": 210}, "score": 0.7654, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1288, "y": 968, "width": 632, "height": 111}, "score": 0.6428, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 901, "y": 152, "width": 499, "height": 635, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 19, "dense_draft_box_count": 8, "draft_box_count": 4, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00014:4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d7406b9769681114685c57.jpg"}, {"image": "images/92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_36607a125be54770a925341f0e10345b.jpg", "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_36607a125be54770a925341f0e10345b.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "36607a125be54770a925341f0e10345b", "session_id": "92b9447f4a8f43858a6a2a20324c1769", "batch_id": "859970ac84ea435c8b902b3a81c1648c", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 551, "y": 276, "width": 885, "height": 698}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 551, "y": 963, "width": 885, "height": 101}, "score": 0.8287, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 402, "y": 201, "width": 645, "height": 575, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 92, "dense_draft_box_count": 40, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00015:92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_36607a125be54770a925341f0e10345b.jpg"}, {"image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg", "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "7441574ade68483da825ce42a1c7ca81", "session_id": "080ba36428c64a3698f28510e6e87955", "batch_id": "276f6bd5c2c945c2878dc6c24eefaf41", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 826, "y": 314, "width": 683, "height": 217}, "score": 0.505, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"]}], "metadata": {"page_rect_processing": {"x": 602, "y": 221, "width": 530, "height": 283, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 1, "dense_draft_box_count": 0, "draft_box_count": 1, "quarantine_reasons": ["too_few_text_lines", "wide_top_band_likely_keyboard_or_table"], "rejected_draft_boxes": [{"bbox_px": {"x": 826, "y": 314, "width": 683, "height": 217}, "score": 0.505, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"]}]}, "annotation_status": "manual_page_review_required", "review_id": "00016:080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg"}, {"image": "images/6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_6cba88ba2ecd4c559054578d69bd24a6.jpg", "source_candidate": "positive/6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_6cba88ba2ecd4c559054578d69bd24a6.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "6cba88ba2ecd4c559054578d69bd24a6", "session_id": "6818143990c546fcb999a04621adc0be", "batch_id": "857e64ce56c949fca35bd0eb59243d85", "needs_box_label": true}, "width": 1680, "height": 1260, "boxes": [{"bbox_px": {"x": 82, "y": 401, "width": 1406, "height": 528}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 82, "y": 1135, "width": 1406, "height": 35}, "score": 0.3852, "source": "layout_prelabel", "quality_flags": ["short_block", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 68, "y": 334, "width": 1172, "height": 641, "source": "bright_page"}, "processing_scale": 0.8333333333333334, "line_box_count": 49, "dense_draft_box_count": 32, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00017:6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_6cba88ba2ecd4c559054578d69bd24a6.jpg"}, {"image": "images/6818143990c546fcb999a04621adc0be_cb43d967c5c34e6ab05db841dc6e8663_bcd6482eca4f4d54824a102c59158d13.jpg", "source_candidate": "positive/6818143990c546fcb999a04621adc0be_cb43d967c5c34e6ab05db841dc6e8663_bcd6482eca4f4d54824a102c59158d13.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "bcd6482eca4f4d54824a102c59158d13", "session_id": "6818143990c546fcb999a04621adc0be", "batch_id": "cb43d967c5c34e6ab05db841dc6e8663", "needs_box_label": true}, "width": 1680, "height": 1260, "boxes": [{"bbox_px": {"x": 25, "y": 392, "width": 1550, "height": 540}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 940, "y": 938, "width": 636, "height": 50}, "score": 0.3308, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 21, "y": 327, "width": 1292, "height": 667, "source": "bright_page"}, "processing_scale": 0.8333333333333334, "line_box_count": 54, "dense_draft_box_count": 29, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00018:6818143990c546fcb999a04621adc0be_cb43d967c5c34e6ab05db841dc6e8663_bcd6482eca4f4d54824a102c59158d13.jpg"}, {"image": "images/d7df33d72d2a48279d8d5aed5dc5dcea_qa_2bbe839654574a538663f2f7d698d266.jpg", "source_candidate": "positive/d7df33d72d2a48279d8d5aed5dc5dcea_qa_2bbe839654574a538663f2f7d698d266.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "2bbe839654574a538663f2f7d698d266", "session_id": "d7df33d72d2a48279d8d5aed5dc5dcea", "batch_id": "qa", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 464, "y": 0, "width": 1456, "height": 725}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1232, "y": 794, "width": 688, "height": 100}, "score": 0.3427, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 166, "y": 0, "width": 1234, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 60, "dense_draft_box_count": 4, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00019:d7df33d72d2a48279d8d5aed5dc5dcea_qa_2bbe839654574a538663f2f7d698d266.jpg"}, {"image": "images/14a98df1760e41758ff5e10505ebc077_relayout_31ba04f1e99e442bb88c6f55379d892d.jpg", "source_candidate": "positive/14a98df1760e41758ff5e10505ebc077_relayout_31ba04f1e99e442bb88c6f55379d892d.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "31ba04f1e99e442bb88c6f55379d892d", "session_id": "14a98df1760e41758ff5e10505ebc077", "batch_id": "relayout", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 451, "y": 0, "width": 1355, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 329, "y": 0, "width": 988, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 86, "dense_draft_box_count": 37, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00020:14a98df1760e41758ff5e10505ebc077_relayout_31ba04f1e99e442bb88c6f55379d892d.jpg"}, {"image": "images/1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_a0e81c2620f3428da54bf5318dcb798b.jpg", "source_candidate": "positive/1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_a0e81c2620f3428da54bf5318dcb798b.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "a0e81c2620f3428da54bf5318dcb798b", "session_id": "1babc6ec51dd4448a30ae26a8dbcfe1f", "batch_id": "6de89fa774d1471591b588958ec74472", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1488, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 1085, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 73, "dense_draft_box_count": 12, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00021:1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_a0e81c2620f3428da54bf5318dcb798b.jpg"}, {"image": "images/3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_5bcfd6dbd00044f7b8ce20064abf94c6.jpg", "source_candidate": "positive/3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_5bcfd6dbd00044f7b8ce20064abf94c6.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "5bcfd6dbd00044f7b8ce20064abf94c6", "session_id": "3c06e705248e4093b5e4a0bbf8f864b6", "batch_id": "2f375b1fe80b45878be8415918e7f850", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 414, "y": 67, "width": 1336, "height": 1012}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 302, "y": 49, "width": 974, "height": 738, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 32, "dense_draft_box_count": 4, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00022:3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_5bcfd6dbd00044f7b8ce20064abf94c6.jpg"}, {"image": "images/7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_43d3e815775c4ec1a80f9b876a37a554.jpg", "source_candidate": "positive/7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_43d3e815775c4ec1a80f9b876a37a554.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "43d3e815775c4ec1a80f9b876a37a554", "session_id": "7bd1da2a72bc4d46a10d477ae4752e71", "batch_id": "a763990cf3e44acf957f14fd8e981839", "needs_box_label": true}, "width": 1680, "height": 1260, "boxes": [{"bbox_px": {"x": 263, "y": 0, "width": 1417, "height": 1260}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 219, "y": 0, "width": 1181, "height": 1050, "source": "bright_page"}, "processing_scale": 0.8333333333333334, "line_box_count": 65, "dense_draft_box_count": 0, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00023:7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_43d3e815775c4ec1a80f9b876a37a554.jpg"}, {"image": "images/800ee68730af44c9a2349cf6e1e6a1fe_f2165c4a13ff429798df897b3762c6ea_2d65c07582f6445387fac8fe6fdf00b3.jpg", "source_candidate": "positive/800ee68730af44c9a2349cf6e1e6a1fe_f2165c4a13ff429798df897b3762c6ea_2d65c07582f6445387fac8fe6fdf00b3.jpg", "candidate": {"candidate_kind": "observation_image_unverified", "image_id": "2d65c07582f6445387fac8fe6fdf00b3", "session_id": "800ee68730af44c9a2349cf6e1e6a1fe", "batch_id": "f2165c4a13ff429798df897b3762c6ea", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 64, "y": 36, "width": 1624, "height": 1044}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 1231, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 27, "dense_draft_box_count": 0, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00024:800ee68730af44c9a2349cf6e1e6a1fe_f2165c4a13ff429798df897b3762c6ea_2d65c07582f6445387fac8fe6fdf00b3.jpg"}]}</script>
+<div class="app">
+  <section class="panel">
+    <div class="topbar"><strong>Review Queue</strong><button id="prevBtn">Prev</button><button id="nextBtn">Next</button></div>
+    <div class="stats" id="stats"></div>
+    <div class="list" id="imageList"></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong id="imageTitle">Image</strong><button class="good" id="approveImageBtn">Approve visible</button><button class="bad" id="rejectImageBtn">Reject visible</button></div>
+    <div class="stage-wrap"><div class="stage" id="stage"><img id="mainImage" alt=""></div></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong>Boxes</strong><button class="primary" id="downloadApprovedBtn">approved JSONL</button><button id="downloadDecisionsBtn">decisions JSON</button></div>
+    <div class="side">
+      <p class="muted small">Normal boxes export when approved, accepted, corrected, or verified. Default-rejected false positives export only when corrected or verified.</p>
+      <div id="boxList"></div>
+      <h4>Notes</h4>
+      <textarea id="imageNote" placeholder="Optional image-level note"></textarea>
+    </div>
+  </section>
+</div>
+<script>
+const data = JSON.parse(document.getElementById('review-data').textContent);
+let current = 0;
+let selectedBox = 0;
+const decisions = {};
+for (const item of data.items) {
+  decisions[item.review_id] = { image: item.image, note: '', boxes: item.boxes.map((box) => ({ status: box.default_review_status || 'pending', bbox_px: {...box.bbox_px}, note: '' })) };
+}
+const imageList = document.getElementById('imageList');
+const boxList = document.getElementById('boxList');
+const stage = document.getElementById('stage');
+const mainImage = document.getElementById('mainImage');
+const stats = document.getElementById('stats');
+const imageTitle = document.getElementById('imageTitle');
+const imageNote = document.getElementById('imageNote');
+
+function statusClass(status) {
+  return ['approved','accepted','verified'].includes(status) ? 'approved' : (status === 'corrected' ? 'corrected' : (status === 'rejected' ? 'rejected' : 'pending'));
+}
+function trainingDefaultRejected(box) {
+  return box.training_export_default === false || box.requires_correction_for_training === true || box.error_kind === 'false_positive';
+}
+function counts() {
+  let approved = 0, rejected = 0, pending = 0, corrected = 0, boxes = 0;
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    for (const box of d.boxes) {
+      boxes++;
+      if (box.status === 'corrected') corrected++;
+      if (['approved','accepted','corrected','verified'].includes(box.status)) approved++;
+      else if (box.status === 'rejected') rejected++;
+      else pending++;
+    }
+  }
+  return { approved, rejected, pending, corrected, boxes };
+}
+function renderStats() {
+  const c = counts();
+  stats.textContent = `${data.items.length} images | ${c.boxes} boxes | ${c.approved} approved | ${c.rejected} rejected | ${c.pending} pending`;
+}
+function renderImageList() {
+  imageList.innerHTML = '';
+  data.items.forEach((item, index) => {
+    const d = decisions[item.review_id];
+    const approved = d.boxes.filter((box) => ['approved','accepted','corrected','verified'].includes(box.status)).length;
+    const rejected = d.boxes.filter((box) => box.status === 'rejected').length;
+    const row = document.createElement('div');
+    row.className = 'row' + (index === current ? ' active' : '');
+    row.onclick = () => { current = index; selectedBox = 0; render(); };
+    row.innerHTML = `<img src="${item.image}"><div><div class="row-title">${item.image.split('/').pop()}</div><div class="row-meta">${item.boxes.length} boxes | ${approved} ok | ${rejected} no</div></div>`;
+    imageList.appendChild(row);
+  });
+}
+function renderStage() {
+  const item = data.items[current];
+  const d = decisions[item.review_id];
+  mainImage.src = item.image;
+  imageTitle.textContent = item.image.split('/').pop();
+  imageNote.value = d.note || '';
+  stage.querySelectorAll('.box').forEach((node) => node.remove());
+  d.boxes.forEach((decision, index) => {
+    const box = document.createElement('div');
+    const b = decision.bbox_px;
+    box.className = `box ${statusClass(decision.status)} ${index === selectedBox ? 'selected' : ''}`;
+    box.style.left = `${b.x / item.width * 100}%`;
+    box.style.top = `${b.y / item.height * 100}%`;
+    box.style.width = `${b.width / item.width * 100}%`;
+    box.style.height = `${b.height / item.height * 100}%`;
+    box.innerHTML = `<span>${index + 1}</span>`;
+    box.onclick = (event) => { event.stopPropagation(); selectedBox = index; render(); };
+    stage.appendChild(box);
+  });
+}
+function boxControls(item, index) {
+  const original = item.boxes[index];
+  const decision = decisions[item.review_id].boxes[index];
+  const b = decision.bbox_px;
+  const flags = (original.quality_flags || []).map((flag) => `<span class="badge">${flag}</span>`).join('');
+  const guidance = original.suggested_review_action ? `<div class="small muted">review: ${original.suggested_review_action}</div>` : '';
+  return `<div class="box-card ${index === selectedBox ? 'selected' : ''}" data-index="${index}">
+    <div class="box-head"><strong>#${index + 1}</strong><span class="badge">${decision.status}</span><button class="good" data-action="approved">Approve</button><button class="warn" data-action="corrected">Corrected</button><button class="bad" data-action="rejected">Reject</button></div>
+    <div class="small muted">score ${Number(original.score || 0).toFixed(3)} | ${original.source || 'box'}</div>
+    ${guidance}
+    <div>${flags}</div>
+    <div class="grid">
+      <div><label>x</label><input data-field="x" type="number" value="${Math.round(b.x)}"></div>
+      <div><label>y</label><input data-field="y" type="number" value="${Math.round(b.y)}"></div>
+      <div><label>w</label><input data-field="width" type="number" value="${Math.round(b.width)}"></div>
+      <div><label>h</label><input data-field="height" type="number" value="${Math.round(b.height)}"></div>
+    </div>
+    <textarea data-field="note" placeholder="Box note">${decision.note || ''}</textarea>
+  </div>`;
+}
+function renderBoxes() {
+  const item = data.items[current];
+  boxList.innerHTML = item.boxes.map((_, index) => boxControls(item, index)).join('');
+  boxList.querySelectorAll('.box-card').forEach((card) => {
+    const index = Number(card.dataset.index);
+    card.onclick = () => { selectedBox = index; render(); };
+    card.querySelectorAll('button[data-action]').forEach((btn) => {
+      btn.onclick = (event) => {
+        event.stopPropagation();
+        decisions[item.review_id].boxes[index].status = btn.dataset.action;
+        selectedBox = index;
+        render();
+      };
+    });
+    card.querySelectorAll('input[data-field]').forEach((input) => {
+      input.onchange = () => {
+        decisions[item.review_id].boxes[index].bbox_px[input.dataset.field] = Math.max(0, Number(input.value || 0));
+        if (decisions[item.review_id].boxes[index].status === 'pending') decisions[item.review_id].boxes[index].status = 'corrected';
+        renderStage();
+        renderStats();
+      };
+    });
+    const note = card.querySelector('textarea[data-field="note"]');
+    note.onchange = () => { decisions[item.review_id].boxes[index].note = note.value; };
+  });
+}
+function render() {
+  renderStats();
+  renderImageList();
+  renderStage();
+  renderBoxes();
+}
+function setImageStatus(status) {
+  const item = data.items[current];
+  decisions[item.review_id].boxes.forEach((box, index) => {
+    if (['approved','accepted','verified'].includes(status) && trainingDefaultRejected(item.boxes[index])) return;
+    box.status = status;
+  });
+  render();
+}
+function approvedRows() {
+  const rows = [];
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    const boxes = [];
+    d.boxes.forEach((decision, index) => {
+      if (!['approved','accepted','corrected','verified'].includes(decision.status)) return;
+      if (trainingDefaultRejected(item.boxes[index]) && !['corrected','verified'].includes(decision.status)) return;
+      boxes.push({...item.boxes[index], bbox_px: decision.bbox_px, annotation_status: decision.status, review_note: decision.note || ''});
+    });
+    if (boxes.length) {
+      const {review_id, ...base} = item;
+      rows.push({...base, boxes, annotation_status: 'approved', review_note: d.note || ''});
+    }
+  }
+  return rows;
+}
+function download(filename, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+document.getElementById('prevBtn').onclick = () => { current = Math.max(0, current - 1); selectedBox = 0; render(); };
+document.getElementById('nextBtn').onclick = () => { current = Math.min(data.items.length - 1, current + 1); selectedBox = 0; render(); };
+document.getElementById('approveImageBtn').onclick = () => setImageStatus('approved');
+document.getElementById('rejectImageBtn').onclick = () => setImageStatus('rejected');
+imageNote.onchange = () => { decisions[data.items[current].review_id].note = imageNote.value; };
+document.getElementById('downloadDecisionsBtn').onclick = () => download('question_box_decisions.json', JSON.stringify({version:1, source:data.source, generated_at:new Date().toISOString(), decisions}, null, 2), 'application/json');
+document.getElementById('downloadApprovedBtn').onclick = () => download('approved_boxes.jsonl', approvedRows().map((row) => JSON.stringify(row)).join('\n') + '\n', 'application/x-jsonlines');
+document.addEventListener('keydown', (event) => {
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+  const item = data.items[current];
+  if (event.key === 'a') decisions[item.review_id].boxes[selectedBox].status = 'approved';
+  if (event.key === 'c') decisions[item.review_id].boxes[selectedBox].status = 'corrected';
+  if (event.key === 'r') decisions[item.review_id].boxes[selectedBox].status = 'rejected';
+  if (event.key === 'ArrowRight') current = Math.min(data.items.length - 1, current + 1);
+  if (event.key === 'ArrowLeft') current = Math.max(0, current - 1);
+  render();
+});
+render();
+</script>
+</body>
+</html>

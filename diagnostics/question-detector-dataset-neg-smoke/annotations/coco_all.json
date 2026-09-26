@@ -1,0 +1,495 @@
+{
+  "info": {
+    "description": "PXJ weak question-region detector dataset",
+    "version": "v1",
+    "generated_at": "2026-06-30T01:41:52.471235+00:00"
+  },
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/test/57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 2,
+      "file_name": "images/test/e502f860b96b265c_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 3,
+      "file_name": "images/train/020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 3,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 4,
+      "file_name": "images/train/24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 5,
+      "file_name": "images/train/6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 6,
+      "file_name": "images/train/b7562a4fff0e8ef1_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f48.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 7,
+      "file_name": "images/train/bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 8,
+      "file_name": "images/train/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "train",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 9,
+      "file_name": "images/val/21c20c637a32f0f2_contact_sheet.jpg",
+      "width": 1300,
+      "height": 1100,
+      "split": "val",
+      "split_key": "negative-smoke:contact-sheet",
+      "source_key": "empty_manifest:diagnostics\\negative-smoke-empty-pages.jsonl:diagnostics\\6dca70735ad448b19828e729202b1f87\\contact_sheet.jpg",
+      "source_filename": "contact_sheet.jpg",
+      "origin": "empty_manifest:diagnostics\\negative-smoke-empty-pages.jsonl",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "smoke_empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:smoke_empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        527,
+        703,
+        1358,
+        971
+      ],
+      "area": 1318618,
+      "iscrowd": 0,
+      "question_key": "6有31天的月份是大月有911月都有30天2月份的天30天的月份是小月2月数不一",
+      "question_index": 1,
+      "confidence": 0.8142857147114617,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        140,
+        669,
+        1607,
+        349
+      ],
+      "area": 560843,
+      "iscrowd": 0,
+      "question_key": "135781012都有月31天4",
+      "question_index": 2,
+      "confidence": 0.8833333353201548,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 3,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        0,
+        728,
+        2051,
+        946
+      ],
+      "area": 1940246,
+      "iscrowd": 0,
+      "question_key": "911月都有30天2月份的天30天的月份是小月2月数不一样有28天的年份是平年2",
+      "question_index": 1,
+      "confidence": 0.700000002466399,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        396,
+        920,
+        1447,
+        315
+      ],
+      "area": 455805,
+      "iscrowd": 0,
+      "question_key": "135781012都有31天4有31天的月份是大月有",
+      "question_index": 2,
+      "confidence": 0.6500000059604645,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 5,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        0,
+        0,
+        1917,
+        971
+      ],
+      "area": 1861407,
+      "iscrowd": 0,
+      "question_key": "60洪搭要多七年月日每个单元25户居民阳光小区有8妹这样的答民楼看日历说一说关于",
+      "question_index": 1,
+      "confidence": 0.5937500055879354,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 6,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        455,
+        719,
+        1440,
+        313
+      ],
+      "area": 450720,
+      "iscrowd": 0,
+      "question_key": "1012月a都有31天有31天的月份是大月有",
+      "question_index": 3,
+      "confidence": 0.42000000476837157,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 7,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        638,
+        318,
+        1576,
+        545
+      ],
+      "area": 858920,
+      "iscrowd": 0,
+      "question_key": "12发现了什公我每分打41l月份2013年3118z3妙想每分比奇思多打6个言地",
+      "question_index": 2,
+      "confidence": 0.3866666754086812,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 8,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        553,
+        696,
+        1573,
+        971
+      ],
+      "area": 1527383,
+      "iscrowd": 0,
+      "question_key": "13着粮食去磨坊先都有上山要起9分走月部630米甚下山走8数不分到达磨坊1你知道",
+      "question_index": 3,
+      "confidence": 0.44230769918515134,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 9,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        506,
+        9,
+        1726,
+        585
+      ],
+      "area": 1009710,
+      "iscrowd": 0,
+      "question_key": "111奇思一家买票共需要多2x214+10755每个单元25户居少元民阳光小区有",
+      "question_index": 1,
+      "confidence": 0.5615384670404288,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 10,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        585,
+        289,
+        1632,
+        502
+      ],
+      "area": 819264,
+      "iscrowd": 0,
+      "question_key": "12发现了什么2一篇稿件共325个字我每分打41个字21月份478引2013年3",
+      "question_index": 2,
+      "confidence": 0.5105263214362296,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 11,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        509,
+        130,
+        1625,
+        1544
+      ],
+      "area": 2509000,
+      "iscrowd": 0,
+      "question_key": "1357着粮食去磨坊先都有31月都有30上山要走9分走数不一裤630米再下山走8",
+      "question_index": 3,
+      "confidence": 0.574074078489233,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 12,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        760,
+        281,
+        1472,
+        465
+      ],
+      "area": 684480,
+      "iscrowd": 0,
+      "question_key": "12我每分打41个字发现了个2一篇稿件共325个字月份完吗3妙想每分比奇思多打6",
+      "question_index": 2,
+      "confidence": 0.553846157514132,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 13,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        780,
+        119,
+        1349,
+        1555
+      ],
+      "area": 2097695,
+      "iscrowd": 0,
+      "question_key": "13小马每天从家出发驮下山每分走90米着粮食去磨坊先上山要走9分走630米再下山",
+      "question_index": 3,
+      "confidence": 0.5640000033378602,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 14,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        741,
+        346,
+        1491,
+        399
+      ],
+      "area": 594909,
+      "iscrowd": 0,
+      "question_key": "12发现了什么我每分打41个字2一篇稿件共325个字2月份3引782013年引3",
+      "question_index": 2,
+      "confidence": 0.5111111170715756,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 15,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        682,
+        619,
+        1486,
+        971
+      ],
+      "area": 1442906,
+      "iscrowd": 0,
+      "question_key": "135着粮食去磨坊先都有31上山要走9分走月都有3630迷再下山走8数不一分到达",
+      "question_index": 3,
+      "confidence": 0.5096774255075762,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 16,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        737,
+        269,
+        1463,
+        467
+      ],
+      "area": 683221,
+      "iscrowd": 0,
+      "question_key": "12我每分打41个字2一篇稿件共325个字发现了什么月份1233妙想每分比奇思多",
+      "question_index": 2,
+      "confidence": 0.5733333388964336,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 17,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        580,
+        622,
+        1580,
+        971
+      ],
+      "area": 1534180,
+      "iscrowd": 0,
+      "question_key": "5上山要走9分走都有31月都有3630米再下山走8数不一分到达磨坊1你知道了哪些",
+      "question_index": 4,
+      "confidence": 0.5464285761117935,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

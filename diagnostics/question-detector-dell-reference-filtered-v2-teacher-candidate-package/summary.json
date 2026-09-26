@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-07-01T23:55:50.962341+00:00",
+  "teacher_jsonl": "diagnostics\\question-detector-dell-reference-filtered-v2\\teacher_candidate_boxes.jsonl",
+  "out": "diagnostics\\question-detector-dell-reference-filtered-v2-teacher-candidate-package",
+  "teacher": "codex_visual_teacher",
+  "approved_statuses": [
+    "accepted",
+    "approved",
+    "corrected",
+    "verified"
+  ],
+  "images": 433,
+  "approved_images": 432,
+  "approved_boxes": 1542,
+  "excluded_boxes": 31,
+  "stats": {
+    "approved_boxes": 1542,
+    "approved_images": 432,
+    "excluded:verified": 31,
+    "images": 433
+  },
+  "outputs": {
+    "approved_boxes": "annotations/approved_boxes.jsonl",
+    "teacher_all_boxes": "annotations/teacher_all_boxes.jsonl",
+    "teacher_reference_boxes": "teacher_reference_boxes.jsonl",
+    "benchmark_manifest": "benchmark_manifest.jsonl",
+    "ios_predictions_template": "ios_predictions_template.jsonl",
+    "preview": "teacher_preview_contact_sheet.jpg"
+  },
+  "notes": [
+    "Only approved boxes are used for detector training and benchmark reference.",
+    "Boxes with partial/uncertain statuses remain in teacher_all_boxes.jsonl for active learning but are not promoted."
+  ]
+}

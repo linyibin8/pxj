@@ -1,0 +1,1944 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homework Evidence Ledger</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16202a;
+      --muted: #637083;
+      --line: #d8e0ea;
+      --paper: #f6f7f9;
+      --panel: #ffffff;
+      --blue: #2457c5;
+      --green: #16794c;
+      --amber: #9b6500;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    h1 { margin: 0; font-size: 18px; letter-spacing: 0; }
+    .stats { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .pill, .card-head span {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: calc(100vh - 60px);
+    }
+    aside {
+      background: #fff;
+      border-right: 1px solid var(--line);
+      padding: 12px;
+      overflow: auto;
+      max-height: calc(100vh - 60px);
+    }
+    .frame-list { display: grid; gap: 9px; }
+    .frame-tile {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 2px 9px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--muted);
+      background: #fff;
+      border-radius: 6px;
+      padding: 8px;
+      text-align: left;
+    }
+    .frame-tile.accepted { border-left-color: var(--green); }
+    .frame-tile.skipped { opacity: 0.66; }
+    .frame-tile img {
+      grid-row: 1 / 4;
+      width: 72px;
+      height: 58px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .frame-tile span, .frame-tile small {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+    .workspace { padding: 16px; display: grid; gap: 16px; align-content: start; }
+    .section-title { margin: 2px 0 0; font-size: 16px; }
+    .episode-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .episode-table th, .episode-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 13px;
+    }
+    .boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+    .board, .evidence-card, .question-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .board-head, .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 11px;
+      background: #fbfcfe;
+      border-bottom: 1px solid var(--line);
+    }
+    .card-head div { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+    .image-board { position: relative; background: #f0f2f5; }
+    .image-board img { display: block; width: 100%; height: auto; }
+    .box {
+      position: absolute;
+      display: grid;
+      place-items: start;
+      border: 2px solid var(--blue);
+      background: rgba(36, 87, 197, 0.08);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px;
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .box.section { border-color: var(--amber); background: rgba(155, 101, 0, 0.10); color: var(--amber); }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: minmax(160px, 280px) minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px;
+      align-items: start;
+    }
+    .evidence-grid img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #fff;
+    }
+    .evidence-grid p { margin: 0 0 7px; color: var(--muted); overflow-wrap: anywhere; }
+    .editable {
+      padding: 14px;
+      min-height: 130px;
+      line-height: 1.6;
+      outline: none;
+    }
+    .editable:focus { box-shadow: inset 0 0 0 2px rgba(36, 87, 197, 0.25); }
+    .editable h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    .editable figure { margin: 10px 0 0; }
+    .editable img { max-width: 100%; border: 1px solid var(--line); border-radius: 5px; }
+    .editable figcaption { color: var(--muted); font-size: 12px; margin-top: 5px; }
+    button.action {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    @media (max-width: 880px) {
+      header, main { grid-template-columns: 1fr; }
+      aside { max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+      .evidence-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Homework Evidence Ledger</h1>
+    <div class="stats">
+      <span class="pill">frames 9</span>
+      <span class="pill">keyframes 9</span>
+      <span class="pill">evidence 47</span>
+      <span class="pill">upload ratio 0.586</span>
+      <button class="action" id="download">Download edited cards</button>
+    </div>
+  </header>
+  <main>
+    <aside><div class="frame-list">
+            <button class="frame-tile accepted" data-frame="frame_0001">
+              <img src="normalized_frames/frame_0001.jpg" alt="frame_0001">
+              <strong>frame_0001</strong>
+              <span>first_keyframe</span>
+              <small>sharp 431 · candidates 7</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0002">
+              <img src="normalized_frames/frame_0002.jpg" alt="frame_0002">
+              <strong>frame_0002</strong>
+              <span>new_content_hamming_28</span>
+              <small>sharp 1510 · candidates 2</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0003">
+              <img src="normalized_frames/frame_0003.jpg" alt="frame_0003">
+              <strong>frame_0003</strong>
+              <span>new_content_hamming_18</span>
+              <small>sharp 2193 · candidates 4</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0004">
+              <img src="normalized_frames/frame_0004.jpg" alt="frame_0004">
+              <strong>frame_0004</strong>
+              <span>new_content_hamming_30</span>
+              <small>sharp 1072 · candidates 7</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0005">
+              <img src="normalized_frames/frame_0005.jpg" alt="frame_0005">
+              <strong>frame_0005</strong>
+              <span>new_content_hamming_35</span>
+              <small>sharp 463 · candidates 2</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0006">
+              <img src="normalized_frames/frame_0006.jpg" alt="frame_0006">
+              <strong>frame_0006</strong>
+              <span>new_content_hamming_32</span>
+              <small>sharp 88 · candidates 6</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0007">
+              <img src="normalized_frames/frame_0007.jpg" alt="frame_0007">
+              <strong>frame_0007</strong>
+              <span>new_content_hamming_37</span>
+              <small>sharp 1559 · candidates 4</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0008">
+              <img src="normalized_frames/frame_0008.jpg" alt="frame_0008">
+              <strong>frame_0008</strong>
+              <span>new_content_hamming_31</span>
+              <small>sharp 431 · candidates 9</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0009">
+              <img src="normalized_frames/frame_0009.jpg" alt="frame_0009">
+              <strong>frame_0009</strong>
+              <span>new_content_hamming_30</span>
+              <small>sharp 1096 · candidates 7</small>
+            </button>
+            </div></aside>
+    <section class="workspace">
+      <h2 class="section-title">Page Episodes</h2>
+      <table class="episode-table">
+        <thead><tr><th>Episode</th><th>Frames</th><th>Keyframes</th><th>Coverage cells</th></tr></thead>
+        <tbody>
+            <tr>
+              <td>page_0001</td>
+              <td>frame_0001 - frame_0001</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0002</td>
+              <td>frame_0002 - frame_0003</td>
+              <td>2</td>
+              <td>44</td>
+            </tr>
+            
+            <tr>
+              <td>page_0003</td>
+              <td>frame_0004 - frame_0004</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0004</td>
+              <td>frame_0005 - frame_0005</td>
+              <td>1</td>
+              <td>28</td>
+            </tr>
+            
+            <tr>
+              <td>page_0005</td>
+              <td>frame_0006 - frame_0006</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0006</td>
+              <td>frame_0007 - frame_0007</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0007</td>
+              <td>frame_0008 - frame_0008</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0008</td>
+              <td>frame_0009 - frame_0009</td>
+              <td>1</td>
+              <td>45</td>
+            </tr>
+            </tbody>
+      </table>
+      <h2 class="section-title">Accepted Keyframes</h2>
+      <div class="boards">
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0001</b>
+                <span>page_0001</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0001.jpg" alt="frame_0001">
+                <a class="box question" href="#qev_0001" style="left:0.00%;top:0.00%;width:57.44%;height:97.98%;">qev_0001</a><a class="box question" href="#qev_0002" style="left:51.50%;top:0.00%;width:48.50%;height:70.20%;">qev_0002</a><a class="box question" href="#qev_0003" style="left:58.22%;top:65.94%;width:30.06%;height:34.06%;">qev_0003</a><a class="box question" href="#qev_0004" style="left:82.17%;top:68.28%;width:16.67%;height:13.37%;">qev_0004</a><a class="box question" href="#qev_0005" style="left:88.44%;top:76.98%;width:11.56%;height:23.02%;">qev_0005</a><a class="box question" href="#qev_0006" style="left:24.00%;top:85.17%;width:20.72%;height:14.83%;">qev_0006</a><a class="box question" href="#qev_0007" style="left:5.00%;top:92.83%;width:18.00%;height:7.17%;">qev_0007</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0002</b>
+                <span>page_0002</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0002.jpg" alt="frame_0002">
+                <a class="box question" href="#qev_0008" style="left:0.00%;top:0.00%;width:19.50%;height:6.94%;">qev_0008</a><a class="box question" href="#qev_0009" style="left:40.28%;top:4.80%;width:24.89%;height:13.89%;">qev_0009</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0003</b>
+                <span>page_0002</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0003.jpg" alt="frame_0003">
+                <a class="box question" href="#qev_0010" style="left:0.00%;top:0.00%;width:80.17%;height:91.98%;">qev_0010</a><a class="box question" href="#qev_0011" style="left:86.67%;top:5.91%;width:13.33%;height:13.59%;">qev_0011</a><a class="box question" href="#qev_0012" style="left:86.83%;top:78.91%;width:13.17%;height:14.41%;">qev_0012</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0004</b>
+                <span>page_0003</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0004.jpg" alt="frame_0004">
+                <a class="box question" href="#qev_0013" style="left:4.83%;top:0.00%;width:82.10%;height:30.14%;">qev_0013</a><a class="box question" href="#qev_0014" style="left:86.89%;top:0.00%;width:13.11%;height:76.55%;">qev_0014</a><a class="box question" href="#qev_0015" style="left:4.33%;top:21.82%;width:53.94%;height:14.17%;">qev_0015</a><a class="box question" href="#qev_0016" style="left:4.68%;top:30.20%;width:26.15%;height:47.93%;">qev_0016</a><a class="box question" href="#qev_0017" style="left:31.32%;top:31.47%;width:59.96%;height:44.56%;">qev_0017</a><a class="box question" href="#qev_0018" style="left:28.60%;top:33.31%;width:17.60%;height:13.54%;">qev_0018</a><a class="box question" href="#qev_0019" style="left:0.00%;top:87.43%;width:100.00%;height:12.57%;">qev_0019</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0005</b>
+                <span>page_0004</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0005.jpg" alt="frame_0005">
+                <a class="box question" href="#qev_0020" style="left:0.40%;top:0.00%;width:20.05%;height:52.50%;">qev_0020</a><a class="box question" href="#qev_0021" style="left:0.30%;top:55.83%;width:70.16%;height:44.17%;">qev_0021</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0006</b>
+                <span>page_0005</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0006.jpg" alt="frame_0006">
+                <a class="box question" href="#qev_0022" style="left:0.00%;top:0.00%;width:18.92%;height:14.64%;">qev_0022</a><a class="box question" href="#qev_0023" style="left:2.42%;top:0.00%;width:97.58%;height:74.75%;">qev_0023</a><a class="box question" href="#qev_0024" style="left:76.83%;top:40.85%;width:21.31%;height:26.97%;">qev_0024</a><a class="box question" href="#qev_0025" style="left:10.46%;top:57.04%;width:69.36%;height:42.96%;">qev_0025</a><a class="box question" href="#qev_0026" style="left:78.51%;top:72.07%;width:21.49%;height:27.93%;">qev_0026</a><a class="box question" href="#qev_0027" style="left:12.20%;top:85.52%;width:37.96%;height:14.48%;">qev_0027</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0007</b>
+                <span>page_0006</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0007.jpg" alt="frame_0007">
+                <a class="box section" href="#qev_0028" style="left:0.00%;top:0.00%;width:52.50%;height:53.00%;">qev_0028</a><a class="box section" href="#qev_0029" style="left:47.50%;top:0.00%;width:52.50%;height:53.00%;">qev_0029</a><a class="box section" href="#qev_0030" style="left:0.00%;top:47.00%;width:52.50%;height:53.00%;">qev_0030</a><a class="box section" href="#qev_0031" style="left:47.50%;top:47.00%;width:52.50%;height:53.00%;">qev_0031</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0008</b>
+                <span>page_0007</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0008.jpg" alt="frame_0008">
+                <a class="box question" href="#qev_0032" style="left:0.00%;top:0.00%;width:57.44%;height:96.52%;">qev_0032</a><a class="box question" href="#qev_0033" style="left:4.00%;top:0.00%;width:33.06%;height:10.70%;">qev_0033</a><a class="box question" href="#qev_0034" style="left:53.28%;top:0.00%;width:46.72%;height:53.71%;">qev_0034</a><a class="box question" href="#qev_0035" style="left:56.22%;top:47.62%;width:43.78%;height:14.85%;">qev_0035</a><a class="box question" href="#qev_0036" style="left:58.22%;top:57.97%;width:29.94%;height:42.03%;">qev_0036</a><a class="box question" href="#qev_0037" style="left:82.17%;top:61.17%;width:16.61%;height:14.48%;">qev_0037</a><a class="box question" href="#qev_0038" style="left:88.44%;top:71.89%;width:11.56%;height:28.11%;">qev_0038</a><a class="box question" href="#qev_0039" style="left:24.00%;top:82.48%;width:20.72%;height:17.52%;">qev_0039</a><a class="box question" href="#qev_0040" style="left:5.00%;top:92.42%;width:18.00%;height:7.58%;">qev_0040</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0009</b>
+                <span>page_0008</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0009.jpg" alt="frame_0009">
+                <a class="box question" href="#qev_0041" style="left:0.00%;top:0.00%;width:36.61%;height:96.11%;">qev_0041</a><a class="box question" href="#qev_0042" style="left:0.00%;top:0.00%;width:20.44%;height:9.85%;">qev_0042</a><a class="box question" href="#qev_0043" style="left:31.78%;top:0.00%;width:15.89%;height:15.43%;">qev_0043</a><a class="box question" href="#qev_0044" style="left:59.72%;top:0.00%;width:31.72%;height:19.44%;">qev_0044</a><a class="box question" href="#qev_0045" style="left:31.22%;top:10.17%;width:42.39%;height:16.51%;">qev_0045</a><a class="box question" href="#qev_0046" style="left:31.56%;top:21.27%;width:20.72%;height:62.80%;">qev_0046</a><a class="box question" href="#qev_0047" style="left:48.33%;top:23.35%;width:46.11%;height:58.94%;">qev_0047</a>
+              </div>
+            </section>
+            </div>
+      <h2 class="section-title">Question Evidence</h2>
+      <div class="cards">
+            <section class="evidence-card" id="qev_0001">
+              <div class="card-head">
+                <div>
+                  <b>qev_0001</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.64</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0001.jpg" alt="qev_0001">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:0:0:11:20</p>
+                  <p><b>Crop hash:</b> a082919c3f276787</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0002">
+              <div class="card-head">
+                <div>
+                  <b>qev_0002</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.90</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0002.jpg" alt="qev_0002">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:10:0:10:14</p>
+                  <p><b>Crop hash:</b> fce78a1c630e1f63</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0003">
+              <div class="card-head">
+                <div>
+                  <b>qev_0003</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.53</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0003.jpg" alt="qev_0003">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:12:13:6:7</p>
+                  <p><b>Crop hash:</b> fc971a61c7da2167</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0004">
+              <div class="card-head">
+                <div>
+                  <b>qev_0004</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.45</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0004.jpg" alt="qev_0004">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:16:14:3:3</p>
+                  <p><b>Crop hash:</b> f595cb292c8e7339</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0005">
+              <div class="card-head">
+                <div>
+                  <b>qev_0005</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.67</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0005.jpg" alt="qev_0005">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:18:15:2:5</p>
+                  <p><b>Crop hash:</b> ee9798acb6a9954c</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0006">
+              <div class="card-head">
+                <div>
+                  <b>qev_0006</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.55</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0006.jpg" alt="qev_0006">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:5:17:4:3</p>
+                  <p><b>Crop hash:</b> a4830393246d7cfe</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> merged_local, thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0007">
+              <div class="card-head">
+                <div>
+                  <b>qev_0007</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.69</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0007.jpg" alt="qev_0007">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:1:19:4:1</p>
+                  <p><b>Crop hash:</b> e4db6453634e5349</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0008">
+              <div class="card-head">
+                <div>
+                  <b>qev_0008</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.74</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0008.jpg" alt="qev_0008">
+                <div>
+                  <p><b>Best frame:</b> frame_0002</p>
+                  <p><b>Layout:</b> layout:0:0:4:1</p>
+                  <p><b>Crop hash:</b> ba363e36276265e2</p>
+                  <p><b>Sources:</b> frame_0002</p>
+                  <p><b>Merge:</b> thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0009">
+              <div class="card-head">
+                <div>
+                  <b>qev_0009</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 2</span>
+                </div>
+                <strong>5.06</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0009.jpg" alt="qev_0009">
+                <div>
+                  <p><b>Best frame:</b> frame_0002</p>
+                  <p><b>Layout:</b> layout:8:1:5:3</p>
+                  <p><b>Crop hash:</b> c05d4f406f684c6e</p>
+                  <p><b>Sources:</b> frame_0002, frame_0003</p>
+                  <p><b>Merge:</b> crop_hash_0_dist_0.05</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0010">
+              <div class="card-head">
+                <div>
+                  <b>qev_0010</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>7.11</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0010.jpg" alt="qev_0010">
+                <div>
+                  <p><b>Best frame:</b> frame_0003</p>
+                  <p><b>Layout:</b> layout:0:0:16:18</p>
+                  <p><b>Crop hash:</b> 95d550401f4ff47a</p>
+                  <p><b>Sources:</b> frame_0003</p>
+                  <p><b>Merge:</b> wide</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0011">
+              <div class="card-head">
+                <div>
+                  <b>qev_0011</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>3.66</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0011.jpg" alt="qev_0011">
+                <div>
+                  <p><b>Best frame:</b> frame_0003</p>
+                  <p><b>Layout:</b> layout:17:1:3:3</p>
+                  <p><b>Crop hash:</b> cd64078bdcf17c31</p>
+                  <p><b>Sources:</b> frame_0003</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0012">
+              <div class="card-head">
+                <div>
+                  <b>qev_0012</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>3.76</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0012.jpg" alt="qev_0012">
+                <div>
+                  <p><b>Best frame:</b> frame_0003</p>
+                  <p><b>Layout:</b> layout:17:16:3:3</p>
+                  <p><b>Crop hash:</b> cde86dd0d8934d56</p>
+                  <p><b>Sources:</b> frame_0003</p>
+                  <p><b>Merge:</b> thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0013">
+              <div class="card-head">
+                <div>
+                  <b>qev_0013</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.86</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0013.jpg" alt="qev_0013">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:1:0:16:6</p>
+                  <p><b>Crop hash:</b> 8f6db8d4034723fc</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> wide</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0014">
+              <div class="card-head">
+                <div>
+                  <b>qev_0014</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.98</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0014.jpg" alt="qev_0014">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:17:0:3:15</p>
+                  <p><b>Crop hash:</b> d56a35523b553a55</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0015">
+              <div class="card-head">
+                <div>
+                  <b>qev_0015</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.44</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0015.jpg" alt="qev_0015">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:1:4:11:3</p>
+                  <p><b>Crop hash:</b> bf8f960f0f3dd0c8</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0016">
+              <div class="card-head">
+                <div>
+                  <b>qev_0016</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.09</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0016.jpg" alt="qev_0016">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:1:6:5:10</p>
+                  <p><b>Crop hash:</b> fcf1943ac274c39e</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0017">
+              <div class="card-head">
+                <div>
+                  <b>qev_0017</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.40</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0017.jpg" alt="qev_0017">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:6:6:12:9</p>
+                  <p><b>Crop hash:</b> bb91915ec46ece87</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0018">
+              <div class="card-head">
+                <div>
+                  <b>qev_0018</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.94</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0018.jpg" alt="qev_0018">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:6:7:4:3</p>
+                  <p><b>Crop hash:</b> e08cdb253c8e7331</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0019">
+              <div class="card-head">
+                <div>
+                  <b>qev_0019</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.29</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0019.jpg" alt="qev_0019">
+                <div>
+                  <p><b>Best frame:</b> frame_0004</p>
+                  <p><b>Layout:</b> layout:0:17:20:3</p>
+                  <p><b>Crop hash:</b> 95ea98374c91b6e1</p>
+                  <p><b>Sources:</b> frame_0004</p>
+                  <p><b>Merge:</b> wide</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0020">
+              <div class="card-head">
+                <div>
+                  <b>qev_0020</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.18</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0020.jpg" alt="qev_0020">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:0:0:4:10</p>
+                  <p><b>Crop hash:</b> e464d3670c92679e</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0021">
+              <div class="card-head">
+                <div>
+                  <b>qev_0021</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.70</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0021.jpg" alt="qev_0021">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:0:11:14:9</p>
+                  <p><b>Crop hash:</b> afb4d249ed24d473</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0022">
+              <div class="card-head">
+                <div>
+                  <b>qev_0022</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.07</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0022.jpg" alt="qev_0022">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:0:0:4:3</p>
+                  <p><b>Crop hash:</b> b03d76e0404f4f5c</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0023">
+              <div class="card-head">
+                <div>
+                  <b>qev_0023</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.72</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0023.jpg" alt="qev_0023">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:0:0:20:15</p>
+                  <p><b>Crop hash:</b> f7c94b64bfc033a9</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> wide</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0024">
+              <div class="card-head">
+                <div>
+                  <b>qev_0024</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.27</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0024.jpg" alt="qev_0024">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:15:8:4:5</p>
+                  <p><b>Crop hash:</b> ff819e98c95d6c67</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0025">
+              <div class="card-head">
+                <div>
+                  <b>qev_0025</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.93</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0025.jpg" alt="qev_0025">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:2:11:14:9</p>
+                  <p><b>Crop hash:</b> ebabdce02dc8e532</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0026">
+              <div class="card-head">
+                <div>
+                  <b>qev_0026</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.96</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0026.jpg" alt="qev_0026">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:16:14:4:6</p>
+                  <p><b>Crop hash:</b> febd8345c363363a</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0027">
+              <div class="card-head">
+                <div>
+                  <b>qev_0027</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.03</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0027.jpg" alt="qev_0027">
+                <div>
+                  <p><b>Best frame:</b> frame_0006</p>
+                  <p><b>Layout:</b> layout:2:17:8:3</p>
+                  <p><b>Crop hash:</b> fbc658338ed837cc</p>
+                  <p><b>Sources:</b> frame_0006</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0028">
+              <div class="card-head">
+                <div>
+                  <b>qev_0028</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>7.05</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0028.jpg" alt="qev_0028">
+                <div>
+                  <p><b>Best frame:</b> frame_0007</p>
+                  <p><b>Layout:</b> layout:0:0:10:11</p>
+                  <p><b>Crop hash:</b> 8df003783f83be86</p>
+                  <p><b>Sources:</b> frame_0007</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0029">
+              <div class="card-head">
+                <div>
+                  <b>qev_0029</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.78</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0029.jpg" alt="qev_0029">
+                <div>
+                  <p><b>Best frame:</b> frame_0007</p>
+                  <p><b>Layout:</b> layout:10:0:10:11</p>
+                  <p><b>Crop hash:</b> a8609090dadf6f2e</p>
+                  <p><b>Sources:</b> frame_0007</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0030">
+              <div class="card-head">
+                <div>
+                  <b>qev_0030</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.40</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0030.jpg" alt="qev_0030">
+                <div>
+                  <p><b>Best frame:</b> frame_0007</p>
+                  <p><b>Layout:</b> layout:0:9:10:11</p>
+                  <p><b>Crop hash:</b> 8e07c37bf8ff0300</p>
+                  <p><b>Sources:</b> frame_0007</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0031">
+              <div class="card-head">
+                <div>
+                  <b>qev_0031</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.68</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0031.jpg" alt="qev_0031">
+                <div>
+                  <p><b>Best frame:</b> frame_0007</p>
+                  <p><b>Layout:</b> layout:10:9:10:11</p>
+                  <p><b>Crop hash:</b> ae2f1a18d8f464b7</p>
+                  <p><b>Sources:</b> frame_0007</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0032">
+              <div class="card-head">
+                <div>
+                  <b>qev_0032</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.27</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0032.jpg" alt="qev_0032">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:0:0:11:19</p>
+                  <p><b>Crop hash:</b> a022e1c0de991e7b</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0033">
+              <div class="card-head">
+                <div>
+                  <b>qev_0033</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.00</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0033.jpg" alt="qev_0033">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:1:0:7:2</p>
+                  <p><b>Crop hash:</b> e0244fcecc985bb2</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0034">
+              <div class="card-head">
+                <div>
+                  <b>qev_0034</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.99</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0034.jpg" alt="qev_0034">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:11:0:9:11</p>
+                  <p><b>Crop hash:</b> fce38a1f61b01fc6</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0035">
+              <div class="card-head">
+                <div>
+                  <b>qev_0035</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.05</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0035.jpg" alt="qev_0035">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:11:10:9:3</p>
+                  <p><b>Crop hash:</b> ff0fb48f1f4a9187</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0036">
+              <div class="card-head">
+                <div>
+                  <b>qev_0036</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.62</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0036.jpg" alt="qev_0036">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:12:12:6:8</p>
+                  <p><b>Crop hash:</b> f8971a61c7ca6167</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0037">
+              <div class="card-head">
+                <div>
+                  <b>qev_0037</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.51</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0037.jpg" alt="qev_0037">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:16:12:3:3</p>
+                  <p><b>Crop hash:</b> f595cb21a49e7371</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0038">
+              <div class="card-head">
+                <div>
+                  <b>qev_0038</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.74</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0038.jpg" alt="qev_0038">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:18:14:2:6</p>
+                  <p><b>Crop hash:</b> ec8788acb4a9b5ec</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0039">
+              <div class="card-head">
+                <div>
+                  <b>qev_0039</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.54</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0039.jpg" alt="qev_0039">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:5:16:4:4</p>
+                  <p><b>Crop hash:</b> a5830793252d6dcf</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> merged_local, thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0040">
+              <div class="card-head">
+                <div>
+                  <b>qev_0040</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.65</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0040.jpg" alt="qev_0040">
+                <div>
+                  <p><b>Best frame:</b> frame_0008</p>
+                  <p><b>Layout:</b> layout:1:18:4:2</p>
+                  <p><b>Crop hash:</b> e49b3c98316cbb38</p>
+                  <p><b>Sources:</b> frame_0008</p>
+                  <p><b>Merge:</b> thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0041">
+              <div class="card-head">
+                <div>
+                  <b>qev_0041</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.65</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0041.jpg" alt="qev_0041">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:0:0:7:19</p>
+                  <p><b>Crop hash:</b> abbe60619e9adcd0</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0042">
+              <div class="card-head">
+                <div>
+                  <b>qev_0042</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.12</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0042.jpg" alt="qev_0042">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:0:0:4:2</p>
+                  <p><b>Crop hash:</b> bca33ce58e25c693</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> thin</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0043">
+              <div class="card-head">
+                <div>
+                  <b>qev_0043</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.81</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0043.jpg" alt="qev_0043">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:6:0:3:3</p>
+                  <p><b>Crop hash:</b> f264cc3039cf769c</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0044">
+              <div class="card-head">
+                <div>
+                  <b>qev_0044</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.73</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0044.jpg" alt="qev_0044">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:12:0:6:4</p>
+                  <p><b>Crop hash:</b> cb6bb47a344a4b2d</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0045">
+              <div class="card-head">
+                <div>
+                  <b>qev_0045</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.94</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0045.jpg" alt="qev_0045">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:6:2:8:3</p>
+                  <p><b>Crop hash:</b> bf8792c32f1f9a49</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0046">
+              <div class="card-head">
+                <div>
+                  <b>qev_0046</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.55</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0046.jpg" alt="qev_0046">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:6:4:4:13</p>
+                  <p><b>Crop hash:</b> fcf1923c4376c39a</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0047">
+              <div class="card-head">
+                <div>
+                  <b>qev_0047</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.98</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0047.jpg" alt="qev_0047">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:10:5:9:12</p>
+                  <p><b>Crop hash:</b> bb91937cc468cccf</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            </div>
+      <h2 class="section-title">Editable Question Cards</h2>
+      <div class="cards">
+            <section class="question-card" id="q_qev_0001">
+              <div class="card-head">
+                <div><b>q_qev_0001</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0001">
+                <article><h2>Evidence 1</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0001.jpg" alt="qev_0001"><figcaption>qev_0001 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0002">
+              <div class="card-head">
+                <div><b>q_qev_0002</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0002">
+                <article><h2>Evidence 2</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0002.jpg" alt="qev_0002"><figcaption>qev_0002 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0003">
+              <div class="card-head">
+                <div><b>q_qev_0003</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.74</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0003">
+                <article><h2>Evidence 3</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0003.jpg" alt="qev_0003"><figcaption>qev_0003 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0004">
+              <div class="card-head">
+                <div><b>q_qev_0004</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.45</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0004">
+                <article><h2>Evidence 4</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0004.jpg" alt="qev_0004"><figcaption>qev_0004 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0005">
+              <div class="card-head">
+                <div><b>q_qev_0005</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.49</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0005">
+                <article><h2>Evidence 5</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0005.jpg" alt="qev_0005"><figcaption>qev_0005 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0006">
+              <div class="card-head">
+                <div><b>q_qev_0006</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.45</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0006">
+                <article><h2>Evidence 6</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0006.jpg" alt="qev_0006"><figcaption>qev_0006 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0007">
+              <div class="card-head">
+                <div><b>q_qev_0007</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.43</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0007">
+                <article><h2>Evidence 7</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0007.jpg" alt="qev_0007"><figcaption>qev_0007 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0008">
+              <div class="card-head">
+                <div><b>q_qev_0008</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.44</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0008">
+                <article><h2>Evidence 8</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0008.jpg" alt="qev_0008"><figcaption>qev_0008 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0009">
+              <div class="card-head">
+                <div><b>q_qev_0009</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.47</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0009">
+                <article><h2>Evidence 9</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0009.jpg" alt="qev_0009"><figcaption>qev_0009 · seen 2 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0010">
+              <div class="card-head">
+                <div><b>q_qev_0010</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0010">
+                <article><h2>Evidence 10</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0010.jpg" alt="qev_0010"><figcaption>qev_0010 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0011">
+              <div class="card-head">
+                <div><b>q_qev_0011</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.45</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0011">
+                <article><h2>Evidence 11</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0011.jpg" alt="qev_0011"><figcaption>qev_0011 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0012">
+              <div class="card-head">
+                <div><b>q_qev_0012</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.44</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0012">
+                <article><h2>Evidence 12</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0012.jpg" alt="qev_0012"><figcaption>qev_0012 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0013">
+              <div class="card-head">
+                <div><b>q_qev_0013</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0013">
+                <article><h2>Evidence 13</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0013.jpg" alt="qev_0013"><figcaption>qev_0013 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0014">
+              <div class="card-head">
+                <div><b>q_qev_0014</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.73</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0014">
+                <article><h2>Evidence 14</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0014.jpg" alt="qev_0014"><figcaption>qev_0014 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0015">
+              <div class="card-head">
+                <div><b>q_qev_0015</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.56</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0015">
+                <article><h2>Evidence 15</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0015.jpg" alt="qev_0015"><figcaption>qev_0015 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0016">
+              <div class="card-head">
+                <div><b>q_qev_0016</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.78</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0016">
+                <article><h2>Evidence 16</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0016.jpg" alt="qev_0016"><figcaption>qev_0016 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0017">
+              <div class="card-head">
+                <div><b>q_qev_0017</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0017">
+                <article><h2>Evidence 17</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0017.jpg" alt="qev_0017"><figcaption>qev_0017 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0018">
+              <div class="card-head">
+                <div><b>q_qev_0018</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.45</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0018">
+                <article><h2>Evidence 18</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0018.jpg" alt="qev_0018"><figcaption>qev_0018 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0019">
+              <div class="card-head">
+                <div><b>q_qev_0019</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.78</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0019">
+                <article><h2>Evidence 19</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0019.jpg" alt="qev_0019"><figcaption>qev_0019 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0020">
+              <div class="card-head">
+                <div><b>q_qev_0020</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.72</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0020">
+                <article><h2>Evidence 20</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0020.jpg" alt="qev_0020"><figcaption>qev_0020 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0021">
+              <div class="card-head">
+                <div><b>q_qev_0021</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0021">
+                <article><h2>Evidence 21</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0021.jpg" alt="qev_0021"><figcaption>qev_0021 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0022">
+              <div class="card-head">
+                <div><b>q_qev_0022</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.50</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0022">
+                <article><h2>Evidence 22</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0022.jpg" alt="qev_0022"><figcaption>qev_0022 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0023">
+              <div class="card-head">
+                <div><b>q_qev_0023</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0023">
+                <article><h2>Evidence 23</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0023.jpg" alt="qev_0023"><figcaption>qev_0023 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0024">
+              <div class="card-head">
+                <div><b>q_qev_0024</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.56</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0024">
+                <article><h2>Evidence 24</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0024.jpg" alt="qev_0024"><figcaption>qev_0024 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0025">
+              <div class="card-head">
+                <div><b>q_qev_0025</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0025">
+                <article><h2>Evidence 25</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0025.jpg" alt="qev_0025"><figcaption>qev_0025 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0026">
+              <div class="card-head">
+                <div><b>q_qev_0026</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.61</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0026">
+                <article><h2>Evidence 26</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0026.jpg" alt="qev_0026"><figcaption>qev_0026 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0027">
+              <div class="card-head">
+                <div><b>q_qev_0027</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.56</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0027">
+                <article><h2>Evidence 27</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0027.jpg" alt="qev_0027"><figcaption>qev_0027 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0028">
+              <div class="card-head">
+                <div><b>q_qev_0028</b><span>section_crop, needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0028">
+                <article><h2>Evidence 28</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0028.jpg" alt="qev_0028"><figcaption>qev_0028 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0029">
+              <div class="card-head">
+                <div><b>q_qev_0029</b><span>section_crop, needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0029">
+                <article><h2>Evidence 29</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0029.jpg" alt="qev_0029"><figcaption>qev_0029 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0030">
+              <div class="card-head">
+                <div><b>q_qev_0030</b><span>section_crop, needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0030">
+                <article><h2>Evidence 30</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0030.jpg" alt="qev_0030"><figcaption>qev_0030 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0031">
+              <div class="card-head">
+                <div><b>q_qev_0031</b><span>section_crop, needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0031">
+                <article><h2>Evidence 31</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0031.jpg" alt="qev_0031"><figcaption>qev_0031 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0032">
+              <div class="card-head">
+                <div><b>q_qev_0032</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0032">
+                <article><h2>Evidence 32</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0032.jpg" alt="qev_0032"><figcaption>qev_0032 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0033">
+              <div class="card-head">
+                <div><b>q_qev_0033</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.50</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0033">
+                <article><h2>Evidence 33</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0033.jpg" alt="qev_0033"><figcaption>qev_0033 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0034">
+              <div class="card-head">
+                <div><b>q_qev_0034</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0034">
+                <article><h2>Evidence 34</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0034.jpg" alt="qev_0034"><figcaption>qev_0034 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0035">
+              <div class="card-head">
+                <div><b>q_qev_0035</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.55</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0035">
+                <article><h2>Evidence 35</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0035.jpg" alt="qev_0035"><figcaption>qev_0035 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0036">
+              <div class="card-head">
+                <div><b>q_qev_0036</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.81</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0036">
+                <article><h2>Evidence 36</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0036.jpg" alt="qev_0036"><figcaption>qev_0036 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0037">
+              <div class="card-head">
+                <div><b>q_qev_0037</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.45</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0037">
+                <article><h2>Evidence 37</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0037.jpg" alt="qev_0037"><figcaption>qev_0037 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0038">
+              <div class="card-head">
+                <div><b>q_qev_0038</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.51</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0038">
+                <article><h2>Evidence 38</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0038.jpg" alt="qev_0038"><figcaption>qev_0038 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0039">
+              <div class="card-head">
+                <div><b>q_qev_0039</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.46</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0039">
+                <article><h2>Evidence 39</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0039.jpg" alt="qev_0039"><figcaption>qev_0039 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0040">
+              <div class="card-head">
+                <div><b>q_qev_0040</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.43</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0040">
+                <article><h2>Evidence 40</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0040.jpg" alt="qev_0040"><figcaption>qev_0040 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0041">
+              <div class="card-head">
+                <div><b>q_qev_0041</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0041">
+                <article><h2>Evidence 41</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0041.jpg" alt="qev_0041"><figcaption>qev_0041 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0042">
+              <div class="card-head">
+                <div><b>q_qev_0042</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.46</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0042">
+                <article><h2>Evidence 42</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0042.jpg" alt="qev_0042"><figcaption>qev_0042 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0043">
+              <div class="card-head">
+                <div><b>q_qev_0043</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.48</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0043">
+                <article><h2>Evidence 43</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0043.jpg" alt="qev_0043"><figcaption>qev_0043 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0044">
+              <div class="card-head">
+                <div><b>q_qev_0044</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.60</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0044">
+                <article><h2>Evidence 44</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0044.jpg" alt="qev_0044"><figcaption>qev_0044 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0045">
+              <div class="card-head">
+                <div><b>q_qev_0045</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.56</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0045">
+                <article><h2>Evidence 45</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0045.jpg" alt="qev_0045"><figcaption>qev_0045 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0046">
+              <div class="card-head">
+                <div><b>q_qev_0046</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.78</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0046">
+                <article><h2>Evidence 46</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0046.jpg" alt="qev_0046"><figcaption>qev_0046 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0047">
+              <div class="card-head">
+                <div><b>q_qev_0047</b><span>needs_text_extraction, raster_figure_evidence</span></div>
+                <strong>0.82</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0047">
+                <article><h2>Evidence 47</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0047.jpg" alt="qev_0047"><figcaption>qev_0047 · seen 1 times</figcaption></figure></article>
+              </div>
+            </section>
+            </div>
+    </section>
+  </main>
+  <script>
+    document.querySelector('#download').addEventListener('click', () => {
+      const cards = Array.from(document.querySelectorAll('.editable')).map(node => ({
+        id: node.dataset.questionId,
+        html: node.innerHTML
+      }));
+      const blob = new Blob([JSON.stringify({ cards }, null, 2)], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'edited_homework_cards.json';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+  </script>
+</body>
+</html>

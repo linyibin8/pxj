@@ -1,0 +1,11 @@
+{
+  "stage": "model_selection_passed",
+  "next_actions": [
+    "complete_review_workbenches",
+    "grow_reviewed_dataset",
+    "run_release_gate",
+    "keep_rect_only_upload",
+    "keep_best_observation_strategy"
+  ],
+  "out": "diagnostics\\question-detector-loop-training-plan-inherit-smoke\\iteration_report"
+}

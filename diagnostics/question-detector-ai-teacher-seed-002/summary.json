@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-07-02T00:35:09.805871+00:00",
+  "teacher_jsonl": "diagnostics\\question-detector-ai-teacher-seed-002-input\\teacher_boxes.jsonl",
+  "out": "diagnostics\\question-detector-ai-teacher-seed-002",
+  "teacher": "codex_visual_teacher",
+  "approved_statuses": [
+    "accepted",
+    "approved",
+    "corrected",
+    "verified"
+  ],
+  "images": 4,
+  "approved_images": 4,
+  "approved_boxes": 18,
+  "excluded_boxes": 1,
+  "stats": {
+    "approved_boxes": 18,
+    "approved_images": 4,
+    "excluded:needs_review": 1,
+    "images": 4
+  },
+  "outputs": {
+    "approved_boxes": "annotations/approved_boxes.jsonl",
+    "teacher_all_boxes": "annotations/teacher_all_boxes.jsonl",
+    "teacher_reference_boxes": "teacher_reference_boxes.jsonl",
+    "benchmark_manifest": "benchmark_manifest.jsonl",
+    "ios_predictions_template": "ios_predictions_template.jsonl",
+    "preview": "teacher_preview_contact_sheet.jpg"
+  },
+  "notes": [
+    "Only approved boxes are used for detector training and benchmark reference.",
+    "Boxes with partial/uncertain statuses remain in teacher_all_boxes.jsonl for active learning but are not promoted."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-30T14:56:19.233353+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai",
+  "out": "diagnostics\\question-detector-active-batch-kpai-004-after-backlog-probe",
+  "candidate_count": 4,
+  "selected_images": 1,
+  "selected_boxes": 1,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 82,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 42
+  },
+  "selection": {
+    "max_per_session": 4,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "e90a6847977f4dbc8d831b5c401bb200": 1
+    },
+    "reason_counts": {
+      "dense_text": 1,
+      "flag:near_full_page": 1,
+      "flag:tall_block": 1,
+      "large_box": 1
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

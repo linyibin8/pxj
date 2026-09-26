@@ -1,0 +1,54 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-synthetic-dense-layout",
+      "candidate_count": 0,
+      "image_count": 10,
+      "full_frame_only_bytes": 1390047,
+      "full_frame_resized_pixels": 16240000
+    }
+  ],
+  "settings": {
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "max_overcrop_ratio": 3.0,
+    "full_max_side": 1600
+  },
+  "counts": {
+    "images": 10,
+    "images_with_candidates": 0,
+    "candidate_count": 0,
+    "gt_box_count": 256,
+    "raw_represented_gt_key_count": 256,
+    "represented_gt_key_count": 256,
+    "duplicate_represented_gt_key_count": 0,
+    "covered_gt_key_count": 0,
+    "missed_gt_key_count": 256,
+    "matched_candidate_count": 0,
+    "reviewed_image_candidate_count": 0,
+    "unmatched_reviewed_candidate_count": 0,
+    "unverified_candidate_count": 0,
+    "overcrop_match_count": 0
+  },
+  "metrics": {
+    "represented_gt_recall": 0.0,
+    "reviewed_candidate_match_rate": null,
+    "crop_pixels_vs_full_frame_pixels": 0.0,
+    "crop_resized_pixels": 0,
+    "full_frame_resized_pixels": 16240000,
+    "crop_jpeg_bytes": 0,
+    "overcrop_ratio_median": null,
+    "overcrop_ratio_p90": null,
+    "overcrop_ratio_max": null
+  },
+  "quality_flags": {},
+  "outputs": {
+    "matches": "matches.jsonl",
+    "missed": "missed_gt.jsonl",
+    "unmatched_reviewed_candidates": "unmatched_reviewed_candidates.jsonl",
+    "unverified_candidates": "unverified_candidates.jsonl",
+    "overcrop": "overcrop_candidates.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  }
+}

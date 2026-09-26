@@ -1,0 +1,81 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 0 val",
+    "version": "cv1",
+    "generated_at": "2026-06-30T05:07:12.521281+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-merged-reviewed-smoke-neardupe-gate"
+  },
+  "images": [
+    {
+      "id": 21,
+      "file_name": "images/val/b1fc104dc1b4c9af__4152f5cae8991281_f4054bcce9c1766d_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b9.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "source_filename": "f4054bcce9c1766d_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 5,
+      "image_id": 21,
+      "category_id": 1,
+      "bbox": [
+        173,
+        0,
+        1443,
+        946
+      ],
+      "area": 1365078,
+      "iscrowd": 0,
+      "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 6,
+      "image_id": 21,
+      "category_id": 1,
+      "bbox": [
+        475,
+        949,
+        1137,
+        26
+      ],
+      "area": 29562,
+      "iscrowd": 0,
+      "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

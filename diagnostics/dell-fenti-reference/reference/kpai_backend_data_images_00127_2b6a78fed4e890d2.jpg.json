@@ -1,0 +1,12 @@
+{
+ "count": 0,
+ "questions": [],
+ "_meta": {
+  "w": 3200,
+  "h": 1800,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 1.2,
+  "finish": "stop"
+ }
+}

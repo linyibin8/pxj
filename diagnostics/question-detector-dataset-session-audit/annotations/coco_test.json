@@ -1,0 +1,15 @@
+{
+  "info": {
+    "description": "PXJ weak question-region detector dataset",
+    "version": "v1",
+    "generated_at": "2026-06-30T00:50:39.123004+00:00"
+  },
+  "images": [],
+  "annotations": [],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

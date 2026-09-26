@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-06-30T05:57:55.686615+00:00",
+  "approved_inputs": [
+    "diagnostics\\question-detector-merged-reviewed-next"
+  ],
+  "target_inputs": [
+    "diagnostics\\question-detector-active-batch-kpai-002",
+    "diagnostics\\question-detector-active-batch-kpai-003-quarantine",
+    "diagnostics\\question-detector-error-mining-bootstrap-smoke"
+  ],
+  "target_files": [
+    "diagnostics\\question-detector-active-batch-kpai-002\\annotations\\draft_boxes.jsonl",
+    "diagnostics\\question-detector-active-batch-kpai-002\\annotations\\ranked_candidates.jsonl",
+    "diagnostics\\question-detector-active-batch-kpai-003-quarantine\\annotations\\draft_boxes.jsonl",
+    "diagnostics\\question-detector-active-batch-kpai-003-quarantine\\annotations\\ranked_candidates.jsonl",
+    "diagnostics\\question-detector-error-mining-bootstrap-smoke\\annotations\\draft_boxes.jsonl"
+  ],
+  "settings": {
+    "max_ahash_distance": 4,
+    "require_same_size": true,
+    "skip_exact_hash": true,
+    "min_draft_iou": 0.1,
+    "include_quarantine": false
+  },
+  "stats": {
+    "box_failed_draft_overlap": 2,
+    "duplicate_target_hash": 3,
+    "missing_target_image": 11,
+    "no_duplicate_seed": 50,
+    "propagated_boxes": 6,
+    "propagated_images": 4,
+    "seed_rows": 14
+  },
+  "outputs": {
+    "approved_boxes": "annotations/approved_boxes.jsonl",
+    "root_approved_boxes": "approved_boxes.jsonl",
+    "matches": "propagation_matches.jsonl",
+    "contact_sheet": "propagated_contact_sheet.jpg"
+  }
+}

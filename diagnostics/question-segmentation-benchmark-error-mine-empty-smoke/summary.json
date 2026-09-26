@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-07-01T02:34:37.819285+00:00",
+  "eval": "diagnostics\\question-segmentation-benchmark-pack-self-check-risk-section-top1",
+  "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+  "label": "draft_pack_self_check",
+  "stats": {},
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "contact_sheet": "benchmark_errors_contact_sheet.jpg"
+  },
+  "notes": [
+    "Missed reference boxes default to pending/approve-or-correct.",
+    "False-positive prediction boxes default to rejected and only enter training if corrected or verified."
+  ]
+}

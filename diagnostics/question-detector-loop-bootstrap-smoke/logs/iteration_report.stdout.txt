@@ -1,0 +1,12 @@
+{
+  "stage": "hard_example_review",
+  "next_actions": [
+    "respect_release_blockers",
+    "review_pseudo_labels",
+    "open_error_workbench",
+    "mine_and_review_model_errors",
+    "grow_reviewed_dataset",
+    "annotate_more_boxes"
+  ],
+  "out": "diagnostics\\question-detector-loop-bootstrap-smoke\\iteration_report"
+}

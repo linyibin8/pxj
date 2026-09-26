@@ -1,0 +1,25 @@
+[
+  {
+    "image": "images/val/b1fc104dc1b4c9af__4152f5cae8991281_f4054bcce9c1766d_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b9.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 894.5,
+          "y": 473.0,
+          "width": 1443.0,
+          "height": 946.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1043.5,
+          "y": 962.0,
+          "width": 1137.0,
+          "height": 26.0
+        }
+      }
+    ]
+  }
+]

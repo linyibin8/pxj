@@ -1,0 +1,9 @@
+{
+  "path": "D:\\AI\\pxj\\diagnostics\\question-detector-cv-kpai-mixed-smoke\\fold-00",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": {
+    "0": "question_block"
+  }
+}

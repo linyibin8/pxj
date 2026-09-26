@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-30T04:04:18.491006+00:00",
+  "prelabel_root": "diagnostics\\question-detector-error-mining-bootstrap-smoke",
+  "out": "diagnostics\\question-detector-error-mining-bootstrap-smoke-workbench",
+  "images": 16,
+  "boxes": 22,
+  "median_boxes_per_image": 1.0,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Only approved/corrected/accepted/verified boxes should be promoted into detector training."
+  ]
+}

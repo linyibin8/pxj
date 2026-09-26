@@ -1,0 +1,50 @@
+{
+  "out": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+  "source_rows": 12,
+  "negative_rows": 80,
+  "images": 87,
+  "negative_images": 80,
+  "annotations": 12,
+  "review": 0,
+  "skipped": {},
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "warnings": [
+    {
+      "code": "near_duplicate_cross_split",
+      "severity": "warning",
+      "detail": "2 cross-split image pairs have aHash distance <= 4."
+    },
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "12 annotations; target >= 1000 for model selection."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "22 split groups; target >= 50 for held-out evaluation."
+    }
+  ],
+  "inputs": {
+    "diagnostics": [],
+    "sqlite": [],
+    "reviewed_prelabels": [
+      "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\merged_reviewed"
+    ],
+    "empty_page_manifests": [],
+    "negative_image_dirs": [
+      "diagnostics\\question-detector-review-candidates-kpai\\negative"
+    ],
+    "include_sqlite_empty_pages": false,
+    "sqlite_empty_page_mode": "textless"
+  }
+}

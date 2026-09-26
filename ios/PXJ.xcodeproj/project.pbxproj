@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07DA53DBDD5863CB522B61D6 /* iPadHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B16F35007DC16E6CC2BC24 /* iPadHistoryView.swift */; };
 		0FF08DBF3B7CB6D1FF03D346 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894AB031968CB82A191C1F6 /* ContentView.swift */; };
+		12C9D4E5F60718293A4B5C6D /* HomeworkLedgerExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C9D4E5F60718293A4B5C6C /* HomeworkLedgerExperimentView.swift */; };
 		1B1F52CACB742C7AEADFA07E /* iPadMistakesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3B8A7F0D05CBD1CF92903 /* iPadMistakesView.swift */; };
 		1E8341D26E24C2DE9AF63613 /* iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD962ED0311636A1090FF /* iPhoneUITests.swift */; };
 		22F4F8EF5B99EA2C58A3D7C8 /* PXJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B04BE8FD8C9C7C137B15ABE /* PXJUITests.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0F8A920FC833648007AEFB2F /* LearningProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningProfileView.swift; sourceTree = "<group>"; };
+		12C9D4E5F60718293A4B5C6C /* HomeworkLedgerExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkLedgerExperimentView.swift; sourceTree = "<group>"; };
 		1A832C3A48CBCFFFB0BA5EF7 /* MemoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryModels.swift; sourceTree = "<group>"; };
 		29660699DDDF48A4C7BACF9A /* iPadMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadMemoryView.swift; sourceTree = "<group>"; };
 		2C147862D1B8C8ED98782974 /* QuestionRegionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRegionOverlay.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				7B79FD5C8650C2BE91A14F24 /* Assets.xcassets */,
 				4F7CDABE1F8F02C75BB7DB37 /* Auth.swift */,
 				D894AB031968CB82A191C1F6 /* ContentView.swift */,
+				12C9D4E5F60718293A4B5C6C /* HomeworkLedgerExperimentView.swift */,
 				9B2EDA22C48CB69B0A5561FF /* Info.plist */,
 				F70F85F158D5D169ACB4E1F3 /* PXJApp.swift */,
 				EC6DE8C961D098564E4E603D /* QuestionExtractView.swift */,
@@ -254,6 +257,7 @@
 			files = (
 				BCB3A3A8E4F0B5E82BAA163C /* Auth.swift in Sources */,
 				0FF08DBF3B7CB6D1FF03D346 /* ContentView.swift in Sources */,
+				12C9D4E5F60718293A4B5C6D /* HomeworkLedgerExperimentView.swift in Sources */,
 				D3E6E5BABF71B1BABE8DECBD /* IntentModels.swift in Sources */,
 				53C4FFBC5351486F77DE8250 /* IntentProposalCard.swift in Sources */,
 				3329E7431CD21B9CDCAD37F3 /* IntentRouting.swift in Sources */,

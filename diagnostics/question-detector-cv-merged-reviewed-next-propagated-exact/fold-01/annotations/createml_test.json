@@ -1,0 +1,145 @@
+[
+  {
+    "image": "images/test/d13478440371f99c__3a086344426e3f06_caf309019d9cb6a6_52c32de44722cc04_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 864.5,
+          "y": 421.5,
+          "width": 1013.0,
+          "height": 843.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/a7f5f5118b2916cc__41bd608206083e1f_c8821fcfc9fcc6dc_3ba77ada0db6da74_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 969.5,
+          "y": 116.0,
+          "width": 1473.0,
+          "height": 106.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 971.0,
+          "y": 494.5,
+          "width": 1472.0,
+          "height": 621.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/997a71dc81d7d57e__7aac04fbb7133ff1_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/1cf5655acbed3215__17e0893dcd1909a3_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/fae2e1b891509d78__41df1c2446a3b166_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/ddedd6ebab03c1c8__5be2898544785a05_3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 982.5,
+          "y": 309.5,
+          "width": 1573.0,
+          "height": 619.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1060.0,
+          "y": 707.5,
+          "width": 1214.0,
+          "height": 213.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/ed12d3cc6afcf31f__63afb4448d9db62d_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4f.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/b5c62b81f6171db3__667b01af4ec3f83f_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/e7718abd48fd8653__6da26a10bfe0a026_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/18fd59d618feb62a__6ec0fc07f72a184a_1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb69360846.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/8d4966be5d02fee3__78abc9cec683460c_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c9905091648.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/85c10c424f80aa4d__865b8b047211e0d6_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b747.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/da297a833c2ced41__87ead53619c6e671_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/c4a665f94f02bd6d__8b3bfb567bfd89eb_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/9b06dece5880d3c4__950f6af4ff39ac5e_d492203cb82a4cc1_d82621fd1de40df8_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b789.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 982.5,
+          "y": 309.5,
+          "width": 1573.0,
+          "height": 619.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1060.0,
+          "y": 707.5,
+          "width": 1214.0,
+          "height": 213.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/0fb0c8ae76d63747__9bb22490abebee11_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/26bbe93cb6a0b651__a32037c7557f3fc3_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/bf64da16db1b900b__a5053a612742b239_1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_990a5ce0a4af44.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/69f5dd4fd933ee8b__bc2c4477005df3de_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a.jpg",
+    "annotations": []
+  }
+]

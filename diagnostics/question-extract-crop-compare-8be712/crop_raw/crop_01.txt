@@ -1,0 +1,20 @@
+```json
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "2",
+      "text": "2. 填一填。",
+      "student_answer": "54 x 4 = 216\nx 50 4\n4 200 16\n200 + 16 = 216\n\n91 x 9 = 819\nx 9 1\n9 810 9\n810 + 9 = 819\n\n102 x 7 = 714\nx 100 2\n7 700 14\n700 + 14 = 714\n一共有23只",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "3",
+      "text": "3. 算一算，说一说。",
+      "student_answer": "一共有60只",
+      "uncertain": false
+    }
+  ]
+}
+```

@@ -1,0 +1,128 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 2 test",
+    "version": "cv1",
+    "generated_at": "2026-06-30T01:48:53.701465+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-auto"
+  },
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/test/78469665846c86ae__57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 2,
+      "file_name": "images/test/ee3a3b5cbca20f22__e502f860b96b265c_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        527,
+        703,
+        1358,
+        971
+      ],
+      "area": 1318618,
+      "iscrowd": 0,
+      "question_key": "6有31天的月份是大月有911月都有30天2月份的天30天的月份是小月2月数不一",
+      "question_index": 1,
+      "confidence": 0.8142857147114617,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        140,
+        669,
+        1607,
+        349
+      ],
+      "area": 560843,
+      "iscrowd": 0,
+      "question_key": "135781012都有月31天4",
+      "question_index": 2,
+      "confidence": 0.8833333353201548,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945aaa65378e0da0445a1.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 3,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        0,
+        728,
+        2051,
+        946
+      ],
+      "area": 1940246,
+      "iscrowd": 0,
+      "question_key": "911月都有30天2月份的天30天的月份是小月2月数不一样有28天的年份是平年2",
+      "question_index": 1,
+      "confidence": 0.700000002466399,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        396,
+        920,
+        1447,
+        315
+      ],
+      "area": 455805,
+      "iscrowd": 0,
+      "question_key": "135781012都有31天4有31天的月份是大月有",
+      "question_index": 2,
+      "confidence": 0.6500000059604645,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:4d9c14bc5b1944df875532ae73dcd83d",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47e9bede968dafbfe925.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

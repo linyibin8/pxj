@@ -1,0 +1,510 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 0 test",
+    "version": "cv1",
+    "generated_at": "2026-06-30T02:13:54.431791+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-kpai-mixed"
+  },
+  "images": [
+    {
+      "id": 2,
+      "file_name": "images/test/574431db589690d5__1bde1102669bd9a6_7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_7fb56f8032664f.jpg",
+      "width": 1680,
+      "height": 1260,
+      "split": "test",
+      "split_key": "7bd1da2a72bc4d46a10d477ae4752e71:a763990cf3e44acf957f14fd8e981839",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:7fb56f8032664fa7ac41750de4c57c56",
+      "source_filename": "7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_7fb56f8032664fa7ac41750de4c57c56.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 13,
+      "file_name": "images/test/09334ba6c7ce99da__020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 3,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 26,
+      "file_name": "images/test/7d48f3b4df43407a__3d61da131de39d12_e65858e27a964eac83306022bfff0238_482af7e057cc4cbfaeb6c1b88c36b7e9_6fcb2c3c5ce643.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:482af7e057cc4cbfaeb6c1b88c36b7e9",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:6fcb2c3c5ce6435599d2a17a10a8a9bf",
+      "source_filename": "e65858e27a964eac83306022bfff0238_482af7e057cc4cbfaeb6c1b88c36b7e9_6fcb2c3c5ce6435599d2a17a10a8a9bf.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 28,
+      "file_name": "images/test/1ff59cdb051fea70__432e8684f4a48359_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "379f8544b02542c6afdc5a56788605e7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:48db9ebca5cf46bda6838716d22f4fe8",
+      "source_filename": "379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 29,
+      "file_name": "images/test/1dcfc34a500b1e50__439be7ecf68923e7_91cf7b7586424ce3a308b42daf0ee2fc_dd2f5d1903ec4117b33a02e08f0b7179_43ba1101c2b944.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc:dd2f5d1903ec4117b33a02e08f0b7179",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:43ba1101c2b9449c90c44f69e310def0",
+      "source_filename": "91cf7b7586424ce3a308b42daf0ee2fc_dd2f5d1903ec4117b33a02e08f0b7179_43ba1101c2b9449c90c44f69e310def0.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 33,
+      "file_name": "images/test/c0337e098d461a89__4fd0f454d2cc8c10_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024:f594cde6bebf418ba7a0107ff11c8fb7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:b5f25257359d49e7a0b528cf19df5705",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49e7a0b528cf19df5705.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 39,
+      "file_name": "images/test/1b7e0eedde1c0e15__5a2456bbf4b0504d_92b9447f4a8f43858a6a2a20324c1769_31f2e640de644bb7aa70cd2e09079dd6_c84f0583f64740.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:31f2e640de644bb7aa70cd2e09079dd6",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:c84f0583f6474029a26c1268bf0b68bd",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_31f2e640de644bb7aa70cd2e09079dd6_c84f0583f6474029a26c1268bf0b68bd.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 42,
+      "file_name": "images/test/9ad30b7870733365__5de2a311f5f5ef04_9b2b7f197f064c52961c557b4bea5ec8_291c19da90fe4b6b9684efc09ff77017_e85a1e8ad16649.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "9b2b7f197f064c52961c557b4bea5ec8:291c19da90fe4b6b9684efc09ff77017",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e85a1e8ad16649a8957f335e8703d150",
+      "source_filename": "9b2b7f197f064c52961c557b4bea5ec8_291c19da90fe4b6b9684efc09ff77017_e85a1e8ad16649a8957f335e8703d150.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 51,
+      "file_name": "images/test/491b081e3cd06796__6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 54,
+      "file_name": "images/test/1a02de4c2ab259a5__7a52c9b7dbb51748_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1:3c8bd7989ce040489d302a2ee4b0f30c",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:60a8f02ad12342e6948de219df9409d3",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 56,
+      "file_name": "images/test/322f123a9d8b721f__85ef854d504e8c77_e65858e27a964eac83306022bfff0238_2b9b3b3d82a5422f86f8da842f1b04fb_eaf742cd86b748.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:2b9b3b3d82a5422f86f8da842f1b04fb",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:eaf742cd86b748dc9859acebb49bc202",
+      "source_filename": "e65858e27a964eac83306022bfff0238_2b9b3b3d82a5422f86f8da842f1b04fb_eaf742cd86b748dc9859acebb49bc202.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 76,
+      "file_name": "images/test/41a8c61da37690f7__b434d305532f486c_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "fbbe6f5e26db40abb735d4b4efac3df8",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e5473433e96f40dda60973c4b01af7a0",
+      "source_filename": "fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 78,
+      "file_name": "images/test/4188186e0f7840ae__b7562a4fff0e8ef1_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f48.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 80,
+      "file_name": "images/test/ff71061afd5dd9ad__bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 85,
+      "file_name": "images/test/5c37190e569586db__d3fa50c32eb7da85_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "214e4c656cd948fa9db51d9972291cc1",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:ba30c38103d74a02bfc13e0412c09edc",
+      "source_filename": "214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 90,
+      "file_name": "images/test/6f0c227a6f565dd2__e0c0a4e10d1cc103_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b747.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024:f594cde6bebf418ba7a0107ff11c8fb7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:fd8da340a4b7474b9c435dbcd634c86a",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b7474b9c435dbcd634c86a.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 93,
+      "file_name": "images/test/f2be36aacc6df872__e8706c93557f8912_b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:fc5e699878a94fe594bf4b30fcd20813",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e3e4b44e4b2a4c138d538802d99b0072",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c138d538802d99b0072.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 104,
+      "file_name": "images/test/b9c7d8f91d5b9166__fe5066a26ecd1062_92b9447f4a8f43858a6a2a20324c1769_3218142240ef4d93bf4b5dd3075533fd_076f295bbf8947.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:3218142240ef4d93bf4b5dd3075533fd",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:076f295bbf8947a791ceea0691a6f090",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_3218142240ef4d93bf4b5dd3075533fd_076f295bbf8947a791ceea0691a6f090.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 5,
+      "image_id": 13,
+      "category_id": 1,
+      "bbox": [
+        506,
+        9,
+        1726,
+        585
+      ],
+      "area": 1009710,
+      "iscrowd": 0,
+      "question_key": "111奇思一家买票共需要多2x214+10755每个单元25户居少元民阳光小区有",
+      "question_index": 1,
+      "confidence": 0.5615384670404288,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 6,
+      "image_id": 13,
+      "category_id": 1,
+      "bbox": [
+        585,
+        289,
+        1632,
+        502
+      ],
+      "area": 819264,
+      "iscrowd": 0,
+      "question_key": "12发现了什么2一篇稿件共325个字我每分打41个字21月份478引2013年3",
+      "question_index": 2,
+      "confidence": 0.5105263214362296,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 7,
+      "image_id": 13,
+      "category_id": 1,
+      "bbox": [
+        509,
+        130,
+        1625,
+        1544
+      ],
+      "area": 2509000,
+      "iscrowd": 0,
+      "question_key": "1357着粮食去磨坊先都有31月都有30上山要走9分走数不一裤630米再下山走8",
+      "question_index": 3,
+      "confidence": 0.574074078489233,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45a69969b1271a1a067a.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 8,
+      "image_id": 51,
+      "category_id": 1,
+      "bbox": [
+        638,
+        318,
+        1576,
+        545
+      ],
+      "area": 858920,
+      "iscrowd": 0,
+      "question_key": "12发现了什公我每分打41l月份2013年3118z3妙想每分比奇思多打6个言地",
+      "question_index": 2,
+      "confidence": 0.3866666754086812,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 9,
+      "image_id": 51,
+      "category_id": 1,
+      "bbox": [
+        553,
+        696,
+        1573,
+        971
+      ],
+      "area": 1527383,
+      "iscrowd": 0,
+      "question_key": "13着粮食去磨坊先都有上山要起9分走月部630米甚下山走8数不分到达磨坊1你知道",
+      "question_index": 3,
+      "confidence": 0.44230769918515134,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c2ea1c6053dd24fde68.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 10,
+      "image_id": 78,
+      "category_id": 1,
+      "bbox": [
+        0,
+        0,
+        1917,
+        971
+      ],
+      "area": 1861407,
+      "iscrowd": 0,
+      "question_key": "60洪搭要多七年月日每个单元25户居民阳光小区有8妹这样的答民楼看日历说一说关于",
+      "question_index": 1,
+      "confidence": 0.5937500055879354,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 11,
+      "image_id": 78,
+      "category_id": 1,
+      "bbox": [
+        455,
+        719,
+        1440,
+        313
+      ],
+      "area": 450720,
+      "iscrowd": 0,
+      "question_key": "1012月a都有31天有31天的月份是大月有",
+      "question_index": 3,
+      "confidence": 0.42000000476837157,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f482693e2ae24cdf70aed.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 12,
+      "image_id": 80,
+      "category_id": 1,
+      "bbox": [
+        760,
+        281,
+        1472,
+        465
+      ],
+      "area": 684480,
+      "iscrowd": 0,
+      "question_key": "12我每分打41个字发现了个2一篇稿件共325个字月份完吗3妙想每分比奇思多打6",
+      "question_index": 2,
+      "confidence": 0.553846157514132,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 13,
+      "image_id": 80,
+      "category_id": 1,
+      "bbox": [
+        780,
+        119,
+        1349,
+        1555
+      ],
+      "area": 2097695,
+      "iscrowd": 0,
+      "question_key": "13小马每天从家出发驮下山每分走90米着粮食去磨坊先上山要走9分走630米再下山",
+      "question_index": 3,
+      "confidence": 0.5640000033378602,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:efd452130898498eb55a72d3ce7290c4",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad6467ca5d4d55ad0b35f62.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

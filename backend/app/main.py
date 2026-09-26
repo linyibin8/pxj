@@ -6,11 +6,14 @@ import html
 import json
 import re
 import shutil
+import sqlite3
 import time
 import uuid
 from datetime import datetime, timedelta, timezone
 from io import BytesIO
 from pathlib import Path
+from typing import Any
+from urllib.parse import quote
 
 import jwt
 try:
@@ -1714,19 +1717,235 @@ def json_object_string(value: object, fallback: object | None = None) -> str:
     return "{}"
 
 
-def parse_question_crop_manifest(raw: str) -> list[dict]:
+def parse_question_crop_manifest_payload(raw: str) -> dict:
     text = (raw or "").strip()
     if not text:
-        return []
+        return {}
     try:
         data = json.loads(text)
     except json.JSONDecodeError:
-        return []
+        return {}
+    if isinstance(data, dict):
+        return data
+    if isinstance(data, list):
+        return {"crops": data}
+    return {}
+
+
+def question_crop_manifest_items(data: object) -> list[dict]:
     if isinstance(data, dict):
         data = data.get("crops") or data.get("question_crops") or data.get("items") or []
     if not isinstance(data, list):
         return []
     return [item for item in data if isinstance(item, dict)]
+
+
+def parse_question_crop_manifest(raw: str) -> list[dict]:
+    return question_crop_manifest_items(parse_question_crop_manifest_payload(raw))
+
+
+def question_crop_key_is_weak(question_key: str, strength: str = "") -> bool:
+    key = str(question_key or "").strip().lower()
+    value = str(strength or "").strip().lower()
+    return (
+        key.startswith("layout:")
+        or key.startswith("section:")
+        or value.startswith("weak")
+        or value in {"layout", "layout_weak", "section_crop"}
+    )
+
+
+def normalize_question_crop_kind(
+    value: object = "",
+    *,
+    strength: object = "",
+    source: object = "",
+    question_key: object = "",
+) -> str:
+    raw = str(value or "").strip().lower().replace("-", "_")
+    if raw in {"section", "section_crop", "group", "group_crop"}:
+        return "section"
+    if raw in {"question", "question_crop", "single", "single_question"}:
+        return "question"
+    key_strength = str(strength or "").strip().lower()
+    client_source = str(source or "").strip().lower().replace("-", "_")
+    key = str(question_key or "").strip().lower()
+    if key_strength == "section_crop" or key.startswith("section:") or "section" in client_source:
+        return "section"
+    return "question"
+
+
+def question_crop_kind(item: dict) -> str:
+    return normalize_question_crop_kind(
+        meta_text(item, "crop_kind", "cropKind", "kind", "crop_type", "cropType"),
+        strength=meta_text(item, "question_key_strength", "questionKeyStrength", "key_strength", "keyStrength"),
+        source=meta_text(item, "source"),
+        question_key=meta_text(item, "question_key", "questionKey", "key"),
+    )
+
+
+def question_crop_row_safety(row: dict) -> dict:
+    value = row.get("crop_safety")
+    if isinstance(value, dict):
+        return value
+    return question_crop_safety_from_normalized_rect(row.get("normalized_rect"))
+
+
+def question_crop_row_quality_score(row: dict, image_dir: Path) -> float:
+    score = 0.0
+    try:
+        confidence = float(row.get("confidence") or 0)
+    except (TypeError, ValueError):
+        confidence = 0.0
+    score += max(0.0, min(1.0, confidence)) * 2.0
+
+    crop_size = size_tuple_from_payload(row.get("crop_image_size"))
+    if crop_size:
+        width, height = crop_size
+        score += min(width, 1600) / 1600
+        score += min(height, 1200) / 1200
+        score += min(width * height, 1_600_000) / 1_600_000
+
+    rect = json_object_value(row.get("crop_rect"))
+    area = (numeric_value(rect, "width", "w") or 0) * (numeric_value(rect, "height", "h") or 0)
+    if 0.08 <= area <= 0.68:
+        score += 1.0
+    elif 0.035 <= area < 0.08 or 0.68 < area <= 0.78:
+        score += 0.25
+    elif area > 0:
+        score -= 0.75
+
+    source = str(row.get("source") or "").strip()
+    if source in {"server_rect_crop", "server_rect_expanded", "server_expanded"}:
+        score += 0.35
+    if source in {"server_rect_expanded", "server_expanded"}:
+        score += 0.15
+
+    safety = question_crop_row_safety(row)
+    if safety.get("error"):
+        score -= 2.0
+    if safety.get("expanded"):
+        score += 0.15
+
+    filename = str(row.get("crop_filename") or "").strip()
+    if filename:
+        path = image_dir / filename
+        if path.exists():
+            score += 0.5
+            try:
+                score += min(path.stat().st_size, 600_000) / 1_200_000
+            except OSError:
+                pass
+        else:
+            score -= 1.5
+    return round(score, 6)
+
+
+def question_crop_new_row_is_better(new_row: dict, existing_row: dict, image_dir: Path) -> bool:
+    new_score = question_crop_row_quality_score(new_row, image_dir)
+    existing_score = question_crop_row_quality_score(existing_row, image_dir)
+    if new_score > existing_score + 0.08:
+        return True
+    if existing_score > new_score + 0.08:
+        return False
+    try:
+        new_conf = float(new_row.get("confidence") or 0)
+    except (TypeError, ValueError):
+        new_conf = 0.0
+    try:
+        old_conf = float(existing_row.get("confidence") or 0)
+    except (TypeError, ValueError):
+        old_conf = 0.0
+    if new_conf > old_conf + 0.08:
+        return True
+    new_size = size_tuple_from_payload(new_row.get("crop_image_size")) or (0, 0)
+    old_size = size_tuple_from_payload(existing_row.get("crop_image_size")) or (0, 0)
+    return new_size[0] * new_size[1] > old_size[0] * old_size[1] * 1.20
+
+
+def remove_question_crop_file(image_dir: Path, filename: str) -> None:
+    clean = str(filename or "").strip()
+    if not clean:
+        return
+    for path in (image_dir / clean, thumbnail_path_for(clean)):
+        try:
+            if path.exists():
+                path.unlink()
+        except Exception:
+            pass
+
+
+def replace_question_crop_row(conn, existing_row: dict, new_row: dict, now: str) -> bool:
+    params = (
+        new_row["batch_id"],
+        new_row["image_id"],
+        new_row["sequence_index"],
+        new_row["manifest_index"],
+        new_row["question_index"],
+        new_row["question_key"],
+        new_row["fingerprint"],
+        new_row["crop_hash"],
+        new_row["text_hash"],
+        new_row["normalized_rect"],
+        new_row["crop_rect"],
+        new_row["source_image_size"],
+        new_row["crop_image_size"],
+        new_row["preview_text"],
+        new_row["crop_filename"],
+        new_row["original_name"],
+        new_row["status"],
+        new_row["source"],
+        new_row["confidence"],
+        now,
+        existing_row["id"],
+        existing_row["session_id"],
+    )
+    try:
+        conn.execute(
+            """
+            UPDATE session_question_crops
+            SET batch_id=?, image_id=?, sequence_index=?, manifest_index=?,
+                question_index=?, question_key=?, fingerprint=?, crop_hash=?, text_hash=?,
+                normalized_rect=?, crop_rect=?, source_image_size=?, crop_image_size=?,
+                preview_text=?, crop_filename=?, original_name=?, status=?, source=?,
+                confidence=?, updated_at=?
+            WHERE id=? AND session_id=?
+            """,
+            params,
+        )
+        return True
+    except sqlite3.IntegrityError:
+        conn.execute(
+            """
+            UPDATE session_question_crops
+            SET question_index=?, question_key=?, fingerprint=?, crop_hash=?, text_hash=?,
+                normalized_rect=?, crop_rect=?, source_image_size=?, crop_image_size=?,
+                preview_text=?, crop_filename=?, original_name=?, status=?, source=?,
+                confidence=?, updated_at=?
+            WHERE id=? AND session_id=?
+            """,
+            (
+                new_row["question_index"],
+                new_row["question_key"],
+                new_row["fingerprint"],
+                new_row["crop_hash"],
+                new_row["text_hash"],
+                new_row["normalized_rect"],
+                new_row["crop_rect"],
+                new_row["source_image_size"],
+                new_row["crop_image_size"],
+                new_row["preview_text"],
+                new_row["crop_filename"],
+                new_row["original_name"],
+                new_row["status"],
+                new_row["source"],
+                new_row["confidence"],
+                now,
+                existing_row["id"],
+                existing_row["session_id"],
+            ),
+        )
+        return True
 
 
 def crop_manifest_int(item: dict, *keys: str) -> int | None:
@@ -1754,6 +1973,47 @@ def crop_manifest_float(item: dict, *keys: str) -> float | None:
     return None
 
 
+def crop_manifest_str_list(item: dict, *keys: str) -> list[str]:
+    for key in keys:
+        value = item.get(key)
+        if value is None:
+            continue
+        if isinstance(value, list):
+            return [truncate_text(str(part), 80) for part in value if str(part).strip()]
+        if isinstance(value, str):
+            text = value.strip()
+            if not text:
+                return []
+            try:
+                parsed = json.loads(text)
+            except json.JSONDecodeError:
+                parsed = None
+            if isinstance(parsed, list):
+                return [truncate_text(str(part), 80) for part in parsed if str(part).strip()]
+            return [truncate_text(part.strip(), 80) for part in text.split(",") if part.strip()]
+    return []
+
+
+def crop_manifest_object_list(item: dict, *keys: str, limit: int = 32) -> list[dict]:
+    for key in keys:
+        value = item.get(key)
+        if value is None:
+            continue
+        if isinstance(value, str):
+            text = value.strip()
+            if not text:
+                return []
+            try:
+                value = json.loads(text)
+            except json.JSONDecodeError:
+                return []
+        if isinstance(value, dict):
+            value = [value]
+        if isinstance(value, list):
+            return [dict(part) for part in value[:limit] if isinstance(part, dict)]
+    return []
+
+
 def json_object_value(value: object) -> dict:
     if isinstance(value, dict):
         return dict(value)
@@ -1767,6 +2027,119 @@ def json_object_value(value: object) -> dict:
             if isinstance(parsed, dict):
                 return dict(parsed)
     return {}
+
+
+def json_array_value(value: object) -> list:
+    if isinstance(value, list):
+        return list(value)
+    if isinstance(value, str):
+        text = value.strip()
+        if text:
+            try:
+                parsed = json.loads(text)
+            except json.JSONDecodeError:
+                return []
+            if isinstance(parsed, list):
+                return list(parsed)
+    return []
+
+
+def sanitized_question_crop_subrects(item: dict, limit: int = 32) -> list[dict]:
+    raw_items = crop_manifest_object_list(item, "covered_subrects", "coveredSubrects", "question_subrects", "questionSubrects", limit=limit)
+    subrects: list[dict] = []
+    for raw in raw_items:
+        subrect: dict[str, object] = {}
+        for target_key, aliases in (
+            ("x", ("x", "left")),
+            ("y", ("y", "top")),
+            ("width", ("width", "w")),
+            ("height", ("height", "h")),
+        ):
+            value = numeric_value(raw, *aliases)
+            if value is not None:
+                subrect[target_key] = round(float(value), 6)
+        for target_key, aliases in (
+            ("question_key", ("question_key", "questionKey", "key")),
+            ("number", ("number", "question_number", "questionNumber")),
+        ):
+            text = truncate_text(meta_text(raw, *aliases), 80)
+            if text:
+                subrect[target_key] = text
+        if subrect:
+            subrects.append(subrect)
+    return subrects
+
+
+def question_crop_section_fallback_key(
+    *,
+    source_image_id: str,
+    source_sequence: int | None,
+    source_image_index: int | None,
+    manifest_index: int,
+    crop_rect: object,
+    normalized_rect: object,
+) -> str:
+    signature = {
+        "source_image_id": source_image_id or "",
+        "source_sequence": source_sequence,
+        "source_image_index": source_image_index,
+        "manifest_index": manifest_index,
+        "crop_rect": json_object_value(crop_rect),
+        "normalized_rect": json_object_value(normalized_rect),
+    }
+    digest = hashlib.sha1(json_dumps(signature).encode("utf-8")).hexdigest()[:20]
+    return f"section:{digest}"
+
+
+def question_crop_section_metadata(item: dict, crop_kind: str) -> dict:
+    if crop_kind != "section":
+        return {}
+    metadata: dict[str, object] = {"crop_kind": "section"}
+    section_key = truncate_text(meta_text(item, "section_key", "sectionKey", "question_key", "questionKey", "key"), 160)
+    if section_key:
+        metadata["section_key"] = section_key
+    section_strategy = truncate_text(meta_text(item, "section_strategy", "sectionStrategy", "group_strategy", "groupStrategy"), 80)
+    if section_strategy:
+        metadata["section_strategy"] = section_strategy
+    fallback_reason = truncate_text(meta_text(item, "fallback_protection_reason", "fallbackProtectionReason"), 120)
+    if fallback_reason:
+        metadata["fallback_protection_reason"] = fallback_reason
+    covered_count = crop_manifest_int(item, "covered_question_count", "coveredQuestionCount")
+    if covered_count is not None:
+        metadata["covered_question_count"] = max(0, int(covered_count))
+    covered_keys = crop_manifest_str_list(item, "covered_question_keys", "coveredQuestionKeys")
+    if covered_keys:
+        metadata["covered_question_keys"] = covered_keys[:48]
+    covered_numbers = crop_manifest_str_list(item, "covered_question_numbers", "coveredQuestionNumbers", "covered_numbers", "coveredNumbers")
+    if covered_numbers:
+        metadata["covered_question_numbers"] = covered_numbers[:48]
+    covered_subrects = sanitized_question_crop_subrects(item)
+    if covered_subrects:
+        metadata["covered_subrects"] = covered_subrects
+    coverage_score = crop_manifest_float(item, "coverage_score", "coverageScore")
+    if coverage_score is not None:
+        metadata["coverage_score"] = round(max(0.0, min(1.0, float(coverage_score))), 6)
+    return metadata
+
+
+def question_crop_section_metadata_from_telemetry(client_telemetry: dict, crop_kind: str) -> dict:
+    if crop_kind != "section":
+        return {}
+    metadata: dict[str, object] = {"crop_kind": "section"}
+    for key in (
+        "section_key",
+        "section_strategy",
+        "fallback_protection_reason",
+        "covered_question_count",
+        "covered_question_keys",
+        "covered_question_numbers",
+        "covered_subrects",
+        "coverage_score",
+    ):
+        value = client_telemetry.get(key)
+        if value not in (None, "", [], {}):
+            metadata[key] = value
+    return metadata
 
 
 def numeric_value(item: dict, *keys: str) -> float | None:
@@ -2103,6 +2476,117 @@ def maybe_expand_question_crop_file(
             result["crop_hash"] = file_sha1(result["path"])
         except Exception:
             result["crop_hash"] = ""
+    crop_safety["source"] = result["source"]
+    crop_safety["duration_ms"] = max(0, int((time.perf_counter() - started) * 1000))
+    result["crop_safety"] = crop_safety
+    result["normalized_rect"] = question_crop_trace_payload(
+        normalized_rect,
+        client_crop_rect=crop_rect,
+        crop_safety=crop_safety,
+    )
+    return result
+
+
+def save_question_crop_from_source_rect(
+    *,
+    session_id: str,
+    batch_id: str,
+    crop_id: str,
+    image_dir: Path,
+    source_image_filename: str,
+    crop_rect: object,
+    source_image_size: object,
+    normalized_rect: object,
+    client_source: str,
+) -> dict:
+    started = time.perf_counter()
+    source_image_size_payload = size_tuple_from_payload(source_image_size)
+    filename = f"{session_id}_{batch_id}_qcrop_{crop_id}_rect.jpg"
+    target = image_dir / filename
+    source_image_path = image_dir / Path(source_image_filename or "").name
+    actual_source_size = image_size_for_path(source_image_path) if source_image_filename else None
+    result = {
+        "filename": filename,
+        "path": target,
+        "source": "server_rect_crop",
+        "crop_rect": json_object_value(crop_rect),
+        "source_image_size": size_payload(*(actual_source_size or source_image_size_payload or (0, 0))),
+        "crop_image_size": {},
+        "crop_hash": "",
+        "expanded": False,
+        "normalized_rect": json_object_value(normalized_rect),
+        "crop_safety": {},
+    }
+    crop_safety = {
+        "source": result["source"],
+        "client_source": truncate_text(client_source or "", 80),
+        "transfer_mode": "rect_only",
+        "expanded": False,
+        "reason": [],
+        "client_crop_filename": "",
+        "client_crop_image_size": {},
+        "client_crop_rect": json_object_value(crop_rect),
+        "source_image_size": result["source_image_size"],
+        "duration_ms": 0,
+    }
+
+    crop_box = question_crop_rect_to_pixels(crop_rect, source_image_size, actual_source_size) if actual_source_size else None
+    if not actual_source_size or not source_image_path.is_file():
+        crop_safety["error"] = "source_image_unavailable"
+    elif not crop_box:
+        crop_safety["error"] = "crop_rect_unavailable"
+    else:
+        box_width = max(1, crop_box[2] - crop_box[0])
+        box_height = max(1, crop_box[3] - crop_box[1])
+        reasons = question_crop_expansion_reasons((box_width, box_height), actual_source_size, crop_box)
+        crop_safety["reason"] = reasons
+        crop_safety["original_crop_box_px"] = {
+            "left": crop_box[0],
+            "top": crop_box[1],
+            "right": crop_box[2],
+            "bottom": crop_box[3],
+        }
+        final_box = crop_box
+        if reasons:
+            expanded_box = expanded_question_crop_box(crop_box, actual_source_size, reasons)
+            original_area = max(1, box_width * box_height)
+            expanded_area = max(1, (expanded_box[2] - expanded_box[0]) * (expanded_box[3] - expanded_box[1]))
+            if expanded_area > original_area:
+                final_box = expanded_box
+                crop_safety.update(
+                    {
+                        "source": "server_rect_expanded",
+                        "expanded": True,
+                        "expanded_crop_box_px": {
+                            "left": expanded_box[0],
+                            "top": expanded_box[1],
+                            "right": expanded_box[2],
+                            "bottom": expanded_box[3],
+                        },
+                    }
+                )
+        try:
+            crop_size = save_expanded_question_crop(source_image_path, target, final_box)
+            final_rect = question_crop_rect_payload_from_box(final_box, actual_source_size)
+            crop_safety.update(
+                {
+                    "expanded_crop_rect": final_rect,
+                    "expanded_crop_image_size": size_payload(*crop_size),
+                }
+            )
+            result.update(
+                {
+                    "source": crop_safety["source"],
+                    "crop_rect": final_rect,
+                    "source_image_size": size_payload(*actual_source_size),
+                    "crop_image_size": size_payload(*crop_size),
+                    "crop_hash": file_sha1(target),
+                    "expanded": bool(crop_safety.get("expanded")),
+                }
+            )
+        except Exception as exc:
+            crop_safety["error"] = truncate_text(str(exc), 180)
+
     crop_safety["source"] = result["source"]
     crop_safety["duration_ms"] = max(0, int((time.perf_counter() - started) * 1000))
     result["crop_safety"] = crop_safety
@@ -3863,8 +4347,10 @@ async def save_question_crop_uploads(
     batch_id: str,
     image_rows: list[dict],
 ) -> dict:
-    manifest_items = parse_question_crop_manifest(manifest_raw)
-    if not uploads or not manifest_items:
+    manifest_payload = parse_question_crop_manifest_payload(manifest_raw)
+    manifest_items = question_crop_manifest_items(manifest_payload)
+    client_metrics = json_object_value(manifest_payload.get("metrics")) if manifest_payload else {}
+    if not manifest_items:
         return {
             "saved": [],
             "saved_count": 0,
@@ -3872,11 +4358,15 @@ async def save_question_crop_uploads(
             "skipped_count": len(uploads or []),
             "expanded_count": 0,
             "client_crop_count": 0,
+            "rect_only_count": 0,
+            "replaced_count": 0,
             "expansion_duration_ms": 0,
+            "client_metrics": client_metrics,
         }
 
     sequence_to_image: dict[int, dict] = {}
     index_to_image: dict[int, dict] = {}
+    id_to_image: dict[str, dict] = {}
     for index, row in enumerate(image_rows):
         if not image_row_allows_question_crop(row):
             continue
@@ -3884,10 +4374,16 @@ async def save_question_crop_uploads(
         if sequence_index is not None:
             sequence_to_image.setdefault(sequence_index, row)
         index_to_image[index] = row
+        image_id = str(row.get("image_id") or "").strip()
+        if image_id:
+            id_to_image.setdefault(image_id, row)
     saved: list[dict] = []
     duplicate_count = 0
     skipped_count = 0
     expanded_count = 0
+    client_crop_count = 0
+    rect_only_count = 0
+    replaced_count = 0
     expansion_duration_ms = 0
     now = utc_now()
     settings = get_settings()
@@ -3895,13 +4391,14 @@ async def save_question_crop_uploads(
     image_dir.mkdir(parents=True, exist_ok=True)
 
     with connect() as conn:
-        for upload_index, upload in enumerate(uploads):
-            item = manifest_items[upload_index] if upload_index < len(manifest_items) else {}
+        for manifest_index, item in enumerate(manifest_items):
             file_index = crop_manifest_int(item, "file_index", "fileIndex")
-            if file_index is not None and file_index != upload_index:
-                # The manifest is authoritative; a mismatched file slot is safer to skip.
-                skipped_count += 1
-                continue
+            upload_index = file_index if file_index is not None else manifest_index
+            upload = uploads[upload_index] if 0 <= upload_index < len(uploads or []) else None
+            transfer_mode = meta_text(item, "transfer_mode", "transferMode", "upload_mode", "uploadMode").strip().lower()
+            crop_prepared_value = item.get("crop_prepared", item.get("cropPrepared"))
+            crop_prepared = str(crop_prepared_value).strip().lower() not in {"0", "false", "no"} if crop_prepared_value is not None else upload is not None
+            use_client_upload = upload is not None and crop_prepared and transfer_mode not in {"rect_only", "source_rect", "server_rect"}
             source_sequence = crop_manifest_int(
                 item,
                 "source_sequence_index",
@@ -3910,9 +4407,21 @@ async def save_question_crop_uploads(
                 "sequenceIndex",
             )
             source_image_index = crop_manifest_int(item, "source_image_index", "sourceImageIndex", "frame_index", "frameIndex")
-            image_row = sequence_to_image.get(source_sequence) if source_sequence is not None else None
-            if image_row is None and source_image_index is not None:
-                image_row = index_to_image.get(source_image_index)
+            source_image_id = truncate_text(meta_text(item, "source_image_id", "sourceImageId"), 80)
+            row_candidates = [
+                row
+                for row in (
+                    sequence_to_image.get(source_sequence) if source_sequence is not None else None,
+                    index_to_image.get(source_image_index) if source_image_index is not None else None,
+                    id_to_image.get(source_image_id) if source_image_id else None,
+                )
+                if row is not None
+            ]
+            row_ids = {str(row.get("image_id") or "") for row in row_candidates if row.get("image_id")}
+            if len(row_ids) > 1:
+                skipped_count += 1
+                continue
+            image_row = row_candidates[0] if row_candidates else None
             if image_row is None:
                 skipped_count += 1
                 continue
@@ -3920,60 +4429,196 @@ async def save_question_crop_uploads(
             question_key = truncate_text(meta_text(item, "question_key", "questionKey", "key"), 160)
             fingerprint = truncate_text(meta_text(item, "fingerprint"), 120)
             crop_hash = truncate_text(meta_text(item, "crop_hash", "cropHash"), 120)
-            if question_key:
-                existing = conn.execute(
-                    """
-                    SELECT id
-                    FROM session_question_crops
-                    WHERE session_id=? AND question_key=? AND status='ready'
-                    LIMIT 1
-                    """,
-                    (session_id, question_key),
-                ).fetchone()
-                if existing:
-                    duplicate_count += 1
-                    continue
-
-            crop_id = uuid.uuid4().hex
-            ext = Path(upload.filename or "question-crop.jpg").suffix.lower() or ".jpg"
-            if ext not in {".jpg", ".jpeg", ".png", ".webp"}:
-                ext = ".jpg"
-            filename = f"{session_id}_{batch_id}_qcrop_{crop_id}{ext}"
-            target = image_dir / filename
-            with target.open("wb") as out:
-                shutil.copyfileobj(upload.file, out)
-
+            preview_text = truncate_text(meta_text(item, "preview_text", "previewText", "ocr_text", "ocrText", "preview"), 600)
+            question_key_strength = truncate_text(meta_text(item, "question_key_strength", "questionKeyStrength", "key_strength", "keyStrength"), 40)
+            crop_kind = question_crop_kind(item)
+            section_metadata = question_crop_section_metadata(item, crop_kind)
             normalized_rect = item.get("normalized_rect") or item.get("normalizedRect") or {}
             crop_rect = item.get("crop_rect") or item.get("cropRect") or {}
             source_image_size = item.get("source_image_size") or item.get("sourceImageSize") or {}
             crop_image_size = item.get("crop_image_size") or item.get("cropImageSize") or {}
+            if crop_kind == "section":
+                if not question_key_strength:
+                    question_key_strength = "section_crop"
+                if not question_key:
+                    question_key = str(section_metadata.get("section_key") or "").strip()
+                if not question_key:
+                    question_key = question_crop_section_fallback_key(
+                        source_image_id=source_image_id,
+                        source_sequence=source_sequence,
+                        source_image_index=source_image_index,
+                        manifest_index=manifest_index,
+                        crop_rect=crop_rect,
+                        normalized_rect=normalized_rect,
+                    )
+                section_metadata.setdefault("section_key", question_key)
+            weak_question_key = question_crop_key_is_weak(question_key, question_key_strength)
+            dedupe_question_key = "" if weak_question_key else question_key
+            dedupe_fingerprint = "" if weak_question_key else fingerprint
+            text_hash_source = "" if weak_question_key else (question_key or preview_text or fingerprint)
+            text_hash = hashlib.sha1(text_hash_source.encode("utf-8")).hexdigest() if text_hash_source else ""
             question_index = crop_manifest_int(item, "question_index", "questionIndex", "index") or 0
             confidence = crop_manifest_float(item, "confidence")
-            preview_text = truncate_text(meta_text(item, "preview_text", "previewText", "ocr_text", "ocrText", "preview"), 600)
-            text_hash = hashlib.sha1((question_key or preview_text or fingerprint).encode("utf-8")).hexdigest() if (question_key or preview_text or fingerprint) else ""
-            client_source = truncate_text(meta_text(item, "source") or "ios-observation-crop", 80)
-            crop_result = maybe_expand_question_crop_file(
-                session_id=session_id,
-                batch_id=batch_id,
-                crop_id=crop_id,
-                image_dir=image_dir,
-                client_crop_filename=filename,
-                client_crop_path=target,
-                source_image_filename=image_row.get("filename") or "",
-                crop_rect=crop_rect,
-                source_image_size=source_image_size,
-                crop_image_size=crop_image_size,
-                normalized_rect=normalized_rect,
-                client_source=client_source,
-                crop_hash=crop_hash,
-            )
+            client_source = truncate_text(meta_text(item, "source") or ("ios-observation-crop" if use_client_upload else "ios-observation-rect"), 80)
+            client_crop_quality = truncate_text(meta_text(item, "crop_quality", "cropQuality"), 80)
+            client_crop_reasons = crop_manifest_str_list(item, "crop_risk_reasons", "cropRiskReasons", "crop_reasons", "cropReasons")
+            client_crop_area = crop_manifest_float(item, "crop_area", "cropArea")
+            candidate_rank_mode = truncate_text(meta_text(item, "candidate_rank_mode", "candidateRankMode"), 80)
+            frame_candidate_count = crop_manifest_int(item, "frame_candidate_count", "frameCandidateCount")
+            frame_selected_candidate_count = crop_manifest_int(item, "frame_selected_candidate_count", "frameSelectedCandidateCount")
+            frame_candidate_limit = crop_manifest_int(item, "frame_candidate_limit", "frameCandidateLimit")
+            frame_limited_candidate_count = crop_manifest_int(item, "frame_limited_candidate_count", "frameLimitedCandidateCount")
+            frame_limited_unique_candidate_count = crop_manifest_int(item, "frame_limited_unique_candidate_count", "frameLimitedUniqueCandidateCount")
+            frame_limited_strong_candidate_count = crop_manifest_int(item, "frame_limited_strong_candidate_count", "frameLimitedStrongCandidateCount")
+            frame_limited_confident_candidate_count = crop_manifest_int(item, "frame_limited_confident_candidate_count", "frameLimitedConfidentCandidateCount")
+            frame_limited_max_confidence = crop_manifest_float(item, "frame_limited_max_confidence", "frameLimitedMaxConfidence")
+            existing_identity_row: dict | None = None
+            if dedupe_question_key or dedupe_fingerprint or text_hash or crop_hash:
+                existing = conn.execute(
+                    """
+                    SELECT *
+                    FROM session_question_crops
+                    WHERE session_id=? AND status='ready'
+                      AND (
+                        (? != '' AND question_key=?)
+                        OR (? != '' AND fingerprint=?)
+                        OR (? != '' AND text_hash=?)
+                        OR (? != '' AND crop_hash=?)
+                      )
+                    LIMIT 1
+                    """,
+                    (
+                        session_id,
+                        dedupe_question_key, dedupe_question_key,
+                        dedupe_fingerprint, dedupe_fingerprint,
+                        text_hash, text_hash,
+                        crop_hash, crop_hash,
+                    ),
+                ).fetchone()
+                if existing:
+                    existing_identity_row = row_to_dict(existing)
+
+            crop_id = uuid.uuid4().hex
+            original_name = ""
+            if use_client_upload and upload is not None:
+                ext = Path(upload.filename or "question-crop.jpg").suffix.lower() or ".jpg"
+                if ext not in {".jpg", ".jpeg", ".png", ".webp"}:
+                    ext = ".jpg"
+                filename = f"{session_id}_{batch_id}_qcrop_{crop_id}{ext}"
+                target = image_dir / filename
+                with target.open("wb") as out:
+                    shutil.copyfileobj(upload.file, out)
+                original_name = truncate_text(upload.filename or "", 240)
+                crop_result = maybe_expand_question_crop_file(
+                    session_id=session_id,
+                    batch_id=batch_id,
+                    crop_id=crop_id,
+                    image_dir=image_dir,
+                    client_crop_filename=filename,
+                    client_crop_path=target,
+                    source_image_filename=image_row.get("filename") or "",
+                    crop_rect=crop_rect,
+                    source_image_size=source_image_size,
+                    crop_image_size=crop_image_size,
+                    normalized_rect=normalized_rect,
+                    client_source=client_source,
+                    crop_hash=crop_hash,
+                )
+            else:
+                crop_result = save_question_crop_from_source_rect(
+                    session_id=session_id,
+                    batch_id=batch_id,
+                    crop_id=crop_id,
+                    image_dir=image_dir,
+                    source_image_filename=image_row.get("filename") or "",
+                    crop_rect=crop_rect,
+                    source_image_size=source_image_size,
+                    normalized_rect=normalized_rect,
+                    client_source=client_source,
+                )
+            if (
+                client_crop_quality
+                or client_crop_reasons
+                or question_key_strength
+                or client_crop_area is not None
+                or candidate_rank_mode
+                or frame_candidate_count is not None
+                or frame_selected_candidate_count is not None
+                or frame_candidate_limit is not None
+                or frame_limited_candidate_count is not None
+                or frame_limited_unique_candidate_count is not None
+                or frame_limited_strong_candidate_count is not None
+                or frame_limited_confident_candidate_count is not None
+                or frame_limited_max_confidence is not None
+                or crop_kind == "section"
+                or bool(section_metadata)
+            ):
+                crop_safety = crop_result.get("crop_safety") or {}
+                if client_crop_quality:
+                    crop_safety["client_crop_quality"] = client_crop_quality
+                if client_crop_reasons:
+                    crop_safety["client_crop_reasons"] = client_crop_reasons
+                client_telemetry = crop_safety.get("client_telemetry") if isinstance(crop_safety.get("client_telemetry"), dict) else {}
+                if question_key_strength:
+                    client_telemetry["question_key_strength"] = question_key_strength
+                if crop_kind:
+                    client_telemetry["crop_kind"] = crop_kind
+                for meta_key, meta_value in section_metadata.items():
+                    if meta_value not in (None, "", [], {}):
+                        client_telemetry[meta_key] = meta_value
+                if client_crop_area is not None:
+                    client_telemetry["crop_area"] = round(float(client_crop_area), 6)
+                if confidence is not None:
+                    client_telemetry["confidence"] = round(float(confidence), 6)
+                if candidate_rank_mode:
+                    client_telemetry["candidate_rank_mode"] = candidate_rank_mode
+                if source_sequence is not None:
+                    client_telemetry["source_sequence_index"] = source_sequence
+                if source_image_index is not None:
+                    client_telemetry["source_image_index"] = source_image_index
+                if frame_candidate_count is not None:
+                    client_telemetry["frame_candidate_count"] = frame_candidate_count
+                if frame_selected_candidate_count is not None:
+                    client_telemetry["frame_selected_candidate_count"] = frame_selected_candidate_count
+                if frame_candidate_limit is not None:
+                    client_telemetry["frame_candidate_limit"] = frame_candidate_limit
+                if frame_limited_candidate_count is not None:
+                    client_telemetry["frame_limited_candidate_count"] = frame_limited_candidate_count
+                if frame_limited_unique_candidate_count is not None:
+                    client_telemetry["frame_limited_unique_candidate_count"] = frame_limited_unique_candidate_count
+                if frame_limited_strong_candidate_count is not None:
+                    client_telemetry["frame_limited_strong_candidate_count"] = frame_limited_strong_candidate_count
+                if frame_limited_confident_candidate_count is not None:
+                    client_telemetry["frame_limited_confident_candidate_count"] = frame_limited_confident_candidate_count
+                if frame_limited_max_confidence is not None:
+                    client_telemetry["frame_limited_max_confidence"] = round(float(frame_limited_max_confidence), 6)
+                if client_telemetry:
+                    crop_safety["client_telemetry"] = client_telemetry
+                crop_result["crop_safety"] = crop_safety
+                crop_result["normalized_rect"] = question_crop_trace_payload(
+                    crop_result.get("normalized_rect"),
+                    client_crop_rect=crop_rect,
+                    crop_safety=crop_safety,
+                )
             filename = crop_result["filename"]
             target = crop_result["path"]
+            if not target.exists():
+                skipped_count += 1
+                continue
             crop_hash = truncate_text(crop_result.get("crop_hash") or crop_hash, 120)
-            if crop_result.get("expanded"):
-                expanded_count += 1
-            expansion_duration_ms += int((crop_result.get("crop_safety") or {}).get("duration_ms") or 0)
-            create_thumbnail_safe(target, filename, session_id)
+            existing_hash_row: dict | None = None
+            if crop_hash:
+                existing_by_hash = conn.execute(
+                    """
+                    SELECT *
+                    FROM session_question_crops
+                    WHERE session_id=? AND status='ready' AND crop_hash=?
+                    LIMIT 1
+                    """,
+                    (session_id, crop_hash),
+                ).fetchone()
+                if existing_by_hash:
+                    existing_hash_row = row_to_dict(existing_by_hash)
 
             row = {
                 "id": crop_id,
@@ -3981,7 +4626,7 @@ async def save_question_crop_uploads(
                 "batch_id": batch_id,
                 "image_id": image_row["image_id"],
                 "sequence_index": int(image_row.get("sequence_index") or 0),
-                "manifest_index": upload_index,
+                "manifest_index": manifest_index,
                 "question_index": question_index,
                 "question_key": question_key,
                 "fingerprint": fingerprint,
@@ -3993,13 +4638,47 @@ async def save_question_crop_uploads(
                 "crop_image_size": json_object_string(crop_result.get("crop_image_size"), {}),
                 "preview_text": preview_text,
                 "crop_filename": filename,
-                "original_name": truncate_text(upload.filename or "", 240),
+                "original_name": original_name,
                 "status": "ready",
                 "source": crop_result.get("source") or "client_crop",
                 "confidence": confidence,
                 "src_filename": image_row.get("filename") or "",
                 "crop_safety": crop_result.get("crop_safety") or {},
             }
+            existing_match = existing_identity_row
+            if existing_hash_row and (not existing_match or existing_hash_row.get("id") != existing_match.get("id")):
+                existing_match = existing_hash_row
+            if existing_match:
+                if question_crop_new_row_is_better(row, existing_match, image_dir):
+                    create_thumbnail_safe(target, filename, session_id)
+                    old_filename = str(existing_match.get("crop_filename") or "").strip()
+                    updated_row = {**row, "id": existing_match.get("id") or row["id"]}
+                    replace_question_crop_row(conn, existing_match, updated_row, now)
+                    if old_filename and old_filename != filename:
+                        remove_question_crop_file(image_dir, old_filename)
+                    replaced_count += 1
+                    if crop_result.get("expanded"):
+                        expanded_count += 1
+                    if use_client_upload:
+                        if not crop_result.get("expanded"):
+                            client_crop_count += 1
+                    else:
+                        rect_only_count += 1
+                    expansion_duration_ms += int((crop_result.get("crop_safety") or {}).get("duration_ms") or 0)
+                    continue
+                duplicate_count += 1
+                remove_question_crop_file(image_dir, filename)
+                continue
+
+            if crop_result.get("expanded"):
+                expanded_count += 1
+            if use_client_upload:
+                if not crop_result.get("expanded"):
+                    client_crop_count += 1
+            else:
+                rect_only_count += 1
+            expansion_duration_ms += int((crop_result.get("crop_safety") or {}).get("duration_ms") or 0)
+            create_thumbnail_safe(target, filename, session_id)
             conn.execute(
                 """
                 INSERT INTO session_question_crops(
@@ -4040,12 +4719,20 @@ async def save_question_crop_uploads(
             saved.append(row)
         conn.commit()
 
-    if saved or skipped_count or duplicate_count:
+    if saved or skipped_count or duplicate_count or replaced_count:
+        client_duration_ms = int_value(client_metrics.get("analysis_duration_ms")) or 0
+        client_weak_layout = int_value(client_metrics.get("weak_layout_candidate_count")) or 0
+        client_strong_ocr = int_value(client_metrics.get("strong_ocr_candidate_count")) or 0
+        client_limited = int_value(client_metrics.get("limited_candidate_count")) or 0
+        client_low_confidence = int_value(client_metrics.get("low_confidence_candidate_count")) or 0
         emit_log(
             (
                 f"question crop safety summary: saved={len(saved)}, expanded={expanded_count}, "
-                f"client_crop={max(0, len(saved) - expanded_count)}, duplicate={duplicate_count}, "
-                f"skipped={skipped_count}, duration_ms={expansion_duration_ms}"
+                f"client_crop={client_crop_count}, rect_only={rect_only_count}, duplicate={duplicate_count}, "
+                f"replaced={replaced_count}, skipped={skipped_count}, duration_ms={expansion_duration_ms}, "
+                f"client_ms={client_duration_ms}, client_weak_layout={client_weak_layout}, "
+                f"client_strong_ocr={client_strong_ocr}, client_limited={client_limited}, "
+                f"client_low_confidence={client_low_confidence}"
             ),
             session_id=session_id,
             source="question_crop",
@@ -4056,8 +4743,11 @@ async def save_question_crop_uploads(
         "duplicate_count": duplicate_count,
         "skipped_count": skipped_count,
         "expanded_count": expanded_count,
-        "client_crop_count": max(0, len(saved) - expanded_count),
+        "client_crop_count": client_crop_count,
+        "rect_only_count": rect_only_count,
+        "replaced_count": replaced_count,
         "expansion_duration_ms": expansion_duration_ms,
+        "client_metrics": client_metrics,
     }
 
 
@@ -11948,6 +12638,15 @@ def _build_observe_response(raw: str, do_grade: bool) -> dict:
                 index = int(entry.get("index"))
             except (TypeError, ValueError):
                 index = position
+            input_index = None
+            for input_key in ("input_index", "inputIndex", "source_index", "sourceIndex"):
+                try:
+                    candidate_input_index = int(entry.get(input_key))
+                except (TypeError, ValueError):
+                    continue
+                if candidate_input_index > 0:
+                    input_index = candidate_input_index
+                    break
             stem = truncate_text(entry.get("stem") or "", 800)
             student_answer = truncate_text(entry.get("student_answer") or "", 600)
             # 题干与学生作答都为空的题没有提取价值，过滤掉。
@@ -11976,6 +12675,8 @@ def _build_observe_response(raw: str, do_grade: bool) -> dict:
                 "fingerprint": hashlib.sha1(stem_norm.encode("utf-8")).hexdigest() if stem_norm else "",
                 "simhash": _observe_simhash(stem),
             }
+            if input_index is not None:
+                question["input_index"] = input_index
             if not _observe_question_should_keep(question):
                 continue
             if do_grade:
@@ -12436,7 +13137,10 @@ def _save_question_set(session_id: str, qset: list[dict]) -> None:
 
 def _apply_question_source_meta(question: dict, source_meta: dict, filename: str) -> None:
     source_type = str(source_meta.get("type") or "").lower()
+    crop_kind = str(source_meta.get("crop_kind") or "").strip()
     question["src_filename"] = source_meta.get("src_filename") or filename
+    if source_meta.get("input_index"):
+        question["source_input_index"] = int(source_meta.get("input_index") or 0)
     if source_meta.get("source_image_id"):
         question["source_image_id"] = source_meta.get("source_image_id")
     if source_meta.get("source_crop_id"):
@@ -12453,6 +13157,22 @@ def _apply_question_source_meta(question: dict, source_meta: dict, filename: str
         question["crop_hash"] = source_meta.get("crop_hash")
     if source_meta.get("crop_source"):
         question["crop_source"] = source_meta.get("crop_source")
+    if crop_kind:
+        question["source_crop_kind"] = crop_kind
+    if source_meta.get("section_key"):
+        question["source_section_key"] = source_meta.get("section_key")
+    if source_meta.get("section_strategy"):
+        question["source_section_strategy"] = source_meta.get("section_strategy")
+    if source_meta.get("covered_question_count") is not None:
+        question["source_covered_question_count"] = source_meta.get("covered_question_count")
+    if source_meta.get("covered_question_keys"):
+        question["source_covered_question_keys"] = source_meta.get("covered_question_keys")
+    if source_meta.get("covered_question_numbers"):
+        question["source_covered_question_numbers"] = source_meta.get("covered_question_numbers")
+    if source_meta.get("covered_subrects"):
+        question["source_covered_subrects"] = source_meta.get("covered_subrects")
+    if source_meta.get("coverage_score") is not None:
+        question["source_coverage_score"] = source_meta.get("coverage_score")
     if source_meta.get("source_image_size"):
         question["source_image_size"] = source_meta.get("source_image_size")
     if source_meta.get("crop_image_size"):
@@ -12463,12 +13183,14 @@ def _apply_question_source_meta(question: dict, source_meta: dict, filename: str
         question["client_question_key"] = source_meta.get("client_question_key")
     if source_meta.get("client_ocr_text"):
         question["client_ocr_text"] = source_meta.get("client_ocr_text")
+    if source_meta.get("fallback_reason"):
+        question["source_fallback_reason"] = source_meta.get("fallback_reason")
 
 
 def _question_source_match_text(source: dict) -> str:
     text = " ".join(
         str(source.get(key) or "")
-        for key in ("client_ocr_text", "client_question_key", "question_index")
+        for key in ("client_ocr_text", "client_question_key", "question_index", "section_key", "covered_question_numbers")
     )
     return "".join(ch.lower() for ch in text if ch.isalnum())
 
@@ -12478,6 +13200,12 @@ def _best_source_for_extracted_question(question: dict, sources: list[dict], fal
         return {}
     if len(sources) == 1:
         return sources[0]
+    try:
+        input_index = int(question.get("input_index") or 0)
+    except (TypeError, ValueError):
+        input_index = 0
+    if 1 <= input_index <= len(sources):
+        return sources[input_index - 1]
     qnorm = _question_norm_text(question)
     qnum = str(question.get("number") or "").strip()
     best_source = sources[min(fallback_index, len(sources) - 1)]
@@ -12503,6 +13231,7 @@ async def _extract_questions_from_stored_source_group(
     *,
     label_prefix: str = "extract_crop_batch",
 ) -> dict:
+    sources = [{**source, "input_index": index + 1} for index, source in enumerate(sources)]
     settings = effective_llm_settings_for_session(session_id)
     prompt = prompts.render_prompt("observe_extract") + _OBSERVE_EXTRACT_STABILITY_CLAUSE
     if len(sources) > 1:
@@ -12510,6 +13239,16 @@ async def _extract_questions_from_stored_source_group(
             "\n\n补充：本次输入是按题裁剪图批量识别。"
             "每张图片通常对应一道题或一道题的局部，请按图片顺序提取印刷题目，"
             "同一道题重复出现时只保留更完整的一条。"
+        )
+    if len(sources) > 1:
+        prompt += (
+            "\nReturn input_index for every question as the 1-based image order in this request. "
+            "Keep input_index attached to the question even when deduping repeated inputs."
+        )
+    if any(str(source.get("crop_kind") or "").lower() == "section" for source in sources):
+        prompt += (
+            "\nSome inputs are section crops and may contain multiple questions. "
+            "Extract every visible question from each section and return the same input_index for all questions from that section."
         )
     image_paths = [image_path_for_request(str(source.get("filename") or "")) for source in sources]
     raw = await run_with_llm_gate(
@@ -12683,6 +13422,44 @@ def _question_extraction_image_sources_for_session(session_id: str, limit: int =
                 "src_filename": filename,
                 "source_image_id": item.get("image_id") or "",
                 "sequence_index": item.get("sequence_index") or 0,
+                "signal_summary": item.get("signal_summary") or "",
+                "visual_distance": item.get("visual_distance"),
+            }
+        )
+    return sources
+
+
+def _question_extraction_image_sources_basic_for_session(session_id: str, limit: int = 80) -> list[dict]:
+    limit = max(1, min(int(limit or 80), 160))
+    with connect() as conn:
+        rows = conn.execute(
+            """
+            SELECT id AS image_id, filename, batch_id, sequence_index, created_at
+            FROM images
+            WHERE session_id=?
+              AND kind IN ('burst', 'single', 'extract', 'grade')
+            ORDER BY sequence_index ASC, created_at ASC
+            LIMIT ?
+            """,
+            (session_id, limit),
+        ).fetchall()
+    sources: list[dict] = []
+    seen: set[str] = set()
+    for row in rows:
+        item = row_to_dict(row)
+        filename = item.get("filename") or ""
+        if not filename or filename in seen:
+            continue
+        seen.add(filename)
+        sources.append(
+            {
+                "type": "image",
+                "filename": filename,
+                "src_filename": filename,
+                "source_image_id": item.get("image_id") or "",
+                "sequence_index": item.get("sequence_index") or 0,
+                "signal_summary": "",
+                "visual_distance": None,
             }
         )
     return sources
@@ -12697,7 +13474,7 @@ def question_crop_safety_from_normalized_rect(value: object) -> dict:
 def ensure_question_crop_row_safety(session_id: str, item: dict) -> dict:
     source = str(item.get("source") or "").strip()
     existing_safety = question_crop_safety_from_normalized_rect(item.get("normalized_rect"))
-    if source == "server_expanded" or (source == "client_crop" and existing_safety):
+    if source in {"server_expanded", "server_rect_crop", "server_rect_expanded"} or (source == "client_crop" and existing_safety):
         item["crop_safety"] = existing_safety
         return item
     filename = str(item.get("crop_filename") or "").strip()
@@ -12802,12 +13579,32 @@ def _question_crop_sources_for_session(session_id: str, limit: int = 160) -> lis
     seen_keys: set[str] = set()
     for row in rows:
         item = ensure_question_crop_row_safety(session_id, row_to_dict(row))
-        dedupe_key = item.get("question_key") or item.get("fingerprint") or item.get("crop_hash") or item.get("crop_filename")
+        crop_safety = (
+            item.get("crop_safety")
+            if isinstance(item.get("crop_safety"), dict)
+            else question_crop_safety_from_normalized_rect(item.get("normalized_rect"))
+        )
+        client_telemetry = crop_safety.get("client_telemetry") if isinstance(crop_safety.get("client_telemetry"), dict) else {}
+        question_key = str(item.get("question_key") or "")
+        question_key_strength = str(client_telemetry.get("question_key_strength") or item.get("question_key_strength") or "")
+        crop_kind = normalize_question_crop_kind(
+            client_telemetry.get("crop_kind") or "",
+            strength=question_key_strength,
+            source=item.get("source") or "",
+            question_key=question_key,
+        )
+        section_metadata = question_crop_section_metadata_from_telemetry(client_telemetry, crop_kind)
+        weak_question_key = question_crop_key_is_weak(question_key, question_key_strength)
+        dedupe_key = (
+            ("" if weak_question_key else question_key)
+            or ("" if weak_question_key else item.get("fingerprint"))
+            or item.get("crop_hash")
+            or item.get("crop_filename")
+        )
         if dedupe_key and dedupe_key in seen_keys:
             continue
         if dedupe_key:
             seen_keys.add(dedupe_key)
-        crop_safety = item.get("crop_safety") if isinstance(item.get("crop_safety"), dict) else question_crop_safety_from_normalized_rect(item.get("normalized_rect"))
         sources.append(
             {
                 "type": "crop",
@@ -12824,11 +13621,139 @@ def _question_crop_sources_for_session(session_id: str, limit: int = 160) -> lis
                 "source_image_size": item.get("source_image_size") or "{}",
                 "crop_image_size": item.get("crop_image_size") or "{}",
                 "crop_safety": crop_safety,
-                "client_question_key": item.get("question_key") or "",
+                "crop_kind": crop_kind,
+                **section_metadata,
+                "client_question_key": question_key,
+                "client_question_key_strength": question_key_strength,
                 "client_ocr_text": item.get("preview_text") or "",
+                "confidence": item.get("confidence"),
             }
         )
     return sources
+
+
+def _normalized_rect_union_area(rects: list[dict]) -> float:
+    events: list[tuple[float, int, float, float]] = []
+    for rect in rects:
+        try:
+            x1 = max(0.0, min(1.0, float(rect.get("x") or 0.0)))
+            y1 = max(0.0, min(1.0, float(rect.get("y") or 0.0)))
+            x2 = max(0.0, min(1.0, x1 + float(rect.get("width") or 0.0)))
+            y2 = max(0.0, min(1.0, y1 + float(rect.get("height") or 0.0)))
+        except (TypeError, ValueError):
+            continue
+        if x2 <= x1 or y2 <= y1:
+            continue
+        events.append((x1, 1, y1, y2))
+        events.append((x2, -1, y1, y2))
+    if not events:
+        return 0.0
+    events.sort(key=lambda item: item[0])
+    active: list[tuple[float, float]] = []
+    previous_x = events[0][0]
+    area = 0.0
+
+    def active_height() -> float:
+        if not active:
+            return 0.0
+        spans = sorted(active)
+        start, end = spans[0]
+        total = 0.0
+        for next_start, next_end in spans[1:]:
+            if next_start > end:
+                total += end - start
+                start, end = next_start, next_end
+            else:
+                end = max(end, next_end)
+        total += end - start
+        return total
+
+    for x, kind, y1, y2 in events:
+        width = max(0.0, x - previous_x)
+        if width > 0:
+            area += width * active_height()
+        if kind > 0:
+            active.append((y1, y2))
+        else:
+            try:
+                active.remove((y1, y2))
+            except ValueError:
+                pass
+        previous_x = x
+    return max(0.0, min(1.0, area))
+
+
+QUESTION_FULL_FRAME_FALLBACK_POLICY: dict[str, float | int] = {
+    "single_low_coverage_area": 0.30,
+    "sparse_low_coverage_area": 0.25,
+    "tiny_crop_coverage_area": 0.12,
+    "no_large_min_max_area": 0.12,
+    "no_large_max_total_area": 0.40,
+    "all_weak_max_count": 0,
+    "all_weak_max_total_area": 0.40,
+    "all_weak_max_max_area": 0.20,
+    "low_confidence_max_count": 0,
+}
+
+
+def _question_full_frame_fallback_reason(stats: dict[str, Any]) -> str:
+    if not stats:
+        return "no_crops"
+    crop_count = int(stats.get("count") or 0)
+    total_area = float(stats.get("area") or 0)
+    max_area = float(stats.get("max_area") or 0)
+    weak_count = int(stats.get("weak_count") or 0)
+    low_conf_count = int(stats.get("low_conf_count") or 0)
+    error_count = int(stats.get("error_count") or 0)
+    limited_count = int(stats.get("limited_count") or 0)
+    limited_unique_count = int(stats.get("limited_unique_count") or 0)
+    ranked_limit_telemetry_count = int(stats.get("ranked_limit_telemetry_count") or 0)
+    limited_strong_count = int(stats.get("limited_strong_count") or 0)
+    limited_confident_count = int(stats.get("limited_confident_count") or 0)
+    section_count = int(stats.get("section_count") or 0)
+    section_covered_question_count = int(stats.get("section_covered_question_count") or 0)
+    section_union_area = float(stats.get("section_union_area") or 0)
+    section_limited_protection = section_count > 0 and (
+        section_covered_question_count >= max(1, limited_unique_count or limited_count)
+        or section_union_area >= 0.42
+    )
+    section_fallback_protection = section_limited_protection
+    if crop_count <= 0:
+        return "no_crops"
+    if error_count >= crop_count:
+        return "all_crop_generation_errors"
+    if limited_count > 0 and not section_limited_protection and (
+        ranked_limit_telemetry_count <= 0
+        or limited_strong_count > 0
+        or limited_confident_count > 0
+    ):
+        return "limited_candidate_frame"
+    if section_fallback_protection:
+        return ""
+    if crop_count <= 1 and total_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["single_low_coverage_area"]):
+        return "single_low_coverage_crop"
+    if crop_count <= 2 and total_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["sparse_low_coverage_area"]):
+        return "sparse_low_coverage_crops"
+    if total_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["tiny_crop_coverage_area"]):
+        return "tiny_crop_coverage"
+    if (
+        max_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["no_large_min_max_area"])
+        and total_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["no_large_max_total_area"])
+    ):
+        return "no_large_question_crop"
+    all_weak_limit = int(QUESTION_FULL_FRAME_FALLBACK_POLICY["all_weak_max_count"])
+    if (
+        all_weak_limit > 0
+        and weak_count >= crop_count
+        and crop_count <= all_weak_limit
+        and total_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["all_weak_max_total_area"])
+        and max_area < float(QUESTION_FULL_FRAME_FALLBACK_POLICY["all_weak_max_max_area"])
+    ):
+        return "all_weak_crop_keys"
+    low_confidence_limit = int(QUESTION_FULL_FRAME_FALLBACK_POLICY["low_confidence_max_count"])
+    if low_confidence_limit > 0 and low_conf_count >= crop_count and crop_count <= low_confidence_limit:
+        return "low_confidence_crops"
+    return ""
 
 
 def _question_extraction_sources_for_session(session_id: str, limit: int = 80) -> list[dict]:
@@ -12836,10 +13761,144 @@ def _question_extraction_sources_for_session(session_id: str, limit: int = 80) -
     crop_sources = _question_crop_sources_for_session(session_id, limit=max(limit * 4, 40))
     image_sources = _question_extraction_image_sources_for_session(session_id, limit=limit)
     cropped_image_ids = {source.get("source_image_id") for source in crop_sources if source.get("source_image_id")}
-    fallback_images = [
-        source for source in image_sources
-        if not source.get("source_image_id") or source.get("source_image_id") not in cropped_image_ids
-    ]
+    crop_stats_by_image: dict[str, dict[str, Any]] = {}
+    for source in crop_sources:
+        image_id = str(source.get("source_image_id") or "")
+        if not image_id:
+            continue
+        rect = json_object_value(source.get("crop_rect") or {})
+        area = max(0.0, float(rect.get("width") or 0) * float(rect.get("height") or 0))
+        stats = crop_stats_by_image.setdefault(
+            image_id,
+            {
+                "count": 0,
+                "area": 0.0,
+                "union_area": 0.0,
+                "overlap_area": 0.0,
+                "overlap_area_ratio": 0.0,
+                "max_area": 0.0,
+                "weak_count": 0,
+                "low_conf_count": 0,
+                "error_count": 0,
+                "limited_count": 0,
+                "limited_unique_count": 0,
+                "limited_strong_count": 0,
+                "limited_confident_count": 0,
+                "limited_max_confidence": 0.0,
+                "selected_candidate_count": 0,
+                "section_count": 0,
+                "section_covered_question_count": 0,
+                "section_union_area": 0.0,
+                "ranked_limit_telemetry_count": 0,
+                "max_frame_candidate_count": 0,
+                "frame_candidate_limit": 0,
+                "_rects": [],
+                "_section_rects": [],
+            },
+        )
+        stats["count"] += 1
+        stats["area"] += area
+        if area > 0:
+            stats.setdefault("_rects", []).append(rect)
+        if str(source.get("crop_kind") or "").lower() == "section":
+            stats["section_count"] = float(stats.get("section_count") or 0) + 1
+            stats["section_covered_question_count"] = float(stats.get("section_covered_question_count") or 0) + int(source.get("covered_question_count") or 0)
+            if area > 0:
+                stats.setdefault("_section_rects", []).append(rect)
+        stats["max_area"] = max(float(stats.get("max_area") or 0), area)
+        if question_crop_key_is_weak(str(source.get("client_question_key") or ""), str(source.get("client_question_key_strength") or "")):
+            stats["weak_count"] += 1
+        try:
+            confidence = float(source.get("confidence") or 0)
+        except (TypeError, ValueError):
+            confidence = 0.0
+        if confidence and confidence < 0.42:
+            stats["low_conf_count"] += 1
+        safety = source.get("crop_safety") if isinstance(source.get("crop_safety"), dict) else {}
+        if safety.get("error"):
+            stats["error_count"] += 1
+        client_telemetry = safety.get("client_telemetry") if isinstance(safety.get("client_telemetry"), dict) else {}
+        try:
+            limited_count = int(client_telemetry.get("frame_limited_candidate_count") or 0)
+        except (TypeError, ValueError):
+            limited_count = 0
+        try:
+            selected_candidate_count = int(client_telemetry.get("frame_selected_candidate_count") or 0)
+        except (TypeError, ValueError):
+            selected_candidate_count = 0
+        try:
+            limited_unique_count = int(client_telemetry.get("frame_limited_unique_candidate_count") or 0)
+        except (TypeError, ValueError):
+            limited_unique_count = 0
+        try:
+            limited_strong_count = int(client_telemetry.get("frame_limited_strong_candidate_count") or 0)
+        except (TypeError, ValueError):
+            limited_strong_count = 0
+        try:
+            limited_confident_count = int(client_telemetry.get("frame_limited_confident_candidate_count") or 0)
+        except (TypeError, ValueError):
+            limited_confident_count = 0
+        try:
+            limited_max_confidence = float(client_telemetry.get("frame_limited_max_confidence") or 0)
+        except (TypeError, ValueError):
+            limited_max_confidence = 0.0
+        try:
+            frame_candidate_count = int(client_telemetry.get("frame_candidate_count") or 0)
+        except (TypeError, ValueError):
+            frame_candidate_count = 0
+        try:
+            frame_candidate_limit = int(client_telemetry.get("frame_candidate_limit") or 0)
+        except (TypeError, ValueError):
+            frame_candidate_limit = 0
+        stats["limited_count"] = max(float(stats.get("limited_count") or 0), limited_count)
+        stats["limited_unique_count"] = max(float(stats.get("limited_unique_count") or 0), limited_unique_count)
+        stats["limited_strong_count"] = max(float(stats.get("limited_strong_count") or 0), limited_strong_count)
+        stats["limited_confident_count"] = max(float(stats.get("limited_confident_count") or 0), limited_confident_count)
+        stats["limited_max_confidence"] = max(float(stats.get("limited_max_confidence") or 0), limited_max_confidence)
+        stats["selected_candidate_count"] = max(float(stats.get("selected_candidate_count") or 0), selected_candidate_count)
+        if client_telemetry.get("candidate_rank_mode") or selected_candidate_count or any(
+            (limited_unique_count, limited_strong_count, limited_confident_count)
+        ):
+            stats["ranked_limit_telemetry_count"] = float(stats.get("ranked_limit_telemetry_count") or 0) + 1
+        stats["max_frame_candidate_count"] = max(float(stats.get("max_frame_candidate_count") or 0), frame_candidate_count)
+        stats["frame_candidate_limit"] = max(float(stats.get("frame_candidate_limit") or 0), frame_candidate_limit)
+
+    for stats in crop_stats_by_image.values():
+        rects = stats.pop("_rects", [])
+        section_rects = stats.pop("_section_rects", [])
+        union_area = _normalized_rect_union_area(rects if isinstance(rects, list) else [])
+        section_union_area = _normalized_rect_union_area(section_rects if isinstance(section_rects, list) else [])
+        total_area = float(stats.get("area") or 0)
+        overlap_area = max(0.0, total_area - union_area)
+        stats["union_area"] = round(union_area, 6)
+        stats["section_union_area"] = round(section_union_area, 6)
+        stats["overlap_area"] = round(overlap_area, 6)
+        stats["overlap_area_ratio"] = round(overlap_area / max(1e-9, total_area), 6) if total_area > 0 else 0.0
+
+    fallback_images: list[dict] = []
+    for source in image_sources:
+        image_id = str(source.get("source_image_id") or "")
+        if not image_id:
+            reason = "missing_source_image_id"
+        elif image_id not in cropped_image_ids:
+            reason = "no_crops"
+        else:
+            reason = _question_full_frame_fallback_reason(crop_stats_by_image.get(image_id, {}))
+        if not reason:
+            continue
+        fallback = {**source, "fallback_reason": reason}
+        if image_id in crop_stats_by_image:
+            fallback["crop_fallback_stats"] = dict(crop_stats_by_image[image_id])
+        fallback_images.append(fallback)
+    if fallback_images:
+        reason_counts: dict[str, int] = defaultdict(int)
+        for source in fallback_images:
+            reason_counts[str(source.get("fallback_reason") or "unknown")] += 1
+        emit_log(
+            f"question extraction full-frame fallback: {dict(sorted(reason_counts.items()))}",
+            session_id=session_id,
+            source="extract",
+        )
     return [*crop_sources, *fallback_images]
 
 
@@ -12855,6 +13914,14 @@ def _normalize_question_source(source: dict) -> dict | None:
     crop_filename = str(source.get("crop_filename") or "").strip()
     if source_type == "crop" and not crop_filename:
         crop_filename = filename
+    client_question_key = str(source.get("client_question_key") or "").strip()
+    client_question_key_strength = str(source.get("client_question_key_strength") or "").strip()
+    crop_kind = normalize_question_crop_kind(
+        source.get("crop_kind") or "",
+        strength=client_question_key_strength,
+        source=source.get("crop_source") or source.get("source") or "",
+        question_key=client_question_key,
+    )
     return {
         "type": source_type,
         "filename": filename,
@@ -12870,8 +13937,19 @@ def _normalize_question_source(source: dict) -> dict | None:
         "source_image_size": source.get("source_image_size") or "{}",
         "crop_image_size": source.get("crop_image_size") or "{}",
         "crop_safety": source.get("crop_safety") if isinstance(source.get("crop_safety"), dict) else {},
-        "client_question_key": str(source.get("client_question_key") or "").strip(),
+        "crop_kind": crop_kind,
+        "section_key": str(source.get("section_key") or "").strip(),
+        "section_strategy": str(source.get("section_strategy") or "").strip(),
+        "covered_question_count": source.get("covered_question_count"),
+        "covered_question_keys": source.get("covered_question_keys") if isinstance(source.get("covered_question_keys"), list) else [],
+        "covered_question_numbers": source.get("covered_question_numbers") if isinstance(source.get("covered_question_numbers"), list) else [],
+        "covered_subrects": source.get("covered_subrects") if isinstance(source.get("covered_subrects"), list) else [],
+        "coverage_score": source.get("coverage_score"),
+        "client_question_key": client_question_key,
+        "client_question_key_strength": client_question_key_strength,
         "client_ocr_text": str(source.get("client_ocr_text") or "").strip(),
+        "fallback_reason": str(source.get("fallback_reason") or "").strip(),
+        "crop_fallback_stats": source.get("crop_fallback_stats") if isinstance(source.get("crop_fallback_stats"), dict) else {},
     }
 
 
@@ -13198,8 +14276,32 @@ async def extract_all_session_questions(
             """,
             (session_id,),
         ).fetchone()
-    filenames = _question_extraction_filenames_for_session(session_id, limit=limit)
-    sources = _question_extraction_sources_for_session(session_id, limit=limit)
+    try:
+        filenames = _question_extraction_filenames_for_session(session_id, limit=limit)
+    except Exception as exc:
+        emit_log(
+            f"question extraction filename selection failed; falling back to image-only query: {truncate_text(str(exc), 220)}",
+            session_id=session_id,
+            source="extract",
+            level="warning",
+        )
+        filenames = [
+            source["filename"]
+            for source in _question_extraction_image_sources_basic_for_session(session_id, limit=limit)
+            if source.get("filename")
+        ]
+    try:
+        sources = _question_extraction_sources_for_session(session_id, limit=limit)
+    except Exception as exc:
+        emit_log(
+            f"question extraction source selection failed; using full-frame fallback: {truncate_text(str(exc), 220)}",
+            session_id=session_id,
+            source="extract",
+            level="warning",
+        )
+        sources = _question_extraction_image_sources_basic_for_session(session_id, limit=limit)
+        if not filenames:
+            filenames = [source["filename"] for source in sources if source.get("filename")]
     crop_source_count = sum(1 for source in sources if source.get("type") == "crop")
     image_source_count = len(sources) - crop_source_count
     if existing:
@@ -13230,6 +14332,19 @@ async def extract_all_session_questions(
         payload={"session_id": session_id, "filenames": filenames, "sources": sources, "sources_version": 2},
         priority=TASK_PRIORITY_QUESTION_EXTRACTION,
     )
+    with connect() as conn:
+        created = conn.execute(
+            "SELECT id FROM task_runs WHERE id=? AND task_kind='question_extraction_session'",
+            (task_id,),
+        ).fetchone()
+    if not created:
+        emit_log(
+            "question extraction task queue insert failed",
+            session_id=session_id,
+            source="extract",
+            level="error",
+        )
+        raise HTTPException(503, "question extraction queue unavailable")
     emit_log(
         f"已排队提取本轮所有题目：{len(sources)} 个来源（裁剪题图 {crop_source_count}、整图兜底 {image_source_count}；原始关键图 {len(filenames)}）",
         session_id=session_id,
@@ -13350,6 +14465,7 @@ def session_restore_page(session_id: str, request: Request, view: str = "restore
     qset = _stored_questions_for_response(session_id)
     base_url = (get_settings().public_base_url or "").rstrip("/")
     return _render_restore_html(qset, "blank" if view == "blank" else "restore", base_url)
+
 
 
 @app.get("/api/sessions/{session_id}/question-set")
@@ -13641,6 +14757,13 @@ async def upload_batch(
     crop_duplicate_count = int(crop_upload_result.get("duplicate_count") or 0)
     crop_skipped_count = int(crop_upload_result.get("skipped_count") or 0)
     crop_expanded_count = int(crop_upload_result.get("expanded_count") or 0)
+    crop_client_count = int(crop_upload_result.get("client_crop_count") or 0)
+    crop_rect_only_count = int(crop_upload_result.get("rect_only_count") or 0)
+    crop_replaced_count = int(crop_upload_result.get("replaced_count") or 0)
+    crop_expansion_duration_ms = int(crop_upload_result.get("expansion_duration_ms") or 0)
+    crop_client_metrics = crop_upload_result.get("client_metrics")
+    if not isinstance(crop_client_metrics, dict):
+        crop_client_metrics = {}
     now = utc_now()
     analysis_id = uuid.uuid4().hex
     previous_context = build_previous_batch_context(session_id, exclude_batch_id=batch_id)
@@ -13716,6 +14839,11 @@ async def upload_batch(
         "analysis_image_count": len(analysis_filenames),
         "question_crop_count": crop_saved_count,
         "question_crop_expanded_count": crop_expanded_count,
+        "question_crop_client_count": crop_client_count,
+        "question_crop_rect_only_count": crop_rect_only_count,
+        "question_crop_replaced_count": crop_replaced_count,
+        "question_crop_server_duration_ms": crop_expansion_duration_ms,
+        "question_crop_client_metrics": crop_client_metrics,
         "question_crop_duplicate_count": crop_duplicate_count,
         "question_crop_skipped_count": crop_skipped_count,
         "duplicate_image_count": sum(1 for row in image_rows if row.get("novelty_status") == "duplicate"),
@@ -13846,6 +14974,21 @@ async def stream_logs(request: Request, session_id: str | None = None, after_id:
 
 # 二期·自然语言配置管家（intent_router）。独立 router，account-scoped，
 # 端点内部复用 principal_from_request / effective_llm_settings / run_with_llm_gate（惰性导入规避循环）。
+from .homework_ledger import register_homework_ledger_routes  # noqa: E402
+
+register_homework_ledger_routes(
+    app,
+    init_db=init_db,
+    principal_from_request=principal_from_request,
+    connect=connect,
+    utc_now=utc_now,
+    get_settings=get_settings,
+    resolve_student_profile=resolve_student_profile,
+    clean_user_text=clean_user_text,
+    json_dumps=json_dumps,
+    emit_log=emit_log,
+)
+
 from . import intent_router as _intent_router  # noqa: E402
 
 app.include_router(_intent_router.router)

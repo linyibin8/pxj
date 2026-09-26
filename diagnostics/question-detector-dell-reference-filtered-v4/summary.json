@@ -1,0 +1,32 @@
+{
+  "reference_dir": "diagnostics\\dell-fenti-reference\\reference",
+  "image_dir": "D:\\AI\\fenti\\pimage",
+  "out": "diagnostics\\question-detector-dell-reference-filtered-v4",
+  "accepted_status": "candidate",
+  "stats": {
+    "accepted_boxes": 1704,
+    "accepted_images": 446,
+    "bad_box": 56,
+    "references": 611,
+    "rejected_boxes": 792,
+    "rejected_flag:large_area": 4,
+    "rejected_flag:multi_question_text": 202,
+    "rejected_flag:near_full_page": 2,
+    "rejected_flag:normalized_out_of_bounds": 230,
+    "rejected_flag:question_number_strip": 7,
+    "rejected_flag:section_bundle": 13,
+    "rejected_flag:skinny_vertical_strip": 370,
+    "rejected_flag:thin_horizontal_strip": 13,
+    "rejected_flag:too_narrow": 42,
+    "rejected_flag:too_small": 25,
+    "rejected_flag:touches_bottom": 235,
+    "rejected_flag:touches_right": 2,
+    "rejected_flag:very_tall": 24,
+    "rejected_flag:very_wide": 2
+  },
+  "outputs": {
+    "teacher_candidate_boxes": "teacher_candidate_boxes.jsonl",
+    "teacher_rejected_boxes": "teacher_rejected_boxes.jsonl",
+    "candidate_preview": "candidate_preview_contact_sheet.jpg"
+  }
+}

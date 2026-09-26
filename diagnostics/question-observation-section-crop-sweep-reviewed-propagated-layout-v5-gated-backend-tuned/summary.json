@@ -1,0 +1,74 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated",
+      "candidate_count": 262,
+      "image_count": 89,
+      "full_frame_only_bytes": 14060150,
+      "full_frame_resized_pixels": 127046400
+    }
+  ],
+  "candidate_count": 262,
+  "image_count": 89,
+  "gt_box_count": 16,
+  "represented_gt_key_count": 16,
+  "full_frame_all_pixels": 127046400,
+  "full_max_side": 1600,
+  "settings": {
+    "max_per_section": [
+      4,
+      6,
+      8,
+      12
+    ],
+    "section_max_side": [
+      900,
+      1000,
+      1200
+    ],
+    "max_sections_per_image": 12,
+    "section_pad_x": 0.01,
+    "section_pad_y": 0.006,
+    "column_gap_threshold": 0.18,
+    "min_gt_coverage": 0.85,
+    "min_section_gt_recall": 0.999,
+    "min_policy_gt_recall": 0.999,
+    "max_total_pixels_vs_full": 1.0,
+    "min_recommendation_section_max_side": 1200
+  },
+  "recommendation": {
+    "strategy_id": "page__side1200",
+    "mode": "page",
+    "max_per_section": 999999,
+    "max_sections_per_image": 12,
+    "section_max_side": 1200,
+    "image_count": 89,
+    "candidate_count": 262,
+    "section_count": 71,
+    "represented_gt_key_count": 16,
+    "section_covered_gt_key_count": 16,
+    "section_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 16,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 34,
+    "fallback_reason_counts": {
+      "no_crops": 18,
+      "single_low_coverage_crop": 16
+    },
+    "section_pixels": 53190650,
+    "fallback_full_frame_pixels": 47846400,
+    "total_vlm_pixels": 101037050,
+    "full_frame_all_pixels": 127046400,
+    "full_frame_gt_image_pixels": 11846400,
+    "section_pixels_vs_full": 0.418671,
+    "total_pixels_vs_full": 0.795277,
+    "total_pixels_vs_full_gt_images": 8.528924,
+    "pixels_per_represented_gt": 6314815.625,
+    "pixels_per_section_covered_gt": 3324415.625
+  },
+  "outputs": {
+    "strategies": "strategies.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  }
+}

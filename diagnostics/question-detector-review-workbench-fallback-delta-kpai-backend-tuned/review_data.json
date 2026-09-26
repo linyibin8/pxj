@@ -1,0 +1,338 @@
+{
+  "source": "diagnostics\\question-observation-fallback-tune-kpai-layout-v5-dense-gated-backend-tuned\\policy_delta_review_queue",
+  "generated_at": "2026-06-30T13:25:55.506560+00:00",
+  "items": [
+    {
+      "image": "images/001_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 22,
+            "width": 656,
+            "height": 1042
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:710ddbb757a26c50b78b2aa64819ccfbb52422fc:1",
+          "candidate_id": "b429b883e82abaa4",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.329645,
+        "max_crop_area": 0.329645
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00001:001_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg"
+    },
+    {
+      "image": "images/002_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 192,
+            "y": 177,
+            "width": 900,
+            "height": 902
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:581a29dec66b5a60f0cb330fcc34422c712b45f9:1",
+          "candidate_id": "e21feed643ba4f84",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.391493,
+        "max_crop_area": 0.391493
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00002:002_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg"
+    },
+    {
+      "image": "images/003_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 358,
+            "y": 0,
+            "width": 1013,
+            "height": 843
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:52c32de44722cc0469a5524c04115f1b9ba94b3e:1",
+          "candidate_id": "81056fc3349d2e6c",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.411824,
+        "max_crop_area": 0.411824
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00003:003_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg"
+    },
+    {
+      "image": "images/004_b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 240,
+            "width": 886,
+            "height": 686
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:0b0a9a0815ee414620be46cfc9d8496a34158aa0:1",
+          "candidate_id": "aab64d6a0d7d41d8",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 931,
+            "width": 845,
+            "height": 147
+          },
+          "score": 0.867,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:0b0a9a0815ee414620be46cfc9d8496a34158aa0:2",
+          "candidate_id": "a2d61ff97d5d4d05",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 2,
+        "crop_area": 0.353014,
+        "max_crop_area": 0.293111
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00004:004_b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg"
+    },
+    {
+      "image": "images/005_8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 4800,
+      "height": 1804,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1755,
+            "y": 0,
+            "width": 3045,
+            "height": 885
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:560d06be638ae77e209255ee88c4efe7c2baac55:1",
+          "candidate_id": "355ff9901e444870",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 2047,
+            "y": 1378,
+            "width": 2753,
+            "height": 425
+          },
+          "score": 0.83,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:560d06be638ae77e209255ee88c4efe7c2baac55:2",
+          "candidate_id": "47a83e4972cc6302",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 2,
+        "crop_area": 0.446329,
+        "max_crop_area": 0.311209
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00005:005_8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg"
+    },
+    {
+      "image": "images/006_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 2594,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 1305,
+            "width": 1840,
+            "height": 683
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:321881ed49293792c38d6e87a7afe7a3a1148729:1",
+          "candidate_id": "e9df9b42ec476450",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 1968,
+            "width": 1529,
+            "height": 521
+          },
+          "score": 0.865,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:321881ed49293792c38d6e87a7afe7a3a1148729:2",
+          "candidate_id": "743050dcf799a610",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 2475,
+            "width": 1840,
+            "height": 539
+          },
+          "score": 0.795,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:321881ed49293792c38d6e87a7afe7a3a1148729:3",
+          "candidate_id": "96706870c485d79f",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 3040,
+            "width": 1451,
+            "height": 142
+          },
+          "score": 0.364,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:321881ed49293792c38d6e87a7afe7a3a1148729:4",
+          "candidate_id": "e25f36de78301f10",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "few_text_lines",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "no_large_question_crop",
+        "after_reason": "",
+        "candidate_count": 4,
+        "crop_area": 0.391664,
+        "max_crop_area": 0.151398
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00006:006_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg"
+    }
+  ]
+}

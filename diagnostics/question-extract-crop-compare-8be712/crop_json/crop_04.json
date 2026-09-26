@@ -1,0 +1,39 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "",
+      "text": "用竖式计算，说一说竖式每一步的意思。",
+      "student_answer": "",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "",
+      "text": "216 x 4 =",
+      "student_answer": "864",
+      "uncertain": false
+    },
+    {
+      "index": 3,
+      "number": "",
+      "text": "53 x 8 =",
+      "student_answer": "424",
+      "uncertain": false
+    },
+    {
+      "index": 4,
+      "number": "",
+      "text": "490 x 3 =",
+      "student_answer": "1470",
+      "uncertain": false
+    },
+    {
+      "index": 5,
+      "number": "",
+      "text": "607 x 5 =",
+      "student_answer": "",
+      "uncertain": false
+    }
+  ]
+}

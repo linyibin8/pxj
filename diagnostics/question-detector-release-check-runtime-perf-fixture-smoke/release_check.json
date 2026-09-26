@@ -1,0 +1,2373 @@
+{
+  "generated_at": "2026-06-30T16:07:04.949526+00:00",
+  "release_ready": false,
+  "thresholds": {
+    "min_folds": 3,
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "max_rect_overhead_ratio": 1.005,
+    "max_crop_pixel_ratio": 0.75,
+    "max_layout_median_ms": 80.0,
+    "min_replay_images": 30,
+    "min_dedupe_gt_keys": 10,
+    "min_dedupe_gt_recall": 0.999,
+    "max_dedupe_lost_gt_keys": 0,
+    "max_dedupe_false_merges": 0,
+    "max_dedupe_unknown_gt_suppressions": 0,
+    "min_fallback_gt_keys": 10,
+    "min_fallback_gt_recall": 0.999,
+    "max_fallback_total_pixels_vs_full": 1.05,
+    "max_fallback_image_ratio": 0.5,
+    "min_candidate_eval_gt_keys": 10,
+    "min_candidate_eval_gt_recall": 0.999,
+    "max_candidate_eval_crop_pixels_vs_full": 0.75,
+    "max_candidate_eval_overcrop_count": 0,
+    "min_candidate_cap_gt_keys": 10,
+    "min_candidate_cap_gt_recall": 0.999,
+    "max_candidate_cap_total_pixels_vs_full": 1.05,
+    "min_section_sender_gt_keys": 200,
+    "min_section_sender_gt_recall": 0.999,
+    "max_section_sender_total_pixels_vs_full": 0.75,
+    "max_section_sender_fallback_image_ratio": 0.05,
+    "min_risk_section_gt_keys": 10,
+    "min_risk_section_gt_recall": 0.999,
+    "max_risk_section_total_pixels_vs_full": 0.9,
+    "max_risk_section_fallback_image_ratio": 0.25,
+    "min_strategy_gt_keys": 10,
+    "min_strategy_gt_recall": 0.999,
+    "max_strategy_total_pixels_vs_full": 0.9,
+    "max_strategy_fallback_image_ratio": 0.25,
+    "min_runtime_records": 5,
+    "max_runtime_analysis_p95_ms": 300.0,
+    "max_runtime_server_p95_ms": 250.0,
+    "max_runtime_fresh_ocr_ratio": 0.75,
+    "max_runtime_attached_crop_files": 0,
+    "allow_runtime_fixture": true,
+    "threshold_tolerance": 0.0001
+  },
+  "inputs": {
+    "datasets": [
+      "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact"
+    ],
+    "selection": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment\\selection",
+    "train_manifests": [],
+    "replays": [
+      "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated"
+    ],
+    "dedupe_tunes": [
+      "diagnostics\\question-observation-dedupe-tune-kpai"
+    ],
+    "fallback_tunes": [
+      "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned"
+    ],
+    "candidate_evals": [
+      "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated"
+    ],
+    "candidate_cap_sweeps": [
+      "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned"
+    ],
+    "section_sender_evals": [
+      "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle",
+      "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section",
+      "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals"
+    ],
+    "strategy_selections": [
+      "diagnostics\\question-observation-strategy-selection-risk-section-top1"
+    ],
+    "runtime_perf": [
+      "diagnostics\\question-observation-runtime-perf-fixture-check"
+    ],
+    "ios_root": "ios\\PXJ\\App",
+    "backend_main": "backend\\app\\main.py",
+    "xcode_build_log": "diagnostics\\ios-build\\pxj-question-detector-risk-section-top1-build.log"
+  },
+  "datasets": [
+    {
+      "path": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json",
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false,
+      "source_images": 89,
+      "positive_images": 9,
+      "negative_images": 80,
+      "annotations": 16,
+      "split_groups": 20,
+      "warning_count": 3
+    }
+  ],
+  "selection": {},
+  "train_manifests": [],
+  "coreml_artifacts": [],
+  "ios_model_resources": [],
+  "swift_detector_config": {
+    "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+    "exists": true,
+    "bundle_lookup_mlmodelc": true,
+    "fast_min_confidence": 0.32,
+    "accurate_min_confidence": 0.38,
+    "detector_first_requires_matched_text": true,
+    "detector_fast_path_requires_completion": true,
+    "detector_merges_unmatched_ocr": true,
+    "detector_no_early_first_return": true,
+    "detector_textless_fallback_telemetry": true,
+    "detector_reuses_first_pass_boxes_after_fallback": true
+  },
+  "swift_observation_dedupe_config": {
+    "path": "ios\\PXJ\\App\\ContentView.swift",
+    "exists": true,
+    "weak_text_part_function": true,
+    "weak_text_compatible_function": true,
+    "weak_text_guard_in_signature_similarity": true,
+    "notext_is_not_compatible": true,
+    "uses_near_text_similarity": true,
+    "candidate_rank_function": true,
+    "upload_uses_ranked_candidates": true,
+    "rank_mode_telemetry": true,
+    "limited_risk_telemetry": true,
+    "no_raw_prefix_upload": true,
+    "pixel_resize_helper": true,
+    "vision_resize_uses_pixel_helper": true,
+    "jpeg_uses_pixel_helper": true,
+    "pixel_renderer_scale_one": true,
+    "section_crop_function": true,
+    "section_crop_manifest_fields": true,
+    "section_crop_risk_gated": true,
+    "section_companion_top2": true,
+    "risk_section_function": true,
+    "risk_section_top1_companion": true,
+    "section_crop_metrics": true,
+    "empty_section_dedupe_state": true,
+    "empty_section_duplicate_guard": true,
+    "empty_section_signature_persisted": true
+  },
+  "backend_question_source_binding_config": {
+    "path": "backend\\app\\main.py",
+    "exists": true,
+    "parser_reads_input_index": true,
+    "parser_accepts_source_index_alias": true,
+    "batch_sources_assign_input_index": true,
+    "batch_prompt_requests_input_index": true,
+    "matcher_prefers_input_index": true,
+    "source_meta_persists_input_index": true,
+    "apply_source_meta_after_match": true,
+    "persists_candidate_cap_risk_telemetry": true,
+    "uses_ranked_limit_telemetry_guard": true,
+    "uses_limited_strong_confident_guard": true,
+    "weak_layout_key_ignored_for_crop_source_dedupe": true,
+    "parses_section_crop_kind": true,
+    "section_crop_key_is_weak_for_source_dedupe": true,
+    "persists_section_crop_telemetry": true,
+    "source_meta_persists_section_crop_kind": true,
+    "normalizes_section_extraction_sources": true,
+    "section_prompt_allows_multiple_questions": true,
+    "section_crop_protects_limited_fallback": true
+  },
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json",
+      "images": 89,
+      "cross_frame_dedup_boxes": 224,
+      "rect_only_cross_frame_dedup_vs_full": 1.004,
+      "full_plus_cross_frame_dedup_crop_vs_full": 1.4195,
+      "crop_pixels_vs_full_pixels": 0.3751,
+      "layout_latency_median_ms": 24.959,
+      "layout_latency_p95_ms": 35.984,
+      "layout_attempted_images": 89
+    }
+  ],
+  "dedupe_tunes": [
+    {
+      "path": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json",
+      "candidate_count": 67,
+      "gt_available": true,
+      "represented_gt_key_count": 11,
+      "matched_candidate_count": 11,
+      "recommendation": {
+        "strategy": "image_hash_iou",
+        "baseline": false,
+        "params": {
+          "ahash_threshold": 2,
+          "iou_threshold": 0.45
+        },
+        "raw_count": 67,
+        "selected_count": 64,
+        "removed_count": 3,
+        "removed_rate": 0.044776,
+        "raw_crop_jpeg_bytes": 5622641,
+        "selected_crop_jpeg_bytes": 5049010,
+        "selected_crop_bytes_vs_raw": 0.897978,
+        "raw_crop_resized_pixels": 36886979,
+        "selected_crop_resized_pixels": 34007768,
+        "selected_crop_pixels_vs_raw": 0.921945,
+        "rect_manifest_bytes": 16039,
+        "full_plus_selected_crop_vs_full": 1.629752,
+        "rect_only_selected_vs_full": 1.002001,
+        "selected_crop_pixels_vs_full": 0.576825,
+        "gt_available": true,
+        "represented_gt_key_count": 11,
+        "selected_gt_key_count": 11,
+        "gt_recall": 1.0,
+        "lost_gt_key_count": 0,
+        "lost_gt_keys": [],
+        "false_merge_count": 0,
+        "unknown_gt_suppression_count": 0,
+        "same_image_distinct_index_suppression_count": 0,
+        "near_full_page_selected_count": 33,
+        "small_area_selected_count": 9
+      },
+      "swift_text_guard_baseline": {
+        "strategy": "swift_signature",
+        "baseline": true,
+        "params": {
+          "exact_layout_overlap": 0.2,
+          "exact_layout_center": 0.2,
+          "weak_text_guard": true,
+          "weak_overlap": 0.52,
+          "weak_center": 0.08,
+          "same_index_overlap": 0.18,
+          "same_index_center": 0.18,
+          "mixed_overlap": 0.62,
+          "mixed_same_index_overlap": 0.24,
+          "mixed_same_index_center": 0.12,
+          "strong_overlap": 0.34,
+          "strong_center": 0.18,
+          "strong_same_index_center": 0.28
+        },
+        "raw_count": 67,
+        "selected_count": 67,
+        "removed_count": 0,
+        "removed_rate": 0.0,
+        "raw_crop_jpeg_bytes": 5622641,
+        "selected_crop_jpeg_bytes": 5622641,
+        "selected_crop_bytes_vs_raw": 1.0,
+        "raw_crop_resized_pixels": 36886979,
+        "selected_crop_resized_pixels": 36886979,
+        "selected_crop_pixels_vs_raw": 1.0,
+        "rect_manifest_bytes": 16795,
+        "full_plus_selected_crop_vs_full": 1.7013,
+        "rect_only_selected_vs_full": 1.002095,
+        "selected_crop_pixels_vs_full": 0.625661,
+        "gt_available": true,
+        "represented_gt_key_count": 11,
+        "selected_gt_key_count": 11,
+        "gt_recall": 1.0,
+        "lost_gt_key_count": 0,
+        "lost_gt_keys": [],
+        "false_merge_count": 0,
+        "unknown_gt_suppression_count": 0,
+        "same_image_distinct_index_suppression_count": 0,
+        "near_full_page_selected_count": 36,
+        "small_area_selected_count": 9
+      }
+    }
+  ],
+  "fallback_tunes": [
+    {
+      "path": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+      "replays": [
+        {
+          "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "image_count": 89,
+          "candidate_count": 262,
+          "full_frame_resized_pixels": 127046400
+        }
+      ],
+      "ground_truth_manifests": [
+        "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+      ],
+      "image_count": 89,
+      "candidate_count": 262,
+      "represented_gt_key_count": 16,
+      "crop_only_gt_recall": 1.0,
+      "backend_current": {
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        }
+      },
+      "backend_current_union_area": {
+        "policy_id": "backend_current_union_area_shadow",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        }
+      },
+      "legacy_to_current_delta": {
+        "before_policy_id": "backend_legacy_before_tuned",
+        "after_policy_id": "backend_current",
+        "fallback_removed_image_count": 23,
+        "fallback_added_image_count": 0,
+        "fallback_removed_with_gt_count": 4,
+        "fallback_removed_with_crop_missed_gt_count": 0,
+        "review_queue_images": 19,
+        "review_queue_boxes": 32
+      },
+      "recommendation": {
+        "policy_id": "backend_current",
+        "policy": {
+          "single_low_coverage_area": 0.3,
+          "sparse_low_coverage_area": 0.25,
+          "tiny_crop_coverage_area": 0.12,
+          "no_large_min_max_area": 0.12,
+          "no_large_max_total_area": 0.4,
+          "all_weak_max_count": 0,
+          "all_weak_max_total_area": 0.4,
+          "all_weak_max_max_area": 0.2,
+          "low_confidence_max_count": 0,
+          "low_confidence_score": 0.42
+        },
+        "image_count": 89,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "represented_gt_key_count": 16,
+        "crop_only_covered_gt_key_count": 16,
+        "crop_only_gt_recall": 1.0,
+        "policy_covered_gt_key_count": 16,
+        "policy_gt_recall": 1.0,
+        "crop_missed_gt_key_count": 0,
+        "fallback_protected_missed_gt_key_count": 0,
+        "crop_vlm_pixels": 55153598,
+        "fallback_full_frame_pixels": 48960000,
+        "total_vlm_pixels": 104113598,
+        "full_frame_all_pixels": 127046400,
+        "crop_pixels_vs_full": 0.434122,
+        "total_pixels_vs_full": 0.819493,
+        "crop_jpeg_bytes": 6932573
+      }
+    }
+  ],
+  "candidate_evals": [
+    {
+      "path": "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated\\summary.json",
+      "replays": [
+        {
+          "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "image_count": 89,
+          "candidate_count": 262,
+          "full_frame_resized_pixels": 127046400
+        }
+      ],
+      "ground_truth_manifests": [
+        "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+      ],
+      "candidate_count": 262,
+      "raw_represented_gt_key_count": 16,
+      "represented_gt_key_count": 16,
+      "duplicate_represented_gt_key_count": 0,
+      "covered_gt_key_count": 16,
+      "missed_gt_key_count": 0,
+      "overcrop_match_count": 0,
+      "represented_gt_recall": 1.0,
+      "crop_pixels_vs_full_frame_pixels": 0.434122,
+      "reviewed_candidate_match_rate": 0.25,
+      "overcrop_ratio_p90": 1.954309
+    }
+  ],
+  "candidate_cap_sweeps": [
+    {
+      "path": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+      "replays": [
+        {
+          "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "image_count": 89,
+          "candidate_count": 262,
+          "full_frame_resized_pixels": 127046400
+        }
+      ],
+      "ground_truth_manifests": [
+        "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+      ],
+      "image_count": 89,
+      "candidate_count": 262,
+      "represented_gt_key_count": 16,
+      "current_cap": {
+        "cap": 12,
+        "cap_label": "12",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "selected_candidate_count": 218,
+        "skipped_candidate_count": 44,
+        "skipped_strong_candidate_count": 0,
+        "skipped_confident_candidate_count": 0,
+        "selected_covered_gt_key_count": 16,
+        "selected_gt_recall": 1.0,
+        "policy_covered_gt_key_count": 16,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "selected_crop_pixels": 54227034,
+        "fallback_full_frame_pixels": 48960000,
+        "total_vlm_pixels": 103187034,
+        "full_frame_all_pixels": 127046400,
+        "selected_crop_pixels_vs_full": 0.426829,
+        "total_pixels_vs_full": 0.8122,
+        "selected_crop_jpeg_bytes": 6789074
+      },
+      "recommendation": {
+        "cap": 10,
+        "cap_label": "10",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "selected_candidate_count": 203,
+        "skipped_candidate_count": 59,
+        "skipped_strong_candidate_count": 0,
+        "skipped_confident_candidate_count": 0,
+        "selected_covered_gt_key_count": 16,
+        "selected_gt_recall": 1.0,
+        "policy_covered_gt_key_count": 16,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "selected_crop_pixels": 53820566,
+        "fallback_full_frame_pixels": 48960000,
+        "total_vlm_pixels": 102780566,
+        "full_frame_all_pixels": 127046400,
+        "selected_crop_pixels_vs_full": 0.423629,
+        "total_pixels_vs_full": 0.809,
+        "selected_crop_jpeg_bytes": 6724384
+      }
+    }
+  ],
+  "section_sender_evals": [
+    {
+      "path": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json",
+      "image_count": 10,
+      "candidate_count": 256,
+      "represented_gt_key_count": 256,
+      "settings": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "min_gt_coverage": 0.85,
+        "min_iou": 0.3,
+        "low_confidence_score": 0.42,
+        "limited_confidence_score": 0.55,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 2,
+        "enable_empty_frame_section": false
+      },
+      "evidence_kind": "cap_overflow",
+      "cap_only": {
+        "cap": 12,
+        "cap_label": "12",
+        "image_count": 10,
+        "represented_gt_key_count": 256,
+        "selected_candidate_count": 120,
+        "skipped_candidate_count": 136,
+        "skipped_strong_candidate_count": 120,
+        "skipped_confident_candidate_count": 120,
+        "selected_covered_gt_key_count": 120,
+        "selected_gt_recall": 0.46875,
+        "policy_covered_gt_key_count": 256,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 10,
+        "fallback_image_ratio": 1.0,
+        "fallback_reason_counts": {
+          "limited_candidate_frame": 8,
+          "no_large_question_crop": 2
+        },
+        "selected_crop_pixels": 12281026,
+        "fallback_full_frame_pixels": 16240000,
+        "total_vlm_pixels": 28521026,
+        "full_frame_all_pixels": 16240000,
+        "selected_crop_pixels_vs_full": 0.756221,
+        "total_pixels_vs_full": 1.756221,
+        "selected_crop_jpeg_bytes": 1097022
+      },
+      "sender": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 2,
+        "image_count": 10,
+        "candidate_count": 256,
+        "represented_gt_key_count": 256,
+        "cap_selected_candidate_count": 120,
+        "uploaded_selected_candidate_count": 20,
+        "skipped_candidate_count": 136,
+        "section_frame_count": 10,
+        "section_count": 10,
+        "selected_covered_gt_key_count": 20,
+        "section_covered_gt_key_count": 256,
+        "combined_crop_covered_gt_key_count": 256,
+        "policy_covered_gt_key_count": 256,
+        "selected_gt_recall": 0.078125,
+        "section_only_gt_recall": 1.0,
+        "combined_crop_gt_recall": 1.0,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 0,
+        "fallback_image_ratio": 0.0,
+        "fallback_reason_counts": {},
+        "selected_crop_pixels": 2052466,
+        "section_pixels": 9344400,
+        "fallback_full_frame_pixels": 0,
+        "total_vlm_pixels": 11396866,
+        "full_frame_all_pixels": 16240000,
+        "selected_crop_pixels_vs_full": 0.126383,
+        "section_pixels_vs_full": 0.575394,
+        "total_pixels_vs_full": 0.701777
+      },
+      "total_pixels_delta_vs_cap_only": -1.054444
+    },
+    {
+      "path": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json",
+      "image_count": 10,
+      "candidate_count": 0,
+      "represented_gt_key_count": 256,
+      "settings": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "min_gt_coverage": 0.85,
+        "min_iou": 0.3,
+        "low_confidence_score": 0.42,
+        "limited_confidence_score": 0.55,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 2,
+        "enable_empty_frame_section": true
+      },
+      "evidence_kind": "empty_frame",
+      "cap_only": {
+        "cap": 12,
+        "cap_label": "12",
+        "image_count": 10,
+        "represented_gt_key_count": 256,
+        "selected_candidate_count": 0,
+        "skipped_candidate_count": 0,
+        "skipped_strong_candidate_count": 0,
+        "skipped_confident_candidate_count": 0,
+        "selected_covered_gt_key_count": 0,
+        "selected_gt_recall": 0.0,
+        "policy_covered_gt_key_count": 256,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 10,
+        "fallback_image_ratio": 1.0,
+        "fallback_reason_counts": {
+          "no_crops": 10
+        },
+        "selected_crop_pixels": 0,
+        "fallback_full_frame_pixels": 16240000,
+        "total_vlm_pixels": 16240000,
+        "full_frame_all_pixels": 16240000,
+        "selected_crop_pixels_vs_full": 0.0,
+        "total_pixels_vs_full": 1.0,
+        "selected_crop_jpeg_bytes": 0
+      },
+      "sender": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 2,
+        "image_count": 10,
+        "candidate_count": 0,
+        "represented_gt_key_count": 256,
+        "cap_selected_candidate_count": 0,
+        "uploaded_selected_candidate_count": 0,
+        "skipped_candidate_count": 0,
+        "section_frame_count": 10,
+        "section_count": 10,
+        "selected_covered_gt_key_count": 0,
+        "section_covered_gt_key_count": 256,
+        "combined_crop_covered_gt_key_count": 256,
+        "policy_covered_gt_key_count": 256,
+        "selected_gt_recall": 0.0,
+        "section_only_gt_recall": 1.0,
+        "combined_crop_gt_recall": 1.0,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 0,
+        "fallback_image_ratio": 0.0,
+        "fallback_reason_counts": {},
+        "selected_crop_pixels": 0,
+        "section_pixels": 9151200,
+        "fallback_full_frame_pixels": 0,
+        "total_vlm_pixels": 9151200,
+        "full_frame_all_pixels": 16240000,
+        "selected_crop_pixels_vs_full": 0.0,
+        "section_pixels_vs_full": 0.563498,
+        "total_pixels_vs_full": 0.563498
+      },
+      "total_pixels_delta_vs_cap_only": -0.436502
+    },
+    {
+      "path": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json",
+      "image_count": 89,
+      "candidate_count": 262,
+      "represented_gt_key_count": 16,
+      "settings": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "min_gt_coverage": 0.85,
+        "min_iou": 0.3,
+        "low_confidence_score": 0.42,
+        "limited_confidence_score": 0.55,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 1,
+        "enable_empty_frame_section": false,
+        "enable_risk_frame_section": true,
+        "risk_frame_max_candidates": 4,
+        "risk_frame_min_section_area": 0.42
+      },
+      "evidence_kind": "risk_frame",
+      "cap_only": {
+        "cap": 12,
+        "cap_label": "12",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "selected_candidate_count": 218,
+        "skipped_candidate_count": 44,
+        "skipped_strong_candidate_count": 0,
+        "skipped_confident_candidate_count": 0,
+        "selected_covered_gt_key_count": 16,
+        "selected_gt_recall": 1.0,
+        "policy_covered_gt_key_count": 16,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "selected_crop_pixels": 54227034,
+        "fallback_full_frame_pixels": 48960000,
+        "total_vlm_pixels": 103187034,
+        "full_frame_all_pixels": 127046400,
+        "selected_crop_pixels_vs_full": 0.426829,
+        "total_pixels_vs_full": 0.8122,
+        "selected_crop_jpeg_bytes": 6789074
+      },
+      "sender": {
+        "candidate_cap": 12,
+        "section_max_side": 1200,
+        "replace_selected_on_section": true,
+        "selected_on_section_limit": 1,
+        "image_count": 89,
+        "candidate_count": 262,
+        "represented_gt_key_count": 16,
+        "cap_selected_candidate_count": 218,
+        "uploaded_selected_candidate_count": 122,
+        "skipped_candidate_count": 44,
+        "section_frame_count": 50,
+        "section_count": 50,
+        "selected_covered_gt_key_count": 12,
+        "section_covered_gt_key_count": 8,
+        "combined_crop_covered_gt_key_count": 16,
+        "policy_covered_gt_key_count": 16,
+        "selected_gt_recall": 0.75,
+        "section_only_gt_recall": 0.5,
+        "combined_crop_gt_recall": 1.0,
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 18,
+        "fallback_image_ratio": 0.202247,
+        "fallback_reason_counts": {
+          "no_crops": 18
+        },
+        "selected_crop_pixels": 41703767,
+        "section_pixels": 35302800,
+        "fallback_full_frame_pixels": 25920000,
+        "total_vlm_pixels": 102926567,
+        "full_frame_all_pixels": 127046400,
+        "selected_crop_pixels_vs_full": 0.328256,
+        "section_pixels_vs_full": 0.277873,
+        "total_pixels_vs_full": 0.810149
+      },
+      "total_pixels_delta_vs_cap_only": -0.002051
+    }
+  ],
+  "strategy_selections": [
+    {
+      "path": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json",
+      "row_count": 24,
+      "reviewed_live_row_count": 6,
+      "propagated_live_row_count": 3,
+      "synthetic_stress_row_count": 6,
+      "best_reviewed_live_by_cost": [
+        {
+          "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+          "family": "section_sender",
+          "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+          "evidence_kind": "reviewed_kpai",
+          "represented_gt_key_count": 11,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.02439,
+          "total_pixels_vs_full": 0.76223,
+          "status": "live"
+        },
+        {
+          "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:backend_current",
+          "family": "fallback_policy",
+          "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+          "evidence_kind": "reviewed_kpai",
+          "represented_gt_key_count": 11,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.170732,
+          "total_pixels_vs_full": 0.784856,
+          "status": "live"
+        },
+        {
+          "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:cap_12",
+          "family": "candidate_cap",
+          "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+          "evidence_kind": "reviewed_kpai",
+          "represented_gt_key_count": 11,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.170732,
+          "total_pixels_vs_full": 0.784856,
+          "status": "live"
+        },
+        {
+          "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:ios_sender",
+          "family": "section_sender",
+          "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "evidence_kind": "reviewed_propagated",
+          "represented_gt_key_count": 16,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.202247,
+          "total_pixels_vs_full": 0.810149,
+          "status": "live"
+        },
+        {
+          "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:cap_12",
+          "family": "candidate_cap",
+          "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "evidence_kind": "reviewed_propagated",
+          "represented_gt_key_count": 16,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.382022,
+          "total_pixels_vs_full": 0.8122,
+          "status": "live"
+        }
+      ],
+      "best_reviewed_passing_strategy": {
+        "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+        "family": "section_sender",
+        "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+        "evidence_kind": "reviewed_kpai",
+        "represented_gt_key_count": 11,
+        "recall": 1.0,
+        "fallback_image_ratio": 0.02439,
+        "total_pixels_vs_full": 0.76223,
+        "status": "live"
+      },
+      "best_propagated_passing_strategy": {
+        "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:ios_sender",
+        "family": "section_sender",
+        "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+        "evidence_kind": "reviewed_propagated",
+        "represented_gt_key_count": 16,
+        "recall": 1.0,
+        "fallback_image_ratio": 0.202247,
+        "total_pixels_vs_full": 0.810149,
+        "status": "live"
+      }
+    }
+  ],
+  "runtime_perf": [
+    {
+      "path": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json",
+      "evidence_kind": "fixture",
+      "passed": true,
+      "record_count": 6,
+      "frame_count": 39,
+      "cached_frame_count": 31,
+      "ocr_frame_count": 8,
+      "fresh_ocr_ratio": 0.205128,
+      "attached_crop_file_count": 0,
+      "analysis_duration_ms": {
+        "p50": 92.0,
+        "p95": 114.5,
+        "max": 118.0
+      },
+      "question_crop_server_duration_ms": {
+        "p50": 22.5,
+        "p95": 30.0,
+        "max": 31.0
+      }
+    }
+  ],
+  "checks": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: model_training_ready",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable.",
+      "values": {
+        "path": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json",
+        "pilot_eval_ready": true,
+        "model_training_ready": false,
+        "has_error": false,
+        "source_images": 89,
+        "positive_images": 9,
+        "negative_images": 80,
+        "annotations": 16,
+        "split_groups": 20,
+        "warning_count": 3
+      }
+    },
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: no audit error",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Dataset audit must not contain blocking data errors.",
+      "values": {
+        "has_error": false
+      }
+    },
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: audit warnings",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Dataset audit contains 3 warning(s); inspect before relying on the release report.",
+      "values": {
+        "warnings": [
+          {
+            "code": "too_few_images",
+            "severity": "warning",
+            "detail": "89 source images; target >= 300 for model selection."
+          },
+          {
+            "code": "too_few_annotations",
+            "severity": "warning",
+            "detail": "16 annotations; target >= 1000 for model selection."
+          },
+          {
+            "code": "too_few_split_groups",
+            "severity": "warning",
+            "detail": "20 split groups; target >= 50 for held-out evaluation."
+          }
+        ]
+      }
+    },
+    {
+      "category": "selection",
+      "name": "selection summary exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Missing selection_summary.json.",
+      "values": {}
+    },
+    {
+      "category": "artifact",
+      "name": "Core ML artifact exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact.",
+      "values": {
+        "artifacts": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "QuestionRegionDetector bundled in iOS app sources",
+      "passed": false,
+      "severity": "hard",
+      "detail": "iOS target must include QuestionRegionDetector.mlmodel/.mlpackage or compiled .mlmodelc.",
+      "values": {
+        "resources": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift detector hook exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "QuestionSegmenter must look up QuestionRegionDetector.mlmodelc from the app bundle.",
+      "values": {
+        "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+        "exists": true,
+        "bundle_lookup_mlmodelc": true,
+        "fast_min_confidence": 0.32,
+        "accurate_min_confidence": 0.38,
+        "detector_first_requires_matched_text": true,
+        "detector_fast_path_requires_completion": true,
+        "detector_merges_unmatched_ocr": true,
+        "detector_no_early_first_return": true,
+        "detector_textless_fallback_telemetry": true,
+        "detector_reuses_first_pass_boxes_after_fallback": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift detector OCR merge fallback gate exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Detector-first segmentation must only skip full-page OCR when OCR-matched detector boxes look complete, otherwise reuse first-pass detector boxes and merge unmatched OCR regions.",
+      "values": {
+        "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+        "exists": true,
+        "bundle_lookup_mlmodelc": true,
+        "fast_min_confidence": 0.32,
+        "accurate_min_confidence": 0.38,
+        "detector_first_requires_matched_text": true,
+        "detector_fast_path_requires_completion": true,
+        "detector_merges_unmatched_ocr": true,
+        "detector_no_early_first_return": true,
+        "detector_textless_fallback_telemetry": true,
+        "detector_reuses_first_pass_boxes_after_fallback": true
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "Swift weak-layout text guard exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "ContentView observation dedupe must require compatible short text before weak layout keys can merge by geometry.",
+      "values": {
+        "path": "ios\\PXJ\\App\\ContentView.swift",
+        "exists": true,
+        "weak_text_part_function": true,
+        "weak_text_compatible_function": true,
+        "weak_text_guard_in_signature_similarity": true,
+        "notext_is_not_compatible": true,
+        "uses_near_text_similarity": true,
+        "candidate_rank_function": true,
+        "upload_uses_ranked_candidates": true,
+        "rank_mode_telemetry": true,
+        "limited_risk_telemetry": true,
+        "no_raw_prefix_upload": true,
+        "pixel_resize_helper": true,
+        "vision_resize_uses_pixel_helper": true,
+        "jpeg_uses_pixel_helper": true,
+        "pixel_renderer_scale_one": true,
+        "section_crop_function": true,
+        "section_crop_manifest_fields": true,
+        "section_crop_risk_gated": true,
+        "section_companion_top2": true,
+        "risk_section_function": true,
+        "risk_section_top1_companion": true,
+        "section_crop_metrics": true,
+        "empty_section_dedupe_state": true,
+        "empty_section_duplicate_guard": true,
+        "empty_section_signature_persisted": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift ranked candidate cap telemetry exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation upload must rank candidates before the per-frame cap and report skipped-candidate risk telemetry.",
+      "values": {
+        "path": "ios\\PXJ\\App\\ContentView.swift",
+        "exists": true,
+        "weak_text_part_function": true,
+        "weak_text_compatible_function": true,
+        "weak_text_guard_in_signature_similarity": true,
+        "notext_is_not_compatible": true,
+        "uses_near_text_similarity": true,
+        "candidate_rank_function": true,
+        "upload_uses_ranked_candidates": true,
+        "rank_mode_telemetry": true,
+        "limited_risk_telemetry": true,
+        "no_raw_prefix_upload": true,
+        "pixel_resize_helper": true,
+        "vision_resize_uses_pixel_helper": true,
+        "jpeg_uses_pixel_helper": true,
+        "pixel_renderer_scale_one": true,
+        "section_crop_function": true,
+        "section_crop_manifest_fields": true,
+        "section_crop_risk_gated": true,
+        "section_companion_top2": true,
+        "risk_section_function": true,
+        "risk_section_top1_companion": true,
+        "section_crop_metrics": true,
+        "empty_section_dedupe_state": true,
+        "empty_section_duplicate_guard": true,
+        "empty_section_signature_persisted": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift dense section crop sender exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation upload should add section/group rect-only crops for dense cap-risk, sparse weak/low-coverage, and empty study frames; dense sections keep top-2 anchors while risk sections keep a top-1 anchor.",
+      "values": {
+        "path": "ios\\PXJ\\App\\ContentView.swift",
+        "exists": true,
+        "weak_text_part_function": true,
+        "weak_text_compatible_function": true,
+        "weak_text_guard_in_signature_similarity": true,
+        "notext_is_not_compatible": true,
+        "uses_near_text_similarity": true,
+        "candidate_rank_function": true,
+        "upload_uses_ranked_candidates": true,
+        "rank_mode_telemetry": true,
+        "limited_risk_telemetry": true,
+        "no_raw_prefix_upload": true,
+        "pixel_resize_helper": true,
+        "vision_resize_uses_pixel_helper": true,
+        "jpeg_uses_pixel_helper": true,
+        "pixel_renderer_scale_one": true,
+        "section_crop_function": true,
+        "section_crop_manifest_fields": true,
+        "section_crop_risk_gated": true,
+        "section_companion_top2": true,
+        "risk_section_function": true,
+        "risk_section_top1_companion": true,
+        "section_crop_metrics": true,
+        "empty_section_dedupe_state": true,
+        "empty_section_duplicate_guard": true,
+        "empty_section_signature_persisted": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift empty-frame section dedupe exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "No-candidate page section crops must use separate section signatures so repeated empty-frame sections can be skipped without suppressing later per-question boxes.",
+      "values": {
+        "path": "ios\\PXJ\\App\\ContentView.swift",
+        "exists": true,
+        "weak_text_part_function": true,
+        "weak_text_compatible_function": true,
+        "weak_text_guard_in_signature_similarity": true,
+        "notext_is_not_compatible": true,
+        "uses_near_text_similarity": true,
+        "candidate_rank_function": true,
+        "upload_uses_ranked_candidates": true,
+        "rank_mode_telemetry": true,
+        "limited_risk_telemetry": true,
+        "no_raw_prefix_upload": true,
+        "pixel_resize_helper": true,
+        "vision_resize_uses_pixel_helper": true,
+        "jpeg_uses_pixel_helper": true,
+        "pixel_renderer_scale_one": true,
+        "section_crop_function": true,
+        "section_crop_manifest_fields": true,
+        "section_crop_risk_gated": true,
+        "section_companion_top2": true,
+        "risk_section_function": true,
+        "risk_section_top1_companion": true,
+        "section_crop_metrics": true,
+        "empty_section_dedupe_state": true,
+        "empty_section_duplicate_guard": true,
+        "empty_section_signature_persisted": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift Vision/JPEG resizing is pixel-bound",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Vision analysis and upload JPEG compression must limit real CGImage pixels, not UIImage point size inflated by UIScreen scale.",
+      "values": {
+        "path": "ios\\PXJ\\App\\ContentView.swift",
+        "exists": true,
+        "weak_text_part_function": true,
+        "weak_text_compatible_function": true,
+        "weak_text_guard_in_signature_similarity": true,
+        "notext_is_not_compatible": true,
+        "uses_near_text_similarity": true,
+        "candidate_rank_function": true,
+        "upload_uses_ranked_candidates": true,
+        "rank_mode_telemetry": true,
+        "limited_risk_telemetry": true,
+        "no_raw_prefix_upload": true,
+        "pixel_resize_helper": true,
+        "vision_resize_uses_pixel_helper": true,
+        "jpeg_uses_pixel_helper": true,
+        "pixel_renderer_scale_one": true,
+        "section_crop_function": true,
+        "section_crop_manifest_fields": true,
+        "section_crop_risk_gated": true,
+        "section_companion_top2": true,
+        "risk_section_function": true,
+        "risk_section_top1_companion": true,
+        "section_crop_metrics": true,
+        "empty_section_dedupe_state": true,
+        "empty_section_duplicate_guard": true,
+        "empty_section_signature_persisted": true
+      }
+    },
+    {
+      "category": "backend",
+      "name": "question crop source input_index binding exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Batched crop extraction must preserve model-returned input_index and bind questions to the matching crop before falling back to text similarity.",
+      "values": {
+        "path": "backend\\app\\main.py",
+        "exists": true,
+        "parser_reads_input_index": true,
+        "parser_accepts_source_index_alias": true,
+        "batch_sources_assign_input_index": true,
+        "batch_prompt_requests_input_index": true,
+        "matcher_prefers_input_index": true,
+        "source_meta_persists_input_index": true,
+        "apply_source_meta_after_match": true,
+        "persists_candidate_cap_risk_telemetry": true,
+        "uses_ranked_limit_telemetry_guard": true,
+        "uses_limited_strong_confident_guard": true,
+        "weak_layout_key_ignored_for_crop_source_dedupe": true,
+        "parses_section_crop_kind": true,
+        "section_crop_key_is_weak_for_source_dedupe": true,
+        "persists_section_crop_telemetry": true,
+        "source_meta_persists_section_crop_kind": true,
+        "normalizes_section_extraction_sources": true,
+        "section_prompt_allows_multiple_questions": true,
+        "section_crop_protects_limited_fallback": true
+      }
+    },
+    {
+      "category": "backend",
+      "name": "question crop candidate cap fallback is risk-aware",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Backend fallback must keep old-client candidate-cap safety while using ranked-cap telemetry to avoid unnecessary full-frame VLM fallback.",
+      "values": {
+        "path": "backend\\app\\main.py",
+        "exists": true,
+        "parser_reads_input_index": true,
+        "parser_accepts_source_index_alias": true,
+        "batch_sources_assign_input_index": true,
+        "batch_prompt_requests_input_index": true,
+        "matcher_prefers_input_index": true,
+        "source_meta_persists_input_index": true,
+        "apply_source_meta_after_match": true,
+        "persists_candidate_cap_risk_telemetry": true,
+        "uses_ranked_limit_telemetry_guard": true,
+        "uses_limited_strong_confident_guard": true,
+        "weak_layout_key_ignored_for_crop_source_dedupe": true,
+        "parses_section_crop_kind": true,
+        "section_crop_key_is_weak_for_source_dedupe": true,
+        "persists_section_crop_telemetry": true,
+        "source_meta_persists_section_crop_kind": true,
+        "normalizes_section_extraction_sources": true,
+        "section_prompt_allows_multiple_questions": true,
+        "section_crop_protects_limited_fallback": true
+      }
+    },
+    {
+      "category": "backend",
+      "name": "weak layout crop keys do not pre-dedupe extraction sources",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Backend extraction source enumeration must not use weak layout question keys or their fingerprints to suppress crops before VLM extraction.",
+      "values": {
+        "path": "backend\\app\\main.py",
+        "exists": true,
+        "parser_reads_input_index": true,
+        "parser_accepts_source_index_alias": true,
+        "batch_sources_assign_input_index": true,
+        "batch_prompt_requests_input_index": true,
+        "matcher_prefers_input_index": true,
+        "source_meta_persists_input_index": true,
+        "apply_source_meta_after_match": true,
+        "persists_candidate_cap_risk_telemetry": true,
+        "uses_ranked_limit_telemetry_guard": true,
+        "uses_limited_strong_confident_guard": true,
+        "weak_layout_key_ignored_for_crop_source_dedupe": true,
+        "parses_section_crop_kind": true,
+        "section_crop_key_is_weak_for_source_dedupe": true,
+        "persists_section_crop_telemetry": true,
+        "source_meta_persists_section_crop_kind": true,
+        "normalizes_section_extraction_sources": true,
+        "section_prompt_allows_multiple_questions": true,
+        "section_crop_protects_limited_fallback": true
+      }
+    },
+    {
+      "category": "backend",
+      "name": "section crop sources stay source-safe",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Section crops may contain multiple questions, so backend manifest parsing, source dedupe, fallback policy, prompt text, and persisted extraction metadata must keep them as extraction sources rather than single-question identities.",
+      "values": {
+        "path": "backend\\app\\main.py",
+        "exists": true,
+        "parser_reads_input_index": true,
+        "parser_accepts_source_index_alias": true,
+        "batch_sources_assign_input_index": true,
+        "batch_prompt_requests_input_index": true,
+        "matcher_prefers_input_index": true,
+        "source_meta_persists_input_index": true,
+        "apply_source_meta_after_match": true,
+        "persists_candidate_cap_risk_telemetry": true,
+        "uses_ranked_limit_telemetry_guard": true,
+        "uses_limited_strong_confident_guard": true,
+        "weak_layout_key_ignored_for_crop_source_dedupe": true,
+        "parses_section_crop_kind": true,
+        "section_crop_key_is_weak_for_source_dedupe": true,
+        "persists_section_crop_telemetry": true,
+        "source_meta_persists_section_crop_kind": true,
+        "normalizes_section_extraction_sources": true,
+        "section_prompt_allows_multiple_questions": true,
+        "section_crop_protects_limited_fallback": true
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json: image coverage",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Replay evidence must include at least 30 images.",
+      "values": {
+        "images": 89
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json: rect-only network overhead",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Rect-only manifest strategy must stay <= 1.0050x full-frame bytes.",
+      "values": {
+        "ratio": 1.004
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json: crop VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Deduped crop pixels must stay <= 0.750 of full-frame VLM pixels.",
+      "values": {
+        "ratio": 0.3751
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json: local layout median latency",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Measured local layout median must be <= 80.0 ms.",
+      "values": {
+        "median_ms": 24.959,
+        "p95_ms": 35.984
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: reviewed GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Dedupe tuning must cover at least 10 represented reviewed question keys.",
+      "values": {
+        "gt_available": true,
+        "represented_gt_key_count": 11,
+        "matched_candidate_count": 11
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Dedupe tuning must produce a recommendation under the configured recall/false-merge constraints.",
+      "values": {
+        "recommendation": {
+          "strategy": "image_hash_iou",
+          "baseline": false,
+          "params": {
+            "ahash_threshold": 2,
+            "iou_threshold": 0.45
+          },
+          "raw_count": 67,
+          "selected_count": 64,
+          "removed_count": 3,
+          "removed_rate": 0.044776,
+          "raw_crop_jpeg_bytes": 5622641,
+          "selected_crop_jpeg_bytes": 5049010,
+          "selected_crop_bytes_vs_raw": 0.897978,
+          "raw_crop_resized_pixels": 36886979,
+          "selected_crop_resized_pixels": 34007768,
+          "selected_crop_pixels_vs_raw": 0.921945,
+          "rect_manifest_bytes": 16039,
+          "full_plus_selected_crop_vs_full": 1.629752,
+          "rect_only_selected_vs_full": 1.002001,
+          "selected_crop_pixels_vs_full": 0.576825,
+          "gt_available": true,
+          "represented_gt_key_count": 11,
+          "selected_gt_key_count": 11,
+          "gt_recall": 1.0,
+          "lost_gt_key_count": 0,
+          "lost_gt_keys": [],
+          "false_merge_count": 0,
+          "unknown_gt_suppression_count": 0,
+          "same_image_distinct_index_suppression_count": 0,
+          "near_full_page_selected_count": 33,
+          "small_area_selected_count": 9
+        }
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe settings must keep represented-GT recall >= 0.999.",
+      "values": {
+        "gt_recall": 1.0
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation lost GT keys",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe settings may lose at most 0 represented GT key(s).",
+      "values": {
+        "lost_gt_key_count": 0,
+        "lost_gt_keys": []
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation false merges",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe settings may have at most 0 known false merge(s).",
+      "values": {
+        "false_merge_count": 0
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation unknown GT suppressions",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe settings may suppress at most 0 reviewed candidate(s) against an unverified kept crop.",
+      "values": {
+        "unknown_gt_suppression_count": 0
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation rect-only overhead",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe rect-only overhead must stay <= 1.0050x full-frame bytes.",
+      "values": {
+        "rect_only_selected_vs_full": 1.002001
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: recommendation crop pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Recommended dedupe crop pixels must stay <= 0.750 of full-frame pixels.",
+      "values": {
+        "selected_crop_pixels_vs_full": 0.576825
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: Swift text-guarded weak-key baseline exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Dedupe tuning must include the iOS Swift weak-layout text-guard baseline.",
+      "values": {
+        "swift_text_guard_baseline": {
+          "strategy": "swift_signature",
+          "baseline": true,
+          "params": {
+            "exact_layout_overlap": 0.2,
+            "exact_layout_center": 0.2,
+            "weak_text_guard": true,
+            "weak_overlap": 0.52,
+            "weak_center": 0.08,
+            "same_index_overlap": 0.18,
+            "same_index_center": 0.18,
+            "mixed_overlap": 0.62,
+            "mixed_same_index_overlap": 0.24,
+            "mixed_same_index_center": 0.12,
+            "strong_overlap": 0.34,
+            "strong_center": 0.18,
+            "strong_same_index_center": 0.28
+          },
+          "raw_count": 67,
+          "selected_count": 67,
+          "removed_count": 0,
+          "removed_rate": 0.0,
+          "raw_crop_jpeg_bytes": 5622641,
+          "selected_crop_jpeg_bytes": 5622641,
+          "selected_crop_bytes_vs_raw": 1.0,
+          "raw_crop_resized_pixels": 36886979,
+          "selected_crop_resized_pixels": 36886979,
+          "selected_crop_pixels_vs_raw": 1.0,
+          "rect_manifest_bytes": 16795,
+          "full_plus_selected_crop_vs_full": 1.7013,
+          "rect_only_selected_vs_full": 1.002095,
+          "selected_crop_pixels_vs_full": 0.625661,
+          "gt_available": true,
+          "represented_gt_key_count": 11,
+          "selected_gt_key_count": 11,
+          "gt_recall": 1.0,
+          "lost_gt_key_count": 0,
+          "lost_gt_keys": [],
+          "false_merge_count": 0,
+          "unknown_gt_suppression_count": 0,
+          "same_image_distinct_index_suppression_count": 0,
+          "near_full_page_selected_count": 36,
+          "small_area_selected_count": 9
+        }
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: Swift text-guarded GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS weak-key dedupe baseline must keep represented-GT recall >= 0.999.",
+      "values": {
+        "gt_recall": 1.0
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: Swift text-guarded lost GT keys",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS weak-key dedupe baseline may lose at most 0 represented GT key(s).",
+      "values": {
+        "lost_gt_key_count": 0,
+        "lost_gt_keys": []
+      }
+    },
+    {
+      "category": "dedupe",
+      "name": "diagnostics\\question-observation-dedupe-tune-kpai\\summary.json: Swift text-guarded unknown GT suppressions",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS weak-key dedupe baseline may suppress at most 0 reviewed candidate(s) against an unverified kept crop.",
+      "values": {
+        "unknown_gt_suppression_count": 0
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: backend current policy exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tuning must report the current backend policy as baseline_backend_current.",
+      "values": {
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        }
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: reviewed GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tuning must cover at least 10 represented reviewed GT key(s).",
+      "values": {
+        "represented_gt_key_count": 16
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: backend current GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current backend fallback policy must keep represented-GT recall >= 0.999.",
+      "values": {
+        "policy_gt_recall": 1.0
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: backend current VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current backend fallback policy total VLM pixels must stay <= 1.050x full-frame pixels.",
+      "values": {
+        "total_pixels_vs_full": 0.819493
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: backend current fallback image ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current backend fallback policy may send full-frame fallback for at most 0.500 of crop-bearing images.",
+      "values": {
+        "fallback_image_ratio": 0.382022
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: backend current union-area shadow exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tuning must report a union-area shadow of the current backend policy, so overlapping crop coverage cannot silently hide risky frames.",
+      "values": {
+        "policy_id": "backend_current_union_area_shadow",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        }
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: legacy-to-current delta exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tuning must report the legacy-to-current delta so stricter fallback policies cannot silently hide known GT misses.",
+      "values": {
+        "before_policy_id": "backend_legacy_before_tuned",
+        "after_policy_id": "backend_current",
+        "fallback_removed_image_count": 23,
+        "fallback_added_image_count": 0,
+        "fallback_removed_with_gt_count": 4,
+        "fallback_removed_with_crop_missed_gt_count": 0,
+        "review_queue_images": 19,
+        "review_queue_boxes": 32
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: legacy-removed fallback has no known GT miss",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Legacy-removed fallback frames may contain at most 0 represented GT miss(es).",
+      "values": {
+        "before_policy_id": "backend_legacy_before_tuned",
+        "after_policy_id": "backend_current",
+        "fallback_removed_image_count": 23,
+        "fallback_added_image_count": 0,
+        "fallback_removed_with_gt_count": 4,
+        "fallback_removed_with_crop_missed_gt_count": 0,
+        "review_queue_images": 19,
+        "review_queue_boxes": 32
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: legacy-removed no-GT review queue",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Legacy-removed fallback frames with no represented GT should be reviewed before treating fallback tuning evidence as production-complete.",
+      "values": {
+        "before_policy_id": "backend_legacy_before_tuned",
+        "after_policy_id": "backend_current",
+        "fallback_removed_image_count": 23,
+        "fallback_added_image_count": 0,
+        "fallback_removed_with_gt_count": 4,
+        "fallback_removed_with_crop_missed_gt_count": 0,
+        "review_queue_images": 19,
+        "review_queue_boxes": 32
+      }
+    },
+    {
+      "category": "candidate_eval",
+      "name": "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated\\summary.json: reviewed GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Candidate eval must cover at least 10 represented reviewed GT key(s) after duplicate clustering.",
+      "values": {
+        "represented_gt_key_count": 16,
+        "raw_represented_gt_key_count": 16
+      }
+    },
+    {
+      "category": "candidate_eval",
+      "name": "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated\\summary.json: represented GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation crop candidates must cover represented-GT recall >= 0.999.",
+      "values": {
+        "represented_gt_recall": 1.0
+      }
+    },
+    {
+      "category": "candidate_eval",
+      "name": "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated\\summary.json: crop VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation crop candidates must stay <= 0.750x full-frame VLM pixels.",
+      "values": {
+        "crop_pixels_vs_full_frame_pixels": 0.434122
+      }
+    },
+    {
+      "category": "candidate_eval",
+      "name": "diagnostics\\question-observation-candidate-eval-reviewed-propagated-layout-v5-gated\\summary.json: overcrop candidates",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation candidate eval may have at most 0 overcrop candidate(s).",
+      "values": {
+        "overcrop_match_count": 0,
+        "overcrop_ratio_p90": 1.954309
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: current cap row exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Candidate cap sweep must report the current iOS per-frame cap.",
+      "values": {
+        "current_cap": {
+          "cap": 12,
+          "cap_label": "12",
+          "image_count": 89,
+          "represented_gt_key_count": 16,
+          "selected_candidate_count": 218,
+          "skipped_candidate_count": 44,
+          "skipped_strong_candidate_count": 0,
+          "skipped_confident_candidate_count": 0,
+          "selected_covered_gt_key_count": 16,
+          "selected_gt_recall": 1.0,
+          "policy_covered_gt_key_count": 16,
+          "policy_gt_recall": 1.0,
+          "fallback_image_count": 34,
+          "fallback_image_ratio": 0.382022,
+          "fallback_reason_counts": {
+            "no_crops": 18,
+            "no_large_question_crop": 3,
+            "single_low_coverage_crop": 10,
+            "sparse_low_coverage_crops": 2,
+            "tiny_crop_coverage": 1
+          },
+          "selected_crop_pixels": 54227034,
+          "fallback_full_frame_pixels": 48960000,
+          "total_vlm_pixels": 103187034,
+          "full_frame_all_pixels": 127046400,
+          "selected_crop_pixels_vs_full": 0.426829,
+          "total_pixels_vs_full": 0.8122,
+          "selected_crop_jpeg_bytes": 6789074
+        }
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: represented GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Candidate cap sweep must cover at least 10 represented reviewed GT key(s).",
+      "values": {
+        "represented_gt_key_count": 16
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: current cap crop-only GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS per-frame cap must keep crop-only represented-GT recall >= 0.999.",
+      "values": {
+        "selected_gt_recall": 1.0
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: current cap fallback-protected GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS per-frame cap with backend fallback must keep represented-GT recall >= 0.999.",
+      "values": {
+        "policy_gt_recall": 1.0
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: current cap VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Current iOS per-frame cap total crop+fallback VLM pixels must stay <= 1.050x full-frame pixels.",
+      "values": {
+        "total_pixels_vs_full": 0.8122
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: current cap skips no high-risk candidates",
+      "passed": true,
+      "severity": "warning",
+      "detail": "Current iOS per-frame cap should not skip strong-OCR or high-confidence candidates; fallback may protect recall, but this is a dense-page cost/risk signal.",
+      "values": {
+        "skipped_strong_candidate_count": 0,
+        "skipped_confident_candidate_count": 0
+      }
+    },
+    {
+      "category": "candidate_cap",
+      "name": "diagnostics\\question-observation-candidate-cap-sweep-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: cap recommendation exists",
+      "passed": true,
+      "severity": "warning",
+      "detail": "Candidate cap sweep should produce a lowest-cost cap recommendation under the configured recall constraints.",
+      "values": {
+        "recommendation": {
+          "cap": 10,
+          "cap_label": "10",
+          "image_count": 89,
+          "represented_gt_key_count": 16,
+          "selected_candidate_count": 203,
+          "skipped_candidate_count": 59,
+          "skipped_strong_candidate_count": 0,
+          "skipped_confident_candidate_count": 0,
+          "selected_covered_gt_key_count": 16,
+          "selected_gt_recall": 1.0,
+          "policy_covered_gt_key_count": 16,
+          "policy_gt_recall": 1.0,
+          "fallback_image_count": 34,
+          "fallback_image_ratio": 0.382022,
+          "fallback_reason_counts": {
+            "no_crops": 18,
+            "no_large_question_crop": 3,
+            "single_low_coverage_crop": 10,
+            "sparse_low_coverage_crops": 2,
+            "tiny_crop_coverage": 1
+          },
+          "selected_crop_pixels": 53820566,
+          "fallback_full_frame_pixels": 48960000,
+          "total_vlm_pixels": 102780566,
+          "full_frame_all_pixels": 127046400,
+          "selected_crop_pixels_vs_full": 0.423629,
+          "total_pixels_vs_full": 0.809,
+          "selected_crop_jpeg_bytes": 6724384
+        }
+      }
+    },
+    {
+      "category": "evidence",
+      "name": "reviewed replay evidence is same source",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tune, candidate eval, and candidate-cap sweep must be generated from the same complete replay list, image counts, candidate counts, and full-frame pixel totals.",
+      "values": {
+        "replays": {
+          "fallback_tune": [
+            [
+              {
+                "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+                "image_count": 89,
+                "candidate_count": 262,
+                "full_frame_resized_pixels": 127046400
+              }
+            ]
+          ],
+          "candidate_eval": [
+            [
+              {
+                "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+                "image_count": 89,
+                "candidate_count": 262,
+                "full_frame_resized_pixels": 127046400
+              }
+            ]
+          ],
+          "candidate_cap_sweep": [
+            [
+              {
+                "path": "diagnostics/question-observation-replay-reviewed-propagated-layout-v5-gated",
+                "image_count": 89,
+                "candidate_count": 262,
+                "full_frame_resized_pixels": 127046400
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "category": "evidence",
+      "name": "reviewed GT source is consistent across replay evidence",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tune, candidate eval, and candidate-cap sweep must report the same reviewed GT manifest source list.",
+      "values": {
+        "ground_truth_manifests": {
+          "fallback_tune": [
+            [
+              "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+            ]
+          ],
+          "candidate_eval": [
+            [
+              "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+            ]
+          ],
+          "candidate_cap_sweep": [
+            [
+              "diagnostics/question-detector-dataset-merged-reviewed-next-propagated-exact/annotations/manifest.jsonl"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "category": "evidence",
+      "name": "reviewed GT volume is consistent across replay evidence",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fallback tune, candidate eval, and candidate-cap sweep must report the same represented reviewed GT count.",
+      "values": {
+        "represented_gt_key_counts": {
+          "fallback_tune": [
+            16
+          ],
+          "candidate_eval": [
+            16
+          ],
+          "candidate_cap_sweep": [
+            16
+          ]
+        }
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json: dense represented GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Section sender eval must cover at least 200 represented GT key(s) for cap_overflow evidence.",
+      "values": {
+        "represented_gt_key_count": 256,
+        "evidence_kind": "cap_overflow"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json: combined crop GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender combined crop recall must be >= 0.999.",
+      "values": {
+        "combined_crop_gt_recall": 1.0,
+        "evidence_kind": "cap_overflow"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json: fallback-protected GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback-protected recall must be >= 0.999.",
+      "values": {
+        "policy_gt_recall": 1.0,
+        "evidence_kind": "cap_overflow"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json: dense VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender total VLM pixels must stay <= 0.750x full-frame pixels for cap_overflow evidence.",
+      "values": {
+        "total_pixels_vs_full": 0.701777,
+        "evidence_kind": "cap_overflow"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-oracle\\summary.json: dense fallback image ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback image ratio must stay <= 0.050 for cap_overflow evidence.",
+      "values": {
+        "fallback_image_ratio": 0.0,
+        "evidence_kind": "cap_overflow"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json: dense represented GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Section sender eval must cover at least 200 represented GT key(s) for empty_frame evidence.",
+      "values": {
+        "represented_gt_key_count": 256,
+        "evidence_kind": "empty_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json: combined crop GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender combined crop recall must be >= 0.999.",
+      "values": {
+        "combined_crop_gt_recall": 1.0,
+        "evidence_kind": "empty_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json: fallback-protected GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback-protected recall must be >= 0.999.",
+      "values": {
+        "policy_gt_recall": 1.0,
+        "evidence_kind": "empty_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json: dense VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender total VLM pixels must stay <= 0.750x full-frame pixels for empty_frame evidence.",
+      "values": {
+        "total_pixels_vs_full": 0.563498,
+        "evidence_kind": "empty_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-synthetic-dense-layout-empty-section\\summary.json: dense fallback image ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback image ratio must stay <= 0.050 for empty_frame evidence.",
+      "values": {
+        "fallback_image_ratio": 0.0,
+        "evidence_kind": "empty_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json: dense represented GT available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Section sender eval must cover at least 10 represented GT key(s) for risk_frame evidence.",
+      "values": {
+        "represented_gt_key_count": 16,
+        "evidence_kind": "risk_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json: combined crop GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender combined crop recall must be >= 0.999.",
+      "values": {
+        "combined_crop_gt_recall": 1.0,
+        "evidence_kind": "risk_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json: fallback-protected GT recall",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback-protected recall must be >= 0.999.",
+      "values": {
+        "policy_gt_recall": 1.0,
+        "evidence_kind": "risk_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json: dense VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender total VLM pixels must stay <= 0.900x full-frame pixels for risk_frame evidence.",
+      "values": {
+        "total_pixels_vs_full": 0.810149,
+        "evidence_kind": "risk_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "diagnostics\\question-observation-section-sender-eval-propagated-risk-section-top1-ios-signals\\summary.json: dense fallback image ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "iOS section sender fallback image ratio must stay <= 0.250 for risk_frame evidence.",
+      "values": {
+        "fallback_image_ratio": 0.202247,
+        "evidence_kind": "risk_frame"
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "cap-overflow section sender evidence supplied",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Release check requires a dense cap-overflow sender report with skipped candidates and section crops, not just an empty-frame report.",
+      "values": {
+        "evidence_kinds": [
+          "cap_overflow",
+          "empty_frame",
+          "risk_frame"
+        ]
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "empty-frame section sender evidence supplied",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Release check requires a no-candidate empty-frame sender report with enable_empty_frame_section=true and section crops, not just a cap-overflow report.",
+      "values": {
+        "evidence_kinds": [
+          "cap_overflow",
+          "empty_frame",
+          "risk_frame"
+        ]
+      }
+    },
+    {
+      "category": "section_sender",
+      "name": "risk-frame section sender evidence supplied",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Release check requires a sparse weak/low-coverage sender report with enable_risk_frame_section=true, so removed full-frame fallback risk is covered by section crops.",
+      "values": {
+        "evidence_kinds": [
+          "cap_overflow",
+          "empty_frame",
+          "risk_frame"
+        ]
+      }
+    },
+    {
+      "category": "strategy_selection",
+      "name": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json: strategy rows available",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Strategy selection must include normalized crop/fallback/section rows.",
+      "values": {
+        "row_count": 24
+      }
+    },
+    {
+      "category": "strategy_selection",
+      "name": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json: reviewed live strategy passes recall/cost gate",
+      "passed": true,
+      "severity": "hard",
+      "detail": "At least one reviewed live observation strategy must satisfy recall, fallback-ratio, and VLM-pixel gates.",
+      "values": {
+        "min_strategy_gt_keys": 10,
+        "min_strategy_gt_recall": 0.999,
+        "max_strategy_total_pixels_vs_full": 0.9,
+        "max_strategy_fallback_image_ratio": 0.25,
+        "best_reviewed_passing_strategy": {
+          "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+          "family": "section_sender",
+          "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+          "evidence_kind": "reviewed_kpai",
+          "represented_gt_key_count": 11,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.02439,
+          "total_pixels_vs_full": 0.76223,
+          "status": "live"
+        }
+      }
+    },
+    {
+      "category": "strategy_selection",
+      "name": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json: propagated reviewed live strategy passes recall/cost gate",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Broader propagated reviewed evidence must include a live observation strategy that satisfies recall, fallback-ratio, and VLM-pixel gates.",
+      "values": {
+        "propagated_live_row_count": 3,
+        "best_propagated_passing_strategy": {
+          "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:ios_sender",
+          "family": "section_sender",
+          "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+          "evidence_kind": "reviewed_propagated",
+          "represented_gt_key_count": 16,
+          "recall": 1.0,
+          "fallback_image_ratio": 0.202247,
+          "total_pixels_vs_full": 0.810149,
+          "status": "live"
+        }
+      }
+    },
+    {
+      "category": "strategy_selection",
+      "name": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json: synthetic stress rows are not production recommendations",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Strategy selection must keep synthetic stress rows out of best_reviewed_live_by_cost.",
+      "values": {
+        "best_reviewed_live_by_cost": [
+          {
+            "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+            "family": "section_sender",
+            "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+            "evidence_kind": "reviewed_kpai",
+            "represented_gt_key_count": 11,
+            "recall": 1.0,
+            "fallback_image_ratio": 0.02439,
+            "total_pixels_vs_full": 0.76223,
+            "status": "live"
+          },
+          {
+            "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:backend_current",
+            "family": "fallback_policy",
+            "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+            "evidence_kind": "reviewed_kpai",
+            "represented_gt_key_count": 11,
+            "recall": 1.0,
+            "fallback_image_ratio": 0.170732,
+            "total_pixels_vs_full": 0.784856,
+            "status": "live"
+          },
+          {
+            "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:cap_12",
+            "family": "candidate_cap",
+            "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+            "evidence_kind": "reviewed_kpai",
+            "represented_gt_key_count": 11,
+            "recall": 1.0,
+            "fallback_image_ratio": 0.170732,
+            "total_pixels_vs_full": 0.784856,
+            "status": "live"
+          },
+          {
+            "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:ios_sender",
+            "family": "section_sender",
+            "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+            "evidence_kind": "reviewed_propagated",
+            "represented_gt_key_count": 16,
+            "recall": 1.0,
+            "fallback_image_ratio": 0.202247,
+            "total_pixels_vs_full": 0.810149,
+            "status": "live"
+          },
+          {
+            "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:cap_12",
+            "family": "candidate_cap",
+            "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+            "evidence_kind": "reviewed_propagated",
+            "represented_gt_key_count": 16,
+            "recall": 1.0,
+            "fallback_image_ratio": 0.382022,
+            "total_pixels_vs_full": 0.8122,
+            "status": "live"
+          }
+        ]
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: runtime evidence is not a fixture",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Runtime perf fixtures are allowed only for explicit release-gate smoke checks; release candidates need live/simulator telemetry.",
+      "values": {
+        "evidence_kind": "fixture",
+        "allow_runtime_fixture": true
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: runtime record coverage",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Runtime perf evidence must include at least 5 observation batch record(s).",
+      "values": {
+        "record_count": 6
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: rect-only transport remains fileless",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Observation question crop uploads must not attach crop JPEG files.",
+      "values": {
+        "attached_crop_file_count": 0
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: local analysis p95 latency",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Live/simulator local analysis p95 must stay <= 300.0 ms.",
+      "values": {
+        "analysis_p95_ms": 114.5
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: backend crop p95 latency",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Backend canonical crop expansion p95 must stay <= 250.0 ms.",
+      "values": {
+        "server_p95_ms": 30.0
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: cached segmentation reuse",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Fresh OCR frame ratio must stay <= 0.750; uploads should reuse live-scan cache.",
+      "values": {
+        "fresh_ocr_ratio": 0.205128
+      }
+    },
+    {
+      "category": "runtime",
+      "name": "diagnostics\\question-observation-runtime-perf-fixture-check\\summary.json: runtime perf script passed",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Runtime perf check summary must pass its own configured checks.",
+      "values": {
+        "passed": true
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Xcode build succeeded",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Latest iOS build log must show a successful build after bundling the detector.",
+      "values": {}
+    }
+  ],
+  "hard_failures": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: model_training_ready",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable.",
+      "values": {
+        "path": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json",
+        "pilot_eval_ready": true,
+        "model_training_ready": false,
+        "has_error": false,
+        "source_images": 89,
+        "positive_images": 9,
+        "negative_images": 80,
+        "annotations": 16,
+        "split_groups": 20,
+        "warning_count": 3
+      }
+    },
+    {
+      "category": "selection",
+      "name": "selection summary exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Missing selection_summary.json.",
+      "values": {}
+    },
+    {
+      "category": "artifact",
+      "name": "Core ML artifact exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact.",
+      "values": {
+        "artifacts": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "QuestionRegionDetector bundled in iOS app sources",
+      "passed": false,
+      "severity": "hard",
+      "detail": "iOS target must include QuestionRegionDetector.mlmodel/.mlpackage or compiled .mlmodelc.",
+      "values": {
+        "resources": []
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: audit warnings",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Dataset audit contains 3 warning(s); inspect before relying on the release report.",
+      "values": {
+        "warnings": [
+          {
+            "code": "too_few_images",
+            "severity": "warning",
+            "detail": "89 source images; target >= 300 for model selection."
+          },
+          {
+            "code": "too_few_annotations",
+            "severity": "warning",
+            "detail": "16 annotations; target >= 1000 for model selection."
+          },
+          {
+            "code": "too_few_split_groups",
+            "severity": "warning",
+            "detail": "20 split groups; target >= 50 for held-out evaluation."
+          }
+        ]
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json: legacy-removed no-GT review queue",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Legacy-removed fallback frames with no represented GT should be reviewed before treating fallback tuning evidence as production-complete.",
+      "values": {
+        "before_policy_id": "backend_legacy_before_tuned",
+        "after_policy_id": "backend_current",
+        "fallback_removed_image_count": 23,
+        "fallback_added_image_count": 0,
+        "fallback_removed_with_gt_count": 4,
+        "fallback_removed_with_crop_missed_gt_count": 0,
+        "review_queue_images": 19,
+        "review_queue_boxes": 32
+      }
+    }
+  ]
+}

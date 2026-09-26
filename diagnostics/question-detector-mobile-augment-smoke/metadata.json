@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-30T03:34:53.229408+00:00",
+  "source_dataset": "diagnostics\\question-detector-active-batch-kpai-001-approved-smoke",
+  "seed": 42,
+  "variants_per_image": 2,
+  "max_crop_fraction": 0.035,
+  "min_box_area_ratio": 0.55,
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images_before_augmentation": 83,
+      "source_images": 249,
+      "images": 249,
+      "positive_images": 9,
+      "negative_images": 240,
+      "annotations": 18,
+      "split_groups": 20,
+      "augmented_images": 166,
+      "skipped_variants": 0
+    },
+    "split_counts": {
+      "train": {
+        "images": 222,
+        "positive_images": 3,
+        "negative_images": 219,
+        "annotations": 6,
+        "groups": 15
+      },
+      "val": {
+        "images": 15,
+        "positive_images": 3,
+        "negative_images": 12,
+        "annotations": 6,
+        "groups": 3
+      },
+      "test": {
+        "images": 12,
+        "positive_images": 3,
+        "negative_images": 9,
+        "annotations": 6,
+        "groups": 2
+      }
+    },
+    "warnings": [
+      {
+        "code": "source_dataset_not_model_ready",
+        "severity": "warning",
+        "detail": "Augmentation output inherits model_training_ready=false because the source dataset was not model_training_ready."
+      },
+      {
+        "code": "augmented_dataset",
+        "severity": "warning",
+        "detail": "Augmented images improve robustness but do not replace source-image diversity or human-reviewed labels."
+      }
+    ]
+  }
+}

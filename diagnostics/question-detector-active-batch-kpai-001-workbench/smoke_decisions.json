@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "source": "diagnostics\\question-detector-active-batch-kpai-001",
+  "generated_at": "2026-06-30T00:00:00Z",
+  "decisions": {
+    "00001:91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg": {
+      "image": "images/91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 512,
+            "y": 0,
+            "width": 1063,
+            "height": 63
+          },
+          "note": "active batch smoke approval"
+        },
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 237,
+            "y": 62,
+            "width": 1348,
+            "height": 1018
+          },
+          "note": "active batch smoke approval"
+        }
+      ]
+    },
+    "00002:6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg": {
+      "image": "images/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 173,
+            "y": 0,
+            "width": 1443,
+            "height": 946
+          },
+          "note": "active batch smoke approval"
+        },
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 475,
+            "y": 949,
+            "width": 1137,
+            "height": 26
+          },
+          "note": "active batch smoke approval"
+        }
+      ]
+    },
+    "00003:1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 43,
+            "y": 267,
+            "width": 693,
+            "height": 706
+          },
+          "note": "active batch smoke approval"
+        },
+        {
+          "status": "approved",
+          "bbox_px": {
+            "x": 165,
+            "y": 960,
+            "width": 571,
+            "height": 144
+          },
+          "note": "active batch smoke approval"
+        }
+      ]
+    },
+    "00004:005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg": {
+      "image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 334,
+            "y": 0,
+            "width": 1778,
+            "height": 258
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 192,
+            "width": 2153,
+            "height": 2994
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00005:0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg": {
+      "image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 392,
+            "y": 210,
+            "width": 1248,
+            "height": 676
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 392,
+            "y": 955,
+            "width": 964,
+            "height": 33
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00006:4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg": {
+      "image": "images/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 591,
+            "y": 358,
+            "width": 1011,
+            "height": 75
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 591,
+            "y": 439,
+            "width": 1284,
+            "height": 640
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00007:2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg": {
+      "image": "images/2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 752,
+            "y": 1305,
+            "width": 1840,
+            "height": 683
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 752,
+            "y": 1968,
+            "width": 1529,
+            "height": 521
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 752,
+            "y": 2475,
+            "width": 1840,
+            "height": 539
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 752,
+            "y": 3040,
+            "width": 1451,
+            "height": 142
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00008:4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg": {
+      "image": "images/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 380,
+            "y": 291,
+            "width": 1205,
+            "height": 702
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 614,
+            "y": 1024,
+            "width": 971,
+            "height": 55
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00009:62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg": {
+      "image": "images/62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 2187,
+            "y": 1097,
+            "width": 1013,
+            "height": 277
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 2187,
+            "y": 1333,
+            "width": 1013,
+            "height": 1067
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00010:0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg": {
+      "image": "images/0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 566,
+            "y": 88,
+            "width": 1064,
+            "height": 117
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 185,
+            "y": 228,
+            "width": 1445,
+            "height": 852
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00011:b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 154,
+            "y": 240,
+            "width": 886,
+            "height": 686
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 154,
+            "y": 931,
+            "width": 845,
+            "height": 147
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00012:6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg": {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1303,
+            "height": 1079
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00013:6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg": {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1622,
+            "height": 1079
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00014:6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg": {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 457,
+            "y": 0,
+            "width": 1463,
+            "height": 1079
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00015:6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg": {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1296,
+            "height": 1079
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00016:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1809,
+            "height": 1079
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00017:1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg": {
+      "image": "images/1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1061,
+            "height": 1001
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00018:1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 395,
+            "y": 69,
+            "width": 2805,
+            "height": 910
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 825,
+            "y": 891,
+            "width": 2290,
+            "height": 398
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 395,
+            "y": 1223,
+            "width": 2713,
+            "height": 329
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00019:2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg": {
+      "image": "images/2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 1351,
+            "y": 2464,
+            "width": 859,
+            "height": 281
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 1351,
+            "y": 2715,
+            "width": 793,
+            "height": 222
+          },
+          "note": "smoke reject"
+        },
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 1351,
+            "y": 2942,
+            "width": 779,
+            "height": 215
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00020:005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg": {
+      "image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1022,
+            "height": 761
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00021:1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 2094,
+            "y": 245,
+            "width": 775,
+            "height": 539
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00022:299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg": {
+      "image": "images/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 304,
+            "y": 0,
+            "width": 1289,
+            "height": 831
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00023:3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg": {
+      "image": "images/3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 2263,
+            "height": 1568
+          },
+          "note": "smoke reject"
+        }
+      ]
+    },
+    "00024:4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg": {
+      "image": "images/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg",
+      "note": "active batch smoke only",
+      "boxes": [
+        {
+          "status": "rejected",
+          "bbox_px": {
+            "x": 1111,
+            "y": 425,
+            "width": 809,
+            "height": 654
+          },
+          "note": "smoke reject"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "model_selection_passed",
+  "next_actions": [
+    "complete_review_workbenches",
+    "grow_reviewed_dataset",
+    "annotate_more_boxes",
+    "diversify_sessions",
+    "run_release_gate",
+    "keep_rect_only_upload"
+  ],
+  "out": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\iteration_report"
+}

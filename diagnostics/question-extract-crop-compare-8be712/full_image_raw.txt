@@ -1,0 +1,76 @@
+```json
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "1",
+      "text": "圈一圈，算一算。 15×6= 24×4=",
+      "student_answer": "90 96",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "2",
+      "text": "填一填。 54×4= 91×9= 102×7=",
+      "student_answer": "216 819 714",
+      "uncertain": false
+    },
+    {
+      "index": 3,
+      "number": "3",
+      "text": "算一算，说一说。 一共有多少只小鸡？ 一共有多少只小鸭？",
+      "student_answer": "4×5+3=60(只) 一共有60只 4×5+3=23(只) 一共有23只",
+      "uncertain": false
+    },
+    {
+      "index": 4,
+      "number": "4",
+      "text": "300×6= 15×6= 315×6= 400×7= 7×7= 407×7= 500×3= 40×3= 540×3=",
+      "student_answer": "1800 90 1890 2800 49 2849 1500 120 1620",
+      "uncertain": false
+    },
+    {
+      "index": 5,
+      "number": "5",
+      "text": "用竖式计算，说一说竖式每一步的意思。 216×4= 53×8= 490×3= 607×5=",
+      "student_answer": "864 424 1470 3035",
+      "uncertain": false
+    },
+    {
+      "index": 6,
+      "number": "6",
+      "text": "森林医生。",
+      "student_answer": "unrecognized",
+      "uncertain": false
+    },
+    {
+      "index": 7,
+      "number": "7",
+      "text": "算一算，比一比，你发现了什么？你能写出两组类似的吗？ 12×6 16×2 14×5 15×4 25×4 24×5 16×5 15×6",
+      "student_answer": "unrecognized",
+      "uncertain": false
+    },
+    {
+      "index": 8,
+      "number": "8",
+      "text": "哪两个数相乘的积最接近圈中的数？把它们连起来。 1200 621 3 9 489 148 2 316 2000 4 8 5 385 550",
+      "student_answer": "unrecognized",
+      "uncertain": false
+    },
+    {
+      "index": 9,
+      "number": "9",
+      "text": "这些南瓜能一次运走吗？ 65个 65个 65个 65个 65个 65个 65个 一共收了510个南瓜。",
+      "student_answer": "65×8=520(个) 520>510",
+      "uncertain": false
+    },
+    {
+      "index": 10,
+      "number": "10",
+      "text": "胜利小学5名老师带领88名学生参观科技馆，用500元买门票，够不够？实际花了多少元？ 成人票8元 学生票5元",
+      "student_answer": "5×8+5",
+      "uncertain": false
+    }
+  ]
+}
+```

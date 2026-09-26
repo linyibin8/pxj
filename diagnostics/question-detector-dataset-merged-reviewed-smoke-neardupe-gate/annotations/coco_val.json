@@ -1,0 +1,191 @@
+{
+  "info": {
+    "description": "PXJ weak question-region detector dataset",
+    "version": "v1",
+    "generated_at": "2026-06-30T05:02:35.730308+00:00"
+  },
+  "images": [
+    {
+      "id": 82,
+      "file_name": "images/val/3a086344426e3f06_52c32de44722cc04_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c8.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:a1b072dbd80348609b9f3094cb9c9479",
+      "source_filename": "52c32de44722cc04_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl",
+      "label_count": 1,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed"
+      ]
+    },
+    {
+      "id": 83,
+      "file_name": "images/val/41bd608206083e1f_3ba77ada0db6da74_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce4.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "source_filename": "3ba77ada0db6da74_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 84,
+      "file_name": "images/val/4ff336e5988c208a_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "val",
+      "split_key": "b8e26671dfc145a3a5c521c5971db4a5",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "source_filename": "b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 85,
+      "file_name": "images/val/7bc9649f42cb8961_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 86,
+      "file_name": "images/val/a860fc028776231a_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 87,
+      "file_name": "images/val/aa35f6f9bdbe3fda_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046f4bf10ec3e75083ba5.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046f4bf10ec3e75083ba5.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 83,
+      "category_id": 1,
+      "bbox": [
+        233,
+        63,
+        1473,
+        106
+      ],
+      "area": 156138,
+      "iscrowd": 0,
+      "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 2,
+      "image_id": 83,
+      "category_id": 1,
+      "bbox": [
+        235,
+        184,
+        1472,
+        621
+      ],
+      "area": 914112,
+      "iscrowd": 0,
+      "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 3,
+      "image_id": 82,
+      "category_id": 1,
+      "bbox": [
+        358,
+        0,
+        1013,
+        843
+      ],
+      "area": 853959,
+      "iscrowd": 0,
+      "question_key": "reviewed:a1b072dbd80348609b9f3094cb9c9479:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:a1b072dbd80348609b9f3094cb9c9479",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

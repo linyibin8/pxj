@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-30T02:13:41.934723+00:00",
+  "sqlite": [
+    "D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3"
+  ],
+  "data_dir": "D:\\AI\\kpai\\backend\\data",
+  "positive_candidates": 55,
+  "negative_candidates": 80,
+  "outputs": {
+    "positive_candidates": "positive_candidates.jsonl",
+    "negative_candidates": "negative_candidates.jsonl",
+    "positive_contact_sheet": "positive_contact_sheet.jpg",
+    "negative_contact_sheet": "negative_contact_sheet.jpg"
+  }
+}

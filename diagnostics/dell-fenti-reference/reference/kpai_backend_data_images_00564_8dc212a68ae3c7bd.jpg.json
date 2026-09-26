@@ -1,0 +1,268 @@
+{
+ "count": 15,
+ "questions": [
+  {
+   "id": "21",
+   "text": "21. Kitty isn't feel (feel) well today, so she don't (do) go to school.",
+   "type": "fill",
+   "bbox": [
+    335,
+    111,
+    617,
+    145
+   ],
+   "nbox": [
+    0.2094,
+    0.1233,
+    0.3856,
+    0.1611
+   ]
+  },
+  {
+   "id": "22",
+   "text": "22. Kitty wearing (wear) a new yellow skirt today. She like (like) the colour best.",
+   "type": "fill",
+   "bbox": [
+    335,
+    145,
+    617,
+    188
+   ],
+   "nbox": [
+    0.2094,
+    0.1611,
+    0.3856,
+    0.2089
+   ]
+  },
+  {
+   "id": "23",
+   "text": "23. The brown trousers are (be) my size. They're too big for mine (I).",
+   "type": "fill",
+   "bbox": [
+    335,
+    188,
+    617,
+    222
+   ],
+   "nbox": [
+    0.2094,
+    0.2089,
+    0.3856,
+    0.2467
+   ]
+  },
+  {
+   "id": "24",
+   "text": "24. Linda and Kitty play (play) yo-yo together this Sunday.",
+   "type": "fill",
+   "bbox": [
+    335,
+    222,
+    617,
+    256
+   ],
+   "nbox": [
+    0.2094,
+    0.2467,
+    0.3856,
+    0.2844
+   ]
+  },
+  {
+   "id": "25",
+   "text": "25. The rabbit is crying (cry) now because he has no food.",
+   "type": "fill",
+   "bbox": [
+    335,
+    256,
+    617,
+    290
+   ],
+   "nbox": [
+    0.2094,
+    0.2844,
+    0.3856,
+    0.3222
+   ]
+  },
+  {
+   "id": "26",
+   "text": "26. We like Shanghai because it's beautiful. (对划线部分提问) why do you like Shanghai?",
+   "type": "fill",
+   "bbox": [
+    335,
+    356,
+    617,
+    412
+   ],
+   "nbox": [
+    0.2094,
+    0.3956,
+    0.3856,
+    0.4578
+   ]
+  },
+  {
+   "id": "27",
+   "text": "27. Danny is good at Maths and English. (对划线部分提问) What Danny good at?",
+   "type": "fill",
+   "bbox": [
+    335,
+    412,
+    617,
+    468
+   ],
+   "nbox": [
+    0.2094,
+    0.4578,
+    0.3856,
+    0.52
+   ]
+  },
+  {
+   "id": "28",
+   "text": "28. My mother will go to Sanya. (改为一般疑问句) Is your mother going to Sanya?",
+   "type": "fill",
+   "bbox": [
+    335,
+    468,
+    617,
+    524
+   ],
+   "nbox": [
+    0.2094,
+    0.52,
+    0.3856,
+    0.5822
+   ]
+  },
+  {
+   "id": "29",
+   "text": "29. I will live in Beijing in the future. (改为否定句) I will not live in Beijing in the future.",
+   "type": "fill",
+   "bbox": [
+    335,
+    524,
+    617,
+    580
+   ],
+   "nbox": [
+    0.2094,
+    0.5822,
+    0.3856,
+    0.6444
+   ]
+  },
+  {
+   "id": "30",
+   "text": "30. Sally's mother is tidying up the bedroom. (对画线部分提问) Is Sally's mother tidying up the bedroom?",
+   "type": "fill",
+   "bbox": [
+    335,
+    580,
+    617,
+    636
+   ],
+   "nbox": [
+    0.2094,
+    0.6444,
+    0.3856,
+    0.7067
+   ]
+  },
+  {
+   "id": "31",
+   "text": "31. We will love here soon. (变为否定句) We will not love here soon.",
+   "type": "fill",
+   "bbox": [
+    335,
+    636,
+    617,
+    692
+   ],
+   "nbox": [
+    0.2094,
+    0.7067,
+    0.3856,
+    0.7689
+   ]
+  },
+  {
+   "id": "32",
+   "text": "32. This book is mine. (改为一般疑问句) This book yours?",
+   "type": "fill",
+   "bbox": [
+    335,
+    692,
+    617,
+    748
+   ],
+   "nbox": [
+    0.2094,
+    0.7689,
+    0.3856,
+    0.8311
+   ]
+  },
+  {
+   "id": "33",
+   "text": "33. Ms Guo isn't asking the children about the day. (变为肯定句) Ms Guo asking the children about the day.",
+   "type": "fill",
+   "bbox": [
+    335,
+    748,
+    617,
+    804
+   ],
+   "nbox": [
+    0.2094,
+    0.8311,
+    0.3856,
+    0.8933
+   ]
+  },
+  {
+   "id": "34",
+   "text": "34. Do you know when they'll visit the library? (作否定回答) They will visit library?",
+   "type": "fill",
+   "bbox": [
+    335,
+    804,
+    617,
+    860
+   ],
+   "nbox": [
+    0.2094,
+    0.8933,
+    0.3856,
+    0.9556
+   ]
+  },
+  {
+   "id": "35",
+   "text": "35. I'll meet them at the school gate. (变为否定句) I'll not meet them at the school gate.",
+   "type": "fill",
+   "bbox": [
+    335,
+    860,
+    617,
+    916
+   ],
+   "nbox": [
+    0.2094,
+    0.9556,
+    0.3856,
+    1.0178
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 13.4,
+  "finish": "stop"
+ }
+}

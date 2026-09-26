@@ -1,0 +1,22 @@
+{
+  "candidates": "diagnostics\\question-detector-dell-reference-filtered-v4\\teacher_candidate_boxes.jsonl",
+  "rejected": "diagnostics\\question-detector-dell-reference-filtered-v4\\teacher_rejected_boxes.jsonl",
+  "out": "diagnostics\\question-detector-dell-reference-regionized-v1",
+  "stats": {
+    "boxes": 1676,
+    "images": 437,
+    "skipped_legacy": 4,
+    "skipped_unregionizable": 5
+  },
+  "images": 437,
+  "boxes": 1676,
+  "outputs": {
+    "candidate_regions": "candidate_regions.jsonl",
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "preview": "regionized_candidate_preview.jpg"
+  },
+  "notes": [
+    "Output boxes are candidate full-question regions, not gold labels.",
+    "Use the review workbench or visual teacher approval before packaging as training data."
+  ]
+}

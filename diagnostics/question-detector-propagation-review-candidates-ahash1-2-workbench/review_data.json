@@ -1,0 +1,75 @@
+{
+  "source": "diagnostics\\question-detector-propagation-review-candidates-ahash1-2",
+  "generated_at": "2026-06-30T06:21:07.423926+00:00",
+  "items": [
+    {
+      "image": "images/4e95b968e77c7ea5_0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "source_candidate": "positive/0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "40d33d925d6041beb6d4a596cebdda95",
+        "session_id": "0b308a3f04c649bbb09b95d8b99f3422",
+        "batch_id": "qa",
+        "qa_event_id": "9dbb1475e2614f9bbfb0df45efde556f",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 237,
+            "y": 62,
+            "width": 1348,
+            "height": 1018
+          },
+          "score": 0.74,
+          "source": "label_transfer_review_candidate",
+          "quality_flags": [
+            "label_transfer",
+            "near_full_page",
+            "page:bright_page",
+            "review_candidate",
+            "tall_block"
+          ],
+          "annotation_status": "draft_review_required",
+          "review_note": "auto-transferred from reviewed duplicate; ahash_distance=2",
+          "reviewed_at": "2026-06-30T06:20:49.103808+00:00",
+          "merge_source": {
+            "manifest": "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl",
+            "row_index": 0,
+            "box_index": 1
+          },
+          "label_transfer": {
+            "source_manifest": "diagnostics\\question-detector-merged-reviewed-next\\annotations\\approved_boxes.jsonl",
+            "source_row_index": 4,
+            "source_box_index": 1,
+            "source_image": "diagnostics\\question-detector-merged-reviewed-next\\images\\e737e433135eb1ca_91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg",
+            "source_sha1": "9d45fe8a311d3fce2c5c4b6ad315c48a4770fe49",
+            "source_ahash": "3c383c3c3c3c3c3c",
+            "target_sha1": "90b1497a620cabfcb5fee8470815f5a6615aa64b",
+            "target_ahash": "3c3c3c3c3c3c3c1c",
+            "ahash_distance": 2,
+            "max_draft_iou": 0.543977,
+            "method": "exact_or_ahash_duplicate_box_transfer_v1"
+          }
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 363,
+          "y": 77,
+          "width": 704,
+          "height": 710,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 51,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00001:4e95b968e77c7ea5_0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg"
+    }
+  ]
+}

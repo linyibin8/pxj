@@ -1,0 +1,200 @@
+{
+ "count": 11,
+ "questions": [
+  {
+   "id": "25",
+   "text": "25. The brown trousers _ (be) my size. They're too big for me.",
+   "type": "fill",
+   "bbox": [
+    375,
+    56,
+    669,
+    92
+   ],
+   "nbox": [
+    0.2344,
+    0.0622,
+    0.4181,
+    0.1022
+   ]
+  },
+  {
+   "id": "26",
+   "text": "26. Linda and Mary _ (play) together this Sunday.",
+   "type": "fill",
+   "bbox": [
+    375,
+    88,
+    612,
+    120
+   ],
+   "nbox": [
+    0.2344,
+    0.0978,
+    0.3825,
+    0.1333
+   ]
+  },
+  {
+   "id": "27",
+   "text": "27. Danny is good at Maths and English. (对划线部分提问)",
+   "type": "fill",
+   "bbox": [
+    375,
+    306,
+    582,
+    336
+   ],
+   "nbox": [
+    0.2344,
+    0.34,
+    0.3638,
+    0.3733
+   ]
+  },
+  {
+   "id": "28",
+   "text": "28. My mother will go to Sanya. (改为一般疑问句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    356,
+    582,
+    386
+   ],
+   "nbox": [
+    0.2344,
+    0.3956,
+    0.3638,
+    0.4289
+   ]
+  },
+  {
+   "id": "29",
+   "text": "29. I will live in Beijing in the future. (改为否定句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    396,
+    582,
+    426
+   ],
+   "nbox": [
+    0.2344,
+    0.44,
+    0.3638,
+    0.4733
+   ]
+  },
+  {
+   "id": "30",
+   "text": "30. Sally's mother is tidying up the bedroom. (对划线部分提问)",
+   "type": "fill",
+   "bbox": [
+    375,
+    446,
+    582,
+    476
+   ],
+   "nbox": [
+    0.2344,
+    0.4956,
+    0.3638,
+    0.5289
+   ]
+  },
+  {
+   "id": "31",
+   "text": "31. We will live here soon. (改为否定句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    506,
+    582,
+    536
+   ],
+   "nbox": [
+    0.2344,
+    0.5622,
+    0.3638,
+    0.5956
+   ]
+  },
+  {
+   "id": "32",
+   "text": "32. This book is mine. (改为一般疑问句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    566,
+    582,
+    596
+   ],
+   "nbox": [
+    0.2344,
+    0.6289,
+    0.3638,
+    0.6622
+   ]
+  },
+  {
+   "id": "33",
+   "text": "33. Ms Gao isn't asking the children about the day. (改为肯定句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    626,
+    582,
+    656
+   ],
+   "nbox": [
+    0.2344,
+    0.6956,
+    0.3638,
+    0.7289
+   ]
+  },
+  {
+   "id": "34",
+   "text": "34. Do you know when they'll visit the library? (作否定回答)",
+   "type": "fill",
+   "bbox": [
+    375,
+    686,
+    582,
+    716
+   ],
+   "nbox": [
+    0.2344,
+    0.7622,
+    0.3638,
+    0.7956
+   ]
+  },
+  {
+   "id": "35",
+   "text": "35. I'll meet them at the school gate. (改为否定句)",
+   "type": "fill",
+   "bbox": [
+    375,
+    746,
+    582,
+    776
+   ],
+   "nbox": [
+    0.2344,
+    0.8289,
+    0.3638,
+    0.8622
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 9.3,
+  "finish": "stop"
+ }
+}

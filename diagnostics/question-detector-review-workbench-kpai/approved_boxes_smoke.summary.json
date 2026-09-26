@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-30T03:10:55.670866+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai",
+  "decisions": "diagnostics\\question-detector-review-workbench-kpai\\smoke_decisions.json",
+  "approved_jsonl": "diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl",
+  "images": 5,
+  "boxes": 8,
+  "skipped_rows_without_decision": 0,
+  "skipped_boxes_not_approved": 68,
+  "approved_statuses": [
+    "accepted",
+    "approved",
+    "corrected",
+    "verified"
+  ]
+}

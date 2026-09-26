@@ -1,0 +1,172 @@
+{
+  "gate_passed": true,
+  "summary": "diagnostics\\question-segmentation-benchmark-loop-self-check\\eval\\summary.json",
+  "thresholds": {
+    "min_recall": 0.95,
+    "min_precision": 0.95,
+    "min_f1": 0.95,
+    "min_cohort_recall": 0.9,
+    "min_cohort_precision": 0.9,
+    "max_missing_images": 0,
+    "max_unmatched_rows": 0,
+    "max_missed_boxes": 0,
+    "max_false_positive_boxes": 0
+  },
+  "checks": [
+    {
+      "name": "reference image coverage",
+      "passed": true,
+      "detail": "reference missing images <= 0",
+      "data": {
+        "missing_image_count": 0,
+        "matched_images": 40,
+        "rows": 40
+      }
+    },
+    {
+      "name": "reference unmatched rows",
+      "passed": true,
+      "detail": "reference unmatched rows <= 0",
+      "data": {
+        "unmatched_row_count": 0
+      }
+    },
+    {
+      "name": "predictions image coverage",
+      "passed": true,
+      "detail": "predictions missing images <= 0",
+      "data": {
+        "missing_image_count": 0,
+        "matched_images": 40,
+        "rows": 40
+      }
+    },
+    {
+      "name": "predictions unmatched rows",
+      "passed": true,
+      "detail": "predictions unmatched rows <= 0",
+      "data": {
+        "unmatched_row_count": 0
+      }
+    },
+    {
+      "name": "overall recall",
+      "passed": true,
+      "detail": "overall recall >= 0.95",
+      "data": {
+        "actual": 1.0
+      }
+    },
+    {
+      "name": "overall precision",
+      "passed": true,
+      "detail": "overall precision >= 0.95",
+      "data": {
+        "actual": 1.0
+      }
+    },
+    {
+      "name": "overall f1",
+      "passed": true,
+      "detail": "overall f1 >= 0.95",
+      "data": {
+        "actual": 1.0
+      }
+    },
+    {
+      "name": "missed boxes",
+      "passed": true,
+      "detail": "missed boxes <= 0",
+      "data": {
+        "actual": 0
+      }
+    },
+    {
+      "name": "false positive boxes",
+      "passed": true,
+      "detail": "false positive boxes <= 0",
+      "data": {
+        "actual": 0
+      }
+    },
+    {
+      "name": "cohort gates",
+      "passed": true,
+      "detail": "all sufficiently represented cohorts pass recall/precision gates",
+      "data": {
+        "cohorts": [
+          {
+            "cohort": "active_capture",
+            "passed": true,
+            "detail": "recall >= 0.9 and precision >= 0.9",
+            "data": {
+              "reference_boxes": 12,
+              "prediction_boxes": 12,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "missed_boxes": 0,
+              "false_positive_boxes": 0
+            }
+          },
+          {
+            "cohort": "active_quarantine",
+            "passed": true,
+            "detail": "recall >= 0.9 and precision >= 0.9",
+            "data": {
+              "reference_boxes": 28,
+              "prediction_boxes": 28,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "missed_boxes": 0,
+              "false_positive_boxes": 0
+            }
+          },
+          {
+            "cohort": "dense_layout",
+            "passed": true,
+            "detail": "recall >= 0.9 and precision >= 0.9",
+            "data": {
+              "reference_boxes": 168,
+              "prediction_boxes": 168,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "missed_boxes": 0,
+              "false_positive_boxes": 0
+            }
+          },
+          {
+            "cohort": "fallback_delta",
+            "passed": true,
+            "detail": "recall >= 0.9 and precision >= 0.9",
+            "data": {
+              "reference_boxes": 20,
+              "prediction_boxes": 20,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "missed_boxes": 0,
+              "false_positive_boxes": 0
+            }
+          },
+          {
+            "cohort": "observation_unverified",
+            "passed": true,
+            "detail": "recall >= 0.9 and precision >= 0.9",
+            "data": {
+              "reference_boxes": 71,
+              "prediction_boxes": 71,
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "missed_boxes": 0,
+              "false_positive_boxes": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

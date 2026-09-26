@@ -1,0 +1,244 @@
+[
+  {
+    "image": "images/test/6bc3c3dd60527d6e__57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1206.0,
+          "y": 1188.5,
+          "width": 1358.0,
+          "height": 971.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 943.5,
+          "y": 843.5,
+          "width": 1607.0,
+          "height": 349.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/3fcf00468a0b0a2e__9eeafe17c0307df4_d7b260126f7349cdbaba2e82f15818e1_79e483aab83342d188697563a599bd88_a32b5ed71cc947.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/0806a95e61aeacf3__e502f860b96b265c_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1025.5,
+          "y": 1201.0,
+          "width": 2051.0,
+          "height": 946.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1119.5,
+          "y": 1077.5,
+          "width": 1447.0,
+          "height": 315.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/6b59b682ad3efe8c__120419d981ed1462_e65858e27a964eac83306022bfff0238_8ba469ea349c4ea49a7a0bf2ad1ec2f5_3d2f1ea9b80743.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/90f3302bbcc6e9fa__191869fa96ab3fd9_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/a071dbb2c02f7a81__20f4991f20eddae6_d7b260126f7349cdbaba2e82f15818e1_6eff53223fe04a529439f87d6f00748a_5204d90b3aee48.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/af1206d428cf8e6b__225548921eb1ab80_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/df363f0ee9fcdaad__2bd2b11d0277f442_e65858e27a964eac83306022bfff0238_edaf8753c33043bb9d7f012851d1e73b_7cabe59d721944.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/95044e0b949dacd9__36b36278bdf9862e_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f7c8c1f168854f.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/8a675569b930712b__4136bfb9ac5664bd_ff61d22fd1d649e4a1b033ac7b304546_40cba1fa1a794e1692c73927fe23b85e_6ba044bb722948.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/bfa1cfe52a6a4aa8__486aa1cebe4b4909_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714c.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/09963d166f1d922b__4c917492e0c502aa_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/97f4490315bc6a1d__53b3f5902f91e2e3_e65858e27a964eac83306022bfff0238_edaf8753c33043bb9d7f012851d1e73b_8e2b153f65f540.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/13ea06f7dd078c85__58ceef72cfb59925_1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_990a5ce0a4af44.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/de28a8f313a42c0c__5ab83b0722006550_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_256b74e7dbf845.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/4847b29e8ae44e1f__65130fe3cdeeb931_b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/0cf216d086e2e4d2__664ff958f82befb0_92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_43b23999522a40.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/8db5a33e9054a490__6864d5151bdc6899_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/f4d1003d1af9e6d4__6bf2d01d651b5164_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f30bc72842f540.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/5c4dde810e3639cd__6c59da76a01fe263_e65858e27a964eac83306022bfff0238_8ba469ea349c4ea49a7a0bf2ad1ec2f5_76345ae285ea49.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/52e780b90c459257__6f3269603256d5d5_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/f972a53cf5ea508f__74be138743f7e2ba_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f79581abf74b4d.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/a920b288935c9465__93a584e4a1722d1b_9b2b7f197f064c52961c557b4bea5ec8_a469cc4937f64f38b24471823d580385_ccac71b6f4194a.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/228df4a3fda6f165__94c8cfc96f75cd59_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_dc3c51bc91f147.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/48bc0fadbf0663a0__96a89e88c0e5db57_e65858e27a964eac83306022bfff0238_edaf8753c33043bb9d7f012851d1e73b_481ed5e59a7f4e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/c676d65fa975bd31__9cca80384234adcb_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/8755ab5a374d5633__9d0f8ffe14df3577_4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/87c59541cffd284f__9d9bec747a46e171_9b2b7f197f064c52961c557b4bea5ec8_a469cc4937f64f38b24471823d580385_6b76215667ac4c.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/e2cda8785fb47d19__9f92505671c0d576_d7b260126f7349cdbaba2e82f15818e1_6eff53223fe04a529439f87d6f00748a_f2cc06d5549442.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/ffa745fa76b2d68a__a5944ae95151c9cc_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/3b4e42daf1d7e04f__aa161fd8f12984f4_2154c8578d1443929a1825907f5e6cf6_6ad1dfdac8294ee3b2bc4042b532c122_a53200d2737d4e.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/e37dc6b6785488b3__ad4a58a8b753c34a_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f0554998314646.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/7e88158ae094b8c4__b23b890a42da4604_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed45.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/34eb57daae6baf78__b70c7940516647c2_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc44.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/4316bb4a295a4eeb__b79fab49366cc90e_e65858e27a964eac83306022bfff0238_58e69c9f63f2423caac76e3359b06a76_bda016a2336147.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/8c729690860b635b__ce4c24c356dbf526_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d40.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/3d79bb9f2ef53295__d38066bd04c55060_9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/5df08d0eb69a7337__d4e5c6bb413d2f4e_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d740.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/b22449c3cc2ed6db__d8e21a8bdc9b7b6a_92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_c48ae66016f140.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/2cd1a7a6d883f5e6__de2c578a1995595b_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c9905091648.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/84e31d7f179eedbe__e436e13f69a82a19_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/48f7446e85b537c4__ea2f8f9233737b98_6cba53b81ae1479f92ccc27a4190743a_51a2f49d28514fd1985e41e61ca010a9_f3bfacb3ad434d.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/117e03f1d8f28257__f4bb48b2d5c1632d_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/03b170e1f4fb3dcc__fc4c3c11e763f191_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade6848.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/4af77ffb725e4134__fcbfcb18b2f8cbc2_9b2b7f197f064c52961c557b4bea5ec8_a469cc4937f64f38b24471823d580385_b725835591aa40.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/1edb5cbc6a0a2a06__021fe28d26f1fb18_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/d0a60a0c7c475fe0__088a641d6c4e2106_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/340f619c04507588__33b744e1de3dd530_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/cd0afc9d292d013b__816186501516b03c_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4f.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/0544803e1c8062c2__c43eed11b6c7c990_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece45.jpg",
+    "annotations": []
+  },
+  {
+    "image": "images/test/3f0bcea8cec49422__f783b96b5da1b083_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a.jpg",
+    "annotations": []
+  }
+]

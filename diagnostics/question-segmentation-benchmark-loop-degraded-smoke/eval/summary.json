@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-07-01T02:41:02.868356+00:00",
+  "label": "degraded_loop_smoke",
+  "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+  "iou_threshold": 0.5,
+  "image_count": 40,
+  "input_audit": {
+    "reference": {
+      "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\draft_reference_boxes.jsonl",
+      "rows": 40,
+      "unmatched_rows": [],
+      "matched_images": 40,
+      "missing_images": []
+    },
+    "predictions": {
+      "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\codex_predictions_degraded_smoke.jsonl",
+      "rows": 40,
+      "unmatched_rows": [],
+      "matched_images": 38,
+      "missing_images": [
+        "00002:4dd68b59b935466195b05543c884ff15_8b875ae918b6405fa38dafa2ba95b42e_3ca0e65abe634fbab21eb2670d928343.jpg",
+        "00001:6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_d79038576f0542cba16ee1a700616285.jpg"
+      ]
+    }
+  },
+  "overall": {
+    "reference_boxes": 299,
+    "prediction_boxes": 276,
+    "matched_boxes": 275,
+    "missed_boxes": 24,
+    "false_positive_boxes": 1,
+    "precision": 0.9964,
+    "recall": 0.9197,
+    "f1": 0.9565,
+    "count_delta": -23
+  },
+  "by_cohort": {
+    "active_capture": {
+      "reference_boxes": 12,
+      "prediction_boxes": 12,
+      "matched_boxes": 12,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "active_quarantine": {
+      "reference_boxes": 28,
+      "prediction_boxes": 28,
+      "matched_boxes": 28,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "dense_layout": {
+      "reference_boxes": 168,
+      "prediction_boxes": 145,
+      "matched_boxes": 144,
+      "missed_boxes": 24,
+      "false_positive_boxes": 1,
+      "precision": 0.9931,
+      "recall": 0.8571,
+      "f1": 0.9201,
+      "count_delta": -23
+    },
+    "fallback_delta": {
+      "reference_boxes": 20,
+      "prediction_boxes": 20,
+      "matched_boxes": 20,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "observation_unverified": {
+      "reference_boxes": 71,
+      "prediction_boxes": 71,
+      "matched_boxes": 71,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    }
+  }
+}

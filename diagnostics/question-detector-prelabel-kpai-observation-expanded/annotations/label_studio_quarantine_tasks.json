@@ -1,0 +1,872 @@
+[
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04bd0ab60a063b20ceada.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04bd0ab60a063b20ceada.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_46ed1862daa744f1a6502d678421f6ed_5fae889746d54b94a96ee1d03308837f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table",
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_46ed1862daa744f1a6502d678421f6ed_5fae889746d54b94a96ee1d03308837f.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_c17d053b74b44ad38a8c5ff79f8fec05.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_c17d053b74b44ad38a8c5ff79f8fec05.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_5fbf81385be54805a28e350cee4a7bad_25e954f2e5bc4fc98493c3e89e980b22.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_5fbf81385be54805a28e350cee4a7bad_25e954f2e5bc4fc98493c3e89e980b22.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_cfc84aed2a2d4a14bf160a48798e1a1d_5886fe32515641f6b2d0ddd1f512309b.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_cfc84aed2a2d4a14bf160a48798e1a1d_5886fe32515641f6b2d0ddd1f512309b.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_da032b3f0ce04ed7a9ae3d8f4d325fa8.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_da032b3f0ce04ed7a9ae3d8f4d325fa8.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845fea4607ad1be776e2e.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845fea4607ad1be776e2e.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794da4bab8896f1f1eeb23.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794da4bab8896f1f1eeb23.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44f08492672acbc3109e.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44f08492672acbc3109e.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_5215ff2e21d14fb89f0e53d61e2b2388.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines",
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_5215ff2e21d14fb89f0e53d61e2b2388.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541e587a814ed6cda6b25.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines",
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541e587a814ed6cda6b25.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines",
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc4448838e6aadf0b3fd34.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines",
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc4448838e6aadf0b3fd34.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d4046a1f7384187b991fd.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d4046a1f7384187b991fd.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_c5b52ccddbb4466bbe11797614480279.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_c5b52ccddbb4466bbe11797614480279.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c138d538802d99b0072.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c138d538802d99b0072.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_87257439663b4300b5574b353f54da9a.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_87257439663b4300b5574b353f54da9a.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_166118d3b7304807a69934a62691c1cf_f04f93279ce94edfb5c323f4a8a05ea6.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_166118d3b7304807a69934a62691c1cf_f04f93279ce94edfb5c323f4a8a05ea6.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149e8b2cc8c8af5ddb3c0.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149e8b2cc8c8af5ddb3c0.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b38a17a8862f18bd2a1.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b38a17a8862f18bd2a1.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f499a2e3c72d300b5ef.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f499a2e3c72d300b5ef.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_d5b844618bb44f2bbbfb58cc648a3a42.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_d5b844618bb44f2bbbfb58cc648a3a42.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_50f4859d276b411ea65e0817509c0921.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_50f4859d276b411ea65e0817509c0921.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_e39da6c2ff7c488aa6385024a6266dfa.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_e39da6c2ff7c488aa6385024a6266dfa.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_1f2d00a40110411fa384b98b96ac2da8.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_1f2d00a40110411fa384b98b96ac2da8.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_e10cd7bec47a4334800110cbd6873f7f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_e10cd7bec47a4334800110cbd6873f7f.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141b6bb44441e4396ce77.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141b6bb44441e4396ce77.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/299631775fad422bbff9c20c17f84b9b_qa_d6e9d987f44e4d4c8dd94ea59346ab50.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/299631775fad422bbff9c20c17f84b9b_qa_d6e9d987f44e4d4c8dd94ea59346ab50.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "no_draft_boxes",
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1babc6ec51dd4448a30ae26a8dbcfe1f_7553105d444f4e62b4dc4ee147efd85b_602e69ae19e3498ea5ee164188d014c7.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/1babc6ec51dd4448a30ae26a8dbcfe1f_7553105d444f4e62b4dc4ee147efd85b_602e69ae19e3498ea5ee164188d014c7.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_262e5e10cdcf4cb08339ea145b1d1892.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_262e5e10cdcf4cb08339ea145b1d1892.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/8feb463ec11940f6ad9df819f092ead9_1cc9964ce2ce4b46845588231b0978c6_20c935cd73364efe82f96a91b4dea291.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/8feb463ec11940f6ad9df819f092ead9_1cc9964ce2ce4b46845588231b0978c6_20c935cd73364efe82f96a91b4dea291.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/8feb463ec11940f6ad9df819f092ead9_95dcf6cea9544665abe1c1dfeef9608a_b440c3bd257f48d1968abfde7a659b6f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/8feb463ec11940f6ad9df819f092ead9_95dcf6cea9544665abe1c1dfeef9608a_b440c3bd257f48d1968abfde7a659b6f.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_77266fd76c0c4b2ca34bc6d4bb854941.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_77266fd76c0c4b2ca34bc6d4bb854941.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/e65858e27a964eac83306022bfff0238_edaf8753c33043bb9d7f012851d1e73b_481ed5e59a7f4ec6abc27f44c578f6ad.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/e65858e27a964eac83306022bfff0238_edaf8753c33043bb9d7f012851d1e73b_481ed5e59a7f4ec6abc27f44c578f6ad.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_28e04cac875a4cc0a16b7cee4dea4ace.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/7bd1da2a72bc4d46a10d477ae4752e71_a763990cf3e44acf957f14fd8e981839_28e04cac875a4cc0a16b7cee4dea4ace.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/d7b260126f7349cdbaba2e82f15818e1_79e483aab83342d188697563a599bd88_281e2a73700b4f50a503e19b38df6ba2.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/d7b260126f7349cdbaba2e82f15818e1_79e483aab83342d188697563a599bd88_281e2a73700b4f50a503e19b38df6ba2.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/731a0558d8744fe880cff057da4995dd_grade_409669e0441c461bb8de377e76bc5d4a.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/731a0558d8744fe880cff057da4995dd_grade_409669e0441c461bb8de377e76bc5d4a.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/6818143990c546fcb999a04621adc0be_cb43d967c5c34e6ab05db841dc6e8663_1a0dd99e6e1743909c97be24a8bcbccc.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "too_few_text_lines"
+      ],
+      "source_candidate": "positive/6818143990c546fcb999a04621adc0be_cb43d967c5c34e6ab05db841dc6e8663_1a0dd99e6e1743909c97be24a8bcbccc.jpg"
+    }
+  }
+]

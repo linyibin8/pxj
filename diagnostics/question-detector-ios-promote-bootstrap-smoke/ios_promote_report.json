@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-06-30T04:17:37.694078+00:00",
+  "apply": false,
+  "can_apply": false,
+  "applied": false,
+  "selection": {
+    "has_best": true,
+    "fold_count": 1,
+    "all_folds_pass_eval_gate": false,
+    "min_recall": 0.0,
+    "mean_precision": 0.0,
+    "max_fp_per_image": 0.0,
+    "min_score": 0.5,
+    "ios_recommendation": {
+      "question_region_detector_fast_min_confidence": 0.5,
+      "question_region_detector_accurate_min_confidence": 0.5,
+      "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+    }
+  },
+  "selection_path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\selection\\selection_summary.json",
+  "train_manifests": [
+    "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json"
+  ],
+  "artifact": "",
+  "artifact_ok": false,
+  "artifact_detail": "No Core ML artifact was found in --artifact, selection runs, or train manifests.",
+  "ios_root": "ios\\PXJ\\App",
+  "existing_ios_models_before": [],
+  "swift_config_before": {
+    "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+    "exists": true,
+    "bundle_lookup_mlmodelc": true,
+    "fast_min_confidence": 0.32,
+    "accurate_min_confidence": 0.38
+  },
+  "copied_to": "",
+  "swift_changed": false,
+  "blockers": [
+    {
+      "code": "too_few_folds",
+      "detail": "Selected candidate has 1 folds; required >= 3.",
+      "values": {
+        "selection": {
+          "has_best": true,
+          "fold_count": 1,
+          "all_folds_pass_eval_gate": false,
+          "min_recall": 0.0,
+          "mean_precision": 0.0,
+          "max_fp_per_image": 0.0,
+          "min_score": 0.5,
+          "ios_recommendation": {
+            "question_region_detector_fast_min_confidence": 0.5,
+            "question_region_detector_accurate_min_confidence": 0.5,
+            "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+          }
+        }
+      }
+    },
+    {
+      "code": "selection_failed_eval_gate",
+      "detail": "Selected candidate did not pass all fold eval gates.",
+      "values": {
+        "selection": {
+          "has_best": true,
+          "fold_count": 1,
+          "all_folds_pass_eval_gate": false,
+          "min_recall": 0.0,
+          "mean_precision": 0.0,
+          "max_fp_per_image": 0.0,
+          "min_score": 0.5,
+          "ios_recommendation": {
+            "question_region_detector_fast_min_confidence": 0.5,
+            "question_region_detector_accurate_min_confidence": 0.5,
+            "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+          }
+        }
+      }
+    },
+    {
+      "code": "missing_coreml_artifact",
+      "detail": "No Core ML artifact was found in --artifact, selection runs, or train manifests.",
+      "values": {
+        "artifact": ""
+      }
+    }
+  ],
+  "next_steps": [
+    "Run XcodeGen/Xcode build on the Mac after applying a real model.",
+    "Run question_detector_release_check.py with the post-bundle Xcode build log.",
+    "Validate live telemetry: coreml_model_loaded_frame_count, selected_segmenter_counts, fallback_to_ocr_frame_count, and paired IoU."
+  ]
+}

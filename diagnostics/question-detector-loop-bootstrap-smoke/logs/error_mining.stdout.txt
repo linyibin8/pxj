@@ -1,0 +1,9 @@
+{
+  "out": "diagnostics\\question-detector-loop-bootstrap-smoke\\error_mining",
+  "images": 16,
+  "boxes": 22,
+  "stats": {
+    "missed:boxes": 22,
+    "images": 16
+  }
+}

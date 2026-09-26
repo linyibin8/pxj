@@ -1,0 +1,108 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-kpai-layout-measured",
+      "candidate_count": 67,
+      "image_count": 41,
+      "full_frame_only_bytes": 8017456,
+      "full_frame_resized_pixels": 58956800
+    }
+  ],
+  "candidate_count": 67,
+  "image_count": 41,
+  "gt_box_count": 12,
+  "represented_gt_key_count": 11,
+  "full_frame_all_pixels": 58956800,
+  "full_max_side": 1600,
+  "ground_truth_manifests": [
+    "diagnostics\\question-detector-dataset-merged-reviewed-smoke-neardupe-gate\\annotations\\manifest.jsonl"
+  ],
+  "dataset_root": "",
+  "settings": {
+    "caps": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      10,
+      12,
+      16,
+      24,
+      0
+    ],
+    "current_cap": 12,
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "min_selected_gt_recall": 0.999,
+    "min_policy_gt_recall": 0.999,
+    "low_confidence_score": 0.42,
+    "limited_confidence_score": 0.55
+  },
+  "current_cap": {
+    "cap": 12,
+    "cap_label": "12",
+    "image_count": 41,
+    "represented_gt_key_count": 11,
+    "selected_candidate_count": 67,
+    "skipped_candidate_count": 0,
+    "skipped_strong_candidate_count": 0,
+    "skipped_confident_candidate_count": 0,
+    "selected_covered_gt_key_count": 11,
+    "selected_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 11,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 14,
+    "fallback_image_ratio": 0.341463,
+    "fallback_reason_counts": {
+      "all_weak_crop_keys": 2,
+      "no_large_question_crop": 2,
+      "single_low_coverage_crop": 7,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "selected_crop_pixels": 36886979,
+    "fallback_full_frame_pixels": 19622400,
+    "total_vlm_pixels": 56509379,
+    "full_frame_all_pixels": 58956800,
+    "selected_crop_pixels_vs_full": 0.625661,
+    "total_pixels_vs_full": 0.958488,
+    "selected_crop_jpeg_bytes": 5622641
+  },
+  "recommendation": {
+    "cap": 3,
+    "cap_label": "3",
+    "image_count": 41,
+    "represented_gt_key_count": 11,
+    "selected_candidate_count": 63,
+    "skipped_candidate_count": 4,
+    "skipped_strong_candidate_count": 0,
+    "skipped_confident_candidate_count": 0,
+    "selected_covered_gt_key_count": 11,
+    "selected_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 11,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 14,
+    "fallback_image_ratio": 0.341463,
+    "fallback_reason_counts": {
+      "all_weak_crop_keys": 2,
+      "no_large_question_crop": 2,
+      "single_low_coverage_crop": 7,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "selected_crop_pixels": 36593332,
+    "fallback_full_frame_pixels": 19622400,
+    "total_vlm_pixels": 56215732,
+    "full_frame_all_pixels": 58956800,
+    "selected_crop_pixels_vs_full": 0.62068,
+    "total_pixels_vs_full": 0.953507,
+    "selected_crop_jpeg_bytes": 5580887
+  },
+  "outputs": {
+    "cap_sweep": "cap_sweep.jsonl",
+    "cap_risk": "cap_risk.jsonl",
+    "summary_md": "summary.md"
+  }
+}

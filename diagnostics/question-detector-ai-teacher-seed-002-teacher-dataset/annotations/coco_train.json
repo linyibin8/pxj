@@ -1,0 +1,79 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/train/e8100c159f1c19_0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "width": 4800,
+      "height": 3600,
+      "split": "train",
+      "review_id": "teacher:dxue_test_images_00030_639dee4c0fce8925",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-002\\images\\0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "label_count": 3
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        560,
+        175,
+        3300,
+        770
+      ],
+      "area": 2541000,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        835,
+        3570,
+        800
+      ],
+      "area": 2856000,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 3,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        1610,
+        3570,
+        1160
+      ],
+      "area": 4141200,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

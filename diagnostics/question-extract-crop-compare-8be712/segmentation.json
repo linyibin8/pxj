@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "1",
+      "bbox": {
+        "x": 0.37,
+        "y": 0.26,
+        "w": 0.31,
+        "h": 0.14
+      },
+      "text": "圈一圈，算一算。",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "2",
+      "bbox": {
+        "x": 0.37,
+        "y": 0.38,
+        "w": 0.31,
+        "h": 0.16
+      },
+      "text": "填一填。",
+      "uncertain": false
+    },
+    {
+      "index": 3,
+      "number": "3",
+      "bbox": {
+        "x": 0.37,
+        "y": 0.51,
+        "w": 0.31,
+        "h": 0.16
+      },
+      "text": "算一算，说一说。",
+      "uncertain": false
+    },
+    {
+      "index": 4,
+      "number": "4",
+      "bbox": {
+        "x": 0.37,
+        "y": 0.63,
+        "w": 0.31,
+        "h": 0.12
+      },
+      "text": "Multiplication problems",
+      "uncertain": false
+    },
+    {
+      "index": 5,
+      "number": "5",
+      "bbox": {
+        "x": 0.37,
+        "y": 0.73,
+        "w": 0.31,
+        "h": 0.14
+      },
+      "text": "用竖式计算，说一说竖式每一步的意思。",
+      "uncertain": false
+    },
+    {
+      "index": 6,
+      "number": "6",
+      "bbox": {
+        "x": 0.69,
+        "y": 0.21,
+        "w": 0.31,
+        "h": 0.16
+      },
+      "text": "森林医生。",
+      "uncertain": false
+    },
+    {
+      "index": 7,
+      "number": "7",
+      "bbox": {
+        "x": 0.69,
+        "y": 0.34,
+        "w": 0.31,
+        "h": 0.12
+      },
+      "text": "算一算，比一比，你发现了什么？你能写出两组类似的算式吗？",
+      "uncertain": false
+    },
+    {
+      "index": 8,
+      "number": "8",
+      "bbox": {
+        "x": 0.69,
+        "y": 0.43,
+        "w": 0.31,
+        "h": 0.14
+      },
+      "text": "哪两个数相乘的积最接近圈中的数？把它们连起来。",
+      "uncertain": false
+    },
+    {
+      "index": 9,
+      "number": "9",
+      "bbox": {
+        "x": 0.69,
+        "y": 0.54,
+        "w": 0.31,
+        "h": 0.14
+      },
+      "text": "这些南瓜能一次运走吗？",
+      "uncertain": false
+    },
+    {
+      "index": 10,
+      "number": "10",
+      "bbox": {
+        "x": 0.69,
+        "y": 0.68,
+        "w": 0.31,
+        "h": 0.16
+      },
+      "text": "胜利小学5名老师带领88名学生参观科技馆，用500元买门票，够不够？实际花了多少元？",
+      "uncertain": false
+    }
+  ]
+}

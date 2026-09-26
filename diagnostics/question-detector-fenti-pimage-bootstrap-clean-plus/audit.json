@@ -1,0 +1,74 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 557,
+    "positive_images": 122,
+    "negative_images": 435,
+    "annotations": 211,
+    "human_reviewed_annotations": 0,
+    "pseudo_annotations": 211,
+    "split_groups": 557
+  },
+  "split_counts": {
+    "train": {
+      "images": 378,
+      "positive_images": 85,
+      "negative_images": 293,
+      "annotations": 153,
+      "groups": 378
+    },
+    "val": {
+      "images": 103,
+      "positive_images": 22,
+      "negative_images": 81,
+      "annotations": 34,
+      "groups": 103
+    },
+    "test": {
+      "images": 76,
+      "positive_images": 15,
+      "negative_images": 61,
+      "annotations": 24,
+      "groups": 76
+    }
+  },
+  "bootstrap": {
+    "min_draft_score": 0.55,
+    "min_area_ratio": 0.002,
+    "max_area_ratio": 0.42,
+    "reject_quality_flags": [
+      "few_text_lines",
+      "near_full_page",
+      "page:full_image_fallback",
+      "short_block",
+      "single_union_fallback",
+      "tall_block"
+    ],
+    "stats": {
+      "approved": {},
+      "draft": {
+        "rejected:rejected_flag:tall_block": 34,
+        "rejected:low_score": 429,
+        "accepted_labels": 211,
+        "accepted_images": 122,
+        "rejected:large_area": 265,
+        "rejected:rejected_flag:page:full_image_fallback": 112,
+        "rejected:rejected_flag:few_text_lines": 5,
+        "rejected:extreme_aspect": 98,
+        "rejected:rejected_flag:near_full_page": 163
+      },
+      "negative": {}
+    }
+  },
+  "warnings": [
+    {
+      "code": "bootstrap_dataset_not_release_ready",
+      "severity": "warning",
+      "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+    }
+  ]
+}

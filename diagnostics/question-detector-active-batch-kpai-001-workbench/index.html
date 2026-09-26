@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXJ Question Box Review</title>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --panel:#ffffff; --line:#d8dde6; --ink:#1c2430; --muted:#687386; --ok:#178c4f; --bad:#b42318; --wait:#9a6700; --blue:#1d5fd1; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+button, input, select, textarea { font: inherit; }
+button { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+button:hover { border-color: #9aa6b6; }
+button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+button.good { background: #eaf7ef; color: var(--ok); border-color: #9fd8b8; }
+button.bad { background: #fff0ee; color: var(--bad); border-color: #f2aaa3; }
+button.warn { background: #fff7e0; color: var(--wait); border-color: #e9ca75; }
+.app { display: grid; grid-template-columns: 310px minmax(480px, 1fr) 330px; gap: 10px; height: 100vh; padding: 10px; }
+.panel { min-height: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.topbar { display:flex; align-items:center; gap:8px; padding:10px; border-bottom:1px solid var(--line); background:#fff; }
+.topbar strong { margin-right:auto; }
+.list { overflow:auto; height: calc(100% - 102px); }
+.row { display:grid; grid-template-columns: 74px 1fr; gap:8px; padding:8px; border-bottom:1px solid #eef1f5; cursor:pointer; }
+.row.active { background:#eaf2ff; }
+.row img { width:74px; height:52px; object-fit:cover; border:1px solid var(--line); border-radius:4px; background:#eee; }
+.row-title { font-size:12px; word-break:break-all; }
+.row-meta { color:var(--muted); font-size:12px; margin-top:3px; }
+.stats { padding:8px 10px; color:var(--muted); border-bottom:1px solid var(--line); }
+.stage-wrap { height: calc(100% - 52px); overflow:auto; display:flex; align-items:flex-start; justify-content:center; padding:14px; }
+.stage { position:relative; display:inline-block; line-height:0; background:#e9edf3; box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.stage img { display:block; max-width:min(100%, 1120px); max-height:calc(100vh - 96px); width:auto; height:auto; }
+.box { position:absolute; border:3px solid var(--wait); background:rgba(255,190,0,.08); cursor:pointer; line-height:1; }
+.box.approved { border-color:var(--ok); background:rgba(23,140,79,.10); }
+.box.corrected { border-color:var(--blue); background:rgba(29,95,209,.10); }
+.box.rejected { border-color:var(--bad); background:rgba(180,35,24,.10); }
+.box.selected { outline:3px solid #111827; outline-offset:2px; }
+.box span { position:absolute; top:2px; left:3px; background:rgba(255,255,255,.85); border-radius:3px; padding:1px 4px; font-size:12px; color:#111827; }
+.side { height:100%; overflow:auto; padding:10px; }
+.box-card { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; }
+.box-card.selected { border-color:#111827; box-shadow:0 0 0 2px rgba(17,24,39,.12); }
+.box-head { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.box-head strong { margin-right:auto; }
+.badge { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:2px 7px; font-size:12px; color:var(--muted); margin:2px 3px 2px 0; }
+.grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin:8px 0; }
+.grid label { display:block; color:var(--muted); font-size:11px; }
+.grid input { width:100%; border:1px solid var(--line); border-radius:5px; padding:5px; }
+textarea { width:100%; min-height:110px; border:1px solid var(--line); border-radius:6px; padding:8px; }
+.muted { color:var(--muted); }
+.small { font-size:12px; }
+.footer-actions { display:flex; flex-wrap:wrap; gap:8px; padding:10px; border-top:1px solid var(--line); background:#fff; }
+</style>
+</head>
+<body>
+<script id="review-data" type="application/json">{"source": "diagnostics\\question-detector-active-batch-kpai-001", "generated_at": "2026-06-30T03:16:36.138928+00:00", "items": [{"image": "images/91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg", "source_candidate": "positive/91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "744c6a57e562485bb220f20b7339025d", "session_id": "91cf7b7586424ce3a308b42daf0ee2fc", "batch_id": "qa", "qa_event_id": "d00352caa7d74bc99a40e4e58541c0a5", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 512, "y": 0, "width": 1063, "height": 63}, "score": 0.3511, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 237, "y": 62, "width": 1348, "height": 1018}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 173, "y": 0, "width": 983, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 104, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00001:91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg"}, {"image": "images/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg", "source_candidate": "positive/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "7ed0d6607c6b4a1a97ac1a8e3b953c9b", "session_id": "6f1372c64b274a46be1c3ee7ee38dd96", "batch_id": "qa", "qa_event_id": "206ad563d79048738e5ee792aefdcb94", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 173, "y": 0, "width": 1443, "height": 946}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 475, "y": 949, "width": 1137, "height": 26}, "score": 0.5011, "source": "layout_prelabel", "quality_flags": ["short_block", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 126, "y": 0, "width": 1052, "height": 711, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 70, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00002:6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg"}, {"image": "images/1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg", "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "021e0fb43c534d91987da51e01694d8f", "session_id": "1f54b22aed3942caa921fe075593a550", "batch_id": "qa", "qa_event_id": "80dcf12aa4b640cfa144f34835b96898", "needs_box_label": true}, "width": 3200, "height": 1104, "boxes": [{"bbox_px": {"x": 43, "y": 267, "width": 693, "height": 706}, "score": 0.67, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 165, "y": 960, "width": 571, "height": 144}, "score": 0.4736, "source": "layout_prelabel", "quality_flags": ["short_block", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 117, "width": 322, "height": 366, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 10, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00003:1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg"}, {"image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg", "source_candidate": "positive/005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "e5f421d571d941fe879a1f2c0c70ccd8", "session_id": "005c6d92ef37414ab5d41a5f0ad66656", "batch_id": "qa", "qa_event_id": "3f8cf8813f574bf09e923ccbe26cbb49", "needs_box_label": true}, "width": 2154, "height": 3200, "boxes": [{"bbox_px": {"x": 334, "y": 0, "width": 1778, "height": 258}, "score": 0.3717, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 0, "y": 192, "width": 2153, "height": 2994}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 942, "height": 1400, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 46, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00004:005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg"}, {"image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg", "source_candidate": "positive/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "747fdccfaede4f57974a26e1272f44a2", "session_id": "0b308a3f04c649bbb09b95d8b99f3422", "batch_id": "qa", "qa_event_id": "462bb9d8c99d4d0fa86047a727f4b9eb", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 392, "y": 210, "width": 1248, "height": 676}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 392, "y": 955, "width": 964, "height": 33}, "score": 0.6177, "source": "layout_prelabel", "quality_flags": ["short_block", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 286, "y": 153, "width": 910, "height": 567, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 46, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00005:0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg"}, {"image": "images/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg", "source_candidate": "positive/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "875123b1500841b8b73988afbcfe4018", "session_id": "4fc2166073dc422e8955928006267d5c", "batch_id": "qa", "qa_event_id": "8fde7979ecc744178d93571902aa73b0", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 591, "y": 358, "width": 1011, "height": 75}, "score": 0.5023, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 591, "y": 439, "width": 1284, "height": 640}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 431, "y": 261, "width": 936, "height": 526, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 48, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00006:4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg"}, {"image": "images/2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg", "source_candidate": "positive/2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "c4ca7fb15dc84881b38cf3998d9b2e20", "session_id": "2433f3e755ae40519113cc010c00e6d3", "batch_id": "qa", "qa_event_id": "498ee6e6451c499ea48e6ae6b4803e52", "needs_box_label": true}, "width": 2594, "height": 3200, "boxes": [{"bbox_px": {"x": 752, "y": 1305, "width": 1840, "height": 683}, "score": 0.9, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 752, "y": 1968, "width": 1529, "height": 521}, "score": 0.865, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 752, "y": 2475, "width": 1840, "height": 539}, "score": 0.795, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 752, "y": 3040, "width": 1451, "height": 142}, "score": 0.364, "source": "layout_prelabel", "quality_flags": ["few_text_lines", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 329, "y": 571, "width": 805, "height": 829, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 33, "draft_box_count": 4, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00007:2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg"}, {"image": "images/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg", "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "02b50ee51b774bd99bb52e6bad5b61ba", "session_id": "4dd68b59b935466195b05543c884ff15", "batch_id": "qa", "qa_event_id": "04b4fa579f34430096417a9b84b99a82", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 380, "y": 291, "width": 1205, "height": 702}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 614, "y": 1024, "width": 971, "height": 55}, "score": 0.651, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 277, "y": 212, "width": 879, "height": 575, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 38, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00008:4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg"}, {"image": "images/62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg", "source_candidate": "positive/62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "6f652a7f841647318fcb9e49bb3b47a2", "session_id": "62f789a2bca9426097b607fb27aff5bd", "batch_id": "qa", "qa_event_id": "91e019e575524abf9f1011c1b1f89792", "needs_box_label": true}, "width": 3200, "height": 2400, "boxes": [{"bbox_px": {"x": 2187, "y": 1097, "width": 1013, "height": 277}, "score": 0.655, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 2187, "y": 1333, "width": 1013, "height": 1067}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 957, "y": 480, "width": 443, "height": 570, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 41, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00009:62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg"}, {"image": "images/0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg", "source_candidate": "positive/0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "0f2d7da82fe5441ebcaf1fbb1a82718d", "session_id": "0d13b5cc951a43b695ce14ad124a3248", "batch_id": "qa", "qa_event_id": "0075cd58f897418ea5ecffcaeca9905b", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 566, "y": 88, "width": 1064, "height": 117}, "score": 0.5416, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 185, "y": 228, "width": 1445, "height": 852}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 135, "y": 64, "width": 1054, "height": 723, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 102, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00010:0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg"}, {"image": "images/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg", "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "a68bbfd28ca44af48e259ccbecbf6b87", "session_id": "b6f8a6accd404bfc9fb291b15cb44f09", "batch_id": "qa", "qa_event_id": "8892e8f3be394cb68ea1f3ee05718b53", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 154, "y": 240, "width": 886, "height": 686}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 154, "y": 931, "width": 845, "height": 147}, "score": 0.867, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 112, "y": 175, "width": 646, "height": 611, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 123, "draft_box_count": 2, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00011:b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg"}, {"image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg", "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "167dcd39ee794007b51fd40fa0b95155", "session_id": "6cba53b81ae1479f92ccc27a4190743a", "batch_id": "qa", "qa_event_id": "9f3088ba92d44374842fbcf2e547594a", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1303, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 950, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 32, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00012:6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg"}, {"image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg", "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "8a246b8920be4b648edc4dfc01044e59", "session_id": "6cba53b81ae1479f92ccc27a4190743a", "batch_id": "qa", "qa_event_id": "4d2c6cc5ecf249cda4ee773e51e867e1", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1622, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 1183, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 63, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00013:6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg"}, {"image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg", "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "8f5284c0abc545c99b2ec7c90bdc6406", "session_id": "6cba53b81ae1479f92ccc27a4190743a", "batch_id": "qa", "qa_event_id": "7bb9f011fb424661a2ad6d7aadb7923b", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 457, "y": 0, "width": 1463, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 333, "y": 0, "width": 1067, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 23, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00014:6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg"}, {"image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg", "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "bcf46387e5cb4334a8421753c28e892b", "session_id": "6cba53b81ae1479f92ccc27a4190743a", "batch_id": "qa", "qa_event_id": "b84b4b8a19c34b209064ad265f6c9782", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1296, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 945, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 54, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00015:6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg"}, {"image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg", "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "aa434e0f4d954a439a9fcbd07e346208", "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a", "batch_id": "qa", "qa_event_id": "8a1e3c8940854b62bde3b1528204830e", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1809, "height": 1079}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 1319, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 33, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00016:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg"}, {"image": "images/1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg", "source_candidate": "positive/1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "b75e65aac8e24a28b7ef17053fd57d95", "session_id": "1ae7762e4aff44faa7d7b75a0962e50f", "batch_id": "qa", "qa_event_id": "c16806720f31460a9e32d3627a53ac2e", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1061, "height": 1001}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 774, "height": 730, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 122, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00017:1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg"}, {"image": "images/1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg", "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "c18e03c3e3494c01bec8785d1bf71682", "session_id": "1f54b22aed3942caa921fe075593a550", "batch_id": "qa", "qa_event_id": "6427cf1ef58c408ab7b8fe91f628b8a1", "needs_box_label": true}, "width": 3200, "height": 1553, "boxes": [{"bbox_px": {"x": 395, "y": 69, "width": 2805, "height": 910}, "score": 0.82, "source": "layout_prelabel", "quality_flags": ["tall_block", "page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 825, "y": 891, "width": 2290, "height": 398}, "score": 0.62, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 395, "y": 1223, "width": 2713, "height": 329}, "score": 0.83, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 173, "y": 30, "width": 1227, "height": 649, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 22, "draft_box_count": 3, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00018:1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg"}, {"image": "images/2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg", "source_candidate": "positive/2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "aede395827a8455487ce2ddc55c06b83", "session_id": "2433f3e755ae40519113cc010c00e6d3", "batch_id": "qa", "qa_event_id": "3f4aae372914491990aeefb7a2e51d4c", "needs_box_label": true}, "width": 2211, "height": 3200, "boxes": [{"bbox_px": {"x": 1351, "y": 2464, "width": 859, "height": 281}, "score": 0.795, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1351, "y": 2715, "width": 793, "height": 222}, "score": 0.62, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}, {"bbox_px": {"x": 1351, "y": 2942, "width": 779, "height": 215}, "score": 0.62, "source": "layout_prelabel", "quality_flags": ["page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 591, "y": 1078, "width": 376, "height": 316, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 11, "draft_box_count": 3, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00019:2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg"}, {"image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg", "source_candidate": "positive/005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "80aee0caa4e24a128f27c9cb9c306600", "session_id": "005c6d92ef37414ab5d41a5f0ad66656", "batch_id": "qa", "qa_event_id": "5eb7ac3192e34c899eed75b9251245d0", "needs_box_label": true}, "width": 3200, "height": 1024, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 1022, "height": 761}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 447, "height": 333, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 11, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00020:005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg"}, {"image": "images/1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg", "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "7447eac1ed3741f8af63748d64c4ee87", "session_id": "1f54b22aed3942caa921fe075593a550", "batch_id": "qa", "qa_event_id": "6243d97d8bb646138d211abc87a9f259", "needs_box_label": true}, "width": 2958, "height": 1290, "boxes": [{"bbox_px": {"x": 2094, "y": 245, "width": 775, "height": 539}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 991, "y": 116, "width": 367, "height": 255, "source": "bright_page"}, "processing_scale": 0.47329276538201487, "line_box_count": 17, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00021:1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg"}, {"image": "images/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg", "source_candidate": "positive/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "a35c8ac7f7d54023a2920cd27419af2e", "session_id": "299631775fad422bbff9c20c17f84b9b", "batch_id": "qa", "qa_event_id": "e208eb138078482ab519524ce7dd6d2b", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 304, "y": 0, "width": 1289, "height": 831}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 35, "y": 0, "width": 1127, "height": 606, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 15, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00022:299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg"}, {"image": "images/3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg", "source_candidate": "positive/3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "28e24c6718b847eaa5ac724a00470ec4", "session_id": "3114c9419bb64914a5d7ce9813383276", "batch_id": "qa", "qa_event_id": "551e8d3c79394eea877e5f970783b658", "needs_box_label": true}, "width": 2263, "height": 3200, "boxes": [{"bbox_px": {"x": 0, "y": 0, "width": 2263, "height": 1568}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 0, "y": 0, "width": 990, "height": 686, "source": "bright_page"}, "processing_scale": 0.4375, "line_box_count": 41, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00023:3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg"}, {"image": "images/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg", "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "fd0adcd34d804270a2cecb396fc7e77b", "session_id": "4dd68b59b935466195b05543c884ff15", "batch_id": "5963f1c158f54da9b6d53f649c61ac00", "qa_event_id": "7f6c9170642a4a2c861d3565a7be47ab", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 1111, "y": 425, "width": 809, "height": 654}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 693, "y": 310, "width": 707, "height": 477, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 28, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00024:4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg"}]}</script>
+<div class="app">
+  <section class="panel">
+    <div class="topbar"><strong>Review Queue</strong><button id="prevBtn">Prev</button><button id="nextBtn">Next</button></div>
+    <div class="stats" id="stats"></div>
+    <div class="list" id="imageList"></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong id="imageTitle">Image</strong><button class="good" id="approveImageBtn">Approve visible</button><button class="bad" id="rejectImageBtn">Reject visible</button></div>
+    <div class="stage-wrap"><div class="stage" id="stage"><img id="mainImage" alt=""></div></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong>Boxes</strong><button class="primary" id="downloadApprovedBtn">approved JSONL</button><button id="downloadDecisionsBtn">decisions JSON</button></div>
+    <div class="side">
+      <p class="muted small">Only approved, accepted, corrected, or verified boxes are exported for training. Draft and rejected boxes stay out.</p>
+      <div id="boxList"></div>
+      <h4>Notes</h4>
+      <textarea id="imageNote" placeholder="Optional image-level note"></textarea>
+    </div>
+  </section>
+</div>
+<script>
+const data = JSON.parse(document.getElementById('review-data').textContent);
+let current = 0;
+let selectedBox = 0;
+const decisions = {};
+for (const item of data.items) {
+  decisions[item.review_id] = { image: item.image, note: '', boxes: item.boxes.map((box) => ({ status: 'pending', bbox_px: {...box.bbox_px}, note: '' })) };
+}
+const imageList = document.getElementById('imageList');
+const boxList = document.getElementById('boxList');
+const stage = document.getElementById('stage');
+const mainImage = document.getElementById('mainImage');
+const stats = document.getElementById('stats');
+const imageTitle = document.getElementById('imageTitle');
+const imageNote = document.getElementById('imageNote');
+
+function statusClass(status) {
+  return ['approved','accepted','verified'].includes(status) ? 'approved' : (status === 'corrected' ? 'corrected' : (status === 'rejected' ? 'rejected' : 'pending'));
+}
+function counts() {
+  let approved = 0, rejected = 0, pending = 0, corrected = 0, boxes = 0;
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    for (const box of d.boxes) {
+      boxes++;
+      if (box.status === 'corrected') corrected++;
+      if (['approved','accepted','corrected','verified'].includes(box.status)) approved++;
+      else if (box.status === 'rejected') rejected++;
+      else pending++;
+    }
+  }
+  return { approved, rejected, pending, corrected, boxes };
+}
+function renderStats() {
+  const c = counts();
+  stats.textContent = `${data.items.length} images | ${c.boxes} boxes | ${c.approved} approved | ${c.rejected} rejected | ${c.pending} pending`;
+}
+function renderImageList() {
+  imageList.innerHTML = '';
+  data.items.forEach((item, index) => {
+    const d = decisions[item.review_id];
+    const approved = d.boxes.filter((box) => ['approved','accepted','corrected','verified'].includes(box.status)).length;
+    const rejected = d.boxes.filter((box) => box.status === 'rejected').length;
+    const row = document.createElement('div');
+    row.className = 'row' + (index === current ? ' active' : '');
+    row.onclick = () => { current = index; selectedBox = 0; render(); };
+    row.innerHTML = `<img src="${item.image}"><div><div class="row-title">${item.image.split('/').pop()}</div><div class="row-meta">${item.boxes.length} boxes | ${approved} ok | ${rejected} no</div></div>`;
+    imageList.appendChild(row);
+  });
+}
+function renderStage() {
+  const item = data.items[current];
+  const d = decisions[item.review_id];
+  mainImage.src = item.image;
+  imageTitle.textContent = item.image.split('/').pop();
+  imageNote.value = d.note || '';
+  stage.querySelectorAll('.box').forEach((node) => node.remove());
+  d.boxes.forEach((decision, index) => {
+    const box = document.createElement('div');
+    const b = decision.bbox_px;
+    box.className = `box ${statusClass(decision.status)} ${index === selectedBox ? 'selected' : ''}`;
+    box.style.left = `${b.x / item.width * 100}%`;
+    box.style.top = `${b.y / item.height * 100}%`;
+    box.style.width = `${b.width / item.width * 100}%`;
+    box.style.height = `${b.height / item.height * 100}%`;
+    box.innerHTML = `<span>${index + 1}</span>`;
+    box.onclick = (event) => { event.stopPropagation(); selectedBox = index; render(); };
+    stage.appendChild(box);
+  });
+}
+function boxControls(item, index) {
+  const original = item.boxes[index];
+  const decision = decisions[item.review_id].boxes[index];
+  const b = decision.bbox_px;
+  const flags = (original.quality_flags || []).map((flag) => `<span class="badge">${flag}</span>`).join('');
+  return `<div class="box-card ${index === selectedBox ? 'selected' : ''}" data-index="${index}">
+    <div class="box-head"><strong>#${index + 1}</strong><span class="badge">${decision.status}</span><button class="good" data-action="approved">Approve</button><button class="warn" data-action="corrected">Corrected</button><button class="bad" data-action="rejected">Reject</button></div>
+    <div class="small muted">score ${Number(original.score || 0).toFixed(3)} | ${original.source || 'box'}</div>
+    <div>${flags}</div>
+    <div class="grid">
+      <div><label>x</label><input data-field="x" type="number" value="${Math.round(b.x)}"></div>
+      <div><label>y</label><input data-field="y" type="number" value="${Math.round(b.y)}"></div>
+      <div><label>w</label><input data-field="width" type="number" value="${Math.round(b.width)}"></div>
+      <div><label>h</label><input data-field="height" type="number" value="${Math.round(b.height)}"></div>
+    </div>
+    <textarea data-field="note" placeholder="Box note">${decision.note || ''}</textarea>
+  </div>`;
+}
+function renderBoxes() {
+  const item = data.items[current];
+  boxList.innerHTML = item.boxes.map((_, index) => boxControls(item, index)).join('');
+  boxList.querySelectorAll('.box-card').forEach((card) => {
+    const index = Number(card.dataset.index);
+    card.onclick = () => { selectedBox = index; render(); };
+    card.querySelectorAll('button[data-action]').forEach((btn) => {
+      btn.onclick = (event) => {
+        event.stopPropagation();
+        decisions[item.review_id].boxes[index].status = btn.dataset.action;
+        selectedBox = index;
+        render();
+      };
+    });
+    card.querySelectorAll('input[data-field]').forEach((input) => {
+      input.onchange = () => {
+        decisions[item.review_id].boxes[index].bbox_px[input.dataset.field] = Math.max(0, Number(input.value || 0));
+        if (decisions[item.review_id].boxes[index].status === 'pending') decisions[item.review_id].boxes[index].status = 'corrected';
+        renderStage();
+        renderStats();
+      };
+    });
+    const note = card.querySelector('textarea[data-field="note"]');
+    note.onchange = () => { decisions[item.review_id].boxes[index].note = note.value; };
+  });
+}
+function render() {
+  renderStats();
+  renderImageList();
+  renderStage();
+  renderBoxes();
+}
+function setImageStatus(status) {
+  const item = data.items[current];
+  for (const box of decisions[item.review_id].boxes) box.status = status;
+  render();
+}
+function approvedRows() {
+  const rows = [];
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    const boxes = [];
+    d.boxes.forEach((decision, index) => {
+      if (!['approved','accepted','corrected','verified'].includes(decision.status)) return;
+      boxes.push({...item.boxes[index], bbox_px: decision.bbox_px, annotation_status: decision.status, review_note: decision.note || ''});
+    });
+    if (boxes.length) {
+      const {review_id, ...base} = item;
+      rows.push({...base, boxes, annotation_status: 'approved', review_note: d.note || ''});
+    }
+  }
+  return rows;
+}
+function download(filename, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+document.getElementById('prevBtn').onclick = () => { current = Math.max(0, current - 1); selectedBox = 0; render(); };
+document.getElementById('nextBtn').onclick = () => { current = Math.min(data.items.length - 1, current + 1); selectedBox = 0; render(); };
+document.getElementById('approveImageBtn').onclick = () => setImageStatus('approved');
+document.getElementById('rejectImageBtn').onclick = () => setImageStatus('rejected');
+imageNote.onchange = () => { decisions[data.items[current].review_id].note = imageNote.value; };
+document.getElementById('downloadDecisionsBtn').onclick = () => download('question_box_decisions.json', JSON.stringify({version:1, source:data.source, generated_at:new Date().toISOString(), decisions}, null, 2), 'application/json');
+document.getElementById('downloadApprovedBtn').onclick = () => download('approved_boxes.jsonl', approvedRows().map((row) => JSON.stringify(row)).join('\n') + '\n', 'application/x-jsonlines');
+document.addEventListener('keydown', (event) => {
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+  const item = data.items[current];
+  if (event.key === 'a') decisions[item.review_id].boxes[selectedBox].status = 'approved';
+  if (event.key === 'c') decisions[item.review_id].boxes[selectedBox].status = 'corrected';
+  if (event.key === 'r') decisions[item.review_id].boxes[selectedBox].status = 'rejected';
+  if (event.key === 'ArrowRight') current = Math.min(data.items.length - 1, current + 1);
+  if (event.key === 'ArrowLeft') current = Math.max(0, current - 1);
+  render();
+});
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-07-01T14:00:07.566271+00:00",
+  "prelabel_root": "diagnostics\\question-detector-fenti-pimage-prelabel",
+  "out": "diagnostics\\question-detector-fenti-pimage-review-batch-001",
+  "candidate_count": 606,
+  "selected_images": 8,
+  "selected_boxes": 180,
+  "limit": 80,
+  "include_quarantine": true,
+  "excluded_approved_images": 0,
+  "excluded_queued_images": 0,
+  "skipped": {
+    "no_boxes": 6
+  },
+  "selection": {
+    "max_per_session": 999,
+    "max_boxes_total": 180,
+    "ahash_threshold": 2,
+    "session_counts": {
+      "pimage_00070": 1,
+      "pimage_00126": 1,
+      "pimage_00148": 1,
+      "pimage_00186": 1,
+      "pimage_00193": 1,
+      "pimage_00197": 1,
+      "pimage_00406": 1,
+      "pimage_00556": 1
+    },
+    "reason_counts": {
+      "dense_text": 2,
+      "flag:few_text_lines": 8,
+      "flag:page:full_image_fallback": 8,
+      "multi_box_page": 8,
+      "small_box": 8
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

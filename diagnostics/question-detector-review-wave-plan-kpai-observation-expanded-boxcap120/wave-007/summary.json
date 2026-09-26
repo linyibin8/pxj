@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-30T15:39:54.569858+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007",
+  "candidate_count": 462,
+  "selected_images": 24,
+  "selected_boxes": 61,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 177,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 137,
+    "no_boxes": 1
+  },
+  "selection": {
+    "max_per_session": 4,
+    "max_boxes_total": 120,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "080ba36428c64a3698f28510e6e87955": 1,
+      "22da895173b14bd8b5b9abd3ec92601f": 1,
+      "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+      "4dd68b59b935466195b05543c884ff15": 2,
+      "5550267ee5ca4f01914ac5c705f4c74c": 1,
+      "58235995a9f24c56808659942cb84b35": 1,
+      "6818143990c546fcb999a04621adc0be": 1,
+      "6cba53b81ae1479f92ccc27a4190743a": 1,
+      "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1": 1,
+      "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+      "92b9447f4a8f43858a6a2a20324c1769": 2,
+      "aa24c7e7c05b401aa268d586c27aea0f": 1,
+      "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+      "bb68c98c9ca44664b1582da1b6c2251b": 1,
+      "d7b260126f7349cdbaba2e82f15818e1": 1,
+      "e0243d0aa8e54be2b6d434f9cebe5024": 3,
+      "e65858e27a964eac83306022bfff0238": 1
+    },
+    "reason_counts": {
+      "dense_text": 6,
+      "flag:few_text_lines": 13,
+      "flag:near_full_page": 16,
+      "flag:page:full_image_fallback": 1,
+      "flag:short_block": 10,
+      "flag:tall_block": 19,
+      "large_box": 2,
+      "multi_box_page": 9,
+      "quarantine": 3,
+      "small_box": 22
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

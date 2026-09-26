@@ -1,0 +1,65 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 87,
+    "annotations": 11,
+    "negative_images": 80,
+    "split_groups": 21
+  },
+  "split_counts": {
+    "train": {
+      "images": 65,
+      "positive_images": 2,
+      "negative_images": 63,
+      "annotations": 4,
+      "groups": 13
+    },
+    "val": {
+      "images": 8,
+      "positive_images": 1,
+      "negative_images": 7,
+      "annotations": 1,
+      "groups": 1
+    },
+    "test": {
+      "images": 14,
+      "positive_images": 4,
+      "negative_images": 10,
+      "annotations": 6,
+      "groups": 7
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_cross_split_pairs": []
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 0,
+    "production_split_groups": 50
+  },
+  "warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "11 annotations; target >= 1000."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "21 groups; target >= 50."
+    }
+  ]
+}

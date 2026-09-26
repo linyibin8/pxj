@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-06-30T02:46:35.412444+00:00",
+  "source_dataset": "diagnostics\\question-detector-reviewed-approved-smoke",
+  "fold_index": 2,
+  "folds": 3,
+  "group_field": "split_key",
+  "val_ratio": 0.1,
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 87,
+      "annotations": 11,
+      "negative_images": 80,
+      "split_groups": 21
+    },
+    "split_counts": {
+      "train": {
+        "images": 38,
+        "positive_images": 3,
+        "negative_images": 35,
+        "annotations": 6,
+        "groups": 13
+      },
+      "val": {
+        "images": 3,
+        "positive_images": 3,
+        "negative_images": 0,
+        "annotations": 4,
+        "groups": 1
+      },
+      "test": {
+        "images": 46,
+        "positive_images": 1,
+        "negative_images": 45,
+        "annotations": 1,
+        "groups": 7
+      }
+    },
+    "leakage": {
+      "split_group_overlaps": {},
+      "exact_cross_split_images": [],
+      "near_duplicate_threshold": 4,
+      "near_duplicate_cross_split_pairs": []
+    },
+    "minimums": {
+      "production_images": 300,
+      "production_annotations": 1000,
+      "production_negative_images": 0,
+      "production_split_groups": 50
+    },
+    "warnings": [
+      {
+        "code": "too_few_images",
+        "severity": "warning",
+        "detail": "87 source images; target >= 300."
+      },
+      {
+        "code": "too_few_annotations",
+        "severity": "warning",
+        "detail": "11 annotations; target >= 1000."
+      },
+      {
+        "code": "too_few_split_groups",
+        "severity": "warning",
+        "detail": "21 groups; target >= 50."
+      }
+    ]
+  },
+  "outputs": {
+    "coco": "annotations/coco_*.json",
+    "yolo": "images/{split}, labels/{split}, yolo_dataset.yaml",
+    "createml": "annotations/createml_*.json",
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "jsonl": "annotations/manifest.jsonl"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-06-30T03:55:12.440707+00:00",
+  "inputs": {
+    "prelabel_roots": [
+      "diagnostics\\question-detector-prelabel-kpai"
+    ],
+    "approved_jsonl": [
+      "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl"
+    ],
+    "negative_images_dir": [
+      "diagnostics\\question-detector-review-candidates-kpai\\negative"
+    ]
+  },
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 126,
+      "positive_images": 43,
+      "negative_images": 83,
+      "annotations": 54,
+      "human_reviewed_annotations": 6,
+      "pseudo_annotations": 48,
+      "split_groups": 39
+    },
+    "split_counts": {
+      "train": {
+        "images": 53,
+        "positive_images": 20,
+        "negative_images": 33,
+        "annotations": 23,
+        "groups": 23
+      },
+      "val": {
+        "images": 31,
+        "positive_images": 7,
+        "negative_images": 24,
+        "annotations": 9,
+        "groups": 8
+      },
+      "test": {
+        "images": 42,
+        "positive_images": 16,
+        "negative_images": 26,
+        "annotations": 22,
+        "groups": 8
+      }
+    },
+    "bootstrap": {
+      "min_draft_score": 0.7,
+      "min_area_ratio": 0.002,
+      "max_area_ratio": 0.92,
+      "reject_quality_flags": [
+        "few_text_lines",
+        "short_block"
+      ],
+      "stats": {
+        "approved": {
+          "accepted_labels": 6
+        },
+        "draft": {
+          "accepted_labels": 48,
+          "accepted_images": 41,
+          "rejected:low_score": 19,
+          "rejected:large_area": 3,
+          "skipped_approved_image": 3
+        },
+        "negative": {
+          "accepted_images": 80
+        }
+      }
+    },
+    "warnings": [
+      {
+        "code": "bootstrap_dataset_not_release_ready",
+        "severity": "warning",
+        "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+      }
+    ]
+  }
+}

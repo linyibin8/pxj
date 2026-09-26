@@ -1,5 +1,6 @@
 import UIKit
 import Vision
+import CoreML
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
@@ -13,12 +14,82 @@ struct QuestionRegion: Identifiable, Equatable {
     var confidence: Double
 }
 
+struct QuestionSegmentationDiagnostics {
+    var segmenterVersion = "question_region_v7_ocr_sanity_filter"
+    var selectedSegmenter = "none"
+    var didCorrect = false
+    var textRecognitionScope = "none"
+    var textRecognitionDurationMs = 0
+    var ocrV3DurationMs = 0
+    var coreMLV4DurationMs = 0
+    var totalDurationMs = 0
+    var ocrTextLineCount = 0
+    var ocrV3CandidateCount = 0
+    var coreMLModelLoaded = false
+    var coreMLAttempted = false
+    var fallbackToOCR = false
+    var coreMLRawObservationCount = 0
+    var coreMLCandidateBoxCount = 0
+    var coreMLAfterNMSBoxCount = 0
+    var coreMLMatchedRegionCount = 0
+    var coreMLTextlessFallback = false
+    var selectedRegionCount = 0
+    var sanityFilteredRegionCount = 0
+    var pairedMatchCount = 0
+    var pairedMeanIoU = 0.0
+    var pairedMedianIoU = 0.0
+    var unmatchedOCRV3Count = 0
+    var unmatchedCoreMLV4Count = 0
+
+    var payload: [String: Any] {
+        [
+            "segmenter_version": segmenterVersion,
+            "selected_segmenter": selectedSegmenter,
+            "did_correct": didCorrect,
+            "text_recognition_scope": textRecognitionScope,
+            "text_recognition_duration_ms": textRecognitionDurationMs,
+            "ocr_v3_duration_ms": ocrV3DurationMs,
+            "coreml_v4_duration_ms": coreMLV4DurationMs,
+            "segmentation_total_duration_ms": totalDurationMs,
+            "ocr_text_line_count": ocrTextLineCount,
+            "ocr_v3_candidate_count": ocrV3CandidateCount,
+            "coreml_model_loaded": coreMLModelLoaded,
+            "coreml_attempted": coreMLAttempted,
+            "fallback_to_ocr": fallbackToOCR,
+            "coreml_raw_observation_count": coreMLRawObservationCount,
+            "coreml_candidate_box_count": coreMLCandidateBoxCount,
+            "coreml_box_after_nms_count": coreMLAfterNMSBoxCount,
+            "coreml_matched_region_count": coreMLMatchedRegionCount,
+            "coreml_textless_fallback": coreMLTextlessFallback,
+            "selected_region_count": selectedRegionCount,
+            "sanity_filtered_region_count": sanityFilteredRegionCount,
+            "paired_match_count": pairedMatchCount,
+            "paired_mean_iou": pairedMeanIoU,
+            "paired_median_iou": pairedMedianIoU,
+            "unmatched_ocr_v3_count": unmatchedOCRV3Count,
+            "unmatched_coreml_v4_count": unmatchedCoreMLV4Count
+        ]
+    }
+}
+
+struct QuestionSegmentationResult {
+    var regions: [QuestionRegion]
+    var diagnostics: QuestionSegmentationDiagnostics
+}
+
 /// 端上题目分割工具集：梯形校正 / 题块分割 / 子图裁剪。
 /// 组织方式仿 BurstFrameAnalyzer：纯 static、无状态、异常即降级。
 enum QuestionSegmenter {
 
     /// 共享 CIContext（CoreImage 渲染较重，复用一个即可）。
     static let ciContext = CIContext()
+    private static let detectorModelLock = NSLock()
+    private static var cachedDetectorModel: VNCoreMLModel?
+    private static var didAttemptDetectorLoad = false
+    private static let detectorCategoryName = "question_block"
+    private static let detectorFastMinConfidence: VNConfidence = 0.32
+    private static let detectorAccurateMinConfidence: VNConfidence = 0.38
+    private static let detectorNMSOverlapThreshold: CGFloat = 0.72
 
     // MARK: - 1. 梯形校正
 
@@ -27,7 +98,10 @@ enum QuestionSegmenter {
     static func rectify(_ image: UIImage) -> (image: UIImage, didCorrect: Bool) {
         let base = normalizedUp(image)
         guard let quad = detectDocumentQuad(base) else { return (base, false) }
+        return rectify(base, quad: quad)
+    }
 
+    private static func rectify(_ base: UIImage, quad: Quad) -> (image: UIImage, didCorrect: Bool) {
         // sanity：四角面积过小 / 过钝 / 几乎无形变 → 不矫正
         if quadArea(quad) < 0.35 { return (base, false) }
         if cornersTooObtuse(quad) { return (base, false) }
@@ -60,132 +134,189 @@ enum QuestionSegmenter {
     /// 把整页拍摄图分割成若干“大题块”（小问 (1)(2)(3) 不单独拆）。
     /// - Returns: [QuestionRegion]，归一化矩形定义在 orientation 归一后的图坐标系；异常返回 []。
     static func segment(_ image: UIImage, fast: Bool = false) -> [QuestionRegion] {
-        let base = normalizedUp(image)
-        // 实时扫描用更小图 + fast 识别（省功耗、可达每秒数帧）；静态精提取用 accurate。
-        let visionImage = base.resizedForVision(maxSide: fast ? 1000 : 1400)
-        guard let cg = visionImage.cgImage else { return [] }
-        let orientation = visionImage.cgImagePropertyOrientation
-
-        let request = VNRecognizeTextRequest()
-        request.recognitionLevel = fast ? .fast : .accurate
-        request.usesLanguageCorrection = !fast
-        request.recognitionLanguages = ["zh-Hans", "en-US"]
-
-        let handler = VNImageRequestHandler(cgImage: cg, orientation: orientation, options: [:])
-        guard (try? handler.perform([request])) != nil,
-              let observations = request.results, !observations.isEmpty else {
-            return []
-        }
-
-        // 每个 observation → 左上原点 rect 的文字行
-        var lines: [TextLine] = []
-        for obs in observations {
-            guard let candidate = obs.topCandidates(1).first else { continue }
-            let text = candidate.string.trimmingCharacters(in: .whitespacesAndNewlines)
-            guard !text.isEmpty else { continue }
-            let bb = obs.boundingBox // 左下原点
-            let rect = CGRect(x: bb.minX, y: 1 - bb.maxY, width: bb.width, height: bb.height) // 翻成左上原点
-            lines.append(TextLine(rect: rect, text: text, confidence: Double(candidate.confidence)))
-        }
-        guard !lines.isEmpty else { return [] }
-
-        lines.sort { $0.rect.minY < $1.rect.minY }
-        let avgHeight = lines.map { $0.rect.height }.reduce(0, +) / CGFloat(lines.count)
-
-        let pad: CGFloat = 0.012
-        let layout = questionLayout(for: lines, avgHeight: avgHeight)
-        var regions: [QuestionRegion] = []
-
-        /// 由一组文字行生成题块矩形；yBottomOverride 把竖直下界延伸到下一题题号，
-        /// 从而把「题号到下一题之间」的图形/留白也圈进来（密排题切得更全更准）。
-        func makeRegion(_ block: [TextLine], yBottomOverride: CGFloat?, isTerminalBlock: Bool) -> QuestionRegion? {
-            guard let first = block.first else { return nil }
-            var union = first.rect
-            for line in block.dropFirst() { union = union.union(line.rect) }
-            let expanded = expandedQuestionRect(
-                for: union,
-                block: block,
-                layout: layout,
-                yBottomOverride: yBottomOverride,
-                isTerminalBlock: isTerminalBlock
-            )
-            let padded = clampRect(expanded.insetBy(dx: -pad, dy: -pad))
-            guard padded.width * padded.height >= 0.012 else { return nil }
-            let text = block.map { $0.text }.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
-            guard !text.isEmpty else { return nil }
-            let confidence = block.map { $0.confidence }.reduce(0, +) / Double(block.count)
-            return QuestionRegion(normalizedRect: padded, index: 0, ocrText: text, confidence: confidence)
-        }
-
-        // 题号锚行（行首命中「N、/N，/N./第N题」等）。密排题靠题号逐题切，最准。
-        let anchors = lines.indices.filter { matchesQuestionNumber(lines[$0].text) }
-        if anchors.count >= 2 {
-            // 每道题 = [本题号行, 下一题号行) 的文字行，竖直下界延伸到下一题题号顶部。
-            for (a, start) in anchors.enumerated() {
-                let end = (a + 1 < anchors.count) ? anchors[a + 1] : lines.count
-                let yBottom = (a + 1 < anchors.count) ? lines[anchors[a + 1]].rect.minY - pad : nil
-                if let region = makeRegion(Array(lines[start..<end]), yBottomOverride: yBottom, isTerminalBlock: a + 1 == anchors.count) {
-                    regions.append(region)
-                }
-            }
-        } else {
-            // 回退：识别不到足够题号时，按垂直间隙 > 行高*1.6 或命中题号 聚类。
-            var blocks: [[TextLine]] = []
-            var current: [TextLine] = []
-            for line in lines {
-                if current.isEmpty { current = [line]; continue }
-                let prevMaxY = current.map { $0.rect.maxY }.max() ?? line.rect.minY
-                let gap = line.rect.minY - prevMaxY
-                if gap > avgHeight * 1.6 || matchesQuestionNumber(line.text) {
-                    blocks.append(current); current = [line]
-                } else { current.append(line) }
-            }
-            if !current.isEmpty { blocks.append(current) }
-            for (idx, block) in blocks.enumerated() {
-                let nextTop = (idx + 1 < blocks.count) ? blocks[idx + 1].first?.rect.minY : nil
-                let yBottom = nextTop.map { $0 - pad }
-                if let region = makeRegion(block, yBottomOverride: yBottom, isTerminalBlock: idx + 1 == blocks.count) {
-                    regions.append(region)
-                }
-            }
-        }
-
-        // 阅读顺序：上→下、左→右
-        regions.sort { lhs, rhs in
-            if abs(lhs.normalizedRect.minY - rhs.normalizedRect.minY) > 0.04 {
-                return lhs.normalizedRect.minY < rhs.normalizedRect.minY
-            }
-            return lhs.normalizedRect.minX < rhs.normalizedRect.minX
-        }
-        for i in regions.indices { regions[i].index = i + 1 }
-        return regions
+        return segmentWithDiagnostics(image, fast: fast).regions
     }
 
-    static func segmentForPreviewOverlay(_ image: UIImage) -> [QuestionRegion] {
+    static func segmentForPreviewOverlay(_ image: UIImage, fast: Bool = false) -> [QuestionRegion] {
         let base = normalizedUp(image)
         guard let quad = detectDocumentQuad(base),
               quadArea(quad) >= 0.35,
               !cornersTooObtuse(quad),
               !deformationTooSmall(quad) else {
-            return segment(base, fast: false)
+            return segment(base, fast: fast)
         }
-        let corrected = rectify(base)
+        let corrected = rectify(base, quad: quad)
         guard corrected.didCorrect else {
-            return segment(base, fast: false)
+            return segment(base, fast: fast)
         }
-        return segment(corrected.image, fast: false).compactMap { region in
+        let mappedRegions: [QuestionRegion] = segment(corrected.image, fast: fast).compactMap { region -> QuestionRegion? in
             let mapped = mapCorrectedRectToOriginal(region.normalizedRect, quad: quad)
             guard mapped.width * mapped.height >= 0.006 else { return nil }
             var copy = region
             copy.normalizedRect = mapped
             return copy
         }
+        return filteredQuestionRegions(mappedRegions, lines: [], strictTextSupport: false)
     }
 
     // MARK: - 3. 裁剪子图
 
     /// 按归一化 rect（左上原点）裁出子图。clamp 到图内；失败返回原图。
     /// 留白由调用方在 rect 上自行预留。
+    static func segmentWithDiagnostics(_ image: UIImage, fast: Bool = false) -> QuestionSegmentationResult {
+        let totalStartedAt = Date()
+        var diagnostics = QuestionSegmentationDiagnostics()
+        let base = normalizedUp(image)
+        let visionImage = base.resizedForVision(maxSide: fast ? 1000 : 1400)
+        guard let cg = visionImage.cgImage else {
+            diagnostics.totalDurationMs = durationMs(since: totalStartedAt)
+            return QuestionSegmentationResult(regions: [], diagnostics: diagnostics)
+        }
+        let orientation = visionImage.cgImagePropertyOrientation
+
+        let detectorStartedAt = Date()
+        var detector = detectorQuestionRegionResult(in: visionImage, cgImage: cg, lines: [], fast: fast, allowTextless: true)
+        diagnostics.coreMLV4DurationMs = durationMs(since: detectorStartedAt)
+        diagnostics.coreMLModelLoaded = detector.modelLoaded
+        diagnostics.coreMLAttempted = detector.attempted
+        diagnostics.coreMLRawObservationCount = detector.rawObservationCount
+        diagnostics.coreMLCandidateBoxCount = detector.candidateBoxCount
+        diagnostics.coreMLAfterNMSBoxCount = detector.nmsBoxCount
+
+        var detectorBoxTextDurationMs = 0
+        if !detector.boxes.isEmpty {
+            let textStartedAt = Date()
+            let localizedLines = recognizeTextLinesInDetectorBoxes(cgImage: cg, boxes: detector.boxes, fast: fast)
+            detectorBoxTextDurationMs = durationMs(since: textStartedAt)
+            diagnostics.textRecognitionScope = "detector_boxes"
+            diagnostics.textRecognitionDurationMs = detectorBoxTextDurationMs
+            diagnostics.ocrTextLineCount = localizedLines.count
+            detector.regions = readingOrderIndexed(detectorRegions(for: detector.boxes, lines: localizedLines, allowTextless: true))
+            detector.matchedRegionCount = detector.regions.filter {
+                !($0.ocrText ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            }.count
+            diagnostics.coreMLMatchedRegionCount = detector.matchedRegionCount
+            if detector.matchedRegionCount > 0 {
+                if fast, detectorFastPathLooksComplete(detector.regions) {
+                    let filtered = filteredQuestionRegions(detector.regions, lines: localizedLines, strictTextSupport: true)
+                    if detectorFastPathLooksComplete(filtered) {
+                        diagnostics.selectedSegmenter = "coreml_v4_detector_fast_complete"
+                        diagnostics.fallbackToOCR = false
+                        diagnostics.sanityFilteredRegionCount = max(0, detector.regions.count - filtered.count)
+                        diagnostics.selectedRegionCount = filtered.count
+                        diagnostics.totalDurationMs = durationMs(since: totalStartedAt)
+                        return QuestionSegmentationResult(regions: filtered, diagnostics: diagnostics)
+                    }
+                }
+            } else {
+                diagnostics.coreMLTextlessFallback = true
+            }
+        }
+
+        let textStartedAt = Date()
+        let request = VNRecognizeTextRequest()
+        request.recognitionLevel = fast ? .fast : .accurate
+        request.usesLanguageCorrection = !fast
+        request.recognitionLanguages = ["zh-Hans", "en-US"]
+        let handler = VNImageRequestHandler(cgImage: cg, orientation: orientation, options: [:])
+        guard (try? handler.perform([request])) != nil,
+              let observations = request.results, !observations.isEmpty else {
+            diagnostics.textRecognitionDurationMs = detectorBoxTextDurationMs + durationMs(since: textStartedAt)
+            diagnostics.textRecognitionScope = detectorBoxTextDurationMs > 0 ? "detector_boxes_then_full_page" : "full_page"
+            diagnostics.selectedSegmenter = diagnostics.coreMLTextlessFallback ? "ocr_v3_after_coreml_textless" : "none"
+            diagnostics.fallbackToOCR = diagnostics.coreMLTextlessFallback
+            diagnostics.totalDurationMs = durationMs(since: totalStartedAt)
+            return QuestionSegmentationResult(regions: [], diagnostics: diagnostics)
+        }
+        diagnostics.textRecognitionDurationMs = detectorBoxTextDurationMs + durationMs(since: textStartedAt)
+        diagnostics.textRecognitionScope = detectorBoxTextDurationMs > 0 ? "detector_boxes_then_full_page" : "full_page"
+
+        var lines: [TextLine] = []
+        for obs in observations {
+            guard let candidate = obs.topCandidates(1).first else { continue }
+            let text = candidate.string.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { continue }
+            let bb = obs.boundingBox
+            let rect = CGRect(x: bb.minX, y: 1 - bb.maxY, width: bb.width, height: bb.height)
+            lines.append(TextLine(rect: rect, text: text, confidence: Double(candidate.confidence)))
+        }
+        diagnostics.ocrTextLineCount = lines.count
+        guard !lines.isEmpty else {
+            diagnostics.totalDurationMs = durationMs(since: totalStartedAt)
+            return QuestionSegmentationResult(regions: [], diagnostics: diagnostics)
+        }
+
+        let ocrStartedAt = Date()
+        let ocrRegions = ocrLayoutQuestionRegions(from: lines)
+        diagnostics.ocrV3DurationMs = diagnostics.textRecognitionDurationMs + durationMs(since: ocrStartedAt)
+        diagnostics.ocrV3CandidateCount = ocrRegions.count
+
+        if !detector.boxes.isEmpty {
+            detector.regions = readingOrderIndexed(detectorRegions(for: detector.boxes, lines: lines, allowTextless: false))
+            detector.matchedRegionCount = detector.regions.filter {
+                !($0.ocrText ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            }.count
+        }
+        diagnostics.coreMLMatchedRegionCount = detector.matchedRegionCount
+
+        let pairing = regionPairingMetrics(ocrRegions: ocrRegions, coreMLRegions: detector.regions)
+        diagnostics.pairedMatchCount = pairing.matched
+        diagnostics.pairedMeanIoU = pairing.meanIoU
+        diagnostics.pairedMedianIoU = pairing.medianIoU
+        diagnostics.unmatchedOCRV3Count = pairing.unmatchedOCR
+        diagnostics.unmatchedCoreMLV4Count = pairing.unmatchedCoreML
+
+        let selected: [QuestionRegion]
+        if detector.regions.isEmpty {
+            selected = ocrRegions
+        } else {
+            selected = mergeDetectorAndOCRRegions(detector.regions, ocrRegions: ocrRegions)
+        }
+        let filteredSelected = filteredQuestionRegions(selected, lines: lines, strictTextSupport: false)
+        if detector.regions.isEmpty {
+            diagnostics.selectedSegmenter = diagnostics.coreMLTextlessFallback ? "ocr_v3_after_coreml_textless" : "ocr_v3"
+        } else {
+            diagnostics.selectedSegmenter = diagnostics.coreMLTextlessFallback
+                ? "coreml_v4_after_full_page_ocr"
+                : "coreml_v4_ocr_v3_merged"
+        }
+        diagnostics.fallbackToOCR = detector.regions.isEmpty
+        diagnostics.sanityFilteredRegionCount = max(0, selected.count - filteredSelected.count)
+        diagnostics.selectedRegionCount = filteredSelected.count
+        diagnostics.totalDurationMs = durationMs(since: totalStartedAt)
+        return QuestionSegmentationResult(regions: filteredSelected, diagnostics: diagnostics)
+    }
+
+    static func segmentForPreviewOverlayWithDiagnostics(_ image: UIImage, fast: Bool = false) -> QuestionSegmentationResult {
+        let base = normalizedUp(image)
+        guard let quad = detectDocumentQuad(base),
+              quadArea(quad) >= 0.35,
+              !cornersTooObtuse(quad),
+              !deformationTooSmall(quad) else {
+            return segmentWithDiagnostics(base, fast: fast)
+        }
+        let corrected = rectify(base, quad: quad)
+        guard corrected.didCorrect else {
+            return segmentWithDiagnostics(base, fast: fast)
+        }
+        var result = segmentWithDiagnostics(corrected.image, fast: fast)
+        let mappedRegions: [QuestionRegion] = result.regions.compactMap { region -> QuestionRegion? in
+            let mapped = mapCorrectedRectToOriginal(region.normalizedRect, quad: quad)
+            guard mapped.width * mapped.height >= 0.006 else { return nil }
+            var copy = region
+            copy.normalizedRect = mapped
+            return copy
+        }
+        result.regions = filteredQuestionRegions(mappedRegions, lines: [], strictTextSupport: false)
+        result.diagnostics.didCorrect = true
+        result.diagnostics.sanityFilteredRegionCount = max(
+            result.diagnostics.sanityFilteredRegionCount,
+            result.diagnostics.selectedRegionCount - result.regions.count
+        )
+        result.diagnostics.selectedRegionCount = result.regions.count
+        return result
+    }
+
     static func crop(_ image: UIImage, to normalizedRect: CGRect) -> UIImage {
         let base = normalizedUp(image)
         guard let cg = base.cgImage else { return image }
@@ -210,6 +341,514 @@ enum QuestionSegmenter {
         var confidence: Double
     }
 
+    private struct DetectorBox {
+        var rect: CGRect
+        var confidence: Double
+    }
+
+    private struct DetectorQuestionRegionResult {
+        var regions: [QuestionRegion] = []
+        var boxes: [DetectorBox] = []
+        var modelLoaded = false
+        var attempted = false
+        var rawObservationCount = 0
+        var candidateBoxCount = 0
+        var nmsBoxCount = 0
+        var matchedRegionCount = 0
+    }
+
+    private static func durationMs(since start: Date) -> Int {
+        max(0, Int(Date().timeIntervalSince(start) * 1000))
+    }
+
+    private static func makeTextRecognitionRequest(fast: Bool) -> VNRecognizeTextRequest {
+        let request = VNRecognizeTextRequest()
+        request.recognitionLevel = fast ? .fast : .accurate
+        request.usesLanguageCorrection = !fast
+        request.recognitionLanguages = ["zh-Hans", "en-US"]
+        return request
+    }
+
+    private static func textLines(from observations: [VNRecognizedTextObservation], mapRect: (CGRect) -> CGRect) -> [TextLine] {
+        var lines: [TextLine] = []
+        for obs in observations {
+            guard let candidate = obs.topCandidates(1).first else { continue }
+            let text = candidate.string.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { continue }
+            let bb = obs.boundingBox
+            let rect = mapRect(CGRect(x: bb.minX, y: 1 - bb.maxY, width: bb.width, height: bb.height))
+            lines.append(TextLine(rect: clampRect(rect), text: text, confidence: Double(candidate.confidence)))
+        }
+        return lines
+    }
+
+    private static func recognizeFullPageTextLines(cgImage: CGImage, orientation: CGImagePropertyOrientation, fast: Bool) -> [TextLine] {
+        let request = makeTextRecognitionRequest(fast: fast)
+        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: orientation, options: [:])
+        guard (try? handler.perform([request])) != nil,
+              let observations = request.results, !observations.isEmpty else {
+            return []
+        }
+        return textLines(from: observations) { $0 }
+    }
+
+    private static func recognizeTextLinesInDetectorBoxes(cgImage: CGImage, boxes: [DetectorBox], fast: Bool) -> [TextLine] {
+        guard !boxes.isEmpty else { return [] }
+        let imageWidth = CGFloat(cgImage.width)
+        let imageHeight = CGFloat(cgImage.height)
+        var lines: [TextLine] = []
+        for box in boxes {
+            let padded = clampRect(box.rect.insetBy(dx: -0.012, dy: -0.012))
+            let pixelRect = CGRect(
+                x: padded.minX * imageWidth,
+                y: padded.minY * imageHeight,
+                width: padded.width * imageWidth,
+                height: padded.height * imageHeight
+            ).integral
+            guard pixelRect.width >= 4,
+                  pixelRect.height >= 4,
+                  let crop = cgImage.cropping(to: pixelRect) else {
+                continue
+            }
+            let request = makeTextRecognitionRequest(fast: fast)
+            let handler = VNImageRequestHandler(cgImage: crop, orientation: .up, options: [:])
+            guard (try? handler.perform([request])) != nil,
+                  let observations = request.results, !observations.isEmpty else {
+                continue
+            }
+            lines.append(contentsOf: textLines(from: observations) { cropRect in
+                CGRect(
+                    x: padded.minX + cropRect.minX * padded.width,
+                    y: padded.minY + cropRect.minY * padded.height,
+                    width: cropRect.width * padded.width,
+                    height: cropRect.height * padded.height
+                )
+            })
+        }
+        return lines
+    }
+
+    private static func ocrLayoutQuestionRegions(from inputLines: [TextLine]) -> [QuestionRegion] {
+        var lines = inputLines
+        guard !lines.isEmpty else { return [] }
+        lines.sort { $0.rect.minY < $1.rect.minY }
+        let avgHeight = lines.map { $0.rect.height }.reduce(0, +) / CGFloat(lines.count)
+        let pad: CGFloat = 0.012
+        let layout = questionLayout(for: lines, avgHeight: avgHeight)
+        let columnGroups = questionColumnLineGroups(for: lines, layout: layout)
+        if columnGroups.count > 1 {
+            var columnRegions: [QuestionRegion] = []
+            for group in columnGroups {
+                let groupAvgHeight = group.map { $0.rect.height }.reduce(0, +) / CGFloat(max(1, group.count))
+                let groupLayout = questionLayout(for: group, avgHeight: groupAvgHeight)
+                columnRegions.append(contentsOf: ocrLayoutQuestionRegionsInFlow(from: group, layout: groupLayout, pad: pad))
+            }
+            if !columnRegions.isEmpty {
+                return readingOrderIndexed(columnRegions)
+            }
+        }
+
+        return readingOrderIndexed(ocrLayoutQuestionRegionsInFlow(from: lines, layout: layout, pad: pad))
+    }
+
+    private static func ocrLayoutQuestionRegionsInFlow(from inputLines: [TextLine], layout: QuestionLayout, pad: CGFloat) -> [QuestionRegion] {
+        var lines = inputLines
+        guard !lines.isEmpty else { return [] }
+        lines.sort { lhs, rhs in
+            if abs(lhs.rect.minY - rhs.rect.minY) > 0.012 {
+                return lhs.rect.minY < rhs.rect.minY
+            }
+            return lhs.rect.minX < rhs.rect.minX
+        }
+        let avgHeight = lines.map { $0.rect.height }.reduce(0, +) / CGFloat(lines.count)
+        var regions: [QuestionRegion] = []
+
+        func makeRegion(_ block: [TextLine], yBottomOverride: CGFloat?, isTerminalBlock: Bool) -> QuestionRegion? {
+            guard let first = block.first else { return nil }
+            var union = first.rect
+            for line in block.dropFirst() { union = union.union(line.rect) }
+            let expanded = expandedQuestionRect(
+                for: union,
+                block: block,
+                layout: layout,
+                yBottomOverride: yBottomOverride,
+                isTerminalBlock: isTerminalBlock
+            )
+            let padded = clampRect(expanded.insetBy(dx: -pad, dy: -pad))
+            guard padded.width * padded.height >= 0.012 else { return nil }
+            let text = block.map { $0.text }.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { return nil }
+            let confidence = block.map { $0.confidence }.reduce(0, +) / Double(block.count)
+            return QuestionRegion(normalizedRect: padded, index: 0, ocrText: text, confidence: confidence)
+        }
+
+        let anchors = lines.indices.filter { matchesQuestionNumber(lines[$0].text) }
+        if anchors.count >= 2 {
+            for (anchorOffset, start) in anchors.enumerated() {
+                let end = (anchorOffset + 1 < anchors.count) ? anchors[anchorOffset + 1] : lines.count
+                let yBottom = (anchorOffset + 1 < anchors.count) ? lines[anchors[anchorOffset + 1]].rect.minY - pad : nil
+                if let region = makeRegion(Array(lines[start..<end]), yBottomOverride: yBottom, isTerminalBlock: anchorOffset + 1 == anchors.count) {
+                    regions.append(region)
+                }
+            }
+        } else {
+            var blocks: [[TextLine]] = []
+            var current: [TextLine] = []
+            for line in lines {
+                if current.isEmpty {
+                    current = [line]
+                    continue
+                }
+                let previousMaxY = current.map { $0.rect.maxY }.max() ?? line.rect.minY
+                let gap = line.rect.minY - previousMaxY
+                if gap > avgHeight * 1.6 || matchesQuestionNumber(line.text) {
+                    blocks.append(current)
+                    current = [line]
+                } else {
+                    current.append(line)
+                }
+            }
+            if !current.isEmpty { blocks.append(current) }
+            for (index, block) in blocks.enumerated() {
+                let nextTop = (index + 1 < blocks.count) ? blocks[index + 1].first?.rect.minY : nil
+                let yBottom = nextTop.map { $0 - pad }
+                if let region = makeRegion(block, yBottomOverride: yBottom, isTerminalBlock: index + 1 == blocks.count) {
+                    regions.append(region)
+                }
+            }
+        }
+        return regions
+    }
+
+    private static func questionColumnLineGroups(for lines: [TextLine], layout: QuestionLayout) -> [[TextLine]] {
+        let columns = layout.columns
+        guard columns.count > 1 else { return [lines] }
+        var groups = Array(repeating: [TextLine](), count: columns.count)
+
+        for line in lines {
+            var bestIndex = 0
+            var bestScore: CGFloat = -1
+            for (index, column) in columns.enumerated() {
+                let overlap = horizontalOverlap(line.rect, column)
+                let centerInside = line.rect.midX >= column.minX && line.rect.midX <= column.maxX
+                var score = overlap / max(0.0001, line.rect.width)
+                if centerInside { score += 0.35 }
+                score -= abs(line.rect.midX - column.midX) * 0.08
+                if score > bestScore {
+                    bestScore = score
+                    bestIndex = index
+                }
+            }
+
+            let column = columns[bestIndex]
+            let spansMultipleColumns = line.rect.width > column.width * 1.35
+            if spansMultipleColumns && !matchesQuestionNumber(line.text) {
+                continue
+            }
+            groups[bestIndex].append(line)
+        }
+
+        let nonEmpty = groups.filter { !$0.isEmpty }
+        guard nonEmpty.count >= 2 else { return [lines] }
+        let usefulGroups = nonEmpty.filter { group in
+            group.count >= 2 || group.contains(where: { matchesQuestionNumber($0.text) })
+        }
+        return usefulGroups.count >= 2 ? usefulGroups : [lines]
+    }
+
+    private static func detectorQuestionRegionResult(
+        in image: UIImage,
+        cgImage: CGImage,
+        lines: [TextLine],
+        fast: Bool,
+        allowTextless: Bool = false
+    ) -> DetectorQuestionRegionResult {
+        var result = DetectorQuestionRegionResult()
+        guard let model = optionalDetectorModel() else { return result }
+        result.modelLoaded = true
+        result.attempted = true
+        let request = VNCoreMLRequest(model: model)
+        request.imageCropAndScaleOption = .scaleFit
+        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: image.cgImagePropertyOrientation, options: [:])
+        guard (try? handler.perform([request])) != nil else { return result }
+
+        let observations = (request.results as? [VNRecognizedObjectObservation]) ?? []
+        result.rawObservationCount = observations.count
+        let minConfidence: VNConfidence = fast ? detectorFastMinConfidence : detectorAccurateMinConfidence
+        let boxes = observations.compactMap { observation -> DetectorBox? in
+            guard observation.confidence >= minConfidence else { return nil }
+            if let label = observation.labels.first,
+               !label.identifier.isEmpty,
+               label.identifier != detectorCategoryName,
+               label.identifier != "question",
+               label.identifier != "question_region" {
+                return nil
+            }
+            let bb = observation.boundingBox
+            let rect = clampRect(CGRect(x: bb.minX, y: 1 - bb.maxY, width: bb.width, height: bb.height))
+            guard rect.width * rect.height >= 0.012 else { return nil }
+            return DetectorBox(rect: rect, confidence: Double(observation.confidence))
+        }
+        result.candidateBoxCount = boxes.count
+        let selectedBoxes = nonMaxSuppressed(boxes, overlapThreshold: detectorNMSOverlapThreshold)
+        result.nmsBoxCount = selectedBoxes.count
+        result.boxes = selectedBoxes
+        let regions = detectorRegions(for: selectedBoxes, lines: lines, allowTextless: allowTextless)
+        result.regions = readingOrderIndexed(regions)
+        result.matchedRegionCount = result.regions.filter {
+            !($0.ocrText ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }.count
+        return result
+    }
+
+    private static func detectorRegions(for boxes: [DetectorBox], lines: [TextLine], allowTextless: Bool) -> [QuestionRegion] {
+        var regions: [QuestionRegion] = []
+        for box in boxes {
+            let matchedLines = linesForQuestionBox(box.rect, lines: lines)
+            let text = matchedLines.map { $0.text }.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+            let textConfidence = matchedLines.isEmpty ? 0 : matchedLines.map { $0.confidence }.reduce(0, +) / Double(matchedLines.count)
+            if !text.isEmpty || allowTextless {
+                regions.append(
+                    QuestionRegion(
+                        normalizedRect: box.rect,
+                        index: 0,
+                        ocrText: text.isEmpty ? nil : text,
+                        confidence: max(box.confidence, textConfidence)
+                    )
+                )
+            }
+        }
+        return regions
+    }
+
+    private static func detectorFastPathLooksComplete(_ regions: [QuestionRegion]) -> Bool {
+        guard regions.count >= 4 else { return false }
+        let rects = regions.map { $0.normalizedRect }
+        let summedArea = rects.reduce(CGFloat(0)) { total, rect in
+            total + max(0, rect.width * rect.height)
+        }
+        let union = unionRect(for: rects) ?? .zero
+        let meanConfidence = regions.map { $0.confidence }.reduce(0, +) / Double(regions.count)
+        return summedArea >= 0.24 &&
+            union.height >= 0.45 &&
+            union.width >= 0.42 &&
+            meanConfidence >= 0.42
+    }
+
+    private static func mergeDetectorAndOCRRegions(
+        _ detectorRegions: [QuestionRegion],
+        ocrRegions: [QuestionRegion]
+    ) -> [QuestionRegion] {
+        var merged = detectorRegions
+        for ocrRegion in ocrRegions {
+            if merged.contains(where: { overlapsSameQuestion(ocrRegion.normalizedRect, $0.normalizedRect) }) {
+                continue
+            }
+            merged.append(ocrRegion)
+        }
+        return readingOrderIndexed(merged)
+    }
+
+    private static func overlapsSameQuestion(_ candidate: CGRect, _ existing: CGRect) -> Bool {
+        let overlap = intersectionArea(candidate, existing)
+        guard overlap > 0 else { return false }
+        let candidateArea = max(0.0001, candidate.width * candidate.height)
+        let existingArea = max(0.0001, existing.width * existing.height)
+        if overlap / candidateArea >= 0.58 { return true }
+        if overlap / existingArea >= 0.72 { return true }
+        if intersectionOverUnion(candidate, existing) >= 0.24 { return true }
+        let center = CGPoint(x: candidate.midX, y: candidate.midY)
+        return existing.insetBy(dx: -0.012, dy: -0.012).contains(center)
+    }
+
+    private static func regionPairingMetrics(
+        ocrRegions: [QuestionRegion],
+        coreMLRegions: [QuestionRegion]
+    ) -> (matched: Int, meanIoU: Double, medianIoU: Double, unmatchedOCR: Int, unmatchedCoreML: Int) {
+        guard !ocrRegions.isEmpty, !coreMLRegions.isEmpty else {
+            return (0, 0, 0, ocrRegions.count, coreMLRegions.count)
+        }
+        var pairs: [(ocr: Int, core: Int, iou: CGFloat)] = []
+        for (ocrIndex, ocr) in ocrRegions.enumerated() {
+            for (coreIndex, core) in coreMLRegions.enumerated() {
+                let iou = intersectionOverUnion(ocr.normalizedRect, core.normalizedRect)
+                if iou >= 0.30 {
+                    pairs.append((ocrIndex, coreIndex, iou))
+                }
+            }
+        }
+        pairs.sort { $0.iou > $1.iou }
+        var usedOCR = Set<Int>()
+        var usedCore = Set<Int>()
+        var matchedIoUs: [Double] = []
+        for pair in pairs {
+            guard !usedOCR.contains(pair.ocr), !usedCore.contains(pair.core) else { continue }
+            usedOCR.insert(pair.ocr)
+            usedCore.insert(pair.core)
+            matchedIoUs.append(Double(pair.iou))
+        }
+        let mean = matchedIoUs.isEmpty ? 0 : matchedIoUs.reduce(0, +) / Double(matchedIoUs.count)
+        let sorted = matchedIoUs.sorted()
+        let median: Double
+        if sorted.isEmpty {
+            median = 0
+        } else if sorted.count % 2 == 0 {
+            median = (sorted[sorted.count / 2 - 1] + sorted[sorted.count / 2]) / 2
+        } else {
+            median = sorted[sorted.count / 2]
+        }
+        return (
+            matchedIoUs.count,
+            roundedDiagnosticDouble(mean),
+            roundedDiagnosticDouble(median),
+            max(0, ocrRegions.count - usedOCR.count),
+            max(0, coreMLRegions.count - usedCore.count)
+        )
+    }
+
+    private static func roundedDiagnosticDouble(_ value: Double) -> Double {
+        guard value.isFinite else { return 0 }
+        return (value * 10_000).rounded() / 10_000
+    }
+
+    private static func detectorQuestionRegions(in image: UIImage, cgImage: CGImage, lines: [TextLine], fast: Bool) -> [QuestionRegion]? {
+        guard !lines.isEmpty, let model = optionalDetectorModel() else { return nil }
+        let request = VNCoreMLRequest(model: model)
+        request.imageCropAndScaleOption = .scaleFit
+        let handler = VNImageRequestHandler(cgImage: cgImage, orientation: image.cgImagePropertyOrientation, options: [:])
+        guard (try? handler.perform([request])) != nil else { return nil }
+
+        let observations = (request.results as? [VNRecognizedObjectObservation]) ?? []
+        let minConfidence: VNConfidence = fast ? detectorFastMinConfidence : detectorAccurateMinConfidence
+        let boxes = observations.compactMap { observation -> DetectorBox? in
+            guard observation.confidence >= minConfidence else { return nil }
+            if let label = observation.labels.first,
+               !label.identifier.isEmpty,
+               label.identifier != detectorCategoryName,
+               label.identifier != "question",
+               label.identifier != "question_region" {
+                return nil
+            }
+            let bb = observation.boundingBox
+            let rect = clampRect(CGRect(x: bb.minX, y: 1 - bb.maxY, width: bb.width, height: bb.height))
+            guard rect.width * rect.height >= 0.012 else { return nil }
+            return DetectorBox(rect: rect, confidence: Double(observation.confidence))
+        }
+        guard !boxes.isEmpty else { return nil }
+
+        var regions: [QuestionRegion] = []
+        for box in nonMaxSuppressed(boxes, overlapThreshold: detectorNMSOverlapThreshold) {
+            let matchedLines = linesForQuestionBox(box.rect, lines: lines)
+            guard !matchedLines.isEmpty else { continue }
+            let text = matchedLines.map { $0.text }.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { continue }
+            let textConfidence = matchedLines.map { $0.confidence }.reduce(0, +) / Double(matchedLines.count)
+            regions.append(
+                QuestionRegion(
+                    normalizedRect: box.rect,
+                    index: 0,
+                    ocrText: text,
+                    confidence: max(box.confidence, textConfidence)
+                )
+            )
+        }
+        return regions.isEmpty ? nil : readingOrderIndexed(regions)
+    }
+
+    private static func optionalDetectorModel() -> VNCoreMLModel? {
+        detectorModelLock.lock()
+        defer { detectorModelLock.unlock() }
+        if didAttemptDetectorLoad { return cachedDetectorModel }
+        didAttemptDetectorLoad = true
+        guard let url = Bundle.main.url(forResource: "QuestionRegionDetector", withExtension: "mlmodelc") else {
+            return nil
+        }
+        guard let mlModel = try? MLModel(contentsOf: url),
+              let visionModel = try? VNCoreMLModel(for: mlModel) else {
+            return nil
+        }
+        cachedDetectorModel = visionModel
+        return visionModel
+    }
+
+    private static func linesForQuestionBox(_ box: CGRect, lines: [TextLine]) -> [TextLine] {
+        let expanded = clampRect(box.insetBy(dx: -0.012, dy: -0.012))
+        return lines.filter { line in
+            let center = CGPoint(x: line.rect.midX, y: line.rect.midY)
+            if expanded.contains(center) { return true }
+            return intersectionArea(expanded, line.rect) / max(0.0001, line.rect.width * line.rect.height) >= 0.45
+        }
+    }
+
+    private static func nonMaxSuppressed(
+        _ boxes: [DetectorBox],
+        overlapThreshold: CGFloat
+    ) -> [DetectorBox] {
+        var selected: [DetectorBox] = []
+        for box in boxes.sorted(by: { $0.confidence > $1.confidence }) {
+            if selected.contains(where: { intersectionOverUnion(box.rect, $0.rect) >= overlapThreshold }) {
+                continue
+            }
+            selected.append(box)
+        }
+        return selected
+    }
+
+    private static func readingOrderIndexed(_ input: [QuestionRegion]) -> [QuestionRegion] {
+        var regions = input
+        regions.sort { lhs, rhs in
+            if abs(lhs.normalizedRect.minY - rhs.normalizedRect.minY) > 0.04 {
+                return lhs.normalizedRect.minY < rhs.normalizedRect.minY
+            }
+            return lhs.normalizedRect.minX < rhs.normalizedRect.minX
+        }
+        for i in regions.indices { regions[i].index = i + 1 }
+        return regions
+    }
+
+    private static func filteredQuestionRegions(
+        _ input: [QuestionRegion],
+        lines: [TextLine],
+        strictTextSupport: Bool
+    ) -> [QuestionRegion] {
+        let filtered = input.filter { region in
+            isPlausibleQuestionRegion(region, lines: lines, strictTextSupport: strictTextSupport)
+        }
+        return readingOrderIndexed(filtered)
+    }
+
+    private static func isPlausibleQuestionRegion(
+        _ region: QuestionRegion,
+        lines: [TextLine],
+        strictTextSupport: Bool
+    ) -> Bool {
+        let rect = clampRect(region.normalizedRect)
+        let area = rect.width * rect.height
+        guard area >= 0.006 else { return false }
+        guard rect.width >= 0.10, rect.height >= 0.035 else { return false }
+        guard rect.width <= 0.94, rect.height <= 0.62, area <= 0.50 else { return false }
+
+        let text = (region.ocrText ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        let matchedLines = linesForQuestionBox(rect, lines: lines)
+        let lineCount = matchedLines.count
+        let hasText = !text.isEmpty || lineCount > 0
+        if strictTextSupport && !hasText { return false }
+
+        let veryWide = rect.width >= 0.82
+        let veryTall = rect.height >= 0.46
+        if veryWide && veryTall { return false }
+        if veryWide && lineCount <= 1 && text.count < 8 { return false }
+        if rect.height >= 0.34 && lineCount <= 1 && text.count < 10 { return false }
+        if rect.width >= 0.72 && rect.height <= 0.065 && lineCount <= 1 { return false }
+
+        let edgeAnchored = rect.minX <= 0.015 || rect.maxX >= 0.985 || rect.minY <= 0.015 || rect.maxY >= 0.985
+        if edgeAnchored && area >= 0.32 { return false }
+
+        if lineCount >= 2 { return true }
+        if matchesQuestionNumber(text) { return true }
+        return text.count >= (strictTextSupport ? 8 : 4)
+    }
+
     // Layout estimate used to grow OCR-only boxes into practical question crops.
     private struct QuestionLayout {
         var contentRect: CGRect
@@ -228,12 +867,13 @@ enum QuestionSegmenter {
         let xPad = max(0.026, min(0.06, medianHeight * 2.2))
         let safeMinX: CGFloat = 0.025
         let safeMaxX: CGFloat = 0.975
-        let desiredWidth = min(safeMaxX - safeMinX, max(textRect.width + xPad * 2, 0.68))
+        let minContentWidth: CGFloat = textRect.width < 0.58 ? 0.42 : 0.68
+        let desiredWidth = min(safeMaxX - safeMinX, max(textRect.width + xPad * 2, minContentWidth))
         let xSpan = boundedSpan(center: textRect.midX, length: desiredWidth, lower: safeMinX, upper: safeMaxX)
 
         let topPad = max(0.012, medianHeight * 1.2)
-        let bottomPad = max(0.09, medianHeight * 5.0)
-        let minContentHeight = max(0.30, medianHeight * 10.0)
+        let bottomPad = max(0.055, medianHeight * 3.2)
+        let minContentHeight = max(0.18, medianHeight * 8.0)
         let minY = max(0, textRect.minY - topPad)
         let maxY = min(0.985, max(textRect.maxY + bottomPad, minY + minContentHeight))
         let contentRect = CGRect(x: xSpan.min, y: minY, width: xSpan.max - xSpan.min, height: max(0, maxY - minY))
@@ -319,16 +959,26 @@ enum QuestionSegmenter {
         }
 
         guard let splitIndex = bestIndex else { return [contentRect] }
-        let minGap = max(0.16, contentRect.width * 0.22)
-        guard bestGap >= minGap else { return [contentRect] }
+        let leftCenters = Array(centers[0...splitIndex])
+        let rightCenters = Array(centers[(splitIndex + 1)..<centers.count])
+        guard let leftMean = mean(leftCenters),
+              let rightMean = mean(rightCenters) else { return [contentRect] }
+        let clusterDistance = rightMean - leftMean
+        let minGap = max(0.10, contentRect.width * 0.13)
+        let minClusterDistance = max(0.20, contentRect.width * 0.28)
+        guard bestGap >= minGap || clusterDistance >= minClusterDistance else { return [contentRect] }
 
         let splitX = (centers[splitIndex] + centers[splitIndex + 1]) / 2
-        let crossingCount = lines.filter { $0.rect.minX < splitX && $0.rect.maxX > splitX }.count
-        guard crossingCount <= max(1, lines.count / 5) else { return [contentRect] }
+        let crossingLines = lines.filter { $0.rect.minX < splitX && $0.rect.maxX > splitX }
+        let hardCrossingCount = crossingLines.filter { line in
+            !matchesQuestionNumber(line.text) &&
+            line.rect.width > contentRect.width * 0.42
+        }.count
+        guard hardCrossingCount <= max(2, lines.count / 6) else { return [contentRect] }
 
         let leftLines = lines.filter { $0.rect.midX < splitX }
         let rightLines = lines.filter { $0.rect.midX >= splitX }
-        guard !leftLines.isEmpty, !rightLines.isEmpty else { return [contentRect] }
+        guard leftLines.count >= 2, rightLines.count >= 2 else { return [contentRect] }
 
         let leftWidth = splitX - contentRect.minX
         let rightWidth = contentRect.maxX - splitX
@@ -341,8 +991,8 @@ enum QuestionSegmenter {
     }
 
     private static func questionColumnRect(xMin: CGFloat, xMax: CGFloat, lines: [TextLine], contentRect: CGRect, medianHeight: CGFloat) -> CGRect {
-        let bottomPad = max(0.09, medianHeight * 5.0)
-        let minColumnHeight = max(0.30, medianHeight * 10.0)
+        let bottomPad = max(0.055, medianHeight * 3.2)
+        let minColumnHeight = max(0.18, medianHeight * 8.0)
         let lineMaxY = lines.map { $0.rect.maxY }.max() ?? contentRect.maxY
         let maxY = min(0.985, max(lineMaxY + bottomPad, contentRect.minY + minColumnHeight))
         return CGRect(x: xMin, y: contentRect.minY, width: max(0, xMax - xMin), height: max(0, maxY - contentRect.minY))
@@ -371,10 +1021,10 @@ enum QuestionSegmenter {
     }
 
     private static func minimumQuestionHeight(for textRect: CGRect, column: CGRect, layout: QuestionLayout, terminal: Bool) -> CGFloat {
-        let byLine = layout.medianLineHeight * (terminal ? 8.0 : 5.0)
-        let byColumn = column.width * (terminal ? 0.30 : 0.20)
-        let floor: CGFloat = terminal ? 0.20 : 0.12
-        let cap: CGFloat = terminal ? 0.38 : 0.28
+        let byLine = layout.medianLineHeight * (terminal ? 6.0 : 4.2)
+        let byColumn = column.width * (terminal ? 0.22 : 0.16)
+        let floor: CGFloat = terminal ? 0.14 : 0.09
+        let cap: CGFloat = terminal ? 0.30 : 0.22
         let desired = max(floor, max(byLine, byColumn))
         return min(max(textRect.height, desired), cap)
     }
@@ -394,6 +1044,15 @@ enum QuestionSegmenter {
         return rect
     }
 
+    private static func unionRect(for rects: [CGRect]) -> CGRect? {
+        guard let first = rects.first else { return nil }
+        var rect = first
+        for item in rects.dropFirst() {
+            rect = rect.union(item)
+        }
+        return rect
+    }
+
     private static func median(_ values: [CGFloat]) -> CGFloat {
         guard !values.isEmpty else { return 0 }
         let sorted = values.sorted()
@@ -402,6 +1061,11 @@ enum QuestionSegmenter {
             return (sorted[mid - 1] + sorted[mid]) / 2
         }
         return sorted[mid]
+    }
+
+    private static func mean(_ values: [CGFloat]) -> CGFloat? {
+        guard !values.isEmpty else { return nil }
+        return values.reduce(0, +) / CGFloat(values.count)
     }
 
     private static func boundedSpan(center: CGFloat, length: CGFloat, lower: CGFloat, upper: CGFloat) -> (min: CGFloat, max: CGFloat) {
@@ -422,6 +1086,19 @@ enum QuestionSegmenter {
 
     private static func horizontalOverlap(_ lhs: CGRect, _ rhs: CGRect) -> CGFloat {
         max(0, min(lhs.maxX, rhs.maxX) - max(lhs.minX, rhs.minX))
+    }
+
+    private static func intersectionArea(_ lhs: CGRect, _ rhs: CGRect) -> CGFloat {
+        let width = max(0, min(lhs.maxX, rhs.maxX) - max(lhs.minX, rhs.minX))
+        let height = max(0, min(lhs.maxY, rhs.maxY) - max(lhs.minY, rhs.minY))
+        return width * height
+    }
+
+    private static func intersectionOverUnion(_ lhs: CGRect, _ rhs: CGRect) -> CGFloat {
+        let intersection = intersectionArea(lhs, rhs)
+        guard intersection > 0 else { return 0 }
+        let union = max(0.0001, lhs.width * lhs.height + rhs.width * rhs.height - intersection)
+        return intersection / union
     }
 
     /// 四角，归一化、左下原点（Vision 原生）。topLeft 等指“视觉上的”角，与 CIFilter 一致。

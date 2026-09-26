@@ -1,0 +1,1010 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 1 test",
+    "version": "cv1",
+    "generated_at": "2026-06-30T02:13:57.375583+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-kpai-mixed"
+  },
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/test/d13478440371f99c__1434cd8ac1a3c7b4_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "080ba36428c64a3698f28510e6e87955:a2895dbc6f8046589fb22f9a062b61b7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:62573860bad845fea4607ad1be776e2e",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845fea4607ad1be776e2e.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 3,
+      "file_name": "images/test/997a71dc81d7d57e__1e09a0072a035565_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:9873a9046e98462fa2053b87d1f81fa1",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:6079b9cc3aff4919854d2c391d61bcd8",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff4919854d2c391d61bcd8.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 4,
+      "file_name": "images/test/4a1a834cdb64e520__4047440fa4195f68_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b82544.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:9873a9046e98462fa2053b87d1f81fa1",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:a9000b30b825445a89f937aa6cc6b9f0",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 5,
+      "file_name": "images/test/72d438b4396fcec3__45be191cf8d40f94_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b4175640.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "080ba36428c64a3698f28510e6e87955:a2895dbc6f8046589fb22f9a062b61b7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:ae6d45b41756402aa57c15b2d4a4b299",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b41756402aa57c15b2d4a4b299.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 7,
+      "file_name": "images/test/e9fed42ce1ac0cfa__899eb683b020e650_8feb463ec11940f6ad9df819f092ead9_1cc9964ce2ce4b46845588231b0978c6_f1e98e371c8c40.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "8feb463ec11940f6ad9df819f092ead9:1cc9964ce2ce4b46845588231b0978c6",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:f1e98e371c8c409c890c7346f7e0185c",
+      "source_filename": "8feb463ec11940f6ad9df819f092ead9_1cc9964ce2ce4b46845588231b0978c6_f1e98e371c8c409c890c7346f7e0185c.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 8,
+      "file_name": "images/test/85053eac4814822a__95c6737c751212cf_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "080ba36428c64a3698f28510e6e87955:a2895dbc6f8046589fb22f9a062b61b7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:4d7ae3baf5804db4bb9f20708f13ac09",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804db4bb9f20708f13ac09.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 10,
+      "file_name": "images/test/f93c919a70f36389__e48ff855a196394e_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "080ba36428c64a3698f28510e6e87955:a2895dbc6f8046589fb22f9a062b61b7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:0b86b960d1884c8d8dd945299fc492e6",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c8d8dd945299fc492e6.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 12,
+      "file_name": "images/test/b395fbd77091bc72__f224ebb6cf10b5b9_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "080ba36428c64a3698f28510e6e87955:a2895dbc6f8046589fb22f9a062b61b7",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:f9ce832097794da4bab8896f1f1eeb23",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794da4bab8896f1f1eeb23.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 14,
+      "file_name": "images/test/6b35880392fdb89e__086ac27f85f7a717_4dd68b59b935466195b05543c884ff15_eb93b8bcf0d641c69c8a4d5a97309d50_b22703e662484c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:eb93b8bcf0d641c69c8a4d5a97309d50",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:b22703e662484c8d9b747aacdefc4125",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_eb93b8bcf0d641c69c8a4d5a97309d50_b22703e662484c8d9b747aacdefc4125.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 15,
+      "file_name": "images/test/85451f4b05196448__0b6f77728f1a1774_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_017a8b65990e49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:5460bbe3f77045219ba2a5e7c8078c33",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:017a8b65990e493d8324b985b3014596",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_017a8b65990e493d8324b985b3014596.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 16,
+      "file_name": "images/test/3ca8e2f7ec0ffde0__10006472b7603e62_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_07ebf4e98bba4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:c60eb1e716b448d8906587950cb69479",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:07ebf4e98bba4ffba46c0a4e6114d0cc",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_07ebf4e98bba4ffba46c0a4e6114d0cc.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 18,
+      "file_name": "images/test/50744268c806ea77__14890d825431588e_b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:0763967f76724af893f19e1af2e03116",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:667270b9e3cc4f499a2e3c72d300b5ef",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f499a2e3c72d300b5ef.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 19,
+      "file_name": "images/test/5828f6a4b16b7cea__16c23e20adbab590_b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab9976845.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:c46d89729c7c41f9925c25e507afa69c",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:6a275ab99768457592342c9f708c56ac",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 21,
+      "file_name": "images/test/fae2e1b891509d78__1931aff25f3fff3d_b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_a08c1531d93e4e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:0763967f76724af893f19e1af2e03116",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:a08c1531d93e4e6aa158e31fd016ebf3",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_a08c1531d93e4e6aa158e31fd016ebf3.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 30,
+      "file_name": "images/test/ed12d3cc6afcf31f__44fad9afa6158e45_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_d8ebea2bef1f4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:38bb212b2ac0464ca82c6be32fc9ce27",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:d8ebea2bef1f4f91b64a7cfc50919ee6",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_d8ebea2bef1f4f91b64a7cfc50919ee6.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 34,
+      "file_name": "images/test/e9c8f90d2cb28a0f__52f384ab65433fa4_e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_0144b5a2cae049.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:96d852d81a084ef5848237d5a09177be",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:0144b5a2cae04924845e91e7f57ba741",
+      "source_filename": "e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_0144b5a2cae04924845e91e7f57ba741.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 35,
+      "file_name": "images/test/6c3c585ad0d9ae21__53178043bde8f1e8_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1:bc1dc1869baf4ae0a97d101d9ea207b1",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:02bf1de20df046f4bf10ec3e75083ba5",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046f4bf10ec3e75083ba5.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 37,
+      "file_name": "images/test/a704e44f7db38f6e__588aa038c63b6b1f_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_9bfaa60139704a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:c60eb1e716b448d8906587950cb69479",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:9bfaa60139704a4188db5cdc9b801ef6",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_9bfaa60139704a4188db5cdc9b801ef6.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 40,
+      "file_name": "images/test/fa634bd6de54ae4a__5a4562c4637d412c_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:5460bbe3f77045219ba2a5e7c8078c33",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:ea2af8e92aa045e58bbf2e9c2ae37734",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045e58bbf2e9c2ae37734.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 43,
+      "file_name": "images/test/d2b2f8f83b4df14e__61b3eba6065fd7b1_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:c60eb1e716b448d8906587950cb69479",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:41b7f222bde84ae5bdaaa3db3bc56722",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84ae5bdaaa3db3bc56722.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 46,
+      "file_name": "images/test/11b92fae1963da9f__6820708b2427cf2b_5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "5417041672e14628af2d7e587202d90e",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:d359e46113b14d078d06415a2bdac1f3",
+      "source_filename": "5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 53,
+      "file_name": "images/test/26bbe93cb6a0b651__75c386d0b9c05065_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_bef0d878469247.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:38bb212b2ac0464ca82c6be32fc9ce27",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:bef0d8784692476495049bed65f52bc8",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_bef0d8784692476495049bed65f52bc8.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 55,
+      "file_name": "images/test/e285dfed8bb79756__7e06f34bc6dc38e1_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_7cd37e7464a94f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:38bb212b2ac0464ca82c6be32fc9ce27",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:7cd37e7464a94f638d6ba4bb0f52e3a6",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_7cd37e7464a94f638d6ba4bb0f52e3a6.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 57,
+      "file_name": "images/test/485feba5cb64f169__88a76449e3485940_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:38bb212b2ac0464ca82c6be32fc9ce27",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:6bf1a76cadc04bd0ab60a063b20ceada",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04bd0ab60a063b20ceada.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 58,
+      "file_name": "images/test/fac74920d8601110__8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b:38bb212b2ac0464ca82c6be32fc9ce27",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:5d62cc35f71c489bbee200386727962b",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 59,
+      "file_name": "images/test/ea077a3138585424__8b0887a7cc91e04e_3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6:2f375b1fe80b45878be8415918e7f850",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:fc7e4294c6cc4b9ebdef276016bbfd9f",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b9ebdef276016bbfd9f.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 60,
+      "file_name": "images/test/dba3c008ac2ba50a__90769b68d71089de_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1:bc1dc1869baf4ae0a97d101d9ea207b1",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e7c3ca3a9d1f47fd90579523cebe022e",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 61,
+      "file_name": "images/test/b27dd953e21a715a__93786c648d06c37d_e65858e27a964eac83306022bfff0238_3c596e6d436b498a90c1f19e1206c8d6_e7926d693fb042.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:3c596e6d436b498a90c1f19e1206c8d6",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e7926d693fb042de91801169afc4e6fd",
+      "source_filename": "e65858e27a964eac83306022bfff0238_3c596e6d436b498a90c1f19e1206c8d6_e7926d693fb042de91801169afc4e6fd.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 68,
+      "file_name": "images/test/d18cf6f1037a9d16__9e2906570698ea54_4dd68b59b935466195b05543c884ff15_efc6a1935b5143cb97a0358fa3585a74_47c2a43d787143.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:efc6a1935b5143cb97a0358fa3585a74",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:47c2a43d787143edb7b3f210b58edaf3",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_efc6a1935b5143cb97a0358fa3585a74_47c2a43d787143edb7b3f210b58edaf3.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 70,
+      "file_name": "images/test/1940062dca0cd1e4__a11f607f2e09a548_92b9447f4a8f43858a6a2a20324c1769_1f9c2d405b494c6f92d4de3e1081399a_e2e17f7b25ef43.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:1f9c2d405b494c6f92d4de3e1081399a",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e2e17f7b25ef43b299dc8fe6bd177beb",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_1f9c2d405b494c6f92d4de3e1081399a_e2e17f7b25ef43b299dc8fe6bd177beb.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 71,
+      "file_name": "images/test/15d86825c7a7bac2__a2ba2887b4947b41_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:5b9389e1ba9d4fbba279c338a845e495",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:4aebbdc9a51e4cbfa8b7438220ec1ad1",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 81,
+      "file_name": "images/test/8569d994abf325cd__cb7ec5aaa3b7e95b_b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d41.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:56c45d308346418098a248c79e6de846",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:29426093812d411a9bb10211a3c3e500",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d411a9bb10211a3c3e500.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 83,
+      "file_name": "images/test/33f14b47f03428c6__d344f06fb7894f38_e65858e27a964eac83306022bfff0238_3c596e6d436b498a90c1f19e1206c8d6_e6ec8147790c46.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:3c596e6d436b498a90c1f19e1206c8d6",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e6ec8147790c4627a6a3e97f3777bde5",
+      "source_filename": "e65858e27a964eac83306022bfff0238_3c596e6d436b498a90c1f19e1206c8d6_e6ec8147790c4627a6a3e97f3777bde5.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 89,
+      "file_name": "images/test/af96225b554c8bb6__ded70f2c56ac96a6_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "b8e26671dfc145a3a5c521c5971db4a5",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:7df494415fa6466398fdc657d87ab726",
+      "source_filename": "b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 92,
+      "file_name": "images/test/9138d9017c668d2b__e7cfb502167cbe07_e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_4117d459756b47.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "e65858e27a964eac83306022bfff0238:96d852d81a084ef5848237d5a09177be",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:4117d459756b472db6dcd3fae97ebe0d",
+      "source_filename": "e65858e27a964eac83306022bfff0238_96d852d81a084ef5848237d5a09177be_4117d459756b472db6dcd3fae97ebe0d.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 95,
+      "file_name": "images/test/c2ed89727e5b193f__ee30ec61c9ddb4cc_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:5aab139f7b4d44d2976d121a5aad9e48",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:227877ac4f404b38a17a8862f18bd2a1",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b38a17a8862f18bd2a1.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 96,
+      "file_name": "images/test/837bb83b00cc1dd4__f223e79037953e8f_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:5aab139f7b4d44d2976d121a5aad9e48",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:ece30d1f23f149e8b2cc8c8af5ddb3c0",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149e8b2cc8c8af5ddb3c0.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 98,
+      "file_name": "images/test/8fce15dee219858c__f74d87952e2fea8f_1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb69360846.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "1babc6ec51dd4448a30ae26a8dbcfe1f:ec94a56997dd4a6db6dcc25ab9a3d3ae",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:dc89eb693608463e9e14ae46d5ddc6ca",
+      "source_filename": "1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb693608463e9e14ae46d5ddc6ca.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 99,
+      "file_name": "images/test/c0eb468f67b27b86__f902aacbf45043c2_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ad01c2e0f9794b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:5460bbe3f77045219ba2a5e7c8078c33",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:ad01c2e0f9794bd2a6f2bc98d405994b",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ad01c2e0f9794bd2a6f2bc98d405994b.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 100,
+      "file_name": "images/test/0d04cedb743f0f9b__fb827215d86edb5d_92b9447f4a8f43858a6a2a20324c1769_1f9c2d405b494c6f92d4de3e1081399a_1b9f2f3ec2644f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:1f9c2d405b494c6f92d4de3e1081399a",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:1b9f2f3ec2644f77950ab04ee78e727d",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_1f9c2d405b494c6f92d4de3e1081399a_1b9f2f3ec2644f77950ab04ee78e727d.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 101,
+      "file_name": "images/test/24551401c7e9ca12__fc140100640186b8_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:5aab139f7b4d44d2976d121a5aad9e48",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:e2cc470d3f7e45f8bd5a6afef79e37d1",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 107,
+      "file_name": "images/test/ea0d378e78f5bc0d__20dc07c8be7fdc45_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:679511b94a04494d9dc507bf16dc5e24",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:681123832bc141b6bb44441e4396ce77",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141b6bb44441e4396ce77.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 108,
+      "file_name": "images/test/c3e7621c0afddb66__24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 109,
+      "file_name": "images/test/3be61f95e0997fcd__2d683f3f62e06a30_4dd68b59b935466195b05543c884ff15_ef6f8a2348c94201a835c5f26d3a1486_986da65e0bfe41.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15:ef6f8a2348c94201a835c5f26d3a1486",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:986da65e0bfe41618aeb4c4571f6d956",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_ef6f8a2348c94201a835c5f26d3a1486_986da65e0bfe41618aeb4c4571f6d956.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 110,
+      "file_name": "images/test/b5305d4886c2d709__2fe3d92ed6578634_92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_82f1c37310044b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:667227beceba467baf058ae999125246",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:82f1c37310044bc5b8c463fed8918f86",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_82f1c37310044bc5b8c463fed8918f86.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 113,
+      "file_name": "images/test/5f2d582b77b2e4b4__a2a866386e31cc1e_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:679511b94a04494d9dc507bf16dc5e24",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:6f3e235d208d4fb6831ef5acfe9c9675",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4fb6831ef5acfe9c9675.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 114,
+      "file_name": "images/test/a2c011892a863c80__a42ffccb9c61dc38_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:679511b94a04494d9dc507bf16dc5e24",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:5e05d9f41c53478c9783f70b07a3b8e8",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c53478c9783f70b07a3b8e8.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 115,
+      "file_name": "images/test/442627e7867e316f__a6030c3e94a1b193_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd146.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09:679511b94a04494d9dc507bf16dc5e24",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:8471e5e7fcd1469d84a61b20c8756126",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 116,
+      "file_name": "images/test/1f9c7368dd803892__a8d9220b046d84cc_92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_5b660ef3ded04f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:667227beceba467baf058ae999125246",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:5b660ef3ded04f058e83ffa00efe7e5f",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_5b660ef3ded04f058e83ffa00efe7e5f.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 118,
+      "file_name": "images/test/dd918fe5ab8f2306__c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "test",
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "source_filename": "f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": []
+    },
+    {
+      "id": 119,
+      "file_name": "images/test/ea7f6104202bbf38__f16d8f8e1dd72c9f_92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_1f31962aad7244.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "92b9447f4a8f43858a6a2a20324c1769:667227beceba467baf058ae999125246",
+      "source_key": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3:1f31962aad7244aeb64dd9390d45a845",
+      "source_filename": "92b9447f4a8f43858a6a2a20324c1769_667227beceba467baf058ae999125246_1f31962aad7244aeb64dd9390d45a845.jpg",
+      "origin": "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 14,
+      "image_id": 108,
+      "category_id": 1,
+      "bbox": [
+        741,
+        346,
+        1491,
+        399
+      ],
+      "area": 594909,
+      "iscrowd": 0,
+      "question_key": "12发现了什么我每分打41个字2一篇稿件共325个字2月份3引782013年引3",
+      "question_index": 2,
+      "confidence": 0.5111111170715756,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 15,
+      "image_id": 108,
+      "category_id": 1,
+      "bbox": [
+        682,
+        619,
+        1486,
+        971
+      ],
+      "area": 1442906,
+      "iscrowd": 0,
+      "question_key": "135着粮食去磨坊先都有31上山要走9分走月都有3630迷再下山走8数不一分到达",
+      "question_index": 3,
+      "confidence": 0.5096774255075762,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d269cb45437d23adf96.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 16,
+      "image_id": 118,
+      "category_id": 1,
+      "bbox": [
+        737,
+        269,
+        1463,
+        467
+      ],
+      "area": 683221,
+      "iscrowd": 0,
+      "question_key": "12我每分打41个字2一篇稿件共325个字发现了什么月份1233妙想每分比奇思多",
+      "question_index": 2,
+      "confidence": 0.5733333388964336,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    },
+    {
+      "id": 17,
+      "image_id": 118,
+      "category_id": 1,
+      "bbox": [
+        580,
+        622,
+        1580,
+        971
+      ],
+      "area": 1534180,
+      "iscrowd": 0,
+      "question_key": "5上山要走9分走都有31月都有3630米再下山走8数不一分到达磨坊1你知道了哪些",
+      "question_index": 4,
+      "confidence": 0.5464285761117935,
+      "quality_flags": [],
+      "split_key": "f472f00ba1db4a43bbb41330d54477a8:af9117c0dbee40c69419f7ddf86be1a6",
+      "source_key": "diagnostics:diagnostics\\crop-f472\\data:f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f894567a0585e06c1eb0e45.jpg",
+      "origin": "diagnostics:diagnostics\\crop-f472\\data"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "images": [
+    {
+      "id": 2,
+      "file_name": "images/val/5e88477f1182d4_0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-001\\images\\0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "label_count": 5
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        805,
+        245,
+        850,
+        300
+      ],
+      "area": 255000,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 2,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        780,
+        550,
+        890,
+        220
+      ],
+      "area": 195800,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 3,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        760,
+        775,
+        930,
+        265
+      ],
+      "area": 246450,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        735,
+        1035,
+        970,
+        265
+      ],
+      "area": 257050,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 5,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        720,
+        1295,
+        1020,
+        355
+      ],
+      "area": 362100,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "bottom_near_edge",
+        "ai_teacher"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

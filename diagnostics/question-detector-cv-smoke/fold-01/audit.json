@@ -1,0 +1,62 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 8,
+    "annotations": 17,
+    "negative_images": 0,
+    "split_groups": 3
+  },
+  "split_counts": {
+    "train": {
+      "images": 2,
+      "positive_images": 2,
+      "negative_images": 0,
+      "annotations": 4,
+      "groups": 1
+    },
+    "val": {
+      "images": 4,
+      "positive_images": 4,
+      "negative_images": 0,
+      "annotations": 9,
+      "groups": 1
+    },
+    "test": {
+      "images": 2,
+      "positive_images": 2,
+      "negative_images": 0,
+      "annotations": 4,
+      "groups": 1
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {}
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 0,
+    "production_split_groups": 50
+  },
+  "warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "8 source images; target >= 300."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "17 annotations; target >= 1000."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "3 groups; target >= 50."
+    }
+  ]
+}

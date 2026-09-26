@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-30T04:50:25.944837+00:00",
+  "prelabel_root": "diagnostics\\question-detector-active-batch-kpai-003-quarantine",
+  "out": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+  "images": 10,
+  "boxes": 32,
+  "median_boxes_per_image": 2.5,
+  "include_quarantine": true,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Only approved/corrected/accepted/verified boxes should be promoted into detector training."
+  ]
+}

@@ -1,0 +1,6 @@
+{"question_crop_client_metrics":{"analysis_duration_ms":62,"cached_frame_count":4,"ocr_frame_count":1,"attached_crop_file_count":0},"question_crop_server_duration_ms":18}
+{"question_crop_client_metrics":{"analysis_duration_ms":74,"cached_frame_count":5,"ocr_frame_count":1,"attached_crop_file_count":0},"question_crop_server_duration_ms":21}
+{"question_crop_client_metrics":{"analysis_duration_ms":88,"cached_frame_count":4,"ocr_frame_count":2,"attached_crop_file_count":0},"question_crop_server_duration_ms":24}
+{"question_crop_client_metrics":{"analysis_duration_ms":96,"cached_frame_count":6,"ocr_frame_count":1,"attached_crop_file_count":0},"question_crop_server_duration_ms":19}
+{"question_crop_client_metrics":{"analysis_duration_ms":104,"cached_frame_count":5,"ocr_frame_count":2,"attached_crop_file_count":0},"question_crop_server_duration_ms":27}
+{"question_crop_client_metrics":{"analysis_duration_ms":118,"cached_frame_count":7,"ocr_frame_count":1,"attached_crop_file_count":0},"question_crop_server_duration_ms":31}

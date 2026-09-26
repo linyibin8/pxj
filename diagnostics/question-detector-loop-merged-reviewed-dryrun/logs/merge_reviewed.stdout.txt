@@ -1,0 +1,7 @@
+{
+  "out": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\merged_reviewed",
+  "images": 7,
+  "boxes": 12,
+  "deduped_boxes": 2,
+  "conflict_count": 0
+}

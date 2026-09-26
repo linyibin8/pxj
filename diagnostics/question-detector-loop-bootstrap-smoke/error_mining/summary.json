@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-06-30T04:12:27.188252+00:00",
+  "eval_summary": "diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\\eval\\summary.json",
+  "dataset_root": "diagnostics\\question-detector-bootstrap-kpai-smoke",
+  "threshold": "0.50",
+  "stats": {
+    "missed:boxes": 22,
+    "images": 16
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "contact_sheet": "hard_examples_contact_sheet.jpg"
+  }
+}

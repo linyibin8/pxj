@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-06-30T09:25:17.903252+00:00",
+  "inputs": {
+    "datasets": [
+      "diagnostics\\question-detector-bootstrap-kpai-clean-shape",
+      "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact"
+    ],
+    "experiments": [
+      "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep8\\train_manifest.json",
+      "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep25\\train_manifest.json"
+    ],
+    "release_checks": [
+      "diagnostics\\question-detector-release-check-p0-empty-section-dedupe"
+    ],
+    "replays": [
+      "diagnostics\\question-observation-replay-kpai-layout-measured"
+    ],
+    "error_mining": [
+      "diagnostics\\question-detector-error-mining-bootstrap-clean-shape",
+      "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25"
+    ],
+    "review_workbenches": [
+      "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench",
+      "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench"
+    ]
+  },
+  "datasets": [
+    {
+      "path": "diagnostics\\question-detector-bootstrap-kpai-clean-shape\\audit.json",
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false,
+      "counts": {
+        "source_images": 135,
+        "positive_images": 17,
+        "negative_images": 118,
+        "annotations": 27,
+        "human_reviewed_annotations": 16,
+        "pseudo_annotations": 11,
+        "split_groups": 41
+      },
+      "targets": {
+        "source_images": 300,
+        "annotations": 1000,
+        "split_groups": 50,
+        "negative_images": 1
+      },
+      "gaps": {
+        "source_images": 165,
+        "annotations": 973,
+        "split_groups": 9,
+        "negative_images": 0
+      },
+      "pseudo_ratio": 0.4074,
+      "is_bootstrap": true,
+      "warning_count": 1
+    },
+    {
+      "path": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json",
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false,
+      "counts": {
+        "source_images": 89,
+        "positive_images": 9,
+        "negative_images": 80,
+        "annotations": 16,
+        "human_reviewed_annotations": 16,
+        "pseudo_annotations": 0,
+        "split_groups": 20
+      },
+      "targets": {
+        "source_images": 300,
+        "annotations": 1000,
+        "split_groups": 50,
+        "negative_images": 50
+      },
+      "gaps": {
+        "source_images": 211,
+        "annotations": 984,
+        "split_groups": 30,
+        "negative_images": 0
+      },
+      "pseudo_ratio": 0.0,
+      "is_bootstrap": false,
+      "warning_count": 3
+    }
+  ],
+  "experiments": [
+    {
+      "path": "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep8\\train_manifest.json",
+      "status": "failed_eval_gate",
+      "run_count": 1,
+      "executed_run_count": 1,
+      "selection_summary": "",
+      "best_manifest": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep8\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "imgsz": 416,
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-clean-shape",
+        "coreml_artifact": "",
+        "eval_gate_passed": false,
+        "primary_threshold": "0.50",
+        "gt_count": 11,
+        "pred_count": 8365,
+        "precision": 0.0012,
+        "recall": 0.9091,
+        "f1": 0.0024,
+        "fp_per_image": 189.8864,
+        "missed_question_rate": 0.0909
+      },
+      "manifest_status_counts": {
+        "failed_eval_gate": 1
+      }
+    },
+    {
+      "path": "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep25\\train_manifest.json",
+      "status": "failed_eval_gate",
+      "run_count": 1,
+      "executed_run_count": 1,
+      "selection_summary": "",
+      "best_manifest": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep25\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "imgsz": 416,
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-clean-shape",
+        "coreml_artifact": "",
+        "eval_gate_passed": false,
+        "primary_threshold": "0.50",
+        "gt_count": 11,
+        "pred_count": 12386,
+        "precision": 0.0008,
+        "recall": 0.9091,
+        "f1": 0.0016,
+        "fp_per_image": 281.2727,
+        "missed_question_rate": 0.0909
+      },
+      "manifest_status_counts": {
+        "failed_eval_gate": 1
+      }
+    }
+  ],
+  "release_checks": [
+    {
+      "path": "diagnostics\\question-detector-release-check-p0-empty-section-dedupe\\release_check.json",
+      "release_ready": false,
+      "hard_failure_count": 11,
+      "warning_count": 1,
+      "hard_failure_categories": {
+        "dataset": 1,
+        "selection": 4,
+        "training": 2,
+        "artifact": 1,
+        "ios": 3
+      },
+      "top_hard_failures": [
+        {
+          "category": "dataset",
+          "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: model_training_ready",
+          "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable."
+        },
+        {
+          "category": "selection",
+          "name": "cross-validation fold count",
+          "detail": "Selected candidate must aggregate at least 3 folds."
+        },
+        {
+          "category": "selection",
+          "name": "all selected folds pass eval gate",
+          "detail": "Every selected fold must pass the detector eval gate."
+        },
+        {
+          "category": "selection",
+          "name": "minimum recall",
+          "detail": "Worst-fold recall must be >= 0.950."
+        },
+        {
+          "category": "selection",
+          "name": "mean precision",
+          "detail": "Mean precision must be >= 0.900."
+        },
+        {
+          "category": "training",
+          "name": "diagnostics\\question-detector-experiment-actual-smoke\\runs\\fold-00__yolo11n__img320__seed42__ep1\\train_manifest.json: trained status",
+          "detail": "Selected train manifest must represent a completed training/evaluation run."
+        },
+        {
+          "category": "training",
+          "name": "diagnostics\\question-detector-experiment-actual-smoke\\runs\\fold-00__yolo11n__img320__seed42__ep1\\train_manifest.json: ready source dataset",
+          "detail": "Selected train manifest must come from an audit-ready dataset, not a smoke or unready dataset."
+        },
+        {
+          "category": "artifact",
+          "name": "Core ML artifact exists",
+          "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact."
+        }
+      ]
+    }
+  ],
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json",
+      "images": 41,
+      "cross_frame_dedup_boxes": 63,
+      "rect_only_vs_full": 1.002,
+      "full_plus_crop_vs_full": 1.6018,
+      "crop_pixels_vs_full": 0.5584,
+      "layout_median_ms": 30.896,
+      "layout_p95_ms": 60.686
+    }
+  ],
+  "error_mining": [
+    {
+      "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape\\summary.json",
+      "threshold": "0.50",
+      "images": 43,
+      "missed_boxes": 1,
+      "false_positive_boxes": 219,
+      "stats": {
+        "missed:boxes": 1,
+        "boxes_total": 220,
+        "false_positive:per_image_cap_skipped": 8091,
+        "false_positive:boxes": 219,
+        "images": 43,
+        "false_positive:area_filtered": 35,
+        "box_total_cap_skipped": 10,
+        "images_without_boxes": 1
+      }
+    },
+    {
+      "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25\\summary.json",
+      "threshold": "0.50",
+      "images": 37,
+      "missed_boxes": 1,
+      "false_positive_boxes": 219,
+      "stats": {
+        "missed:boxes": 1,
+        "boxes_total": 220,
+        "false_positive:per_image_cap_skipped": 12112,
+        "false_positive:boxes": 219,
+        "images": 37,
+        "false_positive:area_filtered": 3,
+        "box_total_cap_skipped": 42,
+        "images_without_boxes": 7
+      }
+    }
+  ],
+  "review_workbenches": [
+    {
+      "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench",
+      "summary_path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench\\summary.json",
+      "prelabel_root": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape",
+      "index_html": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench\\index.html",
+      "review_data": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench\\review_data.json",
+      "images": 43,
+      "boxes": 220,
+      "decisions": [],
+      "approved_exports": [],
+      "decision_file_count": 0,
+      "approved_export_count": 0,
+      "approved_box_count": 0,
+      "pending_box_count": 220,
+      "has_decisions": false,
+      "has_approved_export": false,
+      "export_command": "",
+      "approved_inputs": [],
+      "needs_review": true,
+      "needs_export": false
+    },
+    {
+      "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench",
+      "summary_path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench\\summary.json",
+      "prelabel_root": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25",
+      "index_html": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench\\index.html",
+      "review_data": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench\\review_data.json",
+      "images": 37,
+      "boxes": 220,
+      "decisions": [],
+      "approved_exports": [],
+      "decision_file_count": 0,
+      "approved_export_count": 0,
+      "approved_box_count": 0,
+      "pending_box_count": 220,
+      "has_decisions": false,
+      "has_approved_export": false,
+      "export_command": "",
+      "approved_inputs": [],
+      "needs_review": true,
+      "needs_export": false
+    }
+  ],
+  "stage": "hard_example_review",
+  "next_actions": [
+    {
+      "priority": 5,
+      "code": "respect_release_blockers",
+      "detail": "Do not bundle this detector into iOS until hard release failures are cleared.",
+      "evidence": {
+        "hard_failure_categories": {
+          "dataset": 1,
+          "selection": 4,
+          "training": 2,
+          "artifact": 1,
+          "ios": 3
+        },
+        "hard_failure_count": 11
+      }
+    },
+    {
+      "priority": 8,
+      "code": "complete_review_workbenches",
+      "detail": "Review workbenches still have about 440 boxes without a decisions export.",
+      "evidence": {
+        "pending_boxes": 440,
+        "workbenches": [
+          {
+            "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench",
+            "index_html": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-workbench\\index.html",
+            "boxes": 220
+          },
+          {
+            "path": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench",
+            "index_html": "diagnostics\\question-detector-error-mining-bootstrap-clean-shape-ep25-workbench\\index.html",
+            "boxes": 220
+          }
+        ]
+      }
+    },
+    {
+      "priority": 10,
+      "code": "review_pseudo_labels",
+      "detail": "Bootstrap/pseudo labels are present; approve or correct hard examples before treating this data as training evidence.",
+      "evidence": {
+        "pseudo_annotations": 11,
+        "pseudo_ratio": 0.4074
+      }
+    },
+    {
+      "priority": 12,
+      "code": "open_error_workbench",
+      "detail": "Detector errors have been converted to reviewable hard examples.",
+      "evidence": {
+        "images": 43,
+        "missed_boxes": 1,
+        "false_positive_boxes": 219
+      }
+    },
+    {
+      "priority": 15,
+      "code": "mine_and_review_model_errors",
+      "detail": "Latest detector failed the eval gate; mine missed/false-positive images and review them before the next matrix run.",
+      "evidence": {
+        "recall": 0.9091,
+        "precision": 0.0012,
+        "missed_question_rate": 0.0909
+      }
+    },
+    {
+      "priority": 20,
+      "code": "grow_reviewed_dataset",
+      "detail": "Dataset is not model-training-ready; expand reviewed labels and split groups before release training.",
+      "evidence": {
+        "gaps": {
+          "source_images": 165,
+          "annotations": 973,
+          "split_groups": 9,
+          "negative_images": 0
+        },
+        "counts": {
+          "source_images": 135,
+          "positive_images": 17,
+          "negative_images": 118,
+          "annotations": 27,
+          "human_reviewed_annotations": 16,
+          "pseudo_annotations": 11,
+          "split_groups": 41
+        }
+      }
+    },
+    {
+      "priority": 30,
+      "code": "annotate_more_boxes",
+      "detail": "Need about 973 more reviewed annotations for the default production target.",
+      "evidence": {
+        "target": 1000,
+        "current": 27
+      }
+    },
+    {
+      "priority": 35,
+      "code": "diversify_sessions",
+      "detail": "Need about 9 more split groups to make held-out evaluation reliable.",
+      "evidence": {
+        "target": 50,
+        "current": 41
+      }
+    },
+    {
+      "priority": 80,
+      "code": "keep_rect_only_upload",
+      "detail": "Replay still supports rect-only upload: low network overhead and lower VLM pixel load than full-frame VLM analysis.",
+      "evidence": {
+        "rect_only_vs_full": 1.002,
+        "crop_pixels_vs_full": 0.5584,
+        "layout_median_ms": 30.896
+      }
+    }
+  ]
+}

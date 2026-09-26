@@ -1,0 +1,183 @@
+{
+ "count": 10,
+ "questions": [
+  {
+   "id": "9",
+   "text": "9. Linda ______ like reading books but she will ______ more books in the future. A. doesn't; read B. don't; reading C. doesn't; read",
+   "type": "choice",
+   "bbox": [
+    285,
+    130,
+    585,
+    210
+   ],
+   "nbox": [
+    0.1781,
+    0.1444,
+    0.3656,
+    0.2333
+   ]
+  },
+  {
+   "id": "10",
+   "text": "10. Lucy ______ to school on foot. A. go B. goes C. is going",
+   "type": "choice",
+   "bbox": [
+    295,
+    175,
+    585,
+    255
+   ],
+   "nbox": [
+    0.1844,
+    0.1944,
+    0.3656,
+    0.2833
+   ]
+  },
+  {
+   "id": "11",
+   "text": "11. Ben ______ the mountain at the weekend. A. climb B. will climbs C. is going to climb",
+   "type": "choice",
+   "bbox": [
+    305,
+    215,
+    585,
+    295
+   ],
+   "nbox": [
+    0.1906,
+    0.2389,
+    0.3656,
+    0.3278
+   ]
+  },
+  {
+   "id": "12",
+   "text": "12. The flowers like ______ and they are ______ in the wind softly. A. dance; dancing B. dancing; dancing C. dancing; dance",
+   "type": "choice",
+   "bbox": [
+    315,
+    255,
+    585,
+    335
+   ],
+   "nbox": [
+    0.1969,
+    0.2833,
+    0.3656,
+    0.3722
+   ]
+  },
+  {
+   "id": "13",
+   "text": "13. Jill. ______ wear glasses in the future. A. won't B. doesn't C. isn't",
+   "type": "choice",
+   "bbox": [
+    325,
+    295,
+    585,
+    375
+   ],
+   "nbox": [
+    0.2031,
+    0.3278,
+    0.3656,
+    0.4167
+   ]
+  },
+  {
+   "id": "14",
+   "text": "14. We will go to Beijing ______ week. A. last B. after C. next",
+   "type": "choice",
+   "bbox": [
+    335,
+    335,
+    585,
+    415
+   ],
+   "nbox": [
+    0.2094,
+    0.3722,
+    0.3656,
+    0.4611
+   ]
+  },
+  {
+   "id": "15",
+   "text": "15. I won't give you any ice creams ______ you get well. A. until B. but C. to",
+   "type": "choice",
+   "bbox": [
+    345,
+    375,
+    585,
+    455
+   ],
+   "nbox": [
+    0.2156,
+    0.4167,
+    0.3656,
+    0.5056
+   ]
+  },
+  {
+   "id": "16",
+   "text": "16. Miss Spring never ______ (come) late again.",
+   "type": "fill",
+   "bbox": [
+    395,
+    515,
+    605,
+    585
+   ],
+   "nbox": [
+    0.2469,
+    0.5722,
+    0.3781,
+    0.65
+   ]
+  },
+  {
+   "id": "17",
+   "text": "17. My sister sometimes ______ (watch) TV in the evening.",
+   "type": "fill",
+   "bbox": [
+    405,
+    545,
+    665,
+    615
+   ],
+   "nbox": [
+    0.2531,
+    0.6056,
+    0.4156,
+    0.6833
+   ]
+  },
+  {
+   "id": "18",
+   "text": "18. He is ______ (knock) down the house because he plans to build a new one.",
+   "type": "fill",
+   "bbox": [
+    415,
+    575,
+    725,
+    645
+   ],
+   "nbox": [
+    0.2594,
+    0.6389,
+    0.4531,
+    0.7167
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 11.2,
+  "finish": "stop"
+ }
+}

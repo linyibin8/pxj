@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "run_count": 1,
+  "executed": true,
+  "executed_run_count": 1,
+  "out": "diagnostics\\question-detector-loop-training-plan-inherit-smoke\\experiment",
+  "plan": "diagnostics\\question-detector-loop-training-plan-inherit-smoke\\experiment\\experiment_plan.json",
+  "report": "diagnostics\\question-detector-loop-training-plan-inherit-smoke\\experiment\\experiment_report.json"
+}

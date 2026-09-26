@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-06-30T15:40:26.516505+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-010",
+  "candidate_count": 390,
+  "selected_images": 24,
+  "selected_boxes": 45,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 249,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 209,
+    "no_boxes": 1
+  },
+  "selection": {
+    "max_per_session": 4,
+    "max_boxes_total": 120,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "080ba36428c64a3698f28510e6e87955": 1,
+      "0d13b5cc951a43b695ce14ad124a3248": 1,
+      "14a98df1760e41758ff5e10505ebc077": 1,
+      "1babc6ec51dd4448a30ae26a8dbcfe1f": 1,
+      "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+      "4dd68b59b935466195b05543c884ff15": 2,
+      "58235995a9f24c56808659942cb84b35": 1,
+      "62f789a2bca9426097b607fb27aff5bd": 1,
+      "6818143990c546fcb999a04621adc0be": 2,
+      "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+      "92b9447f4a8f43858a6a2a20324c1769": 2,
+      "b1491bfb9d864c33ac282984c122650a": 1,
+      "b6f8a6accd404bfc9fb291b15cb44f09": 3,
+      "bb68c98c9ca44664b1582da1b6c2251b": 1,
+      "d7df33d72d2a48279d8d5aed5dc5dcea": 1,
+      "e65858e27a964eac83306022bfff0238": 4
+    },
+    "reason_counts": {
+      "dense_text": 7,
+      "flag:few_text_lines": 8,
+      "flag:near_full_page": 15,
+      "flag:short_block": 1,
+      "flag:tall_block": 21,
+      "large_box": 8,
+      "multi_box_page": 4,
+      "quarantine": 2,
+      "small_box": 13
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

@@ -1,0 +1,1040 @@
+{
+  "generated_at": "2026-06-30T03:48:51.424443+00:00",
+  "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-reviewed-approved-smoke-cv\\fold-00",
+  "dataset_yaml": "D:\\AI\\pxj\\diagnostics\\question-detector-reviewed-approved-smoke-cv\\fold-00\\yolo_dataset.yaml",
+  "audit_readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "audit_warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "11 annotations; target >= 1000."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "21 groups; target >= 50."
+    }
+  ],
+  "model": "yolo11n.pt",
+  "name": "question-block",
+  "train": {
+    "epochs": 1,
+    "imgsz": 320,
+    "batch": 4,
+    "device": "cpu",
+    "patience": 20,
+    "workers": 0,
+    "seed": 42,
+    "optimizer": ""
+  },
+  "export_coreml": false,
+  "predict_test": true,
+  "prediction_conf": 0.05,
+  "prediction": {
+    "requested_conf": 0.25,
+    "effective_conf": 0.05,
+    "adjusted_for_score_sweep": true
+  },
+  "allow_unready": true,
+  "eval_gate": {
+    "thresholds": "0.5,0.75",
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "score_thresholds": "0.05,0.10,0.20,0.25,0.35,0.50",
+    "allow_failed_eval": true
+  },
+  "status": "failed_eval_gate",
+  "train_save_dir": "D:\\AI\\pxj\\diagnostics\\question-detector-experiment-actual-smoke\\runs\\fold-00__yolo11n__img320__seed42__ep1\\runs\\question-block",
+  "best_pt": "D:\\AI\\pxj\\diagnostics\\question-detector-experiment-actual-smoke\\runs\\fold-00__yolo11n__img320__seed42__ep1\\runs\\question-block\\weights\\best.pt",
+  "prediction_labels_dir": "D:\\AI\\pxj\\diagnostics\\question-detector-experiment-actual-smoke\\runs\\fold-00__yolo11n__img320__seed42__ep1\\predict\\question-block-test\\labels",
+  "eval": {
+    "primary_threshold": 0.5,
+    "thresholds": {
+      "0.50": {
+        "image_count": 14,
+        "images_with_gt_count": 4,
+        "negative_image_count": 10,
+        "images_with_predictions_count": 0,
+        "gt_count": 6,
+        "pred_count": 0,
+        "matched": 0,
+        "missed": 6,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mean_matched_iou": 0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "pred_per_gt": 0.0,
+        "problem_image_count": 4,
+        "problem_image_rate": 0.2857,
+        "images_with_missed_count": 4,
+        "images_with_false_positive_count": 0,
+        "negative_image_false_positive_count": 0,
+        "negative_false_positive": 0,
+        "duplicate_prediction_count": 0,
+        "strata": {
+          "quality_flags": {
+            "human_reviewed": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page_human_reviewed": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "shape_risk_human_reviewed": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "area_buckets": {
+            "large": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "medium": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "small": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "origins": {
+            "reviewed_prelabel:diagnostics\\question-detector-prelabel-kpai\\annotations\\approved_boxes_smoke.jsonl": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "confidence_buckets": {
+            "high": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "negative_kinds": {
+            "empty_page": {
+              "images": 10,
+              "false_positive": 0,
+              "images_with_false_positive": 0,
+              "fp_per_image": 0.0,
+              "image_fp_rate": 0.0
+            }
+          }
+        },
+        "problem_images": {
+          "1": {
+            "file_name": "images/test/c64bd2b3d7548f53__3a086344426e3f06_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  358.0,
+                  0.0,
+                  1013.0,
+                  843.0
+                ],
+                "question_key": "reviewed:a1b072dbd80348609b9f3094cb9c9479:1"
+              }
+            ]
+          },
+          "2": {
+            "file_name": "images/test/574431db589690d5__41bd608206083e1f_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  233.0,
+                  63.0,
+                  1473.0,
+                  106.0
+                ],
+                "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:1"
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  235.0,
+                  184.0,
+                  1472.0,
+                  621.0
+                ],
+                "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:2"
+              }
+            ]
+          },
+          "4": {
+            "file_name": "images/test/afb6e87c51d8b8a2__eb9151c18d02633a_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1809.0,
+                  1079.0
+                ],
+                "question_key": "reviewed:aa434e0f4d954a439a9fcbd07e346208:1"
+              }
+            ]
+          },
+          "20": {
+            "file_name": "images/test/ab03ecce19245b4f__4152f5cae8991281_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  173.0,
+                  0.0,
+                  1443.0,
+                  946.0
+                ],
+                "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:1"
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  475.0,
+                  949.0,
+                  1137.0,
+                  26.0
+                ],
+                "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:2"
+              }
+            ]
+          }
+        }
+      },
+      "0.75": {
+        "image_count": 14,
+        "images_with_gt_count": 4,
+        "negative_image_count": 10,
+        "images_with_predictions_count": 0,
+        "gt_count": 6,
+        "pred_count": 0,
+        "matched": 0,
+        "missed": 6,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mean_matched_iou": 0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "pred_per_gt": 0.0,
+        "problem_image_count": 4,
+        "problem_image_rate": 0.2857,
+        "images_with_missed_count": 4,
+        "images_with_false_positive_count": 0,
+        "negative_image_false_positive_count": 0,
+        "negative_false_positive": 0,
+        "duplicate_prediction_count": 0,
+        "strata": {
+          "quality_flags": {
+            "human_reviewed": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page_human_reviewed": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "shape_risk_human_reviewed": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "area_buckets": {
+            "large": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "medium": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "small": {
+              "gt_count": 1,
+              "matched": 0,
+              "missed": 1,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "origins": {
+            "reviewed_prelabel:diagnostics\\question-detector-prelabel-kpai\\annotations\\approved_boxes_smoke.jsonl": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "confidence_buckets": {
+            "high": {
+              "gt_count": 6,
+              "matched": 0,
+              "missed": 6,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "negative_kinds": {
+            "empty_page": {
+              "images": 10,
+              "false_positive": 0,
+              "images_with_false_positive": 0,
+              "fp_per_image": 0.0,
+              "image_fp_rate": 0.0
+            }
+          }
+        },
+        "problem_images": {
+          "1": {
+            "file_name": "images/test/c64bd2b3d7548f53__3a086344426e3f06_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  358.0,
+                  0.0,
+                  1013.0,
+                  843.0
+                ],
+                "question_key": "reviewed:a1b072dbd80348609b9f3094cb9c9479:1"
+              }
+            ]
+          },
+          "2": {
+            "file_name": "images/test/574431db589690d5__41bd608206083e1f_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  233.0,
+                  63.0,
+                  1473.0,
+                  106.0
+                ],
+                "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:1"
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  235.0,
+                  184.0,
+                  1472.0,
+                  621.0
+                ],
+                "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:2"
+              }
+            ]
+          },
+          "4": {
+            "file_name": "images/test/afb6e87c51d8b8a2__eb9151c18d02633a_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1809.0,
+                  1079.0
+                ],
+                "question_key": "reviewed:aa434e0f4d954a439a9fcbd07e346208:1"
+              }
+            ]
+          },
+          "20": {
+            "file_name": "images/test/ab03ecce19245b4f__4152f5cae8991281_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  173.0,
+                  0.0,
+                  1443.0,
+                  946.0
+                ],
+                "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:1"
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  475.0,
+                  949.0,
+                  1137.0,
+                  26.0
+                ],
+                "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:2"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "pass_recall_95": false,
+    "pass_precision_90": false,
+    "pass_eval_gate": false,
+    "gate": {
+      "passed": false,
+      "primary_threshold": 0.5,
+      "min_recall": 0.95,
+      "min_precision": 0.9,
+      "max_fp_per_image": 0.05,
+      "checks": {
+        "recall": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "precision": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "fp_per_image": {
+          "actual": 0.0,
+          "passed": true
+        }
+      }
+    },
+    "score_sweep": [
+      {
+        "min_score": 0.05,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.1,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.2,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.25,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.35,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.5,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 14,
+            "images_with_gt_count": 4,
+            "negative_image_count": 10,
+            "images_with_predictions_count": 0,
+            "gt_count": 6,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 6,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 4,
+            "problem_image_rate": 0.2857,
+            "images_with_missed_count": 4,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      }
+    ]
+  },
+  "eval_gate_result": {
+    "passed": false,
+    "failed_checks": [
+      "recall",
+      "precision"
+    ],
+    "gate": {
+      "passed": false,
+      "primary_threshold": 0.5,
+      "min_recall": 0.95,
+      "min_precision": 0.9,
+      "max_fp_per_image": 0.05,
+      "checks": {
+        "recall": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "precision": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "fp_per_image": {
+          "actual": 0.0,
+          "passed": true
+        }
+      }
+    }
+  },
+  "finished_at": "2026-06-30T03:49:30.613878+00:00"
+}

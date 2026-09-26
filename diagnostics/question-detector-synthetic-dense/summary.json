@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-30T07:05:16.733522+00:00",
+  "out": "diagnostics\\question-detector-synthetic-dense",
+  "seed": 42,
+  "variants_per_profile": 2,
+  "image_count": 10,
+  "annotation_count": 256,
+  "profile_counts": {
+    "phone_dense_18": {
+      "images": 2,
+      "annotations": 36
+    },
+    "phone_cap_overflow_24": {
+      "images": 2,
+      "annotations": 48
+    },
+    "ipad_two_column_30": {
+      "images": 2,
+      "annotations": 60
+    },
+    "ipad_landscape_three_column_36": {
+      "images": 2,
+      "annotations": 72
+    },
+    "ipad_weak_textless_20": {
+      "images": 2,
+      "annotations": 40
+    }
+  },
+  "diagnostic_only": true,
+  "outputs": {
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "manifest": "annotations/manifest.jsonl",
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "coco": "annotations/coco_all.json",
+    "contact_sheet": "annotations/synthetic_dense_contact_sheet.jpg",
+    "audit": "audit.json"
+  },
+  "recommended_commands": {
+    "oracle_replay": "python scripts\\question_observation_replay.py --prelabel-root diagnostics\\question-detector-synthetic-dense --out diagnostics\\question-observation-replay-synthetic-dense-oracle --clean",
+    "layout_replay": "python scripts\\question_observation_replay.py --image-dir diagnostics\\question-detector-synthetic-dense\\images --measure-layout --use-measured-layout-boxes --out diagnostics\\question-observation-replay-synthetic-dense-layout --clean",
+    "cap_sweep": "python scripts\\question_observation_candidate_cap_sweep.py --replay diagnostics\\question-observation-replay-synthetic-dense-oracle --ground-truth-manifest diagnostics\\question-detector-synthetic-dense\\annotations\\manifest.jsonl --out diagnostics\\question-observation-candidate-cap-sweep-synthetic-dense --clean",
+    "candidate_eval": "python scripts\\question_observation_candidate_eval.py --replay diagnostics\\question-observation-replay-synthetic-dense-layout --ground-truth-manifest diagnostics\\question-detector-synthetic-dense\\annotations\\manifest.jsonl --out diagnostics\\question-observation-candidate-eval-synthetic-dense-layout --clean"
+  }
+}

@@ -1,0 +1,3107 @@
+[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 0% ──────────── 16.0KB/5.4MB 23.6KB/s 0.2s<3:51[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 0% ──────────── 48.0KB/5.4MB 83.9KB/s 0.3s<1:05[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 1% ──────────── 80.0KB/5.4MB 148.4KB/s 0.5s<36.4s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 2% ──────────── 112.0KB/5.4MB 192.8KB/s 0.6s<27.9s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 2% ──────────── 160.0KB/5.4MB 270.7KB/s 0.7s<19.7s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 4% ╸─────────── 256.0KB/5.4MB 381.8KB/s 0.8s<13.7s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 6% ╸─────────── 368.0KB/5.4MB 1013.5KB/s 0.9s<5.0s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 9% ━─────────── 512.0KB/5.4MB 1.4MB/s 1.0s<3.5s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 12% ━╸────────── 704.0KB/5.4MB 1.8MB/s 1.1s<2.5s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 13% ━╸────────── 736.0KB/5.4MB 302.8KB/s 1.4s<15.7s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 27% ━━━───────── 1.5/5.4MB 3.0MB/s 1.6s<1.3s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 37% ━━━━╸─────── 2.0/5.4MB 4.8MB/s 1.8s<0.7s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 46% ━━━━━╸────── 2.5/5.4MB 4.5MB/s 1.9s<0.6s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 52% ━━━━━━────── 2.8/5.4MB 3.3MB/s 2.0s<0.8s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 86% ━━━━━━━━━━── 4.6/5.4MB 17.9MB/s 2.1s<0.0s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'yolo11n.pt': 100% ━━━━━━━━━━━━ 5.4MB 2.5MB/s 2.1s
+New https://pypi.org/project/ultralytics/8.4.83 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.72  Python-3.12.10 torch-2.12.1+cpu CPU (11th Gen Intel Core i7-11700 @ 2.50GHz)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=4, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\yolo_dataset.yaml, degrees=0.0, deterministic=True, device=cpu, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, end2end=None, epochs=1, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=416, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=question-block, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=20, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=42, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=0, workspace=None
+Overriding model.yaml nc=80 with nc=1
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    430867  ultralytics.nn.modules.head.Detect           [1, 16, None, [64, 128, 256]] 
+YOLO11n summary: 182 layers, 2,590,035 parameters, 2,590,019 gradients, 6.4 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 0.20.1 ms, read: 422.6188.3 MB/s, size: 525.6 KB)
+[K[34m[1mtrain: [0mScanning D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\labels\train.cache... 53 images, 33 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 53/53  0.0s
+[34m[1mtrain: [0mD:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\train\07ee69756fd4e471_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg: 1 duplicate labels removed
+[34m[1mval: [0mFast image access  (ping: 0.20.1 ms, read: 626.7164.3 MB/s, size: 573.8 KB)
+[K[34m[1mval: [0mScanning D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\labels\val.cache... 31 images, 24 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 31/31  0.0s
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.002, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Plotting labels to D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block\labels.jpg... 
+Image sizes 416 train, 416 val
+Using 0 dataloader workers
+Logging results to [1mD:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block[0m
+Starting training for 1 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K        1/1         0G      1.263      3.022      1.706         11        416: 0% ──────────── 0/14  1.4s[K        1/1         0G      2.553      4.545      2.401          2        416: 7% ╸─────────── 1/14 4.5s/it 2.8s<58.5s[K        1/1         0G      2.237      4.239      2.195          5        416: 14% ━╸────────── 2/14 2.4s/it 3.9s<28.4s[K        1/1         0G      2.697      4.832      2.489          3        416: 21% ━━╸───────── 3/14 1.7s/it 5.0s<19.2s[K        1/1         0G      2.555      4.568      2.367          4        416: 28% ━━━───────── 4/14 1.4s/it 6.0s<14.3s[K        1/1         0G      2.426      4.496      2.264          3        416: 35% ━━━━──────── 5/14 1.3s/it 7.1s<11.8s[K        1/1         0G      2.333      4.308      2.203          5        416: 42% ━━━━━─────── 6/14 1.2s/it 8.1s<9.7s[K        1/1         0G       2.23      4.138      2.195          3        416: 50% ━━━━━━────── 7/14 1.2s/it 9.2s<8.2s[K        1/1         0G       2.24      4.127      2.202          3        416: 57% ━━━━━━╸───── 8/14 1.2s/it 10.3s<6.9s[K        1/1         0G      2.145      4.003      2.125          3        416: 64% ━━━━━━━╸──── 9/14 1.2s/it 11.7s<6.1s[K        1/1         0G      2.166      4.054       2.15          3        416: 71% ━━━━━━━━╸─── 10/14 1.1s/it 12.7s<4.5s[K        1/1         0G      2.152      3.981      2.131          3        416: 78% ━━━━━━━━━─── 11/14 1.1s/it 13.6s<3.2s[K        1/1         0G      2.052      3.911      2.049          3        416: 85% ━━━━━━━━━━── 12/14 1.1s/it 14.7s<2.1s[K        1/1         0G       2.01       3.82      2.034          2        416: 92% ━━━━━━━━━━━─ 13/14 1.4it/s 15.0s<0.7s[K        1/1         0G       2.01       3.82      2.034          2        416: 100% ━━━━━━━━━━━━ 14/14 1.1s/it 15.0s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 25% ━━━───────── 1/4 2.0s/it 0.6s<6.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 2/4 1.2s/it 1.2s<2.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 75% ━━━━━━━━━─── 3/4 1.0s/it 2.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 4/4 1.4it/s 2.9s
+                   all         31          9    0.00106      0.778      0.231      0.147
+
+1 epochs completed in 0.006 hours.
+Optimizer stripped from D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block\weights\last.pt, 5.4MB
+Optimizer stripped from D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block\weights\best.pt, 5.4MB
+
+Validating D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block\weights\best.pt...
+Ultralytics 8.4.72  Python-3.12.10 torch-2.12.1+cpu CPU (11th Gen Intel Core i7-11700 @ 2.50GHz)
+YOLO11n summary (fused): 101 layers, 2,582,347 parameters, 0 gradients, 6.3 GFLOPs
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 25% ━━━───────── 1/4 1.9s/it 0.6s<5.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 2/4 1.2s/it 1.2s<2.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 75% ━━━━━━━━━─── 3/4 1.0it/s 1.9s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 4/4 1.5it/s 2.6s
+                   all         31          9    0.00106      0.778      0.231      0.147
+Speed: 1.4ms preprocess, 52.9ms inference, 0.0ms loss, 1.5ms postprocess per image
+Results saved to [1mD:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\runs\question-block[0m
+
+image 1/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\02f4710c1ca4aa95_6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg: 256x416 (no detections), 77.9ms
+image 2/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\07849e00d3e0432a_6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg: 256x416 (no detections), 35.9ms
+image 3/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\0d00f7d0c044f8a5_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f0554998314646.jpg: 256x416 (no detections), 64.8ms
+image 4/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\164ceaeb4aa8cf5a_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c.jpg: 256x416 (no detections), 43.4ms
+image 5/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\1cd1af25bc4fda7f_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade6848.jpg: 256x416 (no detections), 37.3ms
+image 6/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\2c75be1ca82a72a5_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg: 256x416 (no detections), 42.8ms
+image 7/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\2db96f7fa918582d_6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg: 256x416 (no detections), 106.4ms
+image 8/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\35837d4d2c288233_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b747.jpg: 256x416 (no detections), 146.6ms
+image 9/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\3a798d41670c666c_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864e.jpg: 256x416 (no detections), 49.7ms
+image 10/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\3ad8cdcbb91671fd_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804d.jpg: 256x416 (no detections), 38.1ms
+image 11/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\47068ea4f58ad157_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_dc3c51bc91f147.jpg: 256x416 (no detections), 38.5ms
+image 12/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\5909809f2553f23c_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845.jpg: 256x416 (no detections), 32.1ms
+image 13/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\5948440204d41a18_1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg: 192x416 (no detections), 58.2ms
+image 14/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\5b6042c49871b363_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b4175640.jpg: 256x416 (no detections), 33.8ms
+image 15/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\67609aada9773cbd_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c9905091648.jpg: 256x416 (no detections), 46.1ms
+image 16/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\6de6e82c1e8e119d_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541.jpg: 256x416 (no detections), 31.1ms
+image 17/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\6f506ec43733f4b2_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg: 256x416 (no detections), 55.2ms
+image 18/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg: 256x416 (no detections), 48.1ms
+image 19/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\76a6ac0c917cbe88_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4f.jpg: 256x416 (no detections), 53.8ms
+image 20/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\7c3792b9e9f62348_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc44.jpg: 256x416 (no detections), 51.2ms
+image 21/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\8cdf7f1683c77b48_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg: 256x416 (no detections), 31.3ms
+image 22/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\901c71280bc22882_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714c.jpg: 256x416 (no detections), 31.9ms
+image 23/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\936d43311e52a129_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg: 256x416 (no detections), 35.1ms
+image 24/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\9955c7f8e5949bb0_2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg: 416x288 (no detections), 79.3ms
+image 25/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg: 160x416 (no detections), 71.2ms
+image 26/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\9de3925da3998189_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a.jpg: 256x416 (no detections), 24.4ms
+image 27/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\a2a06b904b2191c4_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg: 256x416 (no detections), 47.5ms
+image 28/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\abdd48632fe36cc4_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg: 256x416 (no detections), 54.2ms
+image 29/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\b6f71ce7dc305ac1_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg: 416x352 (no detections), 113.6ms
+image 30/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\c8d7042819ef261e_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794d.jpg: 256x416 (no detections), 97.1ms
+image 31/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\ca1bb5bb58492929_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f30bc72842f540.jpg: 256x416 (no detections), 53.8ms
+image 32/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\ccbd971833258648_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49.jpg: 256x416 (no detections), 69.3ms
+image 33/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\d02e0683f0c0e1de_1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg: 224x416 (no detections), 123.8ms
+image 34/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\d1cc5555ee7c2b67_6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg: 256x416 (no detections), 34.3ms
+image 35/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\d5ee31cbf2b56df0_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44.jpg: 256x416 (no detections), 36.7ms
+image 36/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\dafb7d67871ab530_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg: 256x416 (no detections), 33.4ms
+image 37/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\dd550f61adb0e800_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643.jpg: 256x416 (no detections), 38.9ms
+image 38/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\ee615aac5e2f8d4d_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e.jpg: 256x416 (no detections), 50.8ms
+image 39/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\f305b2dc41730bea_6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg: 256x416 (no detections), 45.0ms
+image 40/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\f62590e6f897fe49_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b.jpg: 256x416 (no detections), 39.8ms
+image 41/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\f875693092f2e2af_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg: 256x416 (no detections), 57.7ms
+image 42/42 D:\AI\pxj\diagnostics\question-detector-bootstrap-kpai-smoke\images\test\fc6b3cd9d723b7d8_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d40.jpg: 256x416 (no detections), 39.5ms
+Speed: 2.3ms preprocess, 54.8ms inference, 0.6ms postprocess per image at shape (1, 3, 256, 416)
+Results saved to [1mD:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\predict\question-block-test[0m
+0 label saved to D:\AI\pxj\diagnostics\question-detector-loop-bootstrap-smoke\experiment\runs\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\predict\question-block-test\labels
+{
+  "primary_threshold": 0.5,
+  "thresholds": {
+    "0.50": {
+      "image_count": 42,
+      "images_with_gt_count": 16,
+      "negative_image_count": 26,
+      "images_with_predictions_count": 0,
+      "gt_count": 22,
+      "pred_count": 0,
+      "matched": 0,
+      "missed": 22,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mean_matched_iou": 0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "pred_per_gt": 0.0,
+      "problem_image_count": 16,
+      "problem_image_rate": 0.381,
+      "images_with_missed_count": 16,
+      "images_with_false_positive_count": 0,
+      "negative_image_false_positive_count": 0,
+      "negative_false_positive": 0,
+      "duplicate_prediction_count": 0,
+      "strata": {
+        "quality_flags": {
+          "clean": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "area_buckets": {
+          "large": {
+            "gt_count": 3,
+            "matched": 0,
+            "missed": 3,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "medium": {
+            "gt_count": 8,
+            "matched": 0,
+            "missed": 8,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "near_full_page": {
+            "gt_count": 9,
+            "matched": 0,
+            "missed": 9,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "small": {
+            "gt_count": 2,
+            "matched": 0,
+            "missed": 2,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "origins": {
+          "unknown": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "confidence_buckets": {
+          "unknown": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "negative_kinds": {
+          "unlabeled_no_gt": {
+            "images": 26,
+            "false_positive": 0,
+            "images_with_false_positive": 0,
+            "fp_per_image": 0.0,
+            "image_fp_rate": 0.0
+          }
+        }
+      },
+      "problem_images": {
+        "2": {
+          "file_name": "images/test/07849e00d3e0432a_6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1296.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "7": {
+          "file_name": "images/test/2db96f7fa918582d_6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1622.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "13": {
+          "file_name": "images/test/5948440204d41a18_1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                2094.0,
+                245.0,
+                775.0,
+                539.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "17": {
+          "file_name": "images/test/6f506ec43733f4b2_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                440.0,
+                0.0,
+                908.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "18": {
+          "file_name": "images/test/7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                196.0,
+                0.0,
+                1573.0,
+                619.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                453.0,
+                601.0,
+                1214.0,
+                213.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "23": {
+          "file_name": "images/test/936d43311e52a129_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                192.0,
+                177.0,
+                900.0,
+                902.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "24": {
+          "file_name": "images/test/9955c7f8e5949bb0_2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                1351.0,
+                2464.0,
+                859.0,
+                281.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "25": {
+          "file_name": "images/test/9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                43.0,
+                267.0,
+                693.0,
+                706.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                165.0,
+                960.0,
+                571.0,
+                144.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "27": {
+          "file_name": "images/test/a2a06b904b2191c4_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                196.0,
+                0.0,
+                1573.0,
+                619.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                453.0,
+                601.0,
+                1214.0,
+                213.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "28": {
+          "file_name": "images/test/abdd48632fe36cc4_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                22.0,
+                656.0,
+                1042.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "29": {
+          "file_name": "images/test/b6f71ce7dc305ac1_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                752.0,
+                1305.0,
+                1840.0,
+                683.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                752.0,
+                1968.0,
+                1529.0,
+                521.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 2,
+              "bbox": [
+                752.0,
+                2475.0,
+                1840.0,
+                539.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "33": {
+          "file_name": "images/test/d02e0683f0c0e1de_1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                395.0,
+                69.0,
+                2805.0,
+                910.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                395.0,
+                1223.0,
+                2713.0,
+                329.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "34": {
+          "file_name": "images/test/d1cc5555ee7c2b67_6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1303.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "36": {
+          "file_name": "images/test/dafb7d67871ab530_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                149.0,
+                0.0,
+                1037.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "39": {
+          "file_name": "images/test/f305b2dc41730bea_6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                457.0,
+                0.0,
+                1463.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "41": {
+          "file_name": "images/test/f875693092f2e2af_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                22.0,
+                656.0,
+                1042.0
+              ],
+              "question_key": ""
+            }
+          ]
+        }
+      }
+    },
+    "0.75": {
+      "image_count": 42,
+      "images_with_gt_count": 16,
+      "negative_image_count": 26,
+      "images_with_predictions_count": 0,
+      "gt_count": 22,
+      "pred_count": 0,
+      "matched": 0,
+      "missed": 22,
+      "false_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mean_matched_iou": 0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "pred_per_gt": 0.0,
+      "problem_image_count": 16,
+      "problem_image_rate": 0.381,
+      "images_with_missed_count": 16,
+      "images_with_false_positive_count": 0,
+      "negative_image_false_positive_count": 0,
+      "negative_false_positive": 0,
+      "duplicate_prediction_count": 0,
+      "strata": {
+        "quality_flags": {
+          "clean": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "area_buckets": {
+          "large": {
+            "gt_count": 3,
+            "matched": 0,
+            "missed": 3,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "medium": {
+            "gt_count": 8,
+            "matched": 0,
+            "missed": 8,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "near_full_page": {
+            "gt_count": 9,
+            "matched": 0,
+            "missed": 9,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          },
+          "small": {
+            "gt_count": 2,
+            "matched": 0,
+            "missed": 2,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "origins": {
+          "unknown": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "confidence_buckets": {
+          "unknown": {
+            "gt_count": 22,
+            "matched": 0,
+            "missed": 22,
+            "recall": 0.0,
+            "missed_question_rate": 1.0
+          }
+        },
+        "negative_kinds": {
+          "unlabeled_no_gt": {
+            "images": 26,
+            "false_positive": 0,
+            "images_with_false_positive": 0,
+            "fp_per_image": 0.0,
+            "image_fp_rate": 0.0
+          }
+        }
+      },
+      "problem_images": {
+        "2": {
+          "file_name": "images/test/07849e00d3e0432a_6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1296.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "7": {
+          "file_name": "images/test/2db96f7fa918582d_6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1622.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "13": {
+          "file_name": "images/test/5948440204d41a18_1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                2094.0,
+                245.0,
+                775.0,
+                539.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "17": {
+          "file_name": "images/test/6f506ec43733f4b2_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                440.0,
+                0.0,
+                908.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "18": {
+          "file_name": "images/test/7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                196.0,
+                0.0,
+                1573.0,
+                619.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                453.0,
+                601.0,
+                1214.0,
+                213.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "23": {
+          "file_name": "images/test/936d43311e52a129_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                192.0,
+                177.0,
+                900.0,
+                902.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "24": {
+          "file_name": "images/test/9955c7f8e5949bb0_2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                1351.0,
+                2464.0,
+                859.0,
+                281.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "25": {
+          "file_name": "images/test/9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                43.0,
+                267.0,
+                693.0,
+                706.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                165.0,
+                960.0,
+                571.0,
+                144.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "27": {
+          "file_name": "images/test/a2a06b904b2191c4_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                196.0,
+                0.0,
+                1573.0,
+                619.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                453.0,
+                601.0,
+                1214.0,
+                213.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "28": {
+          "file_name": "images/test/abdd48632fe36cc4_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                22.0,
+                656.0,
+                1042.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "29": {
+          "file_name": "images/test/b6f71ce7dc305ac1_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                752.0,
+                1305.0,
+                1840.0,
+                683.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                752.0,
+                1968.0,
+                1529.0,
+                521.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 2,
+              "bbox": [
+                752.0,
+                2475.0,
+                1840.0,
+                539.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "33": {
+          "file_name": "images/test/d02e0683f0c0e1de_1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                395.0,
+                69.0,
+                2805.0,
+                910.0
+              ],
+              "question_key": ""
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                395.0,
+                1223.0,
+                2713.0,
+                329.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "34": {
+          "file_name": "images/test/d1cc5555ee7c2b67_6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                0.0,
+                1303.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "36": {
+          "file_name": "images/test/dafb7d67871ab530_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                149.0,
+                0.0,
+                1037.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "39": {
+          "file_name": "images/test/f305b2dc41730bea_6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                457.0,
+                0.0,
+                1463.0,
+                1079.0
+              ],
+              "question_key": ""
+            }
+          ]
+        },
+        "41": {
+          "file_name": "images/test/f875693092f2e2af_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+          "is_negative": false,
+          "negative_kind": "",
+          "matches": [],
+          "false_positives": [],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                0.0,
+                22.0,
+                656.0,
+                1042.0
+              ],
+              "question_key": ""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pass_recall_95": false,
+  "pass_precision_90": false,
+  "pass_eval_gate": false,
+  "gate": {
+    "passed": false,
+    "primary_threshold": 0.5,
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "checks": {
+      "recall": {
+        "actual": 0.0,
+        "passed": false
+      },
+      "precision": {
+        "actual": 0.0,
+        "passed": false
+      },
+      "fp_per_image": {
+        "actual": 0.0,
+        "passed": true
+      }
+    }
+  },
+  "score_sweep": [
+    {
+      "min_score": 0.05,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    },
+    {
+      "min_score": 0.1,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    },
+    {
+      "min_score": 0.2,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    },
+    {
+      "min_score": 0.25,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    },
+    {
+      "min_score": 0.35,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    },
+    {
+      "min_score": 0.5,
+      "primary_threshold": 0.5,
+      "pred_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "missed_question_rate": 1.0,
+      "fp_per_image": 0.0,
+      "duplicate_prediction_count": 0,
+      "pass_eval_gate": false,
+      "gate": {
+        "passed": false,
+        "primary_threshold": 0.5,
+        "min_recall": 0.95,
+        "min_precision": 0.9,
+        "max_fp_per_image": 0.05,
+        "checks": {
+          "recall": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "precision": {
+            "actual": 0.0,
+            "passed": false
+          },
+          "fp_per_image": {
+            "actual": 0.0,
+            "passed": true
+          }
+        }
+      },
+      "thresholds": {
+        "0.50": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        },
+        "0.75": {
+          "image_count": 42,
+          "images_with_gt_count": 16,
+          "negative_image_count": 26,
+          "images_with_predictions_count": 0,
+          "gt_count": 22,
+          "pred_count": 0,
+          "matched": 0,
+          "missed": 22,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_matched_iou": 0,
+          "missed_question_rate": 1.0,
+          "fp_per_image": 0.0,
+          "pred_per_gt": 0.0,
+          "problem_image_count": 16,
+          "problem_image_rate": 0.381,
+          "images_with_missed_count": 16,
+          "images_with_false_positive_count": 0,
+          "negative_image_false_positive_count": 0,
+          "negative_false_positive": 0,
+          "duplicate_prediction_count": 0
+        }
+      }
+    }
+  ]
+}
+{
+  "generated_at": "2026-06-30T04:11:30.644892+00:00",
+  "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+  "dataset_yaml": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke\\yolo_dataset.yaml",
+  "audit_readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "audit_warnings": [
+    {
+      "code": "bootstrap_dataset_not_release_ready",
+      "severity": "warning",
+      "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+    }
+  ],
+  "model": "yolo11n.pt",
+  "name": "question-block",
+  "train": {
+    "epochs": 1,
+    "imgsz": 416,
+    "batch": 4,
+    "device": "cpu",
+    "patience": 20,
+    "workers": 0,
+    "seed": 42,
+    "optimizer": ""
+  },
+  "export_coreml": false,
+  "predict_test": true,
+  "prediction_conf": 0.05,
+  "prediction": {
+    "requested_conf": 0.25,
+    "effective_conf": 0.05,
+    "adjusted_for_score_sweep": true
+  },
+  "allow_unready": true,
+  "eval_gate": {
+    "thresholds": "0.5,0.75",
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "score_thresholds": "0.05,0.10,0.20,0.25,0.35,0.50",
+    "allow_failed_eval": true
+  },
+  "status": "failed_eval_gate",
+  "train_save_dir": "D:\\AI\\pxj\\diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\\runs\\question-block",
+  "best_pt": "D:\\AI\\pxj\\diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\\runs\\question-block\\weights\\best.pt",
+  "prediction_labels_dir": "D:\\AI\\pxj\\diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep1\\predict\\question-block-test\\labels",
+  "eval": {
+    "primary_threshold": 0.5,
+    "thresholds": {
+      "0.50": {
+        "image_count": 42,
+        "images_with_gt_count": 16,
+        "negative_image_count": 26,
+        "images_with_predictions_count": 0,
+        "gt_count": 22,
+        "pred_count": 0,
+        "matched": 0,
+        "missed": 22,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mean_matched_iou": 0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "pred_per_gt": 0.0,
+        "problem_image_count": 16,
+        "problem_image_rate": 0.381,
+        "images_with_missed_count": 16,
+        "images_with_false_positive_count": 0,
+        "negative_image_false_positive_count": 0,
+        "negative_false_positive": 0,
+        "duplicate_prediction_count": 0,
+        "strata": {
+          "quality_flags": {
+            "clean": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "area_buckets": {
+            "large": {
+              "gt_count": 3,
+              "matched": 0,
+              "missed": 3,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "medium": {
+              "gt_count": 8,
+              "matched": 0,
+              "missed": 8,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page": {
+              "gt_count": 9,
+              "matched": 0,
+              "missed": 9,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "small": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "origins": {
+            "unknown": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "confidence_buckets": {
+            "unknown": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "negative_kinds": {
+            "unlabeled_no_gt": {
+              "images": 26,
+              "false_positive": 0,
+              "images_with_false_positive": 0,
+              "fp_per_image": 0.0,
+              "image_fp_rate": 0.0
+            }
+          }
+        },
+        "problem_images": {
+          "2": {
+            "file_name": "images/test/07849e00d3e0432a_6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1296.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "7": {
+            "file_name": "images/test/2db96f7fa918582d_6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1622.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "13": {
+            "file_name": "images/test/5948440204d41a18_1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  2094.0,
+                  245.0,
+                  775.0,
+                  539.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "17": {
+            "file_name": "images/test/6f506ec43733f4b2_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  440.0,
+                  0.0,
+                  908.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "18": {
+            "file_name": "images/test/7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  196.0,
+                  0.0,
+                  1573.0,
+                  619.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  453.0,
+                  601.0,
+                  1214.0,
+                  213.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "23": {
+            "file_name": "images/test/936d43311e52a129_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  192.0,
+                  177.0,
+                  900.0,
+                  902.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "24": {
+            "file_name": "images/test/9955c7f8e5949bb0_2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  1351.0,
+                  2464.0,
+                  859.0,
+                  281.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "25": {
+            "file_name": "images/test/9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  43.0,
+                  267.0,
+                  693.0,
+                  706.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  165.0,
+                  960.0,
+                  571.0,
+                  144.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "27": {
+            "file_name": "images/test/a2a06b904b2191c4_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  196.0,
+                  0.0,
+                  1573.0,
+                  619.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  453.0,
+                  601.0,
+                  1214.0,
+                  213.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "28": {
+            "file_name": "images/test/abdd48632fe36cc4_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  22.0,
+                  656.0,
+                  1042.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "29": {
+            "file_name": "images/test/b6f71ce7dc305ac1_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  752.0,
+                  1305.0,
+                  1840.0,
+                  683.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  752.0,
+                  1968.0,
+                  1529.0,
+                  521.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 2,
+                "bbox": [
+                  752.0,
+                  2475.0,
+                  1840.0,
+                  539.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "33": {
+            "file_name": "images/test/d02e0683f0c0e1de_1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  395.0,
+                  69.0,
+                  2805.0,
+                  910.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  395.0,
+                  1223.0,
+                  2713.0,
+                  329.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "34": {
+            "file_name": "images/test/d1cc5555ee7c2b67_6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1303.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "36": {
+            "file_name": "images/test/dafb7d67871ab530_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  149.0,
+                  0.0,
+                  1037.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "39": {
+            "file_name": "images/test/f305b2dc41730bea_6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  457.0,
+                  0.0,
+                  1463.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "41": {
+            "file_name": "images/test/f875693092f2e2af_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  22.0,
+                  656.0,
+                  1042.0
+                ],
+                "question_key": ""
+              }
+            ]
+          }
+        }
+      },
+      "0.75": {
+        "image_count": 42,
+        "images_with_gt_count": 16,
+        "negative_image_count": 26,
+        "images_with_predictions_count": 0,
+        "gt_count": 22,
+        "pred_count": 0,
+        "matched": 0,
+        "missed": 22,
+        "false_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mean_matched_iou": 0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "pred_per_gt": 0.0,
+        "problem_image_count": 16,
+        "problem_image_rate": 0.381,
+        "images_with_missed_count": 16,
+        "images_with_false_positive_count": 0,
+        "negative_image_false_positive_count": 0,
+        "negative_false_positive": 0,
+        "duplicate_prediction_count": 0,
+        "strata": {
+          "quality_flags": {
+            "clean": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "area_buckets": {
+            "large": {
+              "gt_count": 3,
+              "matched": 0,
+              "missed": 3,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "medium": {
+              "gt_count": 8,
+              "matched": 0,
+              "missed": 8,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "near_full_page": {
+              "gt_count": 9,
+              "matched": 0,
+              "missed": 9,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            },
+            "small": {
+              "gt_count": 2,
+              "matched": 0,
+              "missed": 2,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "origins": {
+            "unknown": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "confidence_buckets": {
+            "unknown": {
+              "gt_count": 22,
+              "matched": 0,
+              "missed": 22,
+              "recall": 0.0,
+              "missed_question_rate": 1.0
+            }
+          },
+          "negative_kinds": {
+            "unlabeled_no_gt": {
+              "images": 26,
+              "false_positive": 0,
+              "images_with_false_positive": 0,
+              "fp_per_image": 0.0,
+              "image_fp_rate": 0.0
+            }
+          }
+        },
+        "problem_images": {
+          "2": {
+            "file_name": "images/test/07849e00d3e0432a_6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1296.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "7": {
+            "file_name": "images/test/2db96f7fa918582d_6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1622.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "13": {
+            "file_name": "images/test/5948440204d41a18_1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  2094.0,
+                  245.0,
+                  775.0,
+                  539.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "17": {
+            "file_name": "images/test/6f506ec43733f4b2_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  440.0,
+                  0.0,
+                  908.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "18": {
+            "file_name": "images/test/7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  196.0,
+                  0.0,
+                  1573.0,
+                  619.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  453.0,
+                  601.0,
+                  1214.0,
+                  213.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "23": {
+            "file_name": "images/test/936d43311e52a129_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  192.0,
+                  177.0,
+                  900.0,
+                  902.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "24": {
+            "file_name": "images/test/9955c7f8e5949bb0_2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  1351.0,
+                  2464.0,
+                  859.0,
+                  281.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "25": {
+            "file_name": "images/test/9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  43.0,
+                  267.0,
+                  693.0,
+                  706.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  165.0,
+                  960.0,
+                  571.0,
+                  144.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "27": {
+            "file_name": "images/test/a2a06b904b2191c4_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  196.0,
+                  0.0,
+                  1573.0,
+                  619.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  453.0,
+                  601.0,
+                  1214.0,
+                  213.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "28": {
+            "file_name": "images/test/abdd48632fe36cc4_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  22.0,
+                  656.0,
+                  1042.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "29": {
+            "file_name": "images/test/b6f71ce7dc305ac1_2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  752.0,
+                  1305.0,
+                  1840.0,
+                  683.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  752.0,
+                  1968.0,
+                  1529.0,
+                  521.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 2,
+                "bbox": [
+                  752.0,
+                  2475.0,
+                  1840.0,
+                  539.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "33": {
+            "file_name": "images/test/d02e0683f0c0e1de_1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  395.0,
+                  69.0,
+                  2805.0,
+                  910.0
+                ],
+                "question_key": ""
+              },
+              {
+                "gt_index": 1,
+                "bbox": [
+                  395.0,
+                  1223.0,
+                  2713.0,
+                  329.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "34": {
+            "file_name": "images/test/d1cc5555ee7c2b67_6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1303.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "36": {
+            "file_name": "images/test/dafb7d67871ab530_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  149.0,
+                  0.0,
+                  1037.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "39": {
+            "file_name": "images/test/f305b2dc41730bea_6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  457.0,
+                  0.0,
+                  1463.0,
+                  1079.0
+                ],
+                "question_key": ""
+              }
+            ]
+          },
+          "41": {
+            "file_name": "images/test/f875693092f2e2af_6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+            "is_negative": false,
+            "negative_kind": "",
+            "matches": [],
+            "false_positives": [],
+            "missed": [
+              {
+                "gt_index": 0,
+                "bbox": [
+                  0.0,
+                  22.0,
+                  656.0,
+                  1042.0
+                ],
+                "question_key": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    "pass_recall_95": false,
+    "pass_precision_90": false,
+    "pass_eval_gate": false,
+    "gate": {
+      "passed": false,
+      "primary_threshold": 0.5,
+      "min_recall": 0.95,
+      "min_precision": 0.9,
+      "max_fp_per_image": 0.05,
+      "checks": {
+        "recall": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "precision": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "fp_per_image": {
+          "actual": 0.0,
+          "passed": true
+        }
+      }
+    },
+    "score_sweep": [
+      {
+        "min_score": 0.05,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.1,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.2,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.25,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.35,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      },
+      {
+        "min_score": 0.5,
+        "primary_threshold": 0.5,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "missed_question_rate": 1.0,
+        "fp_per_image": 0.0,
+        "duplicate_prediction_count": 0,
+        "pass_eval_gate": false,
+        "gate": {
+          "passed": false,
+          "primary_threshold": 0.5,
+          "min_recall": 0.95,
+          "min_precision": 0.9,
+          "max_fp_per_image": 0.05,
+          "checks": {
+            "recall": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "precision": {
+              "actual": 0.0,
+              "passed": false
+            },
+            "fp_per_image": {
+              "actual": 0.0,
+              "passed": true
+            }
+          }
+        },
+        "thresholds": {
+          "0.50": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          },
+          "0.75": {
+            "image_count": 42,
+            "images_with_gt_count": 16,
+            "negative_image_count": 26,
+            "images_with_predictions_count": 0,
+            "gt_count": 22,
+            "pred_count": 0,
+            "matched": 0,
+            "missed": 22,
+            "false_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "mean_matched_iou": 0,
+            "missed_question_rate": 1.0,
+            "fp_per_image": 0.0,
+            "pred_per_gt": 0.0,
+            "problem_image_count": 16,
+            "problem_image_rate": 0.381,
+            "images_with_missed_count": 16,
+            "images_with_false_positive_count": 0,
+            "negative_image_false_positive_count": 0,
+            "negative_false_positive": 0,
+            "duplicate_prediction_count": 0
+          }
+        }
+      }
+    ]
+  },
+  "eval_gate_result": {
+    "passed": false,
+    "failed_checks": [
+      "recall",
+      "precision"
+    ],
+    "gate": {
+      "passed": false,
+      "primary_threshold": 0.5,
+      "min_recall": 0.95,
+      "min_precision": 0.9,
+      "max_fp_per_image": 0.05,
+      "checks": {
+        "recall": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "precision": {
+          "actual": 0.0,
+          "passed": false
+        },
+        "fp_per_image": {
+          "actual": 0.0,
+          "passed": true
+        }
+      }
+    }
+  },
+  "finished_at": "2026-06-30T04:12:23.200464+00:00"
+}

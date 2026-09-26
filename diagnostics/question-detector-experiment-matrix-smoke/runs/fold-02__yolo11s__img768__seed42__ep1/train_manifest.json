@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-06-30T03:50:09.238223+00:00",
+  "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-reviewed-approved-smoke-cv\\fold-02",
+  "dataset_yaml": "D:\\AI\\pxj\\diagnostics\\question-detector-reviewed-approved-smoke-cv\\fold-02\\yolo_dataset.yaml",
+  "audit_readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "audit_warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "11 annotations; target >= 1000."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "21 groups; target >= 50."
+    }
+  ],
+  "model": "yolo11s.pt",
+  "name": "question-block",
+  "train": {
+    "epochs": 1,
+    "imgsz": 768,
+    "batch": -1,
+    "device": "",
+    "patience": 20,
+    "workers": 4,
+    "seed": 42,
+    "optimizer": ""
+  },
+  "export_coreml": false,
+  "predict_test": true,
+  "prediction_conf": 0.05,
+  "prediction": {
+    "requested_conf": 0.25,
+    "effective_conf": 0.05,
+    "adjusted_for_score_sweep": true
+  },
+  "allow_unready": true,
+  "eval_gate": {
+    "thresholds": "0.5,0.75",
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "score_thresholds": "0.05,0.10,0.20,0.25,0.35,0.50",
+    "allow_failed_eval": false
+  },
+  "status": "planned"
+}

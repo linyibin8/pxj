@@ -1,0 +1,73 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 135,
+    "positive_images": 17,
+    "negative_images": 118,
+    "annotations": 27,
+    "human_reviewed_annotations": 16,
+    "pseudo_annotations": 11,
+    "split_groups": 41
+  },
+  "split_counts": {
+    "train": {
+      "images": 59,
+      "positive_images": 8,
+      "negative_images": 51,
+      "annotations": 13,
+      "groups": 25
+    },
+    "val": {
+      "images": 32,
+      "positive_images": 2,
+      "negative_images": 30,
+      "annotations": 3,
+      "groups": 8
+    },
+    "test": {
+      "images": 44,
+      "positive_images": 7,
+      "negative_images": 37,
+      "annotations": 11,
+      "groups": 8
+    }
+  },
+  "bootstrap": {
+    "min_draft_score": 0.7,
+    "min_area_ratio": 0.002,
+    "max_area_ratio": 0.92,
+    "reject_quality_flags": [
+      "few_text_lines",
+      "near_full_page",
+      "short_block",
+      "tall_block"
+    ],
+    "stats": {
+      "approved": {
+        "accepted_labels": 16
+      },
+      "draft": {
+        "rejected:rejected_flag:near_full_page": 38,
+        "accepted_labels": 11,
+        "accepted_images": 8,
+        "rejected:low_score": 23,
+        "rejected:large_area": 3,
+        "rejected:rejected_flag:tall_block": 1
+      },
+      "negative": {
+        "accepted_images": 80
+      }
+    }
+  },
+  "warnings": [
+    {
+      "code": "bootstrap_dataset_not_release_ready",
+      "severity": "warning",
+      "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+    }
+  ]
+}

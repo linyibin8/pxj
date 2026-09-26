@@ -1,0 +1,1742 @@
+{
+  "source": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007",
+  "generated_at": "2026-06-30T15:39:54.604056+00:00",
+  "items": [
+    {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg",
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "6a275ab99768457592342c9f708c56ac",
+        "session_id": "b6f8a6accd404bfc9fb291b15cb44f09",
+        "batch_id": "c46d89729c7c41f9925c25e507afa69c",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 75,
+            "y": 26,
+            "width": 1064,
+            "height": 51
+          },
+          "score": 0.3652,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 75,
+            "y": 119,
+            "width": 1170,
+            "height": 487
+          },
+          "score": 0.82,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 75,
+            "y": 614,
+            "width": 1038,
+            "height": 75
+          },
+          "score": 0.6822,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 55,
+          "y": 19,
+          "width": 986,
+          "height": 484,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 41,
+        "dense_draft_box_count": 3,
+        "draft_box_count": 3,
+        "quarantine_reasons": [
+          "wide_top_band_likely_keyboard_or_table"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 75,
+              "y": 26,
+              "width": 1064,
+              "height": 51
+            },
+            "score": 0.3652,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 75,
+              "y": 119,
+              "width": 1170,
+              "height": 487
+            },
+            "score": 0.82,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 75,
+              "y": 614,
+              "width": 1038,
+              "height": 75
+            },
+            "score": 0.6822,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          }
+        ]
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00001:b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg"
+    },
+    {
+      "image": "images/22da895173b14bd8b5b9abd3ec92601f_relayout_2b6da6915e1643a6845dfbeede688737.jpg",
+      "source_candidate": "positive/22da895173b14bd8b5b9abd3ec92601f_relayout_2b6da6915e1643a6845dfbeede688737.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "2b6da6915e1643a6845dfbeede688737",
+        "session_id": "22da895173b14bd8b5b9abd3ec92601f",
+        "batch_id": "relayout",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1233,
+            "y": 320,
+            "width": 539,
+            "height": 52
+          },
+          "score": 0.3588,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1233,
+            "y": 361,
+            "width": 687,
+            "height": 609
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1233,
+            "y": 965,
+            "width": 687,
+            "height": 114
+          },
+          "score": 0.8498,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 899,
+          "y": 233,
+          "width": 501,
+          "height": 554,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 55,
+        "dense_draft_box_count": 27,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00002:22da895173b14bd8b5b9abd3ec92601f_relayout_2b6da6915e1643a6845dfbeede688737.jpg"
+    },
+    {
+      "image": "images/58235995a9f24c56808659942cb84b35_segment_f0ddda96def043bdb95addc2a024c314.jpg",
+      "source_candidate": "positive/58235995a9f24c56808659942cb84b35_segment_f0ddda96def043bdb95addc2a024c314.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "f0ddda96def043bdb95addc2a024c314",
+        "session_id": "58235995a9f24c56808659942cb84b35",
+        "batch_id": "segment",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 287,
+            "y": 0,
+            "width": 1086,
+            "height": 66
+          },
+          "score": 0.3531,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 281,
+            "y": 88,
+            "width": 1377,
+            "height": 992
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 205,
+          "y": 0,
+          "width": 1004,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 112,
+        "dense_draft_box_count": 31,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00003:58235995a9f24c56808659942cb84b35_segment_f0ddda96def043bdb95addc2a024c314.jpg"
+    },
+    {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg",
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "8471e5e7fcd1469d84a61b20c8756126",
+        "session_id": "b6f8a6accd404bfc9fb291b15cb44f09",
+        "batch_id": "679511b94a04494d9dc507bf16dc5e24",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 77,
+            "y": 43,
+            "width": 1766,
+            "height": 994
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:full_image_fallback"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 56,
+          "y": 31,
+          "width": 1288,
+          "height": 725,
+          "source": "full_image_fallback"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 179,
+        "dense_draft_box_count": 0,
+        "draft_box_count": 1,
+        "quarantine_reasons": [
+          "page_rect_fallback"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 77,
+              "y": 43,
+              "width": 1766,
+              "height": 994
+            },
+            "score": 0.74,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "near_full_page",
+              "page:full_image_fallback"
+            ]
+          }
+        ]
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00004:b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg"
+    },
+    {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg",
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "e2cc470d3f7e45f8bd5a6afef79e37d1",
+        "session_id": "b6f8a6accd404bfc9fb291b15cb44f09",
+        "batch_id": "5aab139f7b4d44d2976d121a5aad9e48",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 111,
+            "width": 1291,
+            "height": 140
+          },
+          "score": 0.6398,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 340,
+            "width": 1093,
+            "height": 476
+          },
+          "score": 0.82,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 837,
+            "width": 1015,
+            "height": 32
+          },
+          "score": 0.2578,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 102,
+          "y": 81,
+          "width": 941,
+          "height": 552,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 29,
+        "dense_draft_box_count": 3,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00005:b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg"
+    },
+    {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_2c549d5df6804fa197e591bc59373921_89db37209bcd472db91d8006995500e9.jpg",
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_2c549d5df6804fa197e591bc59373921_89db37209bcd472db91d8006995500e9.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "89db37209bcd472db91d8006995500e9",
+        "session_id": "e0243d0aa8e54be2b6d434f9cebe5024",
+        "batch_id": "2c549d5df6804fa197e591bc59373921",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 250,
+            "y": 151,
+            "width": 1192,
+            "height": 699
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 250,
+            "y": 846,
+            "width": 1192,
+            "height": 38
+          },
+          "score": 0.4273,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 182,
+          "y": 110,
+          "width": 869,
+          "height": 535,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 141,
+        "dense_draft_box_count": 24,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00006:e0243d0aa8e54be2b6d434f9cebe5024_2c549d5df6804fa197e591bc59373921_89db37209bcd472db91d8006995500e9.jpg"
+    },
+    {
+      "image": "images/91cf7b7586424ce3a308b42daf0ee2fc_90956acb3a054dfe84bd65357a612133_1f3362d2a8934595a4855808f036b7c7.jpg",
+      "source_candidate": "positive/91cf7b7586424ce3a308b42daf0ee2fc_90956acb3a054dfe84bd65357a612133_1f3362d2a8934595a4855808f036b7c7.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "1f3362d2a8934595a4855808f036b7c7",
+        "session_id": "91cf7b7586424ce3a308b42daf0ee2fc",
+        "batch_id": "90956acb3a054dfe84bd65357a612133",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1344,
+            "y": 3,
+            "width": 566,
+            "height": 78
+          },
+          "score": 0.3345,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 521,
+            "y": 169,
+            "width": 1389,
+            "height": 911
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 380,
+          "y": 0,
+          "width": 1013,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 91,
+        "dense_draft_box_count": 15,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00007:91cf7b7586424ce3a308b42daf0ee2fc_90956acb3a054dfe84bd65357a612133_1f3362d2a8934595a4855808f036b7c7.jpg"
+    },
+    {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_41152981d1964164ad8bcfcc8b64eacb.jpg",
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_41152981d1964164ad8bcfcc8b64eacb.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "41152981d1964164ad8bcfcc8b64eacb",
+        "session_id": "b6f8a6accd404bfc9fb291b15cb44f09",
+        "batch_id": "c46d89729c7c41f9925c25e507afa69c",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 358,
+            "y": 16,
+            "width": 1243,
+            "height": 78
+          },
+          "score": 0.5001,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 204,
+            "y": 166,
+            "width": 1159,
+            "height": 320
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 204,
+            "y": 480,
+            "width": 1193,
+            "height": 121
+          },
+          "score": 0.6088,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 730,
+            "y": 621,
+            "width": 871,
+            "height": 59
+          },
+          "score": 0.3474,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 204,
+            "y": 675,
+            "width": 1280,
+            "height": 210
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 149,
+          "y": 12,
+          "width": 1018,
+          "height": 633,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 90,
+        "dense_draft_box_count": 14,
+        "draft_box_count": 5,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00008:b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_41152981d1964164ad8bcfcc8b64eacb.jpg"
+    },
+    {
+      "image": "images/7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "source_candidate": "positive/7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "e7c3ca3a9d1f47fd90579523cebe022e",
+        "session_id": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+        "batch_id": "bc1dc1869baf4ae0a97d101d9ea207b1",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1245,
+            "y": 0,
+            "width": 653,
+            "height": 91
+          },
+          "score": 0.346,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 417,
+            "y": 204,
+            "width": 1481,
+            "height": 566
+          },
+          "score": 0.82,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 417,
+            "y": 767,
+            "width": 1481,
+            "height": 207
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 304,
+          "y": 0,
+          "width": 1080,
+          "height": 710,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 110,
+        "dense_draft_box_count": 22,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00009:7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg"
+    },
+    {
+      "image": "images/bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg",
+      "source_candidate": "positive/bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "a9000b30b825445a89f937aa6cc6b9f0",
+        "session_id": "bb68c98c9ca44664b1582da1b6c2251b",
+        "batch_id": "9873a9046e98462fa2053b87d1f81fa1",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 395,
+            "width": 1452,
+            "height": 560
+          },
+          "score": 0.635,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 741,
+            "y": 1011,
+            "width": 712,
+            "height": 69
+          },
+          "score": 0.3891,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 288,
+          "width": 1059,
+          "height": 499,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 9,
+        "dense_draft_box_count": 2,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00010:bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg"
+    },
+    {
+      "image": "images/4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_7debf858dc2941309eb4228111831291.jpg",
+      "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_7debf858dc2941309eb4228111831291.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "7debf858dc2941309eb4228111831291",
+        "session_id": "4dd68b59b935466195b05543c884ff15",
+        "batch_id": "392f390892534ccf9d3cb82e7230cf47",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 388,
+            "y": 245,
+            "width": 1214,
+            "height": 669
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 904,
+            "y": 997,
+            "width": 698,
+            "height": 19
+          },
+          "score": 0.3893,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 283,
+          "y": 179,
+          "width": 885,
+          "height": 562,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 41,
+        "dense_draft_box_count": 3,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00011:4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_7debf858dc2941309eb4228111831291.jpg"
+    },
+    {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_0dd44a600841450eb125fa016df06777.jpg",
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_0dd44a600841450eb125fa016df06777.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "0dd44a600841450eb125fa016df06777",
+        "session_id": "e0243d0aa8e54be2b6d434f9cebe5024",
+        "batch_id": "4314d0f7ea694e9180d0c34c4f4f122b",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 420,
+            "y": 255,
+            "width": 869,
+            "height": 694
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 421,
+            "y": 1001,
+            "width": 686,
+            "height": 15
+          },
+          "score": 0.3906,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 306,
+          "y": 186,
+          "width": 634,
+          "height": 555,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 56,
+        "dense_draft_box_count": 15,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00012:e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_0dd44a600841450eb125fa016df06777.jpg"
+    },
+    {
+      "image": "images/6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_fb83025414cd4c93adabe5c24bcdea55.jpg",
+      "source_candidate": "positive/6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_fb83025414cd4c93adabe5c24bcdea55.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "fb83025414cd4c93adabe5c24bcdea55",
+        "session_id": "6818143990c546fcb999a04621adc0be",
+        "batch_id": "857e64ce56c949fca35bd0eb59243d85",
+        "needs_box_label": true
+      },
+      "width": 1680,
+      "height": 1260,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 234,
+            "y": 48,
+            "width": 1288,
+            "height": 826
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 234,
+            "y": 1062,
+            "width": 1288,
+            "height": 25
+          },
+          "score": 0.3992,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 195,
+          "y": 40,
+          "width": 1073,
+          "height": 866,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.8333333333333334,
+        "line_box_count": 69,
+        "dense_draft_box_count": 33,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00013:6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_fb83025414cd4c93adabe5c24bcdea55.jpg"
+    },
+    {
+      "image": "images/4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_d8771f25bd95439680ab176e54f2e2c6.jpg",
+      "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_d8771f25bd95439680ab176e54f2e2c6.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "d8771f25bd95439680ab176e54f2e2c6",
+        "session_id": "4dd68b59b935466195b05543c884ff15",
+        "batch_id": "392f390892534ccf9d3cb82e7230cf47",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 394,
+            "y": 222,
+            "width": 1315,
+            "height": 645
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 394,
+            "y": 944,
+            "width": 1315,
+            "height": 29
+          },
+          "score": 0.4122,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 287,
+          "y": 144,
+          "width": 959,
+          "height": 565,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 46,
+        "dense_draft_box_count": 4,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00014:4dd68b59b935466195b05543c884ff15_392f390892534ccf9d3cb82e7230cf47_d8771f25bd95439680ab176e54f2e2c6.jpg"
+    },
+    {
+      "image": "images/e65858e27a964eac83306022bfff0238_2b9b3b3d82a5422f86f8da842f1b04fb_972cdadde3a74a92919e0aa793d37679.jpg",
+      "source_candidate": "positive/e65858e27a964eac83306022bfff0238_2b9b3b3d82a5422f86f8da842f1b04fb_972cdadde3a74a92919e0aa793d37679.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "972cdadde3a74a92919e0aa793d37679",
+        "session_id": "e65858e27a964eac83306022bfff0238",
+        "batch_id": "2b9b3b3d82a5422f86f8da842f1b04fb",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 886,
+            "y": 53,
+            "width": 950,
+            "height": 125
+          },
+          "score": 0.5604,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 964,
+            "y": 226,
+            "width": 756,
+            "height": 89
+          },
+          "score": 0.3848,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1435,
+            "y": 610,
+            "width": 402,
+            "height": 99
+          },
+          "score": 0.352,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 646,
+          "y": 0,
+          "width": 693,
+          "height": 648,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 4,
+        "dense_draft_box_count": 3,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00015:e65858e27a964eac83306022bfff0238_2b9b3b3d82a5422f86f8da842f1b04fb_972cdadde3a74a92919e0aa793d37679.jpg"
+    },
+    {
+      "image": "images/92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_e9ac1e23556c40dca63feaf36cbac90f.jpg",
+      "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_e9ac1e23556c40dca63feaf36cbac90f.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "e9ac1e23556c40dca63feaf36cbac90f",
+        "session_id": "92b9447f4a8f43858a6a2a20324c1769",
+        "batch_id": "859970ac84ea435c8b902b3a81c1648c",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 595,
+            "y": 337,
+            "width": 902,
+            "height": 720
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 595,
+            "y": 1049,
+            "width": 710,
+            "height": 30
+          },
+          "score": 0.442,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 434,
+          "y": 246,
+          "width": 658,
+          "height": 541,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 85,
+        "dense_draft_box_count": 33,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00016:92b9447f4a8f43858a6a2a20324c1769_859970ac84ea435c8b902b3a81c1648c_e9ac1e23556c40dca63feaf36cbac90f.jpg"
+    },
+    {
+      "image": "images/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg",
+      "source_candidate": "positive/080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "a62e7f1b98714ce4ba7d614374516bcb",
+        "session_id": "080ba36428c64a3698f28510e6e87955",
+        "batch_id": "210d3623c69a4c5295a60788fabb4109",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 546,
+            "y": 211,
+            "width": 667,
+            "height": 373
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 396,
+          "y": 154,
+          "width": 547,
+          "height": 291,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 76,
+        "dense_draft_box_count": 4,
+        "draft_box_count": 1,
+        "quarantine_reasons": [
+          "wide_top_band_likely_keyboard_or_table"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 546,
+              "y": 211,
+              "width": 667,
+              "height": 373
+            },
+            "score": 0.74,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "near_full_page",
+              "page:bright_page"
+            ]
+          }
+        ]
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00017:080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg"
+    },
+    {
+      "image": "images/3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "source_candidate": "positive/3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "25697f28b85740b5912eb5d4786c963f",
+        "session_id": "3c06e705248e4093b5e4a0bbf8f864b6",
+        "batch_id": "85c35faa0ab741fc9a7175be2657e856",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1164,
+            "y": 195,
+            "width": 756,
+            "height": 89
+          },
+          "score": 0.3553,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 405,
+            "y": 292,
+            "width": 1515,
+            "height": 787
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 295,
+          "y": 142,
+          "width": 1105,
+          "height": 645,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 75,
+        "dense_draft_box_count": 4,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00018:3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_51a2f49d28514fd1985e41e61ca010a9_f3bfacb3ad434d06932d07f07035c58a.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_51a2f49d28514fd1985e41e61ca010a9_f3bfacb3ad434d06932d07f07035c58a.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "f3bfacb3ad434d06932d07f07035c58a",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "51a2f49d28514fd1985e41e61ca010a9",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 80,
+            "width": 778,
+            "height": 104
+          },
+          "score": 0.3665,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 171,
+            "width": 1236,
+            "height": 896
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 901,
+          "height": 778,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 45,
+        "dense_draft_box_count": 2,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00019:6cba53b81ae1479f92ccc27a4190743a_51a2f49d28514fd1985e41e61ca010a9_f3bfacb3ad434d06932d07f07035c58a.jpg"
+    },
+    {
+      "image": "images/92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_2bde579bcea34aba87fb86c33fae5574.jpg",
+      "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_2bde579bcea34aba87fb86c33fae5574.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "2bde579bcea34aba87fb86c33fae5574",
+        "session_id": "92b9447f4a8f43858a6a2a20324c1769",
+        "batch_id": "245a10013f2a4e8d86cd090001b7a47a",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 555,
+            "y": 177,
+            "width": 956,
+            "height": 856
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 557,
+            "y": 1022,
+            "width": 941,
+            "height": 22
+          },
+          "score": 0.5049,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 405,
+          "y": 129,
+          "width": 697,
+          "height": 632,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 78,
+        "dense_draft_box_count": 32,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00020:92b9447f4a8f43858a6a2a20324c1769_245a10013f2a4e8d86cd090001b7a47a_2bde579bcea34aba87fb86c33fae5574.jpg"
+    },
+    {
+      "image": "images/e0243d0aa8e54be2b6d434f9cebe5024_5fbf81385be54805a28e350cee4a7bad_5d6dc2f1204d4cb0ac1b674ccb890899.jpg",
+      "source_candidate": "positive/e0243d0aa8e54be2b6d434f9cebe5024_5fbf81385be54805a28e350cee4a7bad_5d6dc2f1204d4cb0ac1b674ccb890899.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "5d6dc2f1204d4cb0ac1b674ccb890899",
+        "session_id": "e0243d0aa8e54be2b6d434f9cebe5024",
+        "batch_id": "5fbf81385be54805a28e350cee4a7bad",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 913,
+            "y": 307,
+            "width": 697,
+            "height": 112
+          },
+          "score": 0.52,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 913,
+            "y": 417,
+            "width": 665,
+            "height": 139
+          },
+          "score": 0.4226,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1171,
+            "y": 908,
+            "width": 594,
+            "height": 121
+          },
+          "score": 0.3964,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 666,
+          "y": 116,
+          "width": 621,
+          "height": 671,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 4,
+        "dense_draft_box_count": 3,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00021:e0243d0aa8e54be2b6d434f9cebe5024_5fbf81385be54805a28e350cee4a7bad_5d6dc2f1204d4cb0ac1b674ccb890899.jpg"
+    },
+    {
+      "image": "images/aa24c7e7c05b401aa268d586c27aea0f_extract_90f3475d28fd4553ac52a25818d31111.jpg",
+      "source_candidate": "positive/aa24c7e7c05b401aa268d586c27aea0f_extract_90f3475d28fd4553ac52a25818d31111.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "90f3475d28fd4553ac52a25818d31111",
+        "session_id": "aa24c7e7c05b401aa268d586c27aea0f",
+        "batch_id": "extract",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 2400,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1282,
+            "y": 270,
+            "width": 1150,
+            "height": 201
+          },
+          "score": 0.356,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1408,
+            "y": 1134,
+            "width": 1024,
+            "height": 222
+          },
+          "score": 0.54,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 174,
+            "y": 1351,
+            "width": 2258,
+            "height": 562
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 174,
+            "y": 1915,
+            "width": 1781,
+            "height": 224
+          },
+          "score": 0.6129,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 174,
+            "y": 2128,
+            "width": 2258,
+            "height": 151
+          },
+          "score": 0.7751,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 76,
+          "y": 118,
+          "width": 988,
+          "height": 879,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 45,
+        "dense_draft_box_count": 13,
+        "draft_box_count": 5,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00022:aa24c7e7c05b401aa268d586c27aea0f_extract_90f3475d28fd4553ac52a25818d31111.jpg"
+    },
+    {
+      "image": "images/d7b260126f7349cdbaba2e82f15818e1_6eff53223fe04a529439f87d6f00748a_d2ac00e4a5f44137af8da4e692bf5394.jpg",
+      "source_candidate": "positive/d7b260126f7349cdbaba2e82f15818e1_6eff53223fe04a529439f87d6f00748a_d2ac00e4a5f44137af8da4e692bf5394.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "d2ac00e4a5f44137af8da4e692bf5394",
+        "session_id": "d7b260126f7349cdbaba2e82f15818e1",
+        "batch_id": "6eff53223fe04a529439f87d6f00748a",
+        "needs_box_label": true
+      },
+      "width": 2232,
+      "height": 1674,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1204,
+            "y": 371,
+            "width": 636,
+            "height": 67
+          },
+          "score": 0.3321,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1199,
+            "y": 462,
+            "width": 641,
+            "height": 77
+          },
+          "score": 0.4862,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 494,
+            "y": 534,
+            "width": 1346,
+            "height": 287
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1240,
+            "y": 816,
+            "width": 599,
+            "height": 155
+          },
+          "score": 0.654,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 738,
+            "y": 1275,
+            "width": 1030,
+            "height": 73
+          },
+          "score": 0.7481,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 310,
+          "y": 114,
+          "width": 844,
+          "height": 732,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.6272401433691757,
+        "line_box_count": 41,
+        "dense_draft_box_count": 20,
+        "draft_box_count": 5,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00023:d7b260126f7349cdbaba2e82f15818e1_6eff53223fe04a529439f87d6f00748a_d2ac00e4a5f44137af8da4e692bf5394.jpg"
+    },
+    {
+      "image": "images/5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7af6df6503ba410ca7bc68902ae0a1d7.jpg",
+      "source_candidate": "positive/5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7af6df6503ba410ca7bc68902ae0a1d7.jpg",
+      "candidate": {
+        "candidate_kind": "observation_image_unverified",
+        "image_id": "7af6df6503ba410ca7bc68902ae0a1d7",
+        "session_id": "5550267ee5ca4f01914ac5c705f4c74c",
+        "batch_id": "315787f452294167bce5fba39a4509d0",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 612,
+            "y": 298,
+            "width": 1008,
+            "height": 513
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 428,
+            "y": 845,
+            "width": 1012,
+            "height": 30
+          },
+          "score": 0.6294,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 312,
+          "y": 217,
+          "width": 869,
+          "height": 421,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 44,
+        "dense_draft_box_count": 10,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00024:5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7af6df6503ba410ca7bc68902ae0a1d7.jpg"
+    }
+  ]
+}

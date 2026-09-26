@@ -1,0 +1,296 @@
+[
+  {
+    "id": "qev_0001",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.198125,
+      "y": 0.6766666666666666,
+      "w": 0.6312500000000001,
+      "h": 0.15000000000000002
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0001.jpg",
+    "crop_hash": "9f1f8f9f3f6042c0",
+    "layout_key": "layout:4:14:13:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.6485,
+      "sharpness": 333.5706,
+      "brightness": 210.9313,
+      "contrast": 23.2885,
+      "confidence": 0.6028,
+      "area": 0.094688
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0002",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0002.jpg",
+    "crop_hash": "880e7f7c78646342",
+    "layout_key": "layout:0:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.2893,
+      "sharpness": 237.1781,
+      "brightness": 170.5378,
+      "contrast": 55.6573,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0003",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0003.jpg",
+    "crop_hash": "ba797f4c555055c1",
+    "layout_key": "layout:10:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.467,
+      "sharpness": 303.8658,
+      "brightness": 182.9414,
+      "contrast": 47.3443,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0004",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0004.jpg",
+    "crop_hash": "addb14d2ab5e2c13",
+    "layout_key": "layout:0:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.3167,
+      "sharpness": 246.4127,
+      "brightness": 147.554,
+      "contrast": 64.1413,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0005",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0005.jpg",
+    "crop_hash": "ffbf6f7dd9000033",
+    "layout_key": "layout:10:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9464,
+      "sharpness": 146.9305,
+      "brightness": 175.3024,
+      "contrast": 54.9444,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0006",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0006.jpg",
+    "crop_hash": "b3644d59dab2b4aa",
+    "layout_key": "layout:0:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.0986,
+      "sharpness": 731.96,
+      "brightness": 127.9986,
+      "contrast": 68.7472,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0007",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0007.jpg",
+    "crop_hash": "c562223e1cbcbcd3",
+    "layout_key": "layout:10:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.2309,
+      "sharpness": 879.8197,
+      "brightness": 180.9769,
+      "contrast": 59.6632,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0008",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0008.jpg",
+    "crop_hash": "9999638c7d639c43",
+    "layout_key": "layout:0:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.9513,
+      "sharpness": 596.2924,
+      "brightness": 120.9456,
+      "contrast": 77.2924,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0009",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0009.jpg",
+    "crop_hash": "99c92ac6369af259",
+    "layout_key": "layout:10:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.2763,
+      "sharpness": 937.0678,
+      "brightness": 177.4738,
+      "contrast": 55.5643,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  }
+]

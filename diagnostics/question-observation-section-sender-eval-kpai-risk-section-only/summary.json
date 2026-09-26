@@ -1,0 +1,102 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-kpai-layout-measured-v5-dense-gated",
+      "candidate_count": 67,
+      "image_count": 41,
+      "full_frame_only_bytes": 8017456,
+      "full_frame_resized_pixels": 58956800
+    }
+  ],
+  "candidate_count": 67,
+  "image_count": 41,
+  "gt_box_count": 12,
+  "represented_gt_key_count": 11,
+  "full_frame_all_pixels": 58956800,
+  "full_max_side": 1600,
+  "settings": {
+    "candidate_cap": 12,
+    "section_max_side": 1200,
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "low_confidence_score": 0.42,
+    "limited_confidence_score": 0.55,
+    "replace_selected_on_section": true,
+    "selected_on_section_limit": 0,
+    "enable_empty_frame_section": false,
+    "enable_risk_frame_section": true,
+    "risk_frame_max_candidates": 4,
+    "risk_frame_min_section_area": 0.42
+  },
+  "cap_only": {
+    "cap": 12,
+    "cap_label": "12",
+    "image_count": 41,
+    "represented_gt_key_count": 11,
+    "selected_candidate_count": 67,
+    "skipped_candidate_count": 0,
+    "skipped_strong_candidate_count": 0,
+    "skipped_confident_candidate_count": 0,
+    "selected_covered_gt_key_count": 11,
+    "selected_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 11,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 7,
+    "fallback_image_ratio": 0.170732,
+    "fallback_reason_counts": {
+      "no_large_question_crop": 1,
+      "single_low_coverage_crop": 3,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "selected_crop_pixels": 36886979,
+    "fallback_full_frame_pixels": 9385600,
+    "total_vlm_pixels": 46272579,
+    "full_frame_all_pixels": 58956800,
+    "selected_crop_pixels_vs_full": 0.625661,
+    "total_pixels_vs_full": 0.784856,
+    "selected_crop_jpeg_bytes": 5622641
+  },
+  "sender": {
+    "candidate_cap": 12,
+    "section_max_side": 1200,
+    "replace_selected_on_section": true,
+    "selected_on_section_limit": 0,
+    "image_count": 41,
+    "candidate_count": 67,
+    "represented_gt_key_count": 11,
+    "cap_selected_candidate_count": 67,
+    "uploaded_selected_candidate_count": 35,
+    "skipped_candidate_count": 0,
+    "section_frame_count": 19,
+    "section_count": 19,
+    "selected_covered_gt_key_count": 8,
+    "section_covered_gt_key_count": 2,
+    "combined_crop_covered_gt_key_count": 10,
+    "policy_covered_gt_key_count": 10,
+    "selected_gt_recall": 0.727273,
+    "section_only_gt_recall": 0.181818,
+    "combined_crop_gt_recall": 0.909091,
+    "policy_gt_recall": 0.909091,
+    "fallback_image_count": 1,
+    "fallback_image_ratio": 0.02439,
+    "fallback_reason_counts": {
+      "no_large_question_crop": 1
+    },
+    "selected_crop_pixels": 21333135,
+    "section_pixels": 13489200,
+    "fallback_full_frame_pixels": 1440000,
+    "total_vlm_pixels": 36262335,
+    "full_frame_all_pixels": 58956800,
+    "selected_crop_pixels_vs_full": 0.361844,
+    "section_pixels_vs_full": 0.228798,
+    "total_pixels_vs_full": 0.615066
+  },
+  "total_pixels_delta_vs_cap_only": -0.16979,
+  "outputs": {
+    "per_image": "per_image.jsonl",
+    "sections": "sections.jsonl",
+    "cap_risk": "cap_risk.jsonl",
+    "summary_md": "summary.md"
+  }
+}

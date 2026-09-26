@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-06-30T09:23:00.658177+00:00",
+  "eval_summary": "diagnostics\\question-detector-experiment-bootstrap-clean-shape\\runs\\clean-shape__yolo11n__img416__seed42__ep25\\eval\\summary.json",
+  "dataset_root": "diagnostics\\question-detector-bootstrap-kpai-clean-shape",
+  "threshold": "0.50",
+  "stats": {
+    "missed:boxes": 1,
+    "boxes_total": 220,
+    "false_positive:per_image_cap_skipped": 12112,
+    "false_positive:boxes": 219,
+    "images": 37,
+    "false_positive:area_filtered": 3,
+    "box_total_cap_skipped": 42,
+    "images_without_boxes": 7
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "contact_sheet": "hard_examples_contact_sheet.jpg"
+  }
+}

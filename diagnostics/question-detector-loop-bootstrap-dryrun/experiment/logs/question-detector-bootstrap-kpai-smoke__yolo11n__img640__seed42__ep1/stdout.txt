@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-30T04:11:21.949856+00:00",
+  "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+  "dataset_yaml": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke\\yolo_dataset.yaml",
+  "audit_readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "audit_warnings": [
+    {
+      "code": "bootstrap_dataset_not_release_ready",
+      "severity": "warning",
+      "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+    }
+  ],
+  "model": "yolo11n.pt",
+  "name": "question-block",
+  "train": {
+    "epochs": 1,
+    "imgsz": 640,
+    "batch": -1,
+    "device": "",
+    "patience": 20,
+    "workers": 4,
+    "seed": 42,
+    "optimizer": ""
+  },
+  "export_coreml": false,
+  "predict_test": true,
+  "prediction_conf": 0.05,
+  "prediction": {
+    "requested_conf": 0.25,
+    "effective_conf": 0.05,
+    "adjusted_for_score_sweep": true
+  },
+  "allow_unready": true,
+  "eval_gate": {
+    "thresholds": "0.5,0.75",
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "score_thresholds": "0.05,0.10,0.20,0.25,0.35,0.50",
+    "allow_failed_eval": true
+  },
+  "status": "planned"
+}

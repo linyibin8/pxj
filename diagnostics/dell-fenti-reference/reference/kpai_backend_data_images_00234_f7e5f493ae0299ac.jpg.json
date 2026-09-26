@@ -1,0 +1,268 @@
+{
+ "count": 15,
+ "questions": [
+  {
+   "id": "21",
+   "text": "21. Kitty isn't ______ (feel) well today, so she ______ (do) go to school.",
+   "type": "fill",
+   "bbox": [
+    232,
+    172,
+    606,
+    202
+   ],
+   "nbox": [
+    0.145,
+    0.1911,
+    0.3787,
+    0.2244
+   ]
+  },
+  {
+   "id": "22",
+   "text": "22. Kitty ______ (wear) a new yellow skirt today. She ______ (like) the colour best.",
+   "type": "fill",
+   "bbox": [
+    232,
+    202,
+    606,
+    246
+   ],
+   "nbox": [
+    0.145,
+    0.2244,
+    0.3787,
+    0.2733
+   ]
+  },
+  {
+   "id": "23",
+   "text": "23. The brown trousers ______ (be) my size. They're too big for ______ (I).",
+   "type": "fill",
+   "bbox": [
+    232,
+    256,
+    606,
+    286
+   ],
+   "nbox": [
+    0.145,
+    0.2844,
+    0.3787,
+    0.3178
+   ]
+  },
+  {
+   "id": "24",
+   "text": "24. Linda and Kitty ______ (play) yo-yo together this Sunday.",
+   "type": "fill",
+   "bbox": [
+    232,
+    286,
+    606,
+    316
+   ],
+   "nbox": [
+    0.145,
+    0.3178,
+    0.3787,
+    0.3511
+   ]
+  },
+  {
+   "id": "25",
+   "text": "25. The rabbit ______ (cry) now because he has no food.",
+   "type": "fill",
+   "bbox": [
+    232,
+    316,
+    606,
+    346
+   ],
+   "nbox": [
+    0.145,
+    0.3511,
+    0.3787,
+    0.3844
+   ]
+  },
+  {
+   "id": "26",
+   "text": "26. We like Shanghai because it's beautiful. (对划线部分提问) ______ ______ you like Shanghai?",
+   "type": "fill",
+   "bbox": [
+    232,
+    436,
+    606,
+    496
+   ],
+   "nbox": [
+    0.145,
+    0.4844,
+    0.3787,
+    0.5511
+   ]
+  },
+  {
+   "id": "27",
+   "text": "27. Danny is good at Maths and English. (对划线部分提问) ______ ______ Danny good at?",
+   "type": "fill",
+   "bbox": [
+    232,
+    496,
+    606,
+    546
+   ],
+   "nbox": [
+    0.145,
+    0.5511,
+    0.3787,
+    0.6067
+   ]
+  },
+  {
+   "id": "28",
+   "text": "28. My mother will go to Sanya. (改为一般疑问句) ______ your mother ______ to Sanya?",
+   "type": "fill",
+   "bbox": [
+    232,
+    546,
+    606,
+    596
+   ],
+   "nbox": [
+    0.145,
+    0.6067,
+    0.3787,
+    0.6622
+   ]
+  },
+  {
+   "id": "29",
+   "text": "29. I will live in Beijing in the future. (改为否定句) ______ ______ ______ in Beijing in the future.",
+   "type": "fill",
+   "bbox": [
+    232,
+    596,
+    606,
+    646
+   ],
+   "nbox": [
+    0.145,
+    0.6622,
+    0.3787,
+    0.7178
+   ]
+  },
+  {
+   "id": "30",
+   "text": "30. Sally's mother is tidying up the bedroom. (对划线部分提问) ______ ______ ______ ______ ______ the bedroom?",
+   "type": "fill",
+   "bbox": [
+    232,
+    646,
+    606,
+    706
+   ],
+   "nbox": [
+    0.145,
+    0.7178,
+    0.3787,
+    0.7844
+   ]
+  },
+  {
+   "id": "31",
+   "text": "31. We will love here soon. (变为否定句) ______ ______ ______ ______ ______ soon.",
+   "type": "fill",
+   "bbox": [
+    232,
+    706,
+    606,
+    756
+   ],
+   "nbox": [
+    0.145,
+    0.7844,
+    0.3787,
+    0.84
+   ]
+  },
+  {
+   "id": "32",
+   "text": "32. This book is mine. (改为一般疑问句) ______ ______ ______?",
+   "type": "fill",
+   "bbox": [
+    232,
+    756,
+    606,
+    806
+   ],
+   "nbox": [
+    0.145,
+    0.84,
+    0.3787,
+    0.8956
+   ]
+  },
+  {
+   "id": "33",
+   "text": "33. Ms Guo isn't asking the children about the day. (变为肯定句) ______ ______ ______ ______ ______ ______ ______.",
+   "type": "fill",
+   "bbox": [
+    232,
+    806,
+    606,
+    866
+   ],
+   "nbox": [
+    0.145,
+    0.8956,
+    0.3787,
+    0.9622
+   ]
+  },
+  {
+   "id": "34",
+   "text": "34. Do you know when they'll visit the library? (作否定回答) ______ ______ ______ ______ ______ ______?",
+   "type": "fill",
+   "bbox": [
+    232,
+    866,
+    606,
+    926
+   ],
+   "nbox": [
+    0.145,
+    0.9622,
+    0.3787,
+    1.0289
+   ]
+  },
+  {
+   "id": "35",
+   "text": "35. I'll meet them at the school gate. (变为否定句) ______ ______ ______ ______ ______ ______ ______.",
+   "type": "fill",
+   "bbox": [
+    232,
+    926,
+    606,
+    976
+   ],
+   "nbox": [
+    0.145,
+    1.0289,
+    0.3787,
+    1.0844
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 12.0,
+  "finish": "stop"
+ }
+}

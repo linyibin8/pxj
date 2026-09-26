@@ -1,0 +1,129 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 87,
+    "positive_images": 7,
+    "negative_images": 80,
+    "empty_page_images": 80,
+    "annotations": 12,
+    "review": 0,
+    "skipped": {},
+    "split_groups": 20,
+    "raw_split_groups": 22,
+    "source_rows": 12,
+    "review_ratio": 0.0,
+    "risky_label_count": 0,
+    "risky_label_ratio": 0.0
+  },
+  "split_counts": {
+    "train": {
+      "images": 65,
+      "positive_images": 3,
+      "negative_images": 62,
+      "annotations": 6,
+      "groups": 15,
+      "raw_groups": 15
+    },
+    "val": {
+      "images": 19,
+      "positive_images": 2,
+      "negative_images": 17,
+      "annotations": 3,
+      "groups": 3,
+      "raw_groups": 5
+    },
+    "test": {
+      "images": 3,
+      "positive_images": 2,
+      "negative_images": 1,
+      "annotations": 3,
+      "groups": 2,
+      "raw_groups": 2
+    }
+  },
+  "strata_counts": {
+    "by_origin": {
+      "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative": 80,
+      "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next\\annotations\\approved_boxes.jsonl": 7
+    },
+    "by_negative_kind": {
+      "empty_page": 80
+    },
+    "by_quality_flag": {
+      "human_reviewed": 7,
+      "negative:empty_page": 80,
+      "negative_sample": 80,
+      "shape_risk_human_reviewed": 5
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_severity": "error",
+    "near_duplicate_cross_split_pairs": [],
+    "split_grouping": {
+      "enabled": true,
+      "original_group_count": 22,
+      "clustered_group_count": 20,
+      "merged_group_count": 1,
+      "near_duplicate_threshold": 4,
+      "exact_duplicate_group_links": [],
+      "near_duplicate_group_links": [
+        {
+          "distance": 3,
+          "left": "b04a9ada1d6c0fbd_bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597f8623.jpg",
+          "left_group": "bb68c98c9ca44664b1582da1b6c2251b",
+          "right": "e737e433135eb1ca_91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg",
+          "right_group": "91cf7b7586424ce3a308b42daf0ee2fc"
+        },
+        {
+          "distance": 2,
+          "left": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a04be3ed273929cbd5b.jpg",
+          "left_group": "3c06e705248e4093b5e4a0bbf8f864b6",
+          "right": "91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4cc8a30877b31647f007.jpg",
+          "right_group": "91cf7b7586424ce3a308b42daf0ee2fc"
+        }
+      ],
+      "merged_clusters": [
+        {
+          "canonical": "3c06e705248e4093b5e4a0bbf8f864b6",
+          "groups": [
+            "3c06e705248e4093b5e4a0bbf8f864b6",
+            "91cf7b7586424ce3a308b42daf0ee2fc",
+            "bb68c98c9ca44664b1582da1b6c2251b"
+          ]
+        }
+      ]
+    }
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 50,
+    "production_split_groups": 50,
+    "max_review_ratio": 0.15,
+    "max_risky_label_ratio": 0.15
+  },
+  "warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "12 annotations; target >= 1000 for model selection."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "20 split groups; target >= 50 for held-out evaluation."
+    }
+  ]
+}

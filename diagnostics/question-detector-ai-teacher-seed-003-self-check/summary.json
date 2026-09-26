@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-07-02T00:46:39.998293+00:00",
+  "label": "seed-003-self",
+  "benchmark_manifest": "diagnostics\\question-detector-ai-teacher-seed-003\\benchmark_manifest.jsonl",
+  "iou_threshold": 0.5,
+  "image_count": 7,
+  "input_audit": {
+    "reference": {
+      "path": "diagnostics\\question-detector-ai-teacher-seed-003\\teacher_reference_boxes.jsonl",
+      "rows": 7,
+      "unmatched_rows": [],
+      "matched_images": 7,
+      "missing_images": []
+    },
+    "predictions": {
+      "path": "diagnostics\\question-detector-ai-teacher-seed-003\\teacher_reference_boxes.jsonl",
+      "rows": 7,
+      "unmatched_rows": [],
+      "matched_images": 7,
+      "missing_images": []
+    }
+  },
+  "overall": {
+    "reference_boxes": 33,
+    "prediction_boxes": 33,
+    "matched_boxes": 33,
+    "missed_boxes": 0,
+    "false_positive_boxes": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "count_delta": 0
+  },
+  "by_cohort": {
+    "homography_verified_dxue_right_page": {
+      "reference_boxes": 10,
+      "prediction_boxes": 10,
+      "matched_boxes": 10,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "manual_left_page_dxue_complete": {
+      "reference_boxes": 15,
+      "prediction_boxes": 15,
+      "matched_boxes": 15,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "oblique_single_page_seed": {
+      "reference_boxes": 3,
+      "prediction_boxes": 3,
+      "matched_boxes": 3,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "oblique_two_page_right_page_seed": {
+      "reference_boxes": 5,
+      "prediction_boxes": 5,
+      "matched_boxes": 5,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    }
+  }
+}

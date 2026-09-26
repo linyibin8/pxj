@@ -1,0 +1,2 @@
+{"review_id": "teacher:dxue_test_images_00030_639dee4c0fce8925", "cohort": "oblique_single_page_seed", "source_kind": "ai_teacher", "reference_boxes": 3, "prediction_boxes": 3, "matched_boxes": 3, "missed_boxes": 0, "false_positive_boxes": 0}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "source_kind": "ai_teacher", "reference_boxes": 5, "prediction_boxes": 5, "matched_boxes": 5, "missed_boxes": 0, "false_positive_boxes": 0}

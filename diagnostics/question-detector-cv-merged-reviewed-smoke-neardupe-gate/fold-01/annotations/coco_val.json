@@ -1,0 +1,154 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 1 val",
+    "version": "cv1",
+    "generated_at": "2026-06-30T04:55:56.674787+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-merged-reviewed-smoke"
+  },
+  "images": [
+    {
+      "id": 8,
+      "file_name": "images/val/85053eac4814822a__1d1b428ce7baaed1_f197b2027c52a307_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e016.jpg",
+      "width": 3200,
+      "height": 1104,
+      "split": "val",
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "source_filename": "f197b2027c52a307_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 31,
+      "file_name": "images/val/b5c62b81f6171db3__5cd2ba50d9763778_3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b9ebdef276016bbfd9f.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b9ebdef276016bbfd9f.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 35,
+      "file_name": "images/val/6c3c585ad0d9ae21__6ad611f992cc0c1e_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 59,
+      "file_name": "images/val/ea077a3138585424__a4dc5c0c00c43ddc_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a04be3ed273929cbd5b.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a04be3ed273929cbd5b.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 75,
+      "file_name": "images/val/7ce6a2845188c167__dcbad9b33559cc5a_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece45.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece456abc3e95dc094e6fe8.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece456abc3e95dc094e6fe8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 3,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        43,
+        267,
+        693,
+        706
+      ],
+      "area": 489258,
+      "iscrowd": 0,
+      "question_key": "reviewed:021e0fb43c534d91987da51e01694d8f:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 4,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        165,
+        960,
+        571,
+        144
+      ],
+      "area": 82224,
+      "iscrowd": 0,
+      "question_key": "reviewed:021e0fb43c534d91987da51e01694d8f:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-smoke\\annotations\\approved_boxes.jsonl"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

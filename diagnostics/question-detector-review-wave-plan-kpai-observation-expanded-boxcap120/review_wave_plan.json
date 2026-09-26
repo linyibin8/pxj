@@ -1,0 +1,782 @@
+{
+  "generated_at": "2026-06-30T15:40:44.274644+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120",
+  "max_waves": 12,
+  "limit_per_wave": 24,
+  "max_boxes_per_wave": 120,
+  "include_quarantine": true,
+  "build_workbenches": true,
+  "exhausted": false,
+  "total_selected_images": 239,
+  "total_selected_boxes": 949,
+  "waves": [
+    {
+      "wave": 1,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-001",
+      "candidate_count": 557,
+      "selected_images": 5,
+      "selected_boxes": 120,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 42,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "2154c8578d1443929a1825907f5e6cf6": 1,
+          "4dd68b59b935466195b05543c884ff15": 2,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "f7a7d1b8d4c4452382320a4db6e5ba6a": 1
+        },
+        "reason_counts": {
+          "dense_text": 2,
+          "flag:few_text_lines": 5,
+          "flag:page:full_image_fallback": 5,
+          "multi_box_page": 5,
+          "small_box": 5
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-001-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:38:39.572535+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-001",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-001-workbench",
+        "images": 5,
+        "boxes": 120,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 24,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 2,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-002",
+      "candidate_count": 552,
+      "selected_images": 8,
+      "selected_boxes": 120,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 47,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "2154c8578d1443929a1825907f5e6cf6": 2,
+          "5dd6493c6d9344ee93aabe4d87820137": 1,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "731a0558d8744fe880cff057da4995dd": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 2,
+          "f7a7d1b8d4c4452382320a4db6e5ba6a": 1
+        },
+        "reason_counts": {
+          "dense_text": 2,
+          "flag:few_text_lines": 7,
+          "flag:near_full_page": 1,
+          "flag:page:full_image_fallback": 7,
+          "flag:short_block": 1,
+          "flag:tall_block": 1,
+          "large_box": 1,
+          "multi_box_page": 7,
+          "quarantine": 2,
+          "small_box": 7
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-002-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:38:52.466300+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-002",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-002-workbench",
+        "images": 8,
+        "boxes": 120,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 15.5,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 3,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-003",
+      "candidate_count": 544,
+      "selected_images": 11,
+      "selected_boxes": 120,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 55,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "58235995a9f24c56808659942cb84b35": 1,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "7bd1da2a72bc4d46a10d477ae4752e71": 1,
+          "8feb463ec11940f6ad9df819f092ead9": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+          "92b9447f4a8f43858a6a2a20324c1769": 1,
+          "b3f939e2fbee43acbe7bd5e2c7c1b434": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 2,
+          "bb68c98c9ca44664b1582da1b6c2251b": 1,
+          "d7b260126f7349cdbaba2e82f15818e1": 1
+        },
+        "reason_counts": {
+          "dense_text": 2,
+          "flag:few_text_lines": 11,
+          "flag:page:full_image_fallback": 6,
+          "flag:short_block": 3,
+          "flag:tall_block": 1,
+          "multi_box_page": 11,
+          "quarantine": 1,
+          "small_box": 11
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-003-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:39:04.914935+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-003",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-003-workbench",
+        "images": 11,
+        "boxes": 120,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 11,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 4,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-004",
+      "candidate_count": 533,
+      "selected_images": 23,
+      "selected_boxes": 120,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 66,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "005c6d92ef37414ab5d41a5f0ad66656": 1,
+          "1babc6ec51dd4448a30ae26a8dbcfe1f": 1,
+          "299631775fad422bbff9c20c17f84b9b": 1,
+          "4dd68b59b935466195b05543c884ff15": 3,
+          "5bd92f286d3a4dd89ed34ddde34ebfe5": 1,
+          "7bd1da2a72bc4d46a10d477ae4752e71": 1,
+          "8feb463ec11940f6ad9df819f092ead9": 1,
+          "92b9447f4a8f43858a6a2a20324c1769": 2,
+          "9b2b7f197f064c52961c557b4bea5ec8": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "bb68c98c9ca44664b1582da1b6c2251b": 2,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 4,
+          "e65858e27a964eac83306022bfff0238": 1
+        },
+        "reason_counts": {
+          "dense_text": 2,
+          "flag:few_text_lines": 21,
+          "flag:near_full_page": 4,
+          "flag:page:full_image_fallback": 10,
+          "flag:short_block": 9,
+          "flag:tall_block": 4,
+          "large_box": 1,
+          "multi_box_page": 22,
+          "quarantine": 9,
+          "small_box": 18
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-004-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:39:17.867877+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-004",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-004-workbench",
+        "images": 23,
+        "boxes": 120,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 6,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 5,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-005",
+      "candidate_count": 510,
+      "selected_images": 24,
+      "selected_boxes": 102,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 89,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "1babc6ec51dd4448a30ae26a8dbcfe1f": 1,
+          "2e240b72b5bc481bacb9c4beeaca3601": 1,
+          "342abfb590bf4f25bd1c90d5052c334e": 1,
+          "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+          "4dd68b59b935466195b05543c884ff15": 1,
+          "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1": 1,
+          "800ee68730af44c9a2349cf6e1e6a1fe": 1,
+          "8710000bb6e04974abbabd87d5416682": 1,
+          "8feb463ec11940f6ad9df819f092ead9": 3,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+          "b1491bfb9d864c33ac282984c122650a": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "c8a03502b0a141ffa39f12705906926a": 1,
+          "d7b260126f7349cdbaba2e82f15818e1": 1,
+          "d8bbcd079e9741b0b799d7185d37f057": 1,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 1,
+          "e65858e27a964eac83306022bfff0238": 1,
+          "f7a7d1b8d4c4452382320a4db6e5ba6a": 2
+        },
+        "reason_counts": {
+          "dense_text": 5,
+          "flag:few_text_lines": 19,
+          "flag:near_full_page": 5,
+          "flag:page:full_image_fallback": 3,
+          "flag:short_block": 11,
+          "flag:tall_block": 11,
+          "large_box": 4,
+          "multi_box_page": 20,
+          "quarantine": 6,
+          "small_box": 22
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-005-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:39:31.860387+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-005",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-005-workbench",
+        "images": 24,
+        "boxes": 102,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 4.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 6,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-006",
+      "candidate_count": 486,
+      "selected_images": 24,
+      "selected_boxes": 75,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 113,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "080ba36428c64a3698f28510e6e87955": 1,
+          "14a98df1760e41758ff5e10505ebc077": 1,
+          "1babc6ec51dd4448a30ae26a8dbcfe1f": 2,
+          "1f54b22aed3942caa921fe075593a550": 1,
+          "4dd68b59b935466195b05543c884ff15": 3,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "7bd1da2a72bc4d46a10d477ae4752e71": 1,
+          "8feb463ec11940f6ad9df819f092ead9": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 2,
+          "92b9447f4a8f43858a6a2a20324c1769": 2,
+          "aa24c7e7c05b401aa268d586c27aea0f": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "d7b260126f7349cdbaba2e82f15818e1": 1,
+          "d8bbcd079e9741b0b799d7185d37f057": 1,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 2
+        },
+        "reason_counts": {
+          "dense_text": 8,
+          "flag:few_text_lines": 16,
+          "flag:near_full_page": 14,
+          "flag:page:full_image_fallback": 4,
+          "flag:short_block": 10,
+          "flag:tall_block": 14,
+          "large_box": 4,
+          "multi_box_page": 10,
+          "quarantine": 7,
+          "small_box": 18
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-006-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:39:43.829750+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-006",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-006-workbench",
+        "images": 24,
+        "boxes": 75,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 7,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007",
+      "candidate_count": 462,
+      "selected_images": 24,
+      "selected_boxes": 61,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 137,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "080ba36428c64a3698f28510e6e87955": 1,
+          "22da895173b14bd8b5b9abd3ec92601f": 1,
+          "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+          "4dd68b59b935466195b05543c884ff15": 2,
+          "5550267ee5ca4f01914ac5c705f4c74c": 1,
+          "58235995a9f24c56808659942cb84b35": 1,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "6cba53b81ae1479f92ccc27a4190743a": 1,
+          "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+          "92b9447f4a8f43858a6a2a20324c1769": 2,
+          "aa24c7e7c05b401aa268d586c27aea0f": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "bb68c98c9ca44664b1582da1b6c2251b": 1,
+          "d7b260126f7349cdbaba2e82f15818e1": 1,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 3,
+          "e65858e27a964eac83306022bfff0238": 1
+        },
+        "reason_counts": {
+          "dense_text": 6,
+          "flag:few_text_lines": 13,
+          "flag:near_full_page": 16,
+          "flag:page:full_image_fallback": 1,
+          "flag:short_block": 10,
+          "flag:tall_block": 19,
+          "large_box": 2,
+          "multi_box_page": 9,
+          "quarantine": 3,
+          "small_box": 22
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:39:54.608835+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-007-workbench",
+        "images": 24,
+        "boxes": 61,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 8,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-008",
+      "candidate_count": 438,
+      "selected_images": 24,
+      "selected_boxes": 57,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 161,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "080ba36428c64a3698f28510e6e87955": 4,
+          "4dd68b59b935466195b05543c884ff15": 4,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1": 1,
+          "7c5c6fcb6eb14799a4b284a200312921": 1,
+          "800ee68730af44c9a2349cf6e1e6a1fe": 1,
+          "8feb463ec11940f6ad9df819f092ead9": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 2,
+          "92b9447f4a8f43858a6a2a20324c1769": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "d7b260126f7349cdbaba2e82f15818e1": 1,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 1,
+          "e65858e27a964eac83306022bfff0238": 2
+        },
+        "reason_counts": {
+          "dense_text": 5,
+          "flag:few_text_lines": 15,
+          "flag:near_full_page": 10,
+          "flag:short_block": 5,
+          "flag:tall_block": 14,
+          "large_box": 1,
+          "multi_box_page": 9,
+          "quarantine": 7,
+          "small_box": 21
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-008-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:40:05.497955+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-008",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-008-workbench",
+        "images": 24,
+        "boxes": 57,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 9,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-009",
+      "candidate_count": 414,
+      "selected_images": 24,
+      "selected_boxes": 49,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 185,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "080ba36428c64a3698f28510e6e87955": 1,
+          "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+          "4dd68b59b935466195b05543c884ff15": 2,
+          "58235995a9f24c56808659942cb84b35": 1,
+          "62f789a2bca9426097b607fb27aff5bd": 1,
+          "6818143990c546fcb999a04621adc0be": 1,
+          "800ee68730af44c9a2349cf6e1e6a1fe": 1,
+          "8710000bb6e04974abbabd87d5416682": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 4,
+          "92b9447f4a8f43858a6a2a20324c1769": 2,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "bb68c98c9ca44664b1582da1b6c2251b": 1,
+          "e65858e27a964eac83306022bfff0238": 4
+        },
+        "reason_counts": {
+          "dense_text": 7,
+          "flag:few_text_lines": 8,
+          "flag:near_full_page": 17,
+          "flag:short_block": 1,
+          "flag:tall_block": 21,
+          "large_box": 6,
+          "multi_box_page": 5,
+          "quarantine": 2,
+          "small_box": 19
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-009-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:40:16.379226+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-009",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-009-workbench",
+        "images": 24,
+        "boxes": 49,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 10,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-010",
+      "candidate_count": 390,
+      "selected_images": 24,
+      "selected_boxes": 45,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 209,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "080ba36428c64a3698f28510e6e87955": 1,
+          "0d13b5cc951a43b695ce14ad124a3248": 1,
+          "14a98df1760e41758ff5e10505ebc077": 1,
+          "1babc6ec51dd4448a30ae26a8dbcfe1f": 1,
+          "3c06e705248e4093b5e4a0bbf8f864b6": 1,
+          "4dd68b59b935466195b05543c884ff15": 2,
+          "58235995a9f24c56808659942cb84b35": 1,
+          "62f789a2bca9426097b607fb27aff5bd": 1,
+          "6818143990c546fcb999a04621adc0be": 2,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+          "92b9447f4a8f43858a6a2a20324c1769": 2,
+          "b1491bfb9d864c33ac282984c122650a": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 3,
+          "bb68c98c9ca44664b1582da1b6c2251b": 1,
+          "d7df33d72d2a48279d8d5aed5dc5dcea": 1,
+          "e65858e27a964eac83306022bfff0238": 4
+        },
+        "reason_counts": {
+          "dense_text": 7,
+          "flag:few_text_lines": 8,
+          "flag:near_full_page": 15,
+          "flag:short_block": 1,
+          "flag:tall_block": 21,
+          "large_box": 8,
+          "multi_box_page": 4,
+          "quarantine": 2,
+          "small_box": 13
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-010-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:40:26.559150+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-010",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-010-workbench",
+        "images": 24,
+        "boxes": 45,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 11,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-011",
+      "candidate_count": 366,
+      "selected_images": 24,
+      "selected_boxes": 49,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 233,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "214e4c656cd948fa9db51d9972291cc1": 1,
+          "22da895173b14bd8b5b9abd3ec92601f": 1,
+          "5550267ee5ca4f01914ac5c705f4c74c": 1,
+          "58235995a9f24c56808659942cb84b35": 1,
+          "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1": 1,
+          "7bd1da2a72bc4d46a10d477ae4752e71": 1,
+          "800ee68730af44c9a2349cf6e1e6a1fe": 3,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 2,
+          "92b9447f4a8f43858a6a2a20324c1769": 1,
+          "9b2b7f197f064c52961c557b4bea5ec8": 1,
+          "b3260a7a42764e9cb1ad8e1997cf72e5": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 1,
+          "e65858e27a964eac83306022bfff0238": 4,
+          "ff61d22fd1d649e4a1b033ac7b304546": 1
+        },
+        "reason_counts": {
+          "dense_text": 7,
+          "flag:few_text_lines": 5,
+          "flag:near_full_page": 16,
+          "flag:short_block": 1,
+          "flag:tall_block": 19,
+          "large_box": 11,
+          "multi_box_page": 8,
+          "small_box": 7
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-011-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:40:35.510145+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-011",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-011-workbench",
+        "images": 24,
+        "boxes": 49,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 2.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    },
+    {
+      "wave": 12,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-012",
+      "candidate_count": 342,
+      "selected_images": 24,
+      "selected_boxes": 31,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 257,
+        "no_boxes": 1
+      },
+      "selection": {
+        "max_per_session": 4,
+        "max_boxes_total": 120,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "3104e53b076c4946bcd1452b68066af1": 1,
+          "3c06e705248e4093b5e4a0bbf8f864b6": 2,
+          "45f2942a64eb4cbf9a12082165f170cd": 1,
+          "4dd68b59b935466195b05543c884ff15": 2,
+          "58235995a9f24c56808659942cb84b35": 1,
+          "800ee68730af44c9a2349cf6e1e6a1fe": 1,
+          "91cf7b7586424ce3a308b42daf0ee2fc": 2,
+          "92b9447f4a8f43858a6a2a20324c1769": 1,
+          "9739d42380894e228318d05d0f6767a7": 1,
+          "b1491bfb9d864c33ac282984c122650a": 1,
+          "b6f8a6accd404bfc9fb291b15cb44f09": 4,
+          "d7b260126f7349cdbaba2e82f15818e1": 1,
+          "e0243d0aa8e54be2b6d434f9cebe5024": 2,
+          "e65858e27a964eac83306022bfff0238": 4
+        },
+        "reason_counts": {
+          "dense_text": 17,
+          "flag:few_text_lines": 3,
+          "flag:near_full_page": 23,
+          "flag:tall_block": 23,
+          "large_box": 6,
+          "multi_box_page": 2,
+          "small_box": 3
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-012-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T15:40:44.273634+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-012",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-012-workbench",
+        "images": 24,
+        "boxes": 31,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 1.0,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    }
+  ],
+  "inputs": {
+    "exclude_approved_jsonl": [
+      "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl",
+      "diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl"
+    ],
+    "exclude_queued_root": [
+      "diagnostics\\question-detector-active-batch-kpai-001",
+      "diagnostics\\question-detector-active-batch-kpai-002",
+      "diagnostics\\question-detector-active-batch-kpai-003-quarantine",
+      "diagnostics\\question-detector-review-backlog-risk-section-top1"
+    ]
+  },
+  "notes": [
+    "Wave outputs are review queues, not approved training data.",
+    "If exhausted=true and total_selected_boxes is small, generate more prelabels from a larger historical candidate pool."
+  ]
+}

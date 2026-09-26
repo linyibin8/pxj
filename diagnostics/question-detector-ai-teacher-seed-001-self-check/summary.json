@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-07-01T23:53:30.315251+00:00",
+  "label": "teacher_self_check",
+  "benchmark_manifest": "diagnostics\\question-detector-ai-teacher-seed-001\\benchmark_manifest.jsonl",
+  "iou_threshold": 0.5,
+  "image_count": 2,
+  "input_audit": {
+    "reference": {
+      "path": "diagnostics\\question-detector-ai-teacher-seed-001\\teacher_reference_boxes.jsonl",
+      "rows": 2,
+      "unmatched_rows": [],
+      "matched_images": 2,
+      "missing_images": []
+    },
+    "predictions": {
+      "path": "diagnostics\\question-detector-ai-teacher-seed-001\\teacher_reference_boxes.jsonl",
+      "rows": 2,
+      "unmatched_rows": [],
+      "matched_images": 2,
+      "missing_images": []
+    }
+  },
+  "overall": {
+    "reference_boxes": 8,
+    "prediction_boxes": 8,
+    "matched_boxes": 8,
+    "missed_boxes": 0,
+    "false_positive_boxes": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "count_delta": 0
+  },
+  "by_cohort": {
+    "oblique_single_page_seed": {
+      "reference_boxes": 3,
+      "prediction_boxes": 3,
+      "matched_boxes": 3,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "oblique_two_page_right_page_seed": {
+      "reference_boxes": 5,
+      "prediction_boxes": 5,
+      "matched_boxes": 5,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    }
+  }
+}

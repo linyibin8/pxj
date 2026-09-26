@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "run_count": 4,
+  "executed": true,
+  "executed_run_count": 4,
+  "out": "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment",
+  "plan": "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment\\experiment_plan.json",
+  "report": "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment\\experiment_report.json"
+}

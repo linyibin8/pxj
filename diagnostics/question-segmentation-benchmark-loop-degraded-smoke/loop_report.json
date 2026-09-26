@@ -1,0 +1,401 @@
+{
+  "status": "failed_gate",
+  "outputs": {
+    "eval": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval",
+    "gate": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\gate",
+    "errors": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\errors",
+    "error_workbench": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\error_workbench",
+    "eval_summary": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval\\summary.json",
+    "gate_report": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\gate\\gate.json",
+    "error_review_root": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\errors\\annotations\\draft_boxes.jsonl",
+    "error_workbench_html": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\error_workbench\\index.html"
+  },
+  "steps": [
+    {
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_segmentation_benchmark_eval.py",
+        "--benchmark-manifest",
+        "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+        "--reference-jsonl",
+        "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\draft_reference_boxes.jsonl",
+        "--predictions-jsonl",
+        "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\codex_predictions_degraded_smoke.jsonl",
+        "--label",
+        "degraded_loop_smoke",
+        "--iou-threshold",
+        "0.5",
+        "--out",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval",
+        "--clean"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"reference_boxes\": 299,\n  \"prediction_boxes\": 276,\n  \"matched_boxes\": 275,\n  \"missed_boxes\": 24,\n  \"false_positive_boxes\": 1,\n  \"precision\": 0.9964,\n  \"recall\": 0.9197,\n  \"f1\": 0.9565,\n  \"count_delta\": -23\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_segmentation_benchmark_gate.py",
+        "--summary",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval\\summary.json",
+        "--out",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\gate",
+        "--min-recall",
+        "0.95",
+        "--min-precision",
+        "0.95",
+        "--min-f1",
+        "0.95",
+        "--min-cohort-recall",
+        "0.9",
+        "--min-cohort-precision",
+        "0.9",
+        "--max-missing-images",
+        "0",
+        "--max-unmatched-rows",
+        "0",
+        "--max-missed-boxes",
+        "0",
+        "--max-false-positive-boxes",
+        "0",
+        "--allow-failed-gate"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"gate_passed\": false,\n  \"out\": \"diagnostics\\\\question-segmentation-benchmark-loop-degraded-smoke\\\\gate\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_segmentation_benchmark_mine.py",
+        "--eval",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval",
+        "--out",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\errors",
+        "--clean"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"out\": \"diagnostics\\\\question-segmentation-benchmark-loop-degraded-smoke\\\\errors\",\n  \"images\": 3,\n  \"boxes\": 25,\n  \"stats\": {\n    \"missed:boxes\": 24,\n    \"images\": 3,\n    \"false_positive:boxes\": 1\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_review_workbench.py",
+        "--prelabel-root",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\errors",
+        "--out",
+        "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\error_workbench",
+        "--clean"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"generated_at\": \"2026-07-01T02:41:03.449830+00:00\",\n  \"prelabel_root\": \"diagnostics\\\\question-segmentation-benchmark-loop-degraded-smoke\\\\errors\",\n  \"out\": \"diagnostics\\\\question-segmentation-benchmark-loop-degraded-smoke\\\\error_workbench\",\n  \"images\": 3,\n  \"boxes\": 25,\n  \"high_risk_boxes\": 1,\n  \"default_rejected_boxes\": 1,\n  \"median_boxes_per_image\": 12,\n  \"include_quarantine\": false,\n  \"outputs\": {\n    \"html\": \"index.html\",\n    \"review_data\": \"review_data.json\"\n  },\n  \"notes\": [\n    \"Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.\",\n    \"Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified.\"\n  ]\n}\n",
+      "stderr": ""
+    }
+  ],
+  "eval_summary": {
+    "generated_at": "2026-07-01T02:41:02.868356+00:00",
+    "label": "degraded_loop_smoke",
+    "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+    "iou_threshold": 0.5,
+    "image_count": 40,
+    "input_audit": {
+      "reference": {
+        "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\draft_reference_boxes.jsonl",
+        "rows": 40,
+        "unmatched_rows": [],
+        "matched_images": 40,
+        "missing_images": []
+      },
+      "predictions": {
+        "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\codex_predictions_degraded_smoke.jsonl",
+        "rows": 40,
+        "unmatched_rows": [],
+        "matched_images": 38,
+        "missing_images": [
+          "00002:4dd68b59b935466195b05543c884ff15_8b875ae918b6405fa38dafa2ba95b42e_3ca0e65abe634fbab21eb2670d928343.jpg",
+          "00001:6818143990c546fcb999a04621adc0be_857e64ce56c949fca35bd0eb59243d85_d79038576f0542cba16ee1a700616285.jpg"
+        ]
+      }
+    },
+    "overall": {
+      "reference_boxes": 299,
+      "prediction_boxes": 276,
+      "matched_boxes": 275,
+      "missed_boxes": 24,
+      "false_positive_boxes": 1,
+      "precision": 0.9964,
+      "recall": 0.9197,
+      "f1": 0.9565,
+      "count_delta": -23
+    },
+    "by_cohort": {
+      "active_capture": {
+        "reference_boxes": 12,
+        "prediction_boxes": 12,
+        "matched_boxes": 12,
+        "missed_boxes": 0,
+        "false_positive_boxes": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "count_delta": 0
+      },
+      "active_quarantine": {
+        "reference_boxes": 28,
+        "prediction_boxes": 28,
+        "matched_boxes": 28,
+        "missed_boxes": 0,
+        "false_positive_boxes": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "count_delta": 0
+      },
+      "dense_layout": {
+        "reference_boxes": 168,
+        "prediction_boxes": 145,
+        "matched_boxes": 144,
+        "missed_boxes": 24,
+        "false_positive_boxes": 1,
+        "precision": 0.9931,
+        "recall": 0.8571,
+        "f1": 0.9201,
+        "count_delta": -23
+      },
+      "fallback_delta": {
+        "reference_boxes": 20,
+        "prediction_boxes": 20,
+        "matched_boxes": 20,
+        "missed_boxes": 0,
+        "false_positive_boxes": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "count_delta": 0
+      },
+      "observation_unverified": {
+        "reference_boxes": 71,
+        "prediction_boxes": 71,
+        "matched_boxes": 71,
+        "missed_boxes": 0,
+        "false_positive_boxes": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "count_delta": 0
+      }
+    }
+  },
+  "gate_report": {
+    "gate_passed": false,
+    "summary": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval\\summary.json",
+    "thresholds": {
+      "min_recall": 0.95,
+      "min_precision": 0.95,
+      "min_f1": 0.95,
+      "min_cohort_recall": 0.9,
+      "min_cohort_precision": 0.9,
+      "max_missing_images": 0,
+      "max_unmatched_rows": 0,
+      "max_missed_boxes": 0,
+      "max_false_positive_boxes": 0
+    },
+    "checks": [
+      {
+        "name": "reference image coverage",
+        "passed": true,
+        "detail": "reference missing images <= 0",
+        "data": {
+          "missing_image_count": 0,
+          "matched_images": 40,
+          "rows": 40
+        }
+      },
+      {
+        "name": "reference unmatched rows",
+        "passed": true,
+        "detail": "reference unmatched rows <= 0",
+        "data": {
+          "unmatched_row_count": 0
+        }
+      },
+      {
+        "name": "predictions image coverage",
+        "passed": false,
+        "detail": "predictions missing images <= 0",
+        "data": {
+          "missing_image_count": 2,
+          "matched_images": 38,
+          "rows": 40
+        }
+      },
+      {
+        "name": "predictions unmatched rows",
+        "passed": true,
+        "detail": "predictions unmatched rows <= 0",
+        "data": {
+          "unmatched_row_count": 0
+        }
+      },
+      {
+        "name": "overall recall",
+        "passed": false,
+        "detail": "overall recall >= 0.95",
+        "data": {
+          "actual": 0.9197
+        }
+      },
+      {
+        "name": "overall precision",
+        "passed": true,
+        "detail": "overall precision >= 0.95",
+        "data": {
+          "actual": 0.9964
+        }
+      },
+      {
+        "name": "overall f1",
+        "passed": true,
+        "detail": "overall f1 >= 0.95",
+        "data": {
+          "actual": 0.9565
+        }
+      },
+      {
+        "name": "missed boxes",
+        "passed": false,
+        "detail": "missed boxes <= 0",
+        "data": {
+          "actual": 24
+        }
+      },
+      {
+        "name": "false positive boxes",
+        "passed": false,
+        "detail": "false positive boxes <= 0",
+        "data": {
+          "actual": 1
+        }
+      },
+      {
+        "name": "cohort gates",
+        "passed": false,
+        "detail": "all sufficiently represented cohorts pass recall/precision gates",
+        "data": {
+          "cohorts": [
+            {
+              "cohort": "active_capture",
+              "passed": true,
+              "detail": "recall >= 0.9 and precision >= 0.9",
+              "data": {
+                "reference_boxes": 12,
+                "prediction_boxes": 12,
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "missed_boxes": 0,
+                "false_positive_boxes": 0
+              }
+            },
+            {
+              "cohort": "active_quarantine",
+              "passed": true,
+              "detail": "recall >= 0.9 and precision >= 0.9",
+              "data": {
+                "reference_boxes": 28,
+                "prediction_boxes": 28,
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "missed_boxes": 0,
+                "false_positive_boxes": 0
+              }
+            },
+            {
+              "cohort": "dense_layout",
+              "passed": false,
+              "detail": "recall >= 0.9 and precision >= 0.9",
+              "data": {
+                "reference_boxes": 168,
+                "prediction_boxes": 145,
+                "recall": 0.8571,
+                "precision": 0.9931,
+                "f1": 0.9201,
+                "missed_boxes": 24,
+                "false_positive_boxes": 1
+              }
+            },
+            {
+              "cohort": "fallback_delta",
+              "passed": true,
+              "detail": "recall >= 0.9 and precision >= 0.9",
+              "data": {
+                "reference_boxes": 20,
+                "prediction_boxes": 20,
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "missed_boxes": 0,
+                "false_positive_boxes": 0
+              }
+            },
+            {
+              "cohort": "observation_unverified",
+              "passed": true,
+              "detail": "recall >= 0.9 and precision >= 0.9",
+              "data": {
+                "reference_boxes": 71,
+                "prediction_boxes": 71,
+                "recall": 1.0,
+                "precision": 1.0,
+                "f1": 1.0,
+                "missed_boxes": 0,
+                "false_positive_boxes": 0
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "error_summary": {
+    "generated_at": "2026-07-01T02:41:03.206952+00:00",
+    "eval": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval",
+    "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+    "label": "degraded_loop_smoke",
+    "stats": {
+      "missed:boxes": 24,
+      "images": 3,
+      "false_positive:boxes": 1
+    },
+    "outputs": {
+      "draft_boxes": "annotations/draft_boxes.jsonl",
+      "contact_sheet": "benchmark_errors_contact_sheet.jpg"
+    },
+    "notes": [
+      "Missed reference boxes default to pending/approve-or-correct.",
+      "False-positive prediction boxes default to rejected and only enter training if corrected or verified."
+    ]
+  },
+  "workbench_summary": {
+    "generated_at": "2026-07-01T02:41:03.449830+00:00",
+    "prelabel_root": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\errors",
+    "out": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\error_workbench",
+    "images": 3,
+    "boxes": 25,
+    "high_risk_boxes": 1,
+    "default_rejected_boxes": 1,
+    "median_boxes_per_image": 12,
+    "include_quarantine": false,
+    "outputs": {
+      "html": "index.html",
+      "review_data": "review_data.json"
+    },
+    "notes": [
+      "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+      "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+    ]
+  }
+}

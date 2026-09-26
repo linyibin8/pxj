@@ -1,0 +1,234 @@
+{
+ "count": 13,
+ "questions": [
+  {
+   "id": "8",
+   "text": "8. Linda usually ______ her clothes in the morning, but now she ______ her hair. A. washes; is washing B. is washing; washes C. wash; is washing",
+   "type": "choice",
+   "bbox": [
+    352,
+    77,
+    612,
+    146
+   ],
+   "nbox": [
+    0.22,
+    0.0856,
+    0.3825,
+    0.1622
+   ]
+  },
+  {
+   "id": "9",
+   "text": "9. Linda ______ like reading books. But she will ______ more books in the future. A. doesn't; read B. don't; reading C. doesn't; to read",
+   "type": "choice",
+   "bbox": [
+    352,
+    146,
+    612,
+    215
+   ],
+   "nbox": [
+    0.22,
+    0.1622,
+    0.3825,
+    0.2389
+   ]
+  },
+  {
+   "id": "10",
+   "text": "10. Lucy ______ to school on foot. A. go B. goes C. going",
+   "type": "choice",
+   "bbox": [
+    352,
+    215,
+    612,
+    284
+   ],
+   "nbox": [
+    0.22,
+    0.2389,
+    0.3825,
+    0.3156
+   ]
+  },
+  {
+   "id": "11",
+   "text": "11. Ben ______ the mountain at the weekend. A. climb B. will climbs C. is going to climb",
+   "type": "choice",
+   "bbox": [
+    352,
+    284,
+    612,
+    353
+   ],
+   "nbox": [
+    0.22,
+    0.3156,
+    0.3825,
+    0.3922
+   ]
+  },
+  {
+   "id": "12",
+   "text": "12. The flowers like ______ and they are ______ in the wind softly. A. dance; dancing B. dancing; dancing C. dancing; dance",
+   "type": "choice",
+   "bbox": [
+    352,
+    353,
+    612,
+    422
+   ],
+   "nbox": [
+    0.22,
+    0.3922,
+    0.3825,
+    0.4689
+   ]
+  },
+  {
+   "id": "13",
+   "text": "13. Jill ______ wear glasses in the future. A. won't B. doesn't C. isn't",
+   "type": "choice",
+   "bbox": [
+    352,
+    422,
+    612,
+    491
+   ],
+   "nbox": [
+    0.22,
+    0.4689,
+    0.3825,
+    0.5456
+   ]
+  },
+  {
+   "id": "14",
+   "text": "14. We will go to Beijing ______ week. A. last B. after C. next",
+   "type": "choice",
+   "bbox": [
+    352,
+    491,
+    612,
+    560
+   ],
+   "nbox": [
+    0.22,
+    0.5456,
+    0.3825,
+    0.6222
+   ]
+  },
+  {
+   "id": "15",
+   "text": "15. I won't give you any ice creams ______ you get well. A. until B. but C. to",
+   "type": "choice",
+   "bbox": [
+    352,
+    560,
+    612,
+    629
+   ],
+   "nbox": [
+    0.22,
+    0.6222,
+    0.3825,
+    0.6989
+   ]
+  },
+  {
+   "id": "16",
+   "text": "16. Miss Spring never ______ (come) late again.",
+   "type": "fill",
+   "bbox": [
+    352,
+    698,
+    612,
+    733
+   ],
+   "nbox": [
+    0.22,
+    0.7756,
+    0.3825,
+    0.8144
+   ]
+  },
+  {
+   "id": "17",
+   "text": "17. My sister sometimes ______ (watch) TV in the evening.",
+   "type": "fill",
+   "bbox": [
+    352,
+    733,
+    612,
+    768
+   ],
+   "nbox": [
+    0.22,
+    0.8144,
+    0.3825,
+    0.8533
+   ]
+  },
+  {
+   "id": "18",
+   "text": "18. He is ______ (knock) down the house because he plans to build a new one.",
+   "type": "fill",
+   "bbox": [
+    352,
+    768,
+    612,
+    803
+   ],
+   "nbox": [
+    0.22,
+    0.8533,
+    0.3825,
+    0.8922
+   ]
+  },
+  {
+   "id": "19",
+   "text": "19. There ______ (be) many great ______ (invent) in the world.",
+   "type": "fill",
+   "bbox": [
+    352,
+    803,
+    612,
+    838
+   ],
+   "nbox": [
+    0.22,
+    0.8922,
+    0.3825,
+    0.9311
+   ]
+  },
+  {
+   "id": "20",
+   "text": "20. —I have a ______ (head) now. —Have a good rest and you ______ (get) well soon.",
+   "type": "fill",
+   "bbox": [
+    352,
+    838,
+    612,
+    907
+   ],
+   "nbox": [
+    0.22,
+    0.9311,
+    0.3825,
+    1.0078
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 15.4,
+  "finish": "stop"
+ }
+}

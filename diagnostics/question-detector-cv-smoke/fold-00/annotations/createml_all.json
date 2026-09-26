@@ -1,0 +1,195 @@
+[
+  {
+    "image": "images/train/c64bd2b3d7548f53__57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1206.0,
+          "y": 1188.5,
+          "width": 1358.0,
+          "height": 971.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 943.5,
+          "y": 843.5,
+          "width": 1607.0,
+          "height": 349.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/train/574431db589690d5__e502f860b96b265c_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_a5e9a7be335c47.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1025.5,
+          "y": 1201.0,
+          "width": 2051.0,
+          "height": 946.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1119.5,
+          "y": 1077.5,
+          "width": 1447.0,
+          "height": 315.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/25ea3f745a386e28__24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1486.5,
+          "y": 545.5,
+          "width": 1491.0,
+          "height": 399.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1425.0,
+          "y": 1104.5,
+          "width": 1486.0,
+          "height": 971.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/c5848a357311fac4__c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1468.5,
+          "y": 502.5,
+          "width": 1463.0,
+          "height": 467.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1370.0,
+          "y": 1107.5,
+          "width": 1580.0,
+          "height": 971.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/698a43c322906677__020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1369.0,
+          "y": 301.5,
+          "width": 1726.0,
+          "height": 585.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1401.0,
+          "y": 540.0,
+          "width": 1632.0,
+          "height": 502.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1321.5,
+          "y": 902.0,
+          "width": 1625.0,
+          "height": 1544.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/afb6e87c51d8b8a2__6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1426.0,
+          "y": 590.5,
+          "width": 1576.0,
+          "height": 545.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1339.5,
+          "y": 1181.5,
+          "width": 1573.0,
+          "height": 971.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/59f2e8deaba9d8ed__b7562a4fff0e8ef1_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f48.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 958.5,
+          "y": 485.5,
+          "width": 1917.0,
+          "height": 971.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1175.0,
+          "y": 875.5,
+          "width": 1440.0,
+          "height": 313.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/test/d4c6e767a9eb4afe__bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1496.0,
+          "y": 513.5,
+          "width": 1472.0,
+          "height": 465.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1454.5,
+          "y": 896.5,
+          "width": 1349.0,
+          "height": 1555.0
+        }
+      }
+    ]
+  }
+]

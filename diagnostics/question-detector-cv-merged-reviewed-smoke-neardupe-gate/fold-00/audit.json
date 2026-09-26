@@ -1,0 +1,50 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": true,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 87,
+    "annotations": 12,
+    "negative_images": 80,
+    "split_groups": 22
+  },
+  "split_counts": {
+    "train": {
+      "images": 63,
+      "positive_images": 3,
+      "negative_images": 60,
+      "annotations": 5,
+      "groups": 13
+    },
+    "val": {
+      "images": 1,
+      "positive_images": 1,
+      "negative_images": 0,
+      "annotations": 2,
+      "groups": 1
+    },
+    "test": {
+      "images": 23,
+      "positive_images": 3,
+      "negative_images": 20,
+      "annotations": 5,
+      "groups": 8
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_severity": "error",
+    "near_duplicate_cross_split_pairs": []
+  },
+  "minimums": {
+    "production_images": 1,
+    "production_annotations": 1,
+    "production_negative_images": 0,
+    "production_split_groups": 1
+  },
+  "warnings": []
+}

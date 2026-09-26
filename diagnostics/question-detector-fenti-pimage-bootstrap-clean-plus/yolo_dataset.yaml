@@ -1,0 +1,9 @@
+{
+  "path": "D:\\AI\\pxj\\diagnostics\\question-detector-fenti-pimage-bootstrap-clean-plus",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": {
+    "0": "question_block"
+  }
+}

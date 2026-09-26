@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-30T15:22:38.683521+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded\\wave-001",
+  "candidate_count": 557,
+  "selected_images": 24,
+  "selected_boxes": 329,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 82,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 42,
+    "no_boxes": 1
+  },
+  "selection": {
+    "max_per_session": 4,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "2154c8578d1443929a1825907f5e6cf6": 3,
+      "4dd68b59b935466195b05543c884ff15": 3,
+      "58235995a9f24c56808659942cb84b35": 1,
+      "5bd92f286d3a4dd89ed34ddde34ebfe5": 1,
+      "5dd6493c6d9344ee93aabe4d87820137": 1,
+      "6818143990c546fcb999a04621adc0be": 1,
+      "731a0558d8744fe880cff057da4995dd": 1,
+      "7bd1da2a72bc4d46a10d477ae4752e71": 1,
+      "8feb463ec11940f6ad9df819f092ead9": 1,
+      "91cf7b7586424ce3a308b42daf0ee2fc": 1,
+      "92b9447f4a8f43858a6a2a20324c1769": 1,
+      "b3f939e2fbee43acbe7bd5e2c7c1b434": 1,
+      "b6f8a6accd404bfc9fb291b15cb44f09": 3,
+      "bb68c98c9ca44664b1582da1b6c2251b": 1,
+      "d7b260126f7349cdbaba2e82f15818e1": 1,
+      "e0243d0aa8e54be2b6d434f9cebe5024": 1,
+      "f7a7d1b8d4c4452382320a4db6e5ba6a": 2
+    },
+    "reason_counts": {
+      "dense_text": 4,
+      "flag:few_text_lines": 24,
+      "flag:page:full_image_fallback": 17,
+      "flag:short_block": 5,
+      "multi_box_page": 24,
+      "quarantine": 4,
+      "small_box": 22
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

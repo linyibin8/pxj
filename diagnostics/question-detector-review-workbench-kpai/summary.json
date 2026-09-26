@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-30T03:06:50.687407+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai",
+  "out": "diagnostics\\question-detector-review-workbench-kpai",
+  "images": 47,
+  "boxes": 76,
+  "median_boxes_per_image": 1,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Only approved/corrected/accepted/verified boxes should be promoted into detector training."
+  ]
+}

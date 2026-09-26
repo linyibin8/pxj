@@ -1,0 +1,528 @@
+{
+  "generated_at": "2026-06-30T03:59:01.569542+00:00",
+  "release_ready": false,
+  "thresholds": {
+    "min_folds": 3,
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "max_rect_overhead_ratio": 1.005,
+    "max_crop_pixel_ratio": 0.75,
+    "max_layout_median_ms": 80.0,
+    "min_replay_images": 30,
+    "threshold_tolerance": 0.0001
+  },
+  "inputs": {
+    "datasets": [
+      "diagnostics\\question-detector-bootstrap-kpai-smoke"
+    ],
+    "selection": "diagnostics\\question-detector-experiment-bootstrap-smoke\\selection",
+    "train_manifests": [
+      "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5"
+    ],
+    "replays": [
+      "diagnostics\\question-observation-replay-kpai-layout-measured"
+    ],
+    "ios_root": "ios\\PXJ\\App",
+    "xcode_build_log": ""
+  },
+  "datasets": [
+    {
+      "path": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json",
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false,
+      "source_images": 126,
+      "positive_images": 43,
+      "negative_images": 83,
+      "annotations": 54,
+      "split_groups": 39,
+      "warning_count": 1
+    }
+  ],
+  "selection": {
+    "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\selection\\selection_summary.json",
+    "manifest_count": 1,
+    "candidate_count": 6,
+    "aggregated_candidate_count": 6,
+    "has_best": true,
+    "fold_count": 1,
+    "all_folds_pass_eval_gate": false,
+    "min_recall": 0.0,
+    "mean_precision": 0.0,
+    "max_fp_per_image": 0.0,
+    "min_score": 0.5,
+    "ios_recommendation": {
+      "question_region_detector_fast_min_confidence": 0.5,
+      "question_region_detector_accurate_min_confidence": 0.5,
+      "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+    }
+  },
+  "train_manifests": [
+    {
+      "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json",
+      "status": "failed_eval_gate",
+      "model": "yolo11n.pt",
+      "name": "question-block",
+      "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+      "audit_model_training_ready": false,
+      "coreml_artifact": ""
+    }
+  ],
+  "coreml_artifacts": [],
+  "ios_model_resources": [],
+  "swift_detector_config": {
+    "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+    "exists": true,
+    "bundle_lookup_mlmodelc": true,
+    "fast_min_confidence": 0.32,
+    "accurate_min_confidence": 0.38
+  },
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json",
+      "images": 41,
+      "cross_frame_dedup_boxes": 63,
+      "rect_only_cross_frame_dedup_vs_full": 1.002,
+      "full_plus_cross_frame_dedup_crop_vs_full": 1.6018,
+      "crop_pixels_vs_full_pixels": 0.5584,
+      "layout_latency_median_ms": 24.052,
+      "layout_latency_p95_ms": 36.412,
+      "layout_attempted_images": 41
+    }
+  ],
+  "checks": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json: model_training_ready",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable.",
+      "values": {
+        "path": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json",
+        "pilot_eval_ready": true,
+        "model_training_ready": false,
+        "has_error": false,
+        "source_images": 126,
+        "positive_images": 43,
+        "negative_images": 83,
+        "annotations": 54,
+        "split_groups": 39,
+        "warning_count": 1
+      }
+    },
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json: no audit error",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Dataset audit must not contain blocking data errors.",
+      "values": {
+        "has_error": false
+      }
+    },
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json: audit warnings",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Dataset audit contains 1 warning(s); inspect before relying on the release report.",
+      "values": {
+        "warnings": [
+          {
+            "code": "bootstrap_dataset_not_release_ready",
+            "severity": "warning",
+            "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+          }
+        ]
+      }
+    },
+    {
+      "category": "selection",
+      "name": "selection has best candidate",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Model selection must produce a best candidate.",
+      "values": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\selection\\selection_summary.json",
+        "manifest_count": 1,
+        "candidate_count": 6,
+        "aggregated_candidate_count": 6,
+        "has_best": true,
+        "fold_count": 1,
+        "all_folds_pass_eval_gate": false,
+        "min_recall": 0.0,
+        "mean_precision": 0.0,
+        "max_fp_per_image": 0.0,
+        "min_score": 0.5,
+        "ios_recommendation": {
+          "question_region_detector_fast_min_confidence": 0.5,
+          "question_region_detector_accurate_min_confidence": 0.5,
+          "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+        }
+      }
+    },
+    {
+      "category": "selection",
+      "name": "cross-validation fold count",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected candidate must aggregate at least 3 folds.",
+      "values": {
+        "fold_count": 1,
+        "min_folds": 3
+      }
+    },
+    {
+      "category": "selection",
+      "name": "all selected folds pass eval gate",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Every selected fold must pass the detector eval gate.",
+      "values": {
+        "all_folds_pass_eval_gate": false
+      }
+    },
+    {
+      "category": "selection",
+      "name": "minimum recall",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Worst-fold recall must be >= 0.950.",
+      "values": {
+        "min_recall": 0.0
+      }
+    },
+    {
+      "category": "selection",
+      "name": "mean precision",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Mean precision must be >= 0.900.",
+      "values": {
+        "mean_precision": 0.0
+      }
+    },
+    {
+      "category": "selection",
+      "name": "max false positives per image",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Max false positives per image must be <= 0.050.",
+      "values": {
+        "max_fp_per_image": 0.0
+      }
+    },
+    {
+      "category": "selection",
+      "name": "iOS threshold recommendation",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Selection must include iOS detector confidence recommendations.",
+      "values": {
+        "question_region_detector_fast_min_confidence": 0.5,
+        "question_region_detector_accurate_min_confidence": 0.5,
+        "note": "Use the selected score as the VNRecognizedObjectObservation confidence floor, then verify live fallback and latency telemetry before release."
+      }
+    },
+    {
+      "category": "training",
+      "name": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json: trained status",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected train manifest must represent a completed training/evaluation run.",
+      "values": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "name": "question-block",
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "audit_model_training_ready": false,
+        "coreml_artifact": ""
+      }
+    },
+    {
+      "category": "training",
+      "name": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json: ready source dataset",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected train manifest must come from an audit-ready dataset, not a smoke or unready dataset.",
+      "values": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "name": "question-block",
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "audit_model_training_ready": false,
+        "coreml_artifact": ""
+      }
+    },
+    {
+      "category": "artifact",
+      "name": "Core ML artifact exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact.",
+      "values": {
+        "artifacts": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "QuestionRegionDetector bundled in iOS app sources",
+      "passed": false,
+      "severity": "hard",
+      "detail": "iOS target must include QuestionRegionDetector.mlmodel/.mlpackage or compiled .mlmodelc.",
+      "values": {
+        "resources": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift detector hook exists",
+      "passed": true,
+      "severity": "hard",
+      "detail": "QuestionSegmenter must look up QuestionRegionDetector.mlmodelc from the app bundle.",
+      "values": {
+        "path": "ios\\PXJ\\App\\QuestionSegmenter.swift",
+        "exists": true,
+        "bundle_lookup_mlmodelc": true,
+        "fast_min_confidence": 0.32,
+        "accurate_min_confidence": 0.38
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift fast confidence matches selected threshold",
+      "passed": false,
+      "severity": "hard",
+      "detail": "detectorFastMinConfidence must match selection_summary iOS recommendation.",
+      "values": {
+        "swift": 0.32,
+        "recommended": 0.5
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift accurate confidence matches selected threshold",
+      "passed": false,
+      "severity": "hard",
+      "detail": "detectorAccurateMinConfidence must match selection_summary iOS recommendation.",
+      "values": {
+        "swift": 0.38,
+        "recommended": 0.5
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json: image coverage",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Replay evidence must include at least 30 images.",
+      "values": {
+        "images": 41
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json: rect-only network overhead",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Rect-only manifest strategy must stay <= 1.0050x full-frame bytes.",
+      "values": {
+        "ratio": 1.002
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json: crop VLM pixel ratio",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Deduped crop pixels must stay <= 0.750 of full-frame VLM pixels.",
+      "values": {
+        "ratio": 0.5584
+      }
+    },
+    {
+      "category": "replay",
+      "name": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json: local layout median latency",
+      "passed": true,
+      "severity": "hard",
+      "detail": "Measured local layout median must be <= 80.0 ms.",
+      "values": {
+        "median_ms": 24.052,
+        "p95_ms": 36.412
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Xcode build proof",
+      "passed": false,
+      "severity": "warning",
+      "detail": "No --xcode-build-log supplied; run a Mac/Xcode build after the model is bundled.",
+      "values": {}
+    }
+  ],
+  "hard_failures": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json: model_training_ready",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable.",
+      "values": {
+        "path": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json",
+        "pilot_eval_ready": true,
+        "model_training_ready": false,
+        "has_error": false,
+        "source_images": 126,
+        "positive_images": 43,
+        "negative_images": 83,
+        "annotations": 54,
+        "split_groups": 39,
+        "warning_count": 1
+      }
+    },
+    {
+      "category": "selection",
+      "name": "cross-validation fold count",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected candidate must aggregate at least 3 folds.",
+      "values": {
+        "fold_count": 1,
+        "min_folds": 3
+      }
+    },
+    {
+      "category": "selection",
+      "name": "all selected folds pass eval gate",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Every selected fold must pass the detector eval gate.",
+      "values": {
+        "all_folds_pass_eval_gate": false
+      }
+    },
+    {
+      "category": "selection",
+      "name": "minimum recall",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Worst-fold recall must be >= 0.950.",
+      "values": {
+        "min_recall": 0.0
+      }
+    },
+    {
+      "category": "selection",
+      "name": "mean precision",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Mean precision must be >= 0.900.",
+      "values": {
+        "mean_precision": 0.0
+      }
+    },
+    {
+      "category": "training",
+      "name": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json: trained status",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected train manifest must represent a completed training/evaluation run.",
+      "values": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "name": "question-block",
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "audit_model_training_ready": false,
+        "coreml_artifact": ""
+      }
+    },
+    {
+      "category": "training",
+      "name": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json: ready source dataset",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected train manifest must come from an audit-ready dataset, not a smoke or unready dataset.",
+      "values": {
+        "path": "diagnostics\\question-detector-experiment-bootstrap-smoke\\runs\\question-detector-bootstrap-kpai-smoke__yolo11n__img416__seed42__ep5\\train_manifest.json",
+        "status": "failed_eval_gate",
+        "model": "yolo11n.pt",
+        "name": "question-block",
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "audit_model_training_ready": false,
+        "coreml_artifact": ""
+      }
+    },
+    {
+      "category": "artifact",
+      "name": "Core ML artifact exists",
+      "passed": false,
+      "severity": "hard",
+      "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact.",
+      "values": {
+        "artifacts": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "QuestionRegionDetector bundled in iOS app sources",
+      "passed": false,
+      "severity": "hard",
+      "detail": "iOS target must include QuestionRegionDetector.mlmodel/.mlpackage or compiled .mlmodelc.",
+      "values": {
+        "resources": []
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift fast confidence matches selected threshold",
+      "passed": false,
+      "severity": "hard",
+      "detail": "detectorFastMinConfidence must match selection_summary iOS recommendation.",
+      "values": {
+        "swift": 0.32,
+        "recommended": 0.5
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Swift accurate confidence matches selected threshold",
+      "passed": false,
+      "severity": "hard",
+      "detail": "detectorAccurateMinConfidence must match selection_summary iOS recommendation.",
+      "values": {
+        "swift": 0.38,
+        "recommended": 0.5
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "category": "dataset",
+      "name": "diagnostics\\question-detector-bootstrap-kpai-smoke\\audit.json: audit warnings",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Dataset audit contains 1 warning(s); inspect before relying on the release report.",
+      "values": {
+        "warnings": [
+          {
+            "code": "bootstrap_dataset_not_release_ready",
+            "severity": "warning",
+            "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+          }
+        ]
+      }
+    },
+    {
+      "category": "ios",
+      "name": "Xcode build proof",
+      "passed": false,
+      "severity": "warning",
+      "detail": "No --xcode-build-log supplied; run a Mac/Xcode build after the model is bundled.",
+      "values": {}
+    }
+  ]
+}

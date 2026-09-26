@@ -1,0 +1,139 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-synthetic-dense-layout",
+      "candidate_count": 0,
+      "image_count": 10,
+      "full_frame_only_bytes": 1390047,
+      "full_frame_resized_pixels": 16240000
+    }
+  ],
+  "candidate_count": 0,
+  "image_count": 10,
+  "gt_available": true,
+  "gt_box_count": 256,
+  "represented_gt_key_count": 256,
+  "crop_only_covered_gt_key_count": 0,
+  "crop_only_gt_recall": 0.0,
+  "settings": {
+    "full_max_side": 1600,
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "min_policy_gt_recall": 0.999,
+    "low_confidence_score": 0.42,
+    "candidate_limit_per_frame": 12,
+    "limited_confidence_score": 0.55,
+    "policy_count": 39368
+  },
+  "baseline_backend_current": {
+    "policy_id": "backend_current",
+    "policy": {
+      "single_low_coverage_area": 0.42,
+      "sparse_low_coverage_area": 0.34,
+      "tiny_crop_coverage_area": 0.18,
+      "no_large_min_max_area": 0.16,
+      "no_large_max_total_area": 0.5,
+      "all_weak_max_count": 3,
+      "all_weak_max_total_area": 0.5,
+      "all_weak_max_max_area": 0.34,
+      "low_confidence_max_count": 3,
+      "low_confidence_score": 0.42
+    },
+    "image_count": 10,
+    "fallback_image_count": 10,
+    "fallback_image_ratio": 1.0,
+    "fallback_reason_counts": {
+      "no_crops": 10
+    },
+    "represented_gt_key_count": 256,
+    "crop_only_covered_gt_key_count": 0,
+    "crop_only_gt_recall": 0.0,
+    "policy_covered_gt_key_count": 256,
+    "policy_gt_recall": 1.0,
+    "crop_missed_gt_key_count": 256,
+    "fallback_protected_missed_gt_key_count": 256,
+    "crop_vlm_pixels": 0,
+    "fallback_full_frame_pixels": 16240000,
+    "total_vlm_pixels": 16240000,
+    "full_frame_all_pixels": 16240000,
+    "crop_pixels_vs_full": 0.0,
+    "total_pixels_vs_full": 1.0,
+    "crop_jpeg_bytes": 0
+  },
+  "baseline_backend_current_union_area": {
+    "policy_id": "backend_current_union_area_shadow",
+    "policy": {
+      "single_low_coverage_area": 0.42,
+      "sparse_low_coverage_area": 0.34,
+      "tiny_crop_coverage_area": 0.18,
+      "no_large_min_max_area": 0.16,
+      "no_large_max_total_area": 0.5,
+      "all_weak_max_count": 3,
+      "all_weak_max_total_area": 0.5,
+      "all_weak_max_max_area": 0.34,
+      "low_confidence_max_count": 3,
+      "low_confidence_score": 0.42,
+      "coverage_area": "union"
+    },
+    "image_count": 10,
+    "fallback_image_count": 10,
+    "fallback_image_ratio": 1.0,
+    "fallback_reason_counts": {
+      "no_crops": 10
+    },
+    "represented_gt_key_count": 256,
+    "crop_only_covered_gt_key_count": 0,
+    "crop_only_gt_recall": 0.0,
+    "policy_covered_gt_key_count": 256,
+    "policy_gt_recall": 1.0,
+    "crop_missed_gt_key_count": 256,
+    "fallback_protected_missed_gt_key_count": 256,
+    "crop_vlm_pixels": 0,
+    "fallback_full_frame_pixels": 16240000,
+    "total_vlm_pixels": 16240000,
+    "full_frame_all_pixels": 16240000,
+    "crop_pixels_vs_full": 0.0,
+    "total_pixels_vs_full": 1.0,
+    "crop_jpeg_bytes": 0
+  },
+  "recommendation": {
+    "policy_id": "backend_current",
+    "policy": {
+      "single_low_coverage_area": 0.42,
+      "sparse_low_coverage_area": 0.34,
+      "tiny_crop_coverage_area": 0.18,
+      "no_large_min_max_area": 0.16,
+      "no_large_max_total_area": 0.5,
+      "all_weak_max_count": 3,
+      "all_weak_max_total_area": 0.5,
+      "all_weak_max_max_area": 0.34,
+      "low_confidence_max_count": 3,
+      "low_confidence_score": 0.42
+    },
+    "image_count": 10,
+    "fallback_image_count": 10,
+    "fallback_image_ratio": 1.0,
+    "fallback_reason_counts": {
+      "no_crops": 10
+    },
+    "represented_gt_key_count": 256,
+    "crop_only_covered_gt_key_count": 0,
+    "crop_only_gt_recall": 0.0,
+    "policy_covered_gt_key_count": 256,
+    "policy_gt_recall": 1.0,
+    "crop_missed_gt_key_count": 256,
+    "fallback_protected_missed_gt_key_count": 256,
+    "crop_vlm_pixels": 0,
+    "fallback_full_frame_pixels": 16240000,
+    "total_vlm_pixels": 16240000,
+    "full_frame_all_pixels": 16240000,
+    "crop_pixels_vs_full": 0.0,
+    "total_pixels_vs_full": 1.0,
+    "crop_jpeg_bytes": 0
+  },
+  "outputs": {
+    "grid": "grid.jsonl",
+    "image_risk": "image_risk.jsonl",
+    "summary_md": "summary.md"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "7",
+      "text": "算一算，比一比，你发现了什么？你能写出两组类似的算式吗？\n12 x 6 16 x 2\n14 x 5 15 x 4\n25 x 4 24 x 5\n16 x 5 15 x 6",
+      "student_answer": "",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "8",
+      "text": "哪两个数相乘的积最接近圈中的数？",
+      "student_answer": "",
+      "uncertain": false
+    }
+  ]
+}

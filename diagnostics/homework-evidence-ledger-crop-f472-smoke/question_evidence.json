@@ -1,0 +1,1451 @@
+[
+  {
+    "id": "qev_0001",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.5744444444444444,
+      "h": 0.9798148148148148
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0001.jpg",
+    "crop_hash": "a082919c3f276787",
+    "layout_key": "layout:0:0:11:20",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.6404,
+      "sharpness": 299.537,
+      "brightness": 173.6991,
+      "contrast": 45.7035,
+      "confidence": 0.82,
+      "area": 0.562849
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0002",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.515,
+      "y": 0.0,
+      "w": 0.485,
+      "h": 0.702037037037037
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0002.jpg",
+    "crop_hash": "fce78a1c630e1f63",
+    "layout_key": "layout:10:0:10:14",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9003,
+      "sharpness": 100.6865,
+      "brightness": 192.8791,
+      "contrast": 29.9878,
+      "confidence": 0.82,
+      "area": 0.340488
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0003",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.5822222222222222,
+      "y": 0.6594444444444444,
+      "w": 0.30055555555555546,
+      "h": 0.3405555555555556
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0003.jpg",
+    "crop_hash": "fc971a61c7da2167",
+    "layout_key": "layout:12:13:6:7",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.5329,
+      "sharpness": 59.7303,
+      "brightness": 175.8578,
+      "contrast": 26.4827,
+      "confidence": 0.7363,
+      "area": 0.102356
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0004",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.8216666666666667,
+      "y": 0.6827777777777777,
+      "w": 0.16666666666666663,
+      "h": 0.13370370370370366
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0004.jpg",
+    "crop_hash": "f595cb292c8e7339",
+    "layout_key": "layout:16:14:3:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.4524,
+      "sharpness": 87.6888,
+      "brightness": 175.8757,
+      "contrast": 18.6961,
+      "confidence": 0.4472,
+      "area": 0.022284
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0005",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.8844444444444445,
+      "y": 0.7698148148148148,
+      "w": 0.11555555555555552,
+      "h": 0.23018518518518516
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0005.jpg",
+    "crop_hash": "ee9798acb6a9954c",
+    "layout_key": "layout:18:15:2:5",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.6719,
+      "sharpness": 110.945,
+      "brightness": 153.9727,
+      "contrast": 16.1341,
+      "confidence": 0.4943,
+      "area": 0.026599
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0006",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.24000000000000002,
+      "y": 0.8516666666666667,
+      "w": 0.20722222222222222,
+      "h": 0.14833333333333332
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0006.jpg",
+    "crop_hash": "a4830393246d7cfe",
+    "layout_key": "layout:5:17:4:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.5506,
+      "sharpness": 96.4971,
+      "brightness": 172.6573,
+      "contrast": 25.1821,
+      "confidence": 0.4527,
+      "area": 0.030738
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "merged_local",
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0007",
+    "page_episode_id": "page_0001",
+    "canonical_rect": {
+      "x": 0.05,
+      "y": 0.9283333333333333,
+      "w": 0.18,
+      "h": 0.07166666666666666
+    },
+    "best_frame_id": "frame_0001",
+    "best_crop_filename": "crops/qev_0007.jpg",
+    "crop_hash": "e4db6453634e5349",
+    "layout_key": "layout:1:19:4:1",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.6947,
+      "sharpness": 133.2356,
+      "brightness": 171.9609,
+      "contrast": 20.2323,
+      "confidence": 0.4317,
+      "area": 0.0129
+    },
+    "source_frames": [
+      "frame_0001"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0008",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.195,
+      "h": 0.06944444444444445
+    },
+    "best_frame_id": "frame_0002",
+    "best_crop_filename": "crops/qev_0008.jpg",
+    "crop_hash": "ba363e36276265e2",
+    "layout_key": "layout:0:0:4:1",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.7368,
+      "sharpness": 139.9524,
+      "brightness": 176.6193,
+      "contrast": 38.7423,
+      "confidence": 0.4356,
+      "area": 0.013542
+    },
+    "source_frames": [
+      "frame_0002"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0009",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.4027777777777778,
+      "y": 0.04796296296296296,
+      "w": 0.24888888888888883,
+      "h": 0.1388888888888889
+    },
+    "best_frame_id": "frame_0002",
+    "best_crop_filename": "crops/qev_0009.jpg",
+    "crop_hash": "c05d4f406f684c6e",
+    "layout_key": "layout:8:1:5:3",
+    "ocr_key": "",
+    "seen_count": 2,
+    "status": "ready",
+    "quality": {
+      "score": 5.0563,
+      "sharpness": 189.0914,
+      "brightness": 206.0014,
+      "contrast": 34.0327,
+      "confidence": 0.472,
+      "area": 0.034568
+    },
+    "source_frames": [
+      "frame_0002",
+      "frame_0003"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "crop_hash_0_dist_0.05"
+    ]
+  },
+  {
+    "id": "qev_0010",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.8016666666666666,
+      "h": 0.9198148148148149
+    },
+    "best_frame_id": "frame_0003",
+    "best_crop_filename": "crops/qev_0010.jpg",
+    "crop_hash": "95d550401f4ff47a",
+    "layout_key": "layout:0:0:16:18",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 7.1066,
+      "sharpness": 2372.332,
+      "brightness": 184.5876,
+      "contrast": 41.1905,
+      "confidence": 0.82,
+      "area": 0.737385
+    },
+    "source_frames": [
+      "frame_0003"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "wide"
+    ]
+  },
+  {
+    "id": "qev_0011",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.8666666666666666,
+      "y": 0.05907407407407407,
+      "w": 0.13333333333333341,
+      "h": 0.13592592592592595
+    },
+    "best_frame_id": "frame_0003",
+    "best_crop_filename": "crops/qev_0011.jpg",
+    "crop_hash": "cd64078bdcf17c31",
+    "layout_key": "layout:17:1:3:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 3.6585,
+      "sharpness": 29.1276,
+      "brightness": 55.4864,
+      "contrast": 6.189,
+      "confidence": 0.4472,
+      "area": 0.018123
+    },
+    "source_frames": [
+      "frame_0003"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0012",
+    "page_episode_id": "page_0002",
+    "canonical_rect": {
+      "x": 0.8683333333333333,
+      "y": 0.789074074074074,
+      "w": 0.1316666666666667,
+      "h": 0.14407407407407402
+    },
+    "best_frame_id": "frame_0003",
+    "best_crop_filename": "crops/qev_0012.jpg",
+    "crop_hash": "cde86dd0d8934d56",
+    "layout_key": "layout:17:16:3:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 3.7579,
+      "sharpness": 33.7753,
+      "brightness": 35.6693,
+      "contrast": 5.506,
+      "confidence": 0.4378,
+      "area": 0.01897
+    },
+    "source_frames": [
+      "frame_0003"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0013",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.048282442748091604,
+      "y": 0.0,
+      "w": 0.8209923664122137,
+      "h": 0.3013713080168776
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0013.jpg",
+    "crop_hash": "8f6db8d4034723fc",
+    "layout_key": "layout:1:0:16:6",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.8638,
+      "sharpness": 1499.4098,
+      "brightness": 193.497,
+      "contrast": 36.0246,
+      "confidence": 0.82,
+      "area": 0.247424
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "wide"
+    ]
+  },
+  {
+    "id": "qev_0014",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.8688931297709923,
+      "y": 0.0,
+      "w": 0.1311068702290077,
+      "h": 0.765506329113924
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0014.jpg",
+    "crop_hash": "d56a35523b553a55",
+    "layout_key": "layout:17:0:3:15",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9756,
+      "sharpness": 111.7964,
+      "brightness": 156.079,
+      "contrast": 64.8437,
+      "confidence": 0.7343,
+      "area": 0.100363
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0015",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.04328244274809161,
+      "y": 0.21816455696202533,
+      "w": 0.5393893129770992,
+      "h": 0.14172995780590722
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0015.jpg",
+    "crop_hash": "bf8f960f0f3dd0c8",
+    "layout_key": "layout:1:4:11:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.4397,
+      "sharpness": 1080.1482,
+      "brightness": 195.9982,
+      "contrast": 29.5361,
+      "confidence": 0.5575,
+      "area": 0.076448
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0016",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.046755725190839696,
+      "y": 0.3020042194092827,
+      "w": 0.26145038167938933,
+      "h": 0.4793248945147679
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0016.jpg",
+    "crop_hash": "fcf1943ac274c39e",
+    "layout_key": "layout:1:6:5:10",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.0864,
+      "sharpness": 491.3447,
+      "brightness": 181.9724,
+      "contrast": 27.0086,
+      "confidence": 0.7831,
+      "area": 0.12532
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0017",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.3131679389312977,
+      "y": 0.31466244725738396,
+      "w": 0.5996183206106871,
+      "h": 0.44556962025316454
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0017.jpg",
+    "crop_hash": "bb91915ec46ece87",
+    "layout_key": "layout:6:6:12:9",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.4015,
+      "sharpness": 795.2468,
+      "brightness": 178.5013,
+      "contrast": 27.7338,
+      "confidence": 0.82,
+      "area": 0.267172
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0018",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.286030534351145,
+      "y": 0.3331434599156118,
+      "w": 0.17603053435114502,
+      "h": 0.13540084388185658
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0018.jpg",
+    "crop_hash": "e08cdb253c8e7331",
+    "layout_key": "layout:6:7:4:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.9431,
+      "sharpness": 694.5274,
+      "brightness": 191.3431,
+      "contrast": 21.6624,
+      "confidence": 0.4504,
+      "area": 0.023835
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0019",
+    "page_episode_id": "page_0003",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.8742827004219409,
+      "w": 1.0,
+      "h": 0.1257172995780591
+    },
+    "best_frame_id": "frame_0004",
+    "best_crop_filename": "crops/qev_0019.jpg",
+    "crop_hash": "95ea98374c91b6e1",
+    "layout_key": "layout:0:17:20:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.293,
+      "sharpness": 162.658,
+      "brightness": 127.5365,
+      "contrast": 70.9151,
+      "confidence": 0.7829,
+      "area": 0.125717
+    },
+    "source_frames": [
+      "frame_0004"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "wide"
+    ]
+  },
+  {
+    "id": "qev_0020",
+    "page_episode_id": "page_0004",
+    "canonical_rect": {
+      "x": 0.004032258064516129,
+      "y": 0.0,
+      "w": 0.20053763440860217,
+      "h": 0.525
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0020.jpg",
+    "crop_hash": "e464d3670c92679e",
+    "layout_key": "layout:0:0:4:10",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.1784,
+      "sharpness": 604.2086,
+      "brightness": 181.0305,
+      "contrast": 44.9997,
+      "confidence": 0.7211,
+      "area": 0.105282
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0021",
+    "page_episode_id": "page_0004",
+    "canonical_rect": {
+      "x": 0.0029569892473118274,
+      "y": 0.5583333333333333,
+      "w": 0.7016129032258065,
+      "h": 0.44166666666666665
+    },
+    "best_frame_id": "frame_0005",
+    "best_crop_filename": "crops/qev_0021.jpg",
+    "crop_hash": "afb4d249ed24d473",
+    "layout_key": "layout:0:11:14:9",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.7019,
+      "sharpness": 1227.5571,
+      "brightness": 187.3973,
+      "contrast": 36.4989,
+      "confidence": 0.82,
+      "area": 0.309879
+    },
+    "source_frames": [
+      "frame_0005"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0022",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.1892458100558659,
+      "h": 0.1463872832369942
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0022.jpg",
+    "crop_hash": "b03d76e0404f4f5c",
+    "layout_key": "layout:0:0:4:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.0652,
+      "sharpness": 190.2891,
+      "brightness": 211.596,
+      "contrast": 15.5197,
+      "confidence": 0.4997,
+      "area": 0.027703
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0023",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.024162011173184353,
+      "y": 0.0,
+      "w": 0.9758379888268156,
+      "h": 0.7475433526011561
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0023.jpg",
+    "crop_hash": "f7c94b64bfc033a9",
+    "layout_key": "layout:0:0:20:15",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.7225,
+      "sharpness": 85.4458,
+      "brightness": 190.457,
+      "contrast": 21.9284,
+      "confidence": 0.82,
+      "area": 0.729481
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "wide"
+    ]
+  },
+  {
+    "id": "qev_0024",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.7682960893854749,
+      "y": 0.4085260115606936,
+      "w": 0.21312849162011172,
+      "h": 0.26965317919075144
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0024.jpg",
+    "crop_hash": "ff819e98c95d6c67",
+    "layout_key": "layout:15:8:4:5",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.2748,
+      "sharpness": 53.8318,
+      "brightness": 188.8848,
+      "contrast": 14.7704,
+      "confidence": 0.5633,
+      "area": 0.057471
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0025",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.10460893854748604,
+      "y": 0.5703757225433526,
+      "w": 0.6935754189944134,
+      "h": 0.42962427745664744
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0025.jpg",
+    "crop_hash": "ebabdce02dc8e532",
+    "layout_key": "layout:2:11:14:9",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9305,
+      "sharpness": 103.477,
+      "brightness": 178.4067,
+      "contrast": 23.1443,
+      "confidence": 0.82,
+      "area": 0.297977
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0026",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.7850558659217877,
+      "y": 0.7206647398843931,
+      "w": 0.21494413407821233,
+      "h": 0.27933526011560694
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0026.jpg",
+    "crop_hash": "febd8345c363363a",
+    "layout_key": "layout:16:14:4:6",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9598,
+      "sharpness": 132.6668,
+      "brightness": 162.8627,
+      "contrast": 21.7048,
+      "confidence": 0.6132,
+      "area": 0.060041
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0027",
+    "page_episode_id": "page_0005",
+    "canonical_rect": {
+      "x": 0.12195530726256984,
+      "y": 0.8551734104046242,
+      "w": 0.37955307262569826,
+      "h": 0.14482658959537575
+    },
+    "best_frame_id": "frame_0006",
+    "best_crop_filename": "crops/qev_0027.jpg",
+    "crop_hash": "fbc658338ed837cc",
+    "layout_key": "layout:2:17:8:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.0308,
+      "sharpness": 156.9647,
+      "brightness": 180.5809,
+      "contrast": 24.9527,
+      "confidence": 0.5604,
+      "area": 0.054969
+    },
+    "source_frames": [
+      "frame_0006"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0028",
+    "page_episode_id": "page_0006",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0007",
+    "best_crop_filename": "crops/qev_0028.jpg",
+    "crop_hash": "8df003783f83be86",
+    "layout_key": "layout:0:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 7.0532,
+      "sharpness": 2758.85,
+      "brightness": 184.5375,
+      "contrast": 41.3831,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0007"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0029",
+    "page_episode_id": "page_0006",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.0,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0007",
+    "best_crop_filename": "crops/qev_0029.jpg",
+    "crop_hash": "a8609090dadf6f2e",
+    "layout_key": "layout:10:0:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.7779,
+      "sharpness": 1881.8341,
+      "brightness": 188.2128,
+      "contrast": 29.0606,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0007"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0030",
+    "page_episode_id": "page_0006",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0007",
+    "best_crop_filename": "crops/qev_0030.jpg",
+    "crop_hash": "8e07c37bf8ff0300",
+    "layout_key": "layout:0:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.4016,
+      "sharpness": 1115.407,
+      "brightness": 180.6525,
+      "contrast": 52.5291,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0007"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0031",
+    "page_episode_id": "page_0006",
+    "canonical_rect": {
+      "x": 0.475,
+      "y": 0.47,
+      "w": 0.525,
+      "h": 0.53
+    },
+    "best_frame_id": "frame_0007",
+    "best_crop_filename": "crops/qev_0031.jpg",
+    "crop_hash": "ae2f1a18d8f464b7",
+    "layout_key": "layout:10:9:10:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.6752,
+      "sharpness": 406.0652,
+      "brightness": 204.0135,
+      "contrast": 13.8481,
+      "confidence": 0.52,
+      "area": 0.27825
+    },
+    "source_frames": [
+      "frame_0007"
+    ],
+    "crop_kind": "section",
+    "merge_reasons": [
+      "fallback_content_section",
+      "grid_2x2"
+    ]
+  },
+  {
+    "id": "qev_0032",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.5744444444444444,
+      "h": 0.9651869158878504
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0032.jpg",
+    "crop_hash": "a022e1c0de991e7b",
+    "layout_key": "layout:0:0:11:19",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.2651,
+      "sharpness": 177.1683,
+      "brightness": 169.1855,
+      "contrast": 44.4377,
+      "confidence": 0.82,
+      "area": 0.554446
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0033",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.04000000000000001,
+      "y": 0.0,
+      "w": 0.3305555555555555,
+      "h": 0.10696261682242991
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0033.jpg",
+    "crop_hash": "e0244fcecc985bb2",
+    "layout_key": "layout:1:0:7:2",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.0037,
+      "sharpness": 170.2807,
+      "brightness": 193.7351,
+      "contrast": 29.7171,
+      "confidence": 0.4979,
+      "area": 0.035357
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0034",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.5327777777777778,
+      "y": 0.0,
+      "w": 0.4672222222222222,
+      "h": 0.5371495327102804
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0034.jpg",
+    "crop_hash": "fce38a1f61b01fc6",
+    "layout_key": "layout:11:0:9:11",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.9886,
+      "sharpness": 110.1136,
+      "brightness": 189.2298,
+      "contrast": 30.8041,
+      "confidence": 0.82,
+      "area": 0.250968
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0035",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.5622222222222222,
+      "y": 0.47621495327102803,
+      "w": 0.4377777777777778,
+      "h": 0.14850467289719627
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0035.jpg",
+    "crop_hash": "ff0fb48f1f4a9187",
+    "layout_key": "layout:11:10:9:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.0535,
+      "sharpness": 161.2231,
+      "brightness": 185.7238,
+      "contrast": 26.6256,
+      "confidence": 0.548,
+      "area": 0.065012
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0036",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.5822222222222222,
+      "y": 0.5796728971962617,
+      "w": 0.2994444444444444,
+      "h": 0.4203271028037383
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0036.jpg",
+    "crop_hash": "f8971a61c7ca6167",
+    "layout_key": "layout:12:12:6:8",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.6228,
+      "sharpness": 61.3069,
+      "brightness": 175.56,
+      "contrast": 26.5599,
+      "confidence": 0.8144,
+      "area": 0.125865
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0037",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.8216666666666667,
+      "y": 0.6117289719626168,
+      "w": 0.1661111111111111,
+      "h": 0.14476635514018688
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0037.jpg",
+    "crop_hash": "f595cb21a49e7371",
+    "layout_key": "layout:16:12:3:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.5121,
+      "sharpness": 94.0685,
+      "brightness": 175.6884,
+      "contrast": 18.7661,
+      "confidence": 0.4517,
+      "area": 0.024047
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0038",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.8844444444444445,
+      "y": 0.7189252336448598,
+      "w": 0.11555555555555552,
+      "h": 0.28107476635514017
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0038.jpg",
+    "crop_hash": "ec8788acb4a9b5ec",
+    "layout_key": "layout:18:14:2:6",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.7382,
+      "sharpness": 116.6102,
+      "brightness": 153.6799,
+      "contrast": 16.3108,
+      "confidence": 0.5128,
+      "area": 0.03248
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0039",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.24000000000000002,
+      "y": 0.8248130841121495,
+      "w": 0.20722222222222222,
+      "h": 0.17518691588785051
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0039.jpg",
+    "crop_hash": "a5830793252d6dcf",
+    "layout_key": "layout:5:16:4:4",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.5394,
+      "sharpness": 92.649,
+      "brightness": 172.8457,
+      "contrast": 24.5371,
+      "confidence": 0.4582,
+      "area": 0.036303
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "merged_local",
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0040",
+    "page_episode_id": "page_0007",
+    "canonical_rect": {
+      "x": 0.05,
+      "y": 0.9241588785046728,
+      "w": 0.18,
+      "h": 0.07584112149532718
+    },
+    "best_frame_id": "frame_0008",
+    "best_crop_filename": "crops/qev_0040.jpg",
+    "crop_hash": "e49b3c98316cbb38",
+    "layout_key": "layout:1:18:4:2",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 4.6514,
+      "sharpness": 124.3503,
+      "brightness": 173.5579,
+      "contrast": 17.293,
+      "confidence": 0.4336,
+      "area": 0.013651
+    },
+    "source_frames": [
+      "frame_0008"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0041",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.36611111111111105,
+      "h": 0.9611069836552749
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0041.jpg",
+    "crop_hash": "abbe60619e9adcd0",
+    "layout_key": "layout:0:0:7:19",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.6495,
+      "sharpness": 287.8856,
+      "brightness": 174.5245,
+      "contrast": 26.9164,
+      "confidence": 0.82,
+      "area": 0.351872
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0042",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 0.20444444444444446,
+      "h": 0.09849182763744428
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0042.jpg",
+    "crop_hash": "bca33ce58e25c693",
+    "layout_key": "layout:0:0:4:2",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 6.1249,
+      "sharpness": 905.2841,
+      "brightness": 169.8857,
+      "contrast": 31.1076,
+      "confidence": 0.4563,
+      "area": 0.020136
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": [
+      "thin"
+    ]
+  },
+  {
+    "id": "qev_0043",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.31777777777777777,
+      "y": 0.0,
+      "w": 0.1588888888888889,
+      "h": 0.15427191679049038
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0043.jpg",
+    "crop_hash": "f264cc3039cf769c",
+    "layout_key": "layout:6:0:3:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.8145,
+      "sharpness": 562.4504,
+      "brightness": 191.6088,
+      "contrast": 37.3402,
+      "confidence": 0.4763,
+      "area": 0.024512
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0044",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.5972222222222222,
+      "y": 0.0,
+      "w": 0.3172222222222222,
+      "h": 0.19439078751857355
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0044.jpg",
+    "crop_hash": "cb6bb47a344a4b2d",
+    "layout_key": "layout:12:0:6:4",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.7292,
+      "sharpness": 392.245,
+      "brightness": 198.295,
+      "contrast": 28.6308,
+      "confidence": 0.6011,
+      "area": 0.061665
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0045",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.3122222222222222,
+      "y": 0.10170133729569092,
+      "w": 0.42388888888888887,
+      "h": 0.1650965824665676
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0045.jpg",
+    "crop_hash": "bf8792c32f1f9a49",
+    "layout_key": "layout:6:2:8:3",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.9397,
+      "sharpness": 543.678,
+      "brightness": 196.5921,
+      "contrast": 25.4995,
+      "confidence": 0.5584,
+      "area": 0.069983
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0046",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.31555555555555553,
+      "y": 0.212741456166419,
+      "w": 0.20722222222222225,
+      "h": 0.6280089153046062
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0046.jpg",
+    "crop_hash": "fcf1923c4376c39a",
+    "layout_key": "layout:6:4:4:13",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.5511,
+      "sharpness": 233.9574,
+      "brightness": 182.1147,
+      "contrast": 25.0747,
+      "confidence": 0.7835,
+      "area": 0.130137
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  },
+  {
+    "id": "qev_0047",
+    "page_episode_id": "page_0008",
+    "canonical_rect": {
+      "x": 0.4833333333333333,
+      "y": 0.23354383358098071,
+      "w": 0.46111111111111114,
+      "h": 0.5893759286775632
+    },
+    "best_frame_id": "frame_0009",
+    "best_crop_filename": "crops/qev_0047.jpg",
+    "crop_hash": "bb91937cc468cccf",
+    "layout_key": "layout:10:5:9:12",
+    "ocr_key": "",
+    "seen_count": 1,
+    "status": "ready",
+    "quality": {
+      "score": 5.9847,
+      "sharpness": 446.1694,
+      "brightness": 179.2339,
+      "contrast": 25.3125,
+      "confidence": 0.82,
+      "area": 0.271768
+    },
+    "source_frames": [
+      "frame_0009"
+    ],
+    "crop_kind": "question",
+    "merge_reasons": []
+  }
+]

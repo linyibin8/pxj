@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-06-30T02:13:57.140471+00:00",
+  "source_dataset": "diagnostics\\question-detector-dataset-kpai-mixed",
+  "fold_index": 0,
+  "folds": 3,
+  "group_field": "split_key",
+  "val_ratio": 0.1,
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 120,
+      "annotations": 17,
+      "negative_images": 112,
+      "split_groups": 65
+    },
+    "split_counts": {
+      "train": {
+        "images": 90,
+        "positive_images": 2,
+        "negative_images": 88,
+        "annotations": 4,
+        "groups": 46
+      },
+      "val": {
+        "images": 12,
+        "positive_images": 2,
+        "negative_images": 10,
+        "annotations": 4,
+        "groups": 5
+      },
+      "test": {
+        "images": 18,
+        "positive_images": 4,
+        "negative_images": 14,
+        "annotations": 9,
+        "groups": 14
+      }
+    },
+    "leakage": {
+      "split_group_overlaps": {},
+      "exact_cross_split_images": [],
+      "near_duplicate_threshold": 4,
+      "near_duplicate_cross_split_pairs": [
+        {
+          "distance": 3,
+          "left": "images/test/1e09a0072a035565_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff49.jpg",
+          "left_split": "train",
+          "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/test/4047440fa4195f68_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b82544.jpg",
+          "left_split": "train",
+          "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+          "left_split": "test",
+          "right": "images/val/24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 1,
+          "left": "images/train/020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+          "left_split": "test",
+          "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+          "left_split": "test",
+          "right": "images/val/24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 3,
+          "left": "images/train/6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+          "left_split": "test",
+          "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 2,
+          "left": "images/train/bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+          "left_split": "test",
+          "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+          "right_split": "val"
+        }
+      ]
+    },
+    "minimums": {
+      "production_images": 300,
+      "production_annotations": 1000,
+      "production_negative_images": 0,
+      "production_split_groups": 50
+    },
+    "warnings": [
+      {
+        "code": "near_duplicate_cross_split",
+        "severity": "warning",
+        "detail": "7 cross-split image pairs have aHash distance <= 4."
+      },
+      {
+        "code": "too_few_images",
+        "severity": "warning",
+        "detail": "120 source images; target >= 300."
+      },
+      {
+        "code": "too_few_annotations",
+        "severity": "warning",
+        "detail": "17 annotations; target >= 1000."
+      }
+    ]
+  },
+  "outputs": {
+    "coco": "annotations/coco_*.json",
+    "yolo": "images/{split}, labels/{split}, yolo_dataset.yaml",
+    "createml": "annotations/createml_*.json",
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "jsonl": "annotations/manifest.jsonl"
+  }
+}

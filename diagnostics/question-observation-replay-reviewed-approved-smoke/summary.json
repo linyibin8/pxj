@@ -1,0 +1,92 @@
+{
+  "inputs": [
+    {
+      "input_kind": "dataset",
+      "root": "diagnostics\\question-detector-reviewed-approved-smoke",
+      "images": 86,
+      "boxes": 11
+    }
+  ],
+  "settings": {
+    "full_max_side": 1600,
+    "crop_max_side": 1200,
+    "full_quality": 78,
+    "crop_quality": 82,
+    "in_image_iou_threshold": 0.82,
+    "ahash_threshold": 4,
+    "cross_frame_iou_threshold": 0.6,
+    "measure_layout": false,
+    "use_measured_layout_boxes": false
+  },
+  "counts": {
+    "images": 86,
+    "raw_boxes": 11,
+    "in_image_dedup_boxes": 9,
+    "cross_frame_dedup_boxes": 9,
+    "in_image_removed_boxes": 2,
+    "cross_frame_removed_boxes": 0,
+    "images_with_boxes": 6
+  },
+  "upload_bytes": {
+    "full_frame_only": 13470923,
+    "crop_jpeg_extra_raw": 829128,
+    "crop_jpeg_extra_in_image_dedup": 708277,
+    "crop_jpeg_extra_cross_frame_dedup": 708277,
+    "rect_manifest_raw": 2740,
+    "rect_manifest_in_image_dedup": 2251,
+    "rect_manifest_cross_frame_dedup": 2251,
+    "full_plus_raw_crop_vs_full": 1.0615,
+    "full_plus_cross_frame_dedup_crop_vs_full": 1.0526,
+    "rect_only_raw_vs_full": 1.0002,
+    "rect_only_cross_frame_dedup_vs_full": 1.0002,
+    "dedup_crop_extra_vs_full": 0.0526,
+    "dedup_rect_extra_vs_full": 0.000167
+  },
+  "vlm_proxy": {
+    "full_frame_input_count": 86,
+    "crop_input_count_after_dedup": 9,
+    "full_frame_resized_pixels": 123840000,
+    "crop_resized_pixels_after_dedup": 4986777,
+    "crop_pixels_vs_full_pixels": 0.0403
+  },
+  "latency_ms": {
+    "full_frame_jpeg": {
+      "count": 86,
+      "total": 3911.392,
+      "mean": 45.481,
+      "median": 42.605,
+      "p90": 53.839,
+      "p95": 71.465,
+      "max": 98.945
+    },
+    "crop_jpeg": {
+      "count": 11,
+      "total": 152.455,
+      "mean": 13.86,
+      "median": 9.103,
+      "p90": 29.877,
+      "p95": 32.716,
+      "max": 32.716
+    }
+  },
+  "quality_proxy": {
+    "near_full_page_boxes": 1,
+    "small_area_boxes": 1,
+    "flag_counts": {
+      "human_reviewed": 11,
+      "near_full_page_human_reviewed": 1,
+      "shape_risk_human_reviewed": 4
+    }
+  },
+  "layout_measurement": null,
+  "interpretation": {
+    "whole_frame_note": "Whole-frame upload is already required for observation keyframes, but using whole frames as VLM inputs makes the VLM redetect questions on every frame.",
+    "crop_jpeg_note": "If keyframes are already uploaded, crop JPEGs are extra network payload.",
+    "rect_only_note": "Rect-only upload keeps keyframes as the source of truth and adds only JSON rect manifests; backend crops canonical question images for the VLM."
+  },
+  "outputs": {
+    "details": "details.jsonl",
+    "raw_preview": "raw_boxes_contact_sheet.jpg",
+    "dedup_preview": "dedup_boxes_contact_sheet.jpg"
+  }
+}

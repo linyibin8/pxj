@@ -1,0 +1,217 @@
+{
+ "count": 12,
+ "questions": [
+  {
+   "id": "21",
+   "text": "21. Kitty isn't ______ (feel) well today, so she ______ (do) go to school.",
+   "type": "fill",
+   "bbox": [
+    182,
+    106,
+    542,
+    172
+   ],
+   "nbox": [
+    0.1138,
+    0.1178,
+    0.3387,
+    0.1911
+   ]
+  },
+  {
+   "id": "22",
+   "text": "22. Kitty ______ (wear) a new yellow skirt today. She ______ (like) the colour best.",
+   "type": "fill",
+   "bbox": [
+    182,
+    137,
+    542,
+    226
+   ],
+   "nbox": [
+    0.1138,
+    0.1522,
+    0.3387,
+    0.2511
+   ]
+  },
+  {
+   "id": "23",
+   "text": "23. The brown trousers ______ (be) my size. They're too big for ______ (I).",
+   "type": "fill",
+   "bbox": [
+    182,
+    190,
+    542,
+    268
+   ],
+   "nbox": [
+    0.1138,
+    0.2111,
+    0.3387,
+    0.2978
+   ]
+  },
+  {
+   "id": "24",
+   "text": "24. Linda and Kitty ______ (play) yo-yo together this Sunday.",
+   "type": "fill",
+   "bbox": [
+    182,
+    237,
+    542,
+    306
+   ],
+   "nbox": [
+    0.1138,
+    0.2633,
+    0.3387,
+    0.34
+   ]
+  },
+  {
+   "id": "25",
+   "text": "25. The rabbit ______ (cry) now because he has no food.",
+   "type": "fill",
+   "bbox": [
+    182,
+    280,
+    542,
+    347
+   ],
+   "nbox": [
+    0.1138,
+    0.3111,
+    0.3387,
+    0.3856
+   ]
+  },
+  {
+   "id": "26",
+   "text": "26. We like Shanghai because it's beautiful. (对划线部分提问) ______ ______ you like Shanghai?",
+   "type": "fill",
+   "bbox": [
+    182,
+    426,
+    542,
+    526
+   ],
+   "nbox": [
+    0.1138,
+    0.4733,
+    0.3387,
+    0.5844
+   ]
+  },
+  {
+   "id": "27",
+   "text": "27. Danny is good at Maths and English. (对划线部分提问) ______ ______ Danny good at?",
+   "type": "fill",
+   "bbox": [
+    182,
+    476,
+    542,
+    576
+   ],
+   "nbox": [
+    0.1138,
+    0.5289,
+    0.3387,
+    0.64
+   ]
+  },
+  {
+   "id": "28",
+   "text": "28. My mother will go to Sanya. (改为一般疑问句) ______ your mother ______ to Sanya?",
+   "type": "fill",
+   "bbox": [
+    182,
+    536,
+    542,
+    636
+   ],
+   "nbox": [
+    0.1138,
+    0.5956,
+    0.3387,
+    0.7067
+   ]
+  },
+  {
+   "id": "29",
+   "text": "29. I will live in Beijing in the future. (改为否定句) ______ ______ ______ in Beijing in the future.",
+   "type": "fill",
+   "bbox": [
+    182,
+    606,
+    542,
+    706
+   ],
+   "nbox": [
+    0.1138,
+    0.6733,
+    0.3387,
+    0.7844
+   ]
+  },
+  {
+   "id": "30",
+   "text": "30. Sally's mother is tidying up the bedroom. (对划线部分提问) ______ ______ ______ ______ the bedroom?",
+   "type": "fill",
+   "bbox": [
+    182,
+    676,
+    542,
+    776
+   ],
+   "nbox": [
+    0.1138,
+    0.7511,
+    0.3387,
+    0.8622
+   ]
+  },
+  {
+   "id": "31",
+   "text": "31. We will love here soon. (变为否定句) ______ ______ ______ love here soon.",
+   "type": "fill",
+   "bbox": [
+    182,
+    756,
+    542,
+    856
+   ],
+   "nbox": [
+    0.1138,
+    0.84,
+    0.3387,
+    0.9511
+   ]
+  },
+  {
+   "id": "32",
+   "text": "32. This book is mine. (改为一般疑问句) ______ ______ ______ ______?",
+   "type": "fill",
+   "bbox": [
+    182,
+    836,
+    542,
+    936
+   ],
+   "nbox": [
+    0.1138,
+    0.9289,
+    0.3387,
+    1.04
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 10.9,
+  "finish": "stop"
+ }
+}

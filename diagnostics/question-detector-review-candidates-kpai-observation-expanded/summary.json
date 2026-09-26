@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-30T15:17:22.537406+00:00",
+  "sqlite": [
+    "D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3",
+    "D:\\AI\\kpai\\backend\\data\\accounts\\f222b087a8f84687b4b85690f7eaaf81.sqlite3"
+  ],
+  "data_dir": "D:\\AI\\kpai\\backend\\data",
+  "positive_candidates": 609,
+  "negative_candidates": 135,
+  "include_observation_positives": true,
+  "observation_positive_limit": 700,
+  "outputs": {
+    "positive_candidates": "positive_candidates.jsonl",
+    "negative_candidates": "negative_candidates.jsonl",
+    "positive_contact_sheet": "positive_contact_sheet.jpg",
+    "negative_contact_sheet": "negative_contact_sheet.jpg"
+  }
+}

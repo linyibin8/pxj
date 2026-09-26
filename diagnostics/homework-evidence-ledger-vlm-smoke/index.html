@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homework Evidence Ledger</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16202a;
+      --muted: #637083;
+      --line: #d8e0ea;
+      --paper: #f6f7f9;
+      --panel: #ffffff;
+      --blue: #2457c5;
+      --green: #16794c;
+      --amber: #9b6500;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    h1 { margin: 0; font-size: 18px; letter-spacing: 0; }
+    .stats { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .pill, .card-head span {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: calc(100vh - 60px);
+    }
+    aside {
+      background: #fff;
+      border-right: 1px solid var(--line);
+      padding: 12px;
+      overflow: auto;
+      max-height: calc(100vh - 60px);
+    }
+    .frame-list { display: grid; gap: 9px; }
+    .frame-tile {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 2px 9px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--muted);
+      background: #fff;
+      border-radius: 6px;
+      padding: 8px;
+      text-align: left;
+    }
+    .frame-tile.accepted { border-left-color: var(--green); }
+    .frame-tile.skipped { opacity: 0.66; }
+    .frame-tile img {
+      grid-row: 1 / 4;
+      width: 72px;
+      height: 58px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .frame-tile span, .frame-tile small {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+    .workspace { padding: 16px; display: grid; gap: 16px; align-content: start; }
+    .section-title { margin: 2px 0 0; font-size: 16px; }
+    .episode-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .episode-table th, .episode-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 13px;
+    }
+    .boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+    .board, .evidence-card, .question-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .board-head, .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 11px;
+      background: #fbfcfe;
+      border-bottom: 1px solid var(--line);
+    }
+    .card-head div { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+    .image-board { position: relative; background: #f0f2f5; }
+    .image-board img { display: block; width: 100%; height: auto; }
+    .box {
+      position: absolute;
+      display: grid;
+      place-items: start;
+      border: 2px solid var(--blue);
+      background: rgba(36, 87, 197, 0.08);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px;
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .box.section { border-color: var(--amber); background: rgba(155, 101, 0, 0.10); color: var(--amber); }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: minmax(160px, 280px) minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px;
+      align-items: start;
+    }
+    .evidence-grid img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #fff;
+    }
+    .evidence-grid p { margin: 0 0 7px; color: var(--muted); overflow-wrap: anywhere; }
+    .editable {
+      padding: 14px;
+      min-height: 130px;
+      line-height: 1.6;
+      outline: none;
+    }
+    .editable:focus { box-shadow: inset 0 0 0 2px rgba(36, 87, 197, 0.25); }
+    .editable h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    .editable figure { margin: 10px 0 0; }
+    .editable img { max-width: 100%; border: 1px solid var(--line); border-radius: 5px; }
+    .editable figcaption { color: var(--muted); font-size: 12px; margin-top: 5px; }
+    .card-foot {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 8px 12px;
+      overflow-wrap: anywhere;
+    }
+    button.action {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    @media (max-width: 880px) {
+      header, main { grid-template-columns: 1fr; }
+      aside { max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+      .evidence-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Homework Evidence Ledger</h1>
+    <div class="stats">
+      <span class="pill">frames 12</span>
+      <span class="pill">keyframes 3</span>
+      <span class="pill">evidence 9</span>
+      <span class="pill">cards 9</span>
+      <span class="pill">vlm true</span>
+      <span class="pill">upload ratio 0.244</span>
+      <button class="action" id="download">Download edited cards</button>
+    </div>
+  </header>
+  <main>
+    <aside><div class="frame-list">
+            <button class="frame-tile accepted" data-frame="frame_0001">
+              <img src="normalized_frames/frame_0001.jpg" alt="frame_0001">
+              <strong>frame_0001</strong>
+              <span>first_keyframe</span>
+              <small>sharp 772 · candidates 1</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0002">
+              <img src="normalized_frames/frame_0002.jpg" alt="frame_0002">
+              <strong>frame_0002</strong>
+              <span>near_duplicate_hamming_2</span>
+              <small>sharp 757 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0003">
+              <img src="normalized_frames/frame_0003.jpg" alt="frame_0003">
+              <strong>frame_0003</strong>
+              <span>near_duplicate_hamming_4</span>
+              <small>sharp 791 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0004">
+              <img src="normalized_frames/frame_0004.jpg" alt="frame_0004">
+              <strong>frame_0004</strong>
+              <span>near_duplicate_hamming_2</span>
+              <small>sharp 726 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0005">
+              <img src="normalized_frames/frame_0005.jpg" alt="frame_0005">
+              <strong>frame_0005</strong>
+              <span>new_content_hamming_23</span>
+              <small>sharp 386 · candidates 4</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0006">
+              <img src="normalized_frames/frame_0006.jpg" alt="frame_0006">
+              <strong>frame_0006</strong>
+              <span>minor_change_hamming_8</span>
+              <small>sharp 370 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0007">
+              <img src="normalized_frames/frame_0007.jpg" alt="frame_0007">
+              <strong>frame_0007</strong>
+              <span>near_duplicate_hamming_4</span>
+              <small>sharp 371 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0008">
+              <img src="normalized_frames/frame_0008.jpg" alt="frame_0008">
+              <strong>frame_0008</strong>
+              <span>near_duplicate_hamming_4</span>
+              <small>sharp 366 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile accepted" data-frame="frame_0009">
+              <img src="normalized_frames/frame_0009.jpg" alt="frame_0009">
+              <strong>frame_0009</strong>
+              <span>new_content_hamming_29</span>
+              <small>sharp 1372 · candidates 4</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0010">
+              <img src="normalized_frames/frame_0010.jpg" alt="frame_0010">
+              <strong>frame_0010</strong>
+              <span>near_duplicate_hamming_4</span>
+              <small>sharp 1233 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0011">
+              <img src="normalized_frames/frame_0011.jpg" alt="frame_0011">
+              <strong>frame_0011</strong>
+              <span>near_duplicate_hamming_4</span>
+              <small>sharp 1259 · candidates 0</small>
+            </button>
+            
+            <button class="frame-tile skipped" data-frame="frame_0012">
+              <img src="normalized_frames/frame_0012.jpg" alt="frame_0012">
+              <strong>frame_0012</strong>
+              <span>near_duplicate_hamming_6</span>
+              <small>sharp 1189 · candidates 0</small>
+            </button>
+            </div></aside>
+    <section class="workspace">
+      <h2 class="section-title">Page Episodes</h2>
+      <table class="episode-table">
+        <thead><tr><th>Episode</th><th>Frames</th><th>Keyframes</th><th>Coverage cells</th></tr></thead>
+        <tbody>
+            <tr>
+              <td>page_0001</td>
+              <td>frame_0001 - frame_0001</td>
+              <td>1</td>
+              <td>8</td>
+            </tr>
+            
+            <tr>
+              <td>page_0002</td>
+              <td>frame_0005 - frame_0005</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            
+            <tr>
+              <td>page_0003</td>
+              <td>frame_0009 - frame_0009</td>
+              <td>1</td>
+              <td>48</td>
+            </tr>
+            </tbody>
+      </table>
+      <h2 class="section-title">Accepted Keyframes</h2>
+      <div class="boards">
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0001</b>
+                <span>page_0001</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0001.jpg" alt="frame_0001">
+                <a class="box question" href="#qev_0001" style="left:19.81%;top:67.67%;width:63.13%;height:15.00%;">qev_0001</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0005</b>
+                <span>page_0002</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0005.jpg" alt="frame_0005">
+                <a class="box section" href="#qev_0002" style="left:0.00%;top:0.00%;width:52.50%;height:53.00%;">qev_0002</a><a class="box section" href="#qev_0003" style="left:47.50%;top:0.00%;width:52.50%;height:53.00%;">qev_0003</a><a class="box section" href="#qev_0004" style="left:0.00%;top:47.00%;width:52.50%;height:53.00%;">qev_0004</a><a class="box section" href="#qev_0005" style="left:47.50%;top:47.00%;width:52.50%;height:53.00%;">qev_0005</a>
+              </div>
+            </section>
+            
+            <section class="board">
+              <div class="board-head">
+                <b>frame_0009</b>
+                <span>page_0003</span>
+              </div>
+              <div class="image-board">
+                <img src="normalized_frames/frame_0009.jpg" alt="frame_0009">
+                <a class="box section" href="#qev_0006" style="left:0.00%;top:0.00%;width:52.50%;height:53.00%;">qev_0006</a><a class="box section" href="#qev_0007" style="left:47.50%;top:0.00%;width:52.50%;height:53.00%;">qev_0007</a><a class="box section" href="#qev_0008" style="left:0.00%;top:47.00%;width:52.50%;height:53.00%;">qev_0008</a><a class="box section" href="#qev_0009" style="left:47.50%;top:47.00%;width:52.50%;height:53.00%;">qev_0009</a>
+              </div>
+            </section>
+            </div>
+      <h2 class="section-title">Question Evidence</h2>
+      <div class="cards">
+            <section class="evidence-card" id="qev_0001">
+              <div class="card-head">
+                <div>
+                  <b>qev_0001</b>
+                  <span>question</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.65</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0001.jpg" alt="qev_0001">
+                <div>
+                  <p><b>Best frame:</b> frame_0001</p>
+                  <p><b>Layout:</b> layout:4:14:13:3</p>
+                  <p><b>Crop hash:</b> 9f1f8f9f3f6042c0</p>
+                  <p><b>Sources:</b> frame_0001</p>
+                  <p><b>Merge:</b> </p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0002">
+              <div class="card-head">
+                <div>
+                  <b>qev_0002</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.29</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0002.jpg" alt="qev_0002">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:0:0:10:11</p>
+                  <p><b>Crop hash:</b> 880e7f7c78646342</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0003">
+              <div class="card-head">
+                <div>
+                  <b>qev_0003</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.47</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0003.jpg" alt="qev_0003">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:10:0:10:11</p>
+                  <p><b>Crop hash:</b> ba797f4c555055c1</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0004">
+              <div class="card-head">
+                <div>
+                  <b>qev_0004</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.32</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0004.jpg" alt="qev_0004">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:0:9:10:11</p>
+                  <p><b>Crop hash:</b> addb14d2ab5e2c13</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0005">
+              <div class="card-head">
+                <div>
+                  <b>qev_0005</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>4.95</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0005.jpg" alt="qev_0005">
+                <div>
+                  <p><b>Best frame:</b> frame_0005</p>
+                  <p><b>Layout:</b> layout:10:9:10:11</p>
+                  <p><b>Crop hash:</b> ffbf6f7dd9000033</p>
+                  <p><b>Sources:</b> frame_0005</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0006">
+              <div class="card-head">
+                <div>
+                  <b>qev_0006</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.10</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0006.jpg" alt="qev_0006">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:0:0:10:11</p>
+                  <p><b>Crop hash:</b> b3644d59dab2b4aa</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0007">
+              <div class="card-head">
+                <div>
+                  <b>qev_0007</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.23</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0007.jpg" alt="qev_0007">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:10:0:10:11</p>
+                  <p><b>Crop hash:</b> c562223e1cbcbcd3</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0008">
+              <div class="card-head">
+                <div>
+                  <b>qev_0008</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>5.95</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0008.jpg" alt="qev_0008">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:0:9:10:11</p>
+                  <p><b>Crop hash:</b> 9999638c7d639c43</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            
+            <section class="evidence-card" id="qev_0009">
+              <div class="card-head">
+                <div>
+                  <b>qev_0009</b>
+                  <span>section</span>
+                  <span>ready</span>
+                  <span>seen 1</span>
+                </div>
+                <strong>6.28</strong>
+              </div>
+              <div class="evidence-grid">
+                <img src="crops/qev_0009.jpg" alt="qev_0009">
+                <div>
+                  <p><b>Best frame:</b> frame_0009</p>
+                  <p><b>Layout:</b> layout:10:9:10:11</p>
+                  <p><b>Crop hash:</b> 99c92ac6369af259</p>
+                  <p><b>Sources:</b> frame_0009</p>
+                  <p><b>Merge:</b> fallback_content_section, grid_2x2</p>
+                </div>
+              </div>
+            </section>
+            </div>
+      <h2 class="section-title">Editable Question Cards</h2>
+      <div class="cards">
+            <section class="question-card" id="q_19b66cd744bb">
+              <div class="card-head">
+                <div>
+                  <b>q_19b66cd744bb</b>
+                  <span>math</span>
+                  <span>geometry</span>
+                  <span>has_figure</span>
+                </div>
+                <strong>0.95</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_19b66cd744bb">
+                <article><p>3. 图中三角形 ABC 的面积是 36 平方厘米，AC 长 8 厘米，DE 长 3 厘米，求阴影部分的面积（ADFC 不是正方形）。</p></article><figure><img src="crops/qev_0001.jpg" alt="qev_0001"><figcaption>原始证据：qev_0001</figcaption></figure>
+              </div>
+              <div class="card-foot">
+                evidence qev_0001 · input 1 · 文字清晰，图形完整。
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0002">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0002</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0002">
+                <article><h2>Evidence 1</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0002.jpg" alt="qev_0002"><figcaption>qev_0002 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0002 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0003">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0003</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0003">
+                <article><h2>Evidence 2</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0003.jpg" alt="qev_0003"><figcaption>qev_0003 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0003 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0004">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0004</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0004">
+                <article><h2>Evidence 3</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0004.jpg" alt="qev_0004"><figcaption>qev_0004 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0004 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0005">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0005</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0005">
+                <article><h2>Evidence 4</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0005.jpg" alt="qev_0005"><figcaption>qev_0005 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0005 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0006">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0006</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0006">
+                <article><h2>Evidence 5</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0006.jpg" alt="qev_0006"><figcaption>qev_0006 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0006 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0007">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0007</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0007">
+                <article><h2>Evidence 6</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0007.jpg" alt="qev_0007"><figcaption>qev_0007 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0007 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0008">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0008</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0008">
+                <article><h2>Evidence 7</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0008.jpg" alt="qev_0008"><figcaption>qev_0008 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0008 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            
+            <section class="question-card" id="q_qev_0009">
+              <div class="card-head">
+                <div>
+                  <b>q_qev_0009</b>
+                  <span>unknown</span>
+                  <span>evidence</span>
+                  <span>needs_review, needs_text_extraction, raster_figure_evidence, section_crop, vlm_not_run</span>
+                </div>
+                <strong>0.52</strong>
+              </div>
+              <div class="editable" contenteditable="true" data-question-id="q_qev_0009">
+                <article><h2>Evidence 8</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src="crops/qev_0009.jpg" alt="qev_0009"><figcaption>qev_0009 · seen 1 times</figcaption></figure></article>
+              </div>
+              <div class="card-foot">
+                evidence qev_0009 · input - · fallback evidence card; VLM extraction not run
+              </div>
+            </section>
+            </div>
+    </section>
+  </main>
+  <script>
+    document.querySelector('#download').addEventListener('click', () => {
+      const cards = Array.from(document.querySelectorAll('.editable')).map(node => ({
+        id: node.dataset.questionId,
+        html: node.innerHTML
+      }));
+      const blob = new Blob([JSON.stringify({ cards }, null, 2)], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'edited_homework_cards.json';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-06-30T04:56:01.560133+00:00",
+  "source_dataset": "diagnostics\\question-detector-dataset-merged-reviewed-smoke",
+  "fold_index": 2,
+  "folds": 3,
+  "group_field": "split_key",
+  "val_ratio": 0.1,
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": true,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 87,
+      "annotations": 12,
+      "negative_images": 80,
+      "split_groups": 22
+    },
+    "split_counts": {
+      "train": {
+        "images": 49,
+        "positive_images": 2,
+        "negative_images": 47,
+        "annotations": 4,
+        "groups": 13
+      },
+      "val": {
+        "images": 3,
+        "positive_images": 3,
+        "negative_images": 0,
+        "annotations": 5,
+        "groups": 2
+      },
+      "test": {
+        "images": 35,
+        "positive_images": 2,
+        "negative_images": 33,
+        "annotations": 3,
+        "groups": 7
+      }
+    },
+    "leakage": {
+      "split_group_overlaps": {},
+      "exact_cross_split_images": [],
+      "near_duplicate_threshold": 4,
+      "near_duplicate_severity": "error",
+      "near_duplicate_cross_split_pairs": []
+    },
+    "minimums": {
+      "production_images": 1,
+      "production_annotations": 1,
+      "production_negative_images": 0,
+      "production_split_groups": 1
+    },
+    "warnings": []
+  },
+  "outputs": {
+    "coco": "annotations/coco_*.json",
+    "yolo": "images/{split}, labels/{split}, yolo_dataset.yaml",
+    "createml": "annotations/createml_*.json",
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "jsonl": "annotations/manifest.jsonl"
+  }
+}

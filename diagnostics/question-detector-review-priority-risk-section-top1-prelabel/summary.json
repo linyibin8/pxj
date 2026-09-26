@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-01T02:28:53.010356+00:00",
+  "source_manifest": "diagnostics\\question-detector-review-queue-risk-section-top1\\review_queue_manifest.json",
+  "source_priority_report": "diagnostics\\question-detector-review-priority-risk-section-top1\\review_priority.json",
+  "images": 40,
+  "boxes": 411,
+  "recommended_boxes": 299,
+  "cohort_counts": {
+    "dense_layout": 14,
+    "observation_unverified": 8,
+    "active_quarantine": 7,
+    "fallback_delta": 7,
+    "active_capture": 4
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "images": "images/"
+  },
+  "notes": [
+    "Priority review root; draft boxes require human approval before training.",
+    "Build a review UI with question_detector_review_workbench.py --prelabel-root this directory."
+  ]
+}

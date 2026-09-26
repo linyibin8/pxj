@@ -1,0 +1,217 @@
+{
+  "primary_threshold": 0.5,
+  "thresholds": {
+    "0.50": {
+      "image_count": 85,
+      "images_with_gt_count": 5,
+      "negative_image_count": 80,
+      "images_with_predictions_count": 5,
+      "gt_count": 8,
+      "pred_count": 8,
+      "matched": 8,
+      "missed": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_matched_iou": 1.0,
+      "missed_question_rate": 0.0,
+      "fp_per_image": 0.0,
+      "pred_per_gt": 1.0,
+      "problem_image_count": 0,
+      "problem_image_rate": 0.0,
+      "images_with_missed_count": 0,
+      "images_with_false_positive_count": 0,
+      "negative_image_false_positive_count": 0,
+      "negative_false_positive": 0,
+      "duplicate_prediction_count": 0,
+      "strata": {
+        "quality_flags": {
+          "human_reviewed": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "shape_risk_human_reviewed": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "area_buckets": {
+          "large": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "medium": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "near_full_page": {
+            "gt_count": 2,
+            "matched": 2,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "origins": {
+          "reviewed_prelabel:diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "confidence_buckets": {
+          "high": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "negative_kinds": {
+          "empty_page": {
+            "images": 80,
+            "false_positive": 0,
+            "images_with_false_positive": 0,
+            "fp_per_image": 0.0,
+            "image_fp_rate": 0.0
+          }
+        }
+      },
+      "problem_images": {}
+    },
+    "0.75": {
+      "image_count": 85,
+      "images_with_gt_count": 5,
+      "negative_image_count": 80,
+      "images_with_predictions_count": 5,
+      "gt_count": 8,
+      "pred_count": 8,
+      "matched": 8,
+      "missed": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_matched_iou": 1.0,
+      "missed_question_rate": 0.0,
+      "fp_per_image": 0.0,
+      "pred_per_gt": 1.0,
+      "problem_image_count": 0,
+      "problem_image_rate": 0.0,
+      "images_with_missed_count": 0,
+      "images_with_false_positive_count": 0,
+      "negative_image_false_positive_count": 0,
+      "negative_false_positive": 0,
+      "duplicate_prediction_count": 0,
+      "strata": {
+        "quality_flags": {
+          "human_reviewed": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "shape_risk_human_reviewed": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "area_buckets": {
+          "large": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "medium": {
+            "gt_count": 3,
+            "matched": 3,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          },
+          "near_full_page": {
+            "gt_count": 2,
+            "matched": 2,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "origins": {
+          "reviewed_prelabel:diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "confidence_buckets": {
+          "high": {
+            "gt_count": 8,
+            "matched": 8,
+            "missed": 0,
+            "recall": 1.0,
+            "missed_question_rate": 0.0
+          }
+        },
+        "negative_kinds": {
+          "empty_page": {
+            "images": 80,
+            "false_positive": 0,
+            "images_with_false_positive": 0,
+            "fp_per_image": 0.0,
+            "image_fp_rate": 0.0
+          }
+        }
+      },
+      "problem_images": {}
+    }
+  },
+  "pass_recall_95": true,
+  "pass_precision_90": true,
+  "pass_eval_gate": true,
+  "gate": {
+    "passed": true,
+    "primary_threshold": 0.5,
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "checks": {
+      "recall": {
+        "actual": 1.0,
+        "passed": true
+      },
+      "precision": {
+        "actual": 1.0,
+        "passed": true
+      },
+      "fp_per_image": {
+        "actual": 0.0,
+        "passed": true
+      }
+    }
+  }
+}

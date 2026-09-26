@@ -1,0 +1,103 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated",
+      "candidate_count": 262,
+      "image_count": 89,
+      "full_frame_only_bytes": 14060150,
+      "full_frame_resized_pixels": 127046400
+    }
+  ],
+  "candidate_count": 262,
+  "image_count": 89,
+  "gt_box_count": 16,
+  "represented_gt_key_count": 16,
+  "full_frame_all_pixels": 127046400,
+  "full_max_side": 1600,
+  "settings": {
+    "candidate_cap": 12,
+    "section_max_side": 1200,
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "low_confidence_score": 0.42,
+    "limited_confidence_score": 0.55,
+    "replace_selected_on_section": true,
+    "selected_on_section_limit": 0,
+    "enable_empty_frame_section": false,
+    "enable_risk_frame_section": true,
+    "risk_frame_max_candidates": 4,
+    "risk_frame_min_section_area": 0.42
+  },
+  "cap_only": {
+    "cap": 12,
+    "cap_label": "12",
+    "image_count": 89,
+    "represented_gt_key_count": 16,
+    "selected_candidate_count": 218,
+    "skipped_candidate_count": 44,
+    "skipped_strong_candidate_count": 0,
+    "skipped_confident_candidate_count": 0,
+    "selected_covered_gt_key_count": 16,
+    "selected_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 16,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 34,
+    "fallback_image_ratio": 0.382022,
+    "fallback_reason_counts": {
+      "no_crops": 18,
+      "no_large_question_crop": 3,
+      "single_low_coverage_crop": 10,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "selected_crop_pixels": 54227034,
+    "fallback_full_frame_pixels": 48960000,
+    "total_vlm_pixels": 103187034,
+    "full_frame_all_pixels": 127046400,
+    "selected_crop_pixels_vs_full": 0.426829,
+    "total_pixels_vs_full": 0.8122,
+    "selected_crop_jpeg_bytes": 6789074
+  },
+  "sender": {
+    "candidate_cap": 12,
+    "section_max_side": 1200,
+    "replace_selected_on_section": true,
+    "selected_on_section_limit": 0,
+    "image_count": 89,
+    "candidate_count": 262,
+    "represented_gt_key_count": 16,
+    "cap_selected_candidate_count": 218,
+    "uploaded_selected_candidate_count": 72,
+    "skipped_candidate_count": 44,
+    "section_frame_count": 50,
+    "section_count": 50,
+    "selected_covered_gt_key_count": 6,
+    "section_covered_gt_key_count": 8,
+    "combined_crop_covered_gt_key_count": 14,
+    "policy_covered_gt_key_count": 14,
+    "selected_gt_recall": 0.375,
+    "section_only_gt_recall": 0.5,
+    "combined_crop_gt_recall": 0.875,
+    "policy_gt_recall": 0.875,
+    "fallback_image_count": 18,
+    "fallback_image_ratio": 0.202247,
+    "fallback_reason_counts": {
+      "no_crops": 18
+    },
+    "selected_crop_pixels": 19433424,
+    "section_pixels": 35302800,
+    "fallback_full_frame_pixels": 25920000,
+    "total_vlm_pixels": 80656224,
+    "full_frame_all_pixels": 127046400,
+    "selected_crop_pixels_vs_full": 0.152963,
+    "section_pixels_vs_full": 0.277873,
+    "total_pixels_vs_full": 0.634856
+  },
+  "total_pixels_delta_vs_cap_only": -0.177344,
+  "outputs": {
+    "per_image": "per_image.jsonl",
+    "sections": "sections.jsonl",
+    "cap_risk": "cap_risk.jsonl",
+    "summary_md": "summary.md"
+  }
+}

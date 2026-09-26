@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-07-01T02:41:03.206952+00:00",
+  "eval": "diagnostics\\question-segmentation-benchmark-loop-degraded-smoke\\eval",
+  "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+  "label": "degraded_loop_smoke",
+  "stats": {
+    "missed:boxes": 24,
+    "images": 3,
+    "false_positive:boxes": 1
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "contact_sheet": "benchmark_errors_contact_sheet.jpg"
+  },
+  "notes": [
+    "Missed reference boxes default to pending/approve-or-correct.",
+    "False-positive prediction boxes default to rejected and only enter training if corrected or verified."
+  ]
+}

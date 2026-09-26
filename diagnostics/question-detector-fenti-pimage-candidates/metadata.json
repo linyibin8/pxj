@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-07-01T13:35:57.731819+00:00",
+  "source_dir": "D:\\AI\\fenti\\pimage",
+  "candidate_count": 612,
+  "skipped": {},
+  "recursive": false,
+  "outputs": {
+    "positive_manifest": "positive_candidates.jsonl",
+    "images_dir": "positive"
+  }
+}

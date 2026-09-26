@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>观察台 · 拍照题目提取还原 Demo</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --card:#1d212b; --line:#2a2f3a;
+    --txt:#e6e9ef; --dim:#9aa3b2; --accent:#4c8dff; --good:#37c871; --warn:#f0a73c; --bad:#ff5d5d; --uncertain:#c98bff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);font-size:14px;line-height:1.55}
+  button{font-family:inherit;cursor:pointer}
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:12px 18px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .brand{font-weight:700;font-size:16px;letter-spacing:.3px}
+  .brand small{color:var(--dim);font-weight:400;margin-left:6px;font-size:12px}
+  .stat{color:var(--dim);font-size:12.5px}
+  .stat b{color:var(--txt)}
+  .spacer{flex:1}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--txt);padding:7px 13px;border-radius:8px;font-size:13px}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .tabs{display:flex;gap:6px;padding:10px 18px 0}
+  .tab{padding:8px 14px;border-radius:8px 8px 0 0;border:1px solid transparent;color:var(--dim);font-size:13px}
+  .tab.active{background:var(--panel);border-color:var(--line);border-bottom-color:var(--panel);color:var(--txt);font-weight:600}
+  .tab:disabled{opacity:.35;cursor:not-allowed}
+  .wrap{padding:18px;max-width:1200px;margin:0 auto}
+  .latency{display:flex;gap:18px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin-bottom:16px;font-size:12.5px;color:var(--dim)}
+  .latency b{color:var(--accent);font-size:15px;font-variant-numeric:tabular-nums}
+  .drop{border:2px dashed var(--line);border-radius:14px;padding:38px 20px;text-align:center;color:var(--dim);transition:.15s}
+  .drop.over{border-color:var(--accent);background:#1a2030}
+  .drop h2{margin:0 0 6px;color:var(--txt);font-size:18px}
+  .pickrow{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+  .progress{height:8px;background:var(--card);border-radius:6px;overflow:hidden;margin:14px 0}
+  .progress>div{height:100%;background:var(--accent);width:0;transition:.2s}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:14px}
+  .thumb{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .dot{position:absolute;top:5px;right:5px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 2px rgba(0,0,0,.5)}
+  .dot.queued{background:#5b6678}.dot.running{background:var(--accent);animation:pulse 1s infinite}
+  .dot.done{background:var(--good)}.dot.low{background:var(--warn)}.dot.skip{background:#3a4150}.dot.fail{background:var(--bad)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .thumb .lab{position:absolute;left:0;bottom:0;right:0;font-size:9px;background:rgba(0,0,0,.6);padding:2px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qcard{display:grid;grid-template-columns:1fr 220px;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  .qhead{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+  .qnum{font-weight:700;color:var(--accent)}
+  .pill{font-size:11px;padding:2px 8px;border-radius:20px;border:1px solid var(--line);color:var(--dim)}
+  .stem{font-size:15px;white-space:pre-wrap}
+  .opts{margin:8px 0 0;padding:0;list-style:none}
+  .opts li{padding:3px 0}
+  .figure{margin-top:8px;color:var(--warn);font-size:12.5px}
+  .src{display:flex;flex-direction:column;gap:6px}
+  .src img{width:100%;border-radius:8px;border:1px solid var(--line);cursor:zoom-in}
+  .src small{color:var(--dim);font-size:11px}
+  .uncertain{color:var(--uncertain)}
+  .badge{font-size:12px;padding:2px 9px;border-radius:6px;font-weight:600}
+  .b-对{background:rgba(55,200,113,.15);color:var(--good)} .b-错{background:rgba(255,93,93,.15);color:var(--bad)}
+  .b-部分对{background:rgba(240,167,60,.15);color:var(--warn)} .b-不确定,.b-未识别,.b-未作答{background:rgba(201,139,255,.15);color:var(--uncertain)}
+  .empty{text-align:center;color:var(--dim);padding:50px 20px}
+  .note{font-size:12px;color:var(--dim);margin:6px 0 0}
+  .answerspace{border-bottom:1px solid #555;height:1.6em;margin:6px 0}
+  /* 空白卷打印 */
+  #blank{background:#fff;color:#111}
+  #blank .paper{max-width:780px;margin:0 auto;padding:28px 34px}
+  #blank .phead{display:flex;justify-content:space-between;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:16px;font-size:13px;color:#333}
+  #blank .bq{padding:12px 0;border-bottom:1px dashed #ccc;break-inside:avoid;page-break-inside:avoid}
+  #blank .bq .qnum{color:#111}
+  #blank .bq .opts li{color:#222}
+  #blank .answerspace{border-bottom:1px solid #999}
+  #blank img{max-width:60%;border:1px solid #ccc;margin-top:6px}
+  @media print{
+    @page{size:A4;margin:14mm}
+    body{background:#fff}
+    .topbar,.tabs,.latency,.printhide{display:none !important}
+    .wrap{padding:0;max-width:none}
+    #blank{display:block !important}
+    .view:not(#blank){display:none !important}
+  }
+  .view{display:none}.view.active{display:block}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="brand">观察台<small>/observe · 拍照题目提取还原 Demo</small></span>
+  <span class="stat" id="stSel">已选 <b>0</b></span>
+  <span class="stat" id="stDedup">去重 <b>0→0</b></span>
+  <span class="stat" id="stProg">提取 <b>0/0</b></span>
+  <span class="spacer"></span>
+  <label class="stat printhide" style="cursor:pointer"><input type="checkbox" id="doGrade"> 同时批改（口算/算术）</label>
+  <button class="btn" id="btnReset">新建</button>
+  <button class="btn primary" id="btnPrint" disabled>打印空白卷</button>
+</div>
+
+<div class="tabs printhide">
+  <button class="tab active" data-view="pick">1 · 选图</button>
+  <button class="tab" data-view="extract" id="tabExtract" disabled>2 · 提取</button>
+  <button class="tab" data-view="restore" id="tabRestore" disabled>3 · 还原页</button>
+  <button class="tab" data-view="blank" id="tabBlank" disabled>4 · 空白卷</button>
+</div>
+
+<div class="wrap printhide" id="latencyWrap" style="display:none">
+  <div class="latency">
+    <span>唯一题目 <b id="lqUnique">0</b></span>
+    <span>已过模型 <b id="lqDone">0</b> 张</span>
+    <span>平均延迟 <b id="lqAvg">–</b> 秒/张</span>
+    <span>模型总耗时 <b id="lqTotal">0</b> 秒</span>
+    <span>预计剩余 <b id="lqEta">–</b></span>
+    <span style="color:#5b6678">模型: Qwen3.6-27B-VL @ 2×4090（共享课堂卡，本 Demo 走后台低优先级）</span>
+  </div>
+</div>
+
+<!-- 选图 -->
+<div class="view active wrap" id="pick">
+  <div class="drop" id="drop">
+    <h2>把相机录下的照片拖进来</h2>
+    <p>一次几十到几百张都行，我们会自动剔除连拍重复帧，并从中找出题目。<br>
+    本 Demo 用“多选/选文件夹”模拟半小时连拍；真相机与麦克风后续融入语音指令再做。</p>
+    <div class="pickrow">
+      <button class="btn primary" id="btnFiles">选择照片（多选）</button>
+      <button class="btn" id="btnDir">选择整个文件夹</button>
+    </div>
+    <input type="file" id="inFiles" accept="image/*" multiple hidden>
+    <input type="file" id="inDir" accept="image/*" webkitdirectory hidden>
+    <p class="note">提示：感知哈希去重只对“同一画面的近重复连拍帧”有效；各不相同的页面不会被合并。单批上限 40 张题目页（Demo 保护共享 GPU）。</p>
+  </div>
+  <div class="grid" id="pickGrid"></div>
+  <div class="pickrow" id="pickActions" style="display:none;margin-top:18px">
+    <button class="btn primary" id="btnStart">开始提取</button>
+  </div>
+</div>
+
+<!-- 提取 -->
+<div class="view wrap" id="extract">
+  <div class="progress"><div id="bar"></div></div>
+  <div class="stat" id="extMsg" style="margin-bottom:8px">准备中…</div>
+  <div class="grid" id="extGrid"></div>
+</div>
+
+<!-- 还原页 -->
+<div class="view wrap" id="restore">
+  <div id="restoreBody"></div>
+</div>
+
+<!-- 空白卷 -->
+<div class="view" id="blank">
+  <div class="paper" id="blankBody"></div>
+</div>
+
+<script>
+const MAX_BATCH = 40;               // 单批题目页硬上限
+const IMG_DEDUP_HAMMING = 5;        // 图级 aHash 近重复阈值（<=5 视为同一画面连拍）
+const Q_SIM_HAMMING = 3;            // 题级 simhash 近似同题阈值
+const BATCH_TOKEN = Math.random().toString(36).slice(2);
+
+let images = [];        // {file,url,hash,name,status,questions}
+let uniqueQ = [];       // 去重后的题：{...q, srcUrl}
+let timing = {done:0, totalSec:0};
+
+const $ = s => document.querySelector(s);
+const setText = (id,v) => { const e=$('#'+id); if(e) e.textContent=v; };
+
+/* ---------- 视图切换 ---------- */
+function showView(v){
+  document.querySelectorAll('.view').forEach(el=>el.classList.toggle('active', el.id===v));
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active', el.dataset.view===v));
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{ if(!t.disabled) showView(t.dataset.view); }));
+
+/* ---------- 选图 ---------- */
+$('#btnFiles').onclick = ()=>$('#inFiles').click();
+$('#btnDir').onclick   = ()=>$('#inDir').click();
+$('#inFiles').onchange = e=>addFiles(e.target.files);
+$('#inDir').onchange   = e=>addFiles(e.target.files);
+
+const drop = $('#drop');
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>{ if(e.dataTransfer.files) addFiles(e.dataTransfer.files); });
+
+function loadImg(url){ return new Promise((res,rej)=>{ const im=new Image(); im.onload=()=>res(im); im.onerror=rej; im.src=url; }); }
+
+// 8x8 average-hash，返回 64 位 0/1 字符串
+async function aHash(im){
+  const c=document.createElement('canvas'); c.width=8; c.height=8;
+  const ctx=c.getContext('2d'); ctx.drawImage(im,0,0,8,8);
+  const d=ctx.getImageData(0,0,8,8).data; const g=[];
+  for(let i=0;i<64;i++) g.push(0.299*d[i*4]+0.587*d[i*4+1]+0.114*d[i*4+2]);
+  const avg=g.reduce((a,b)=>a+b,0)/64;
+  return g.map(v=>v>=avg?'1':'0').join('');
+}
+const hamStr=(a,b)=>{let d=0;for(let i=0;i<a.length;i++) if(a[i]!==b[i])d++; return d;};
+
+async function addFiles(fileList){
+  const files=[...fileList].filter(f=>f.type.startsWith('image/'))
+                           .sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+  for(const f of files){
+    const url=URL.createObjectURL(f);
+    let hash='';
+    try{ hash=await aHash(await loadImg(url)); }catch(e){}
+    // 图级去重：与任一已保留图近重复则丢弃
+    if(hash && images.some(im=>im.hash && hamStr(im.hash,hash)<=IMG_DEDUP_HAMMING)){
+      URL.revokeObjectURL(url); continue;
+    }
+    images.push({file:f, url, hash, name:f.name, status:'queued', questions:null});
+  }
+  renderPickGrid();
+}
+
+function renderPickGrid(){
+  const g=$('#pickGrid'); g.innerHTML='';
+  images.forEach((im,i)=>{
+    const d=document.createElement('div'); d.className='thumb';
+    d.innerHTML=`<img src="${im.url}"><span class="lab">${im.name||('#'+(i+1))}</span>`;
+    g.appendChild(d);
+  });
+  setText('stSel', '');$('#stSel').innerHTML='已选 <b>'+images.length+'</b>';
+  $('#pickActions').style.display = images.length?'flex':'none';
+  $('#btnStart').textContent = '开始提取（'+images.length+'张）';
+}
+
+/* ---------- 提取 ---------- */
+$('#btnStart').onclick = startExtract;
+
+async function startExtract(){
+  if(!images.length) return;
+  if(images.length>MAX_BATCH && !confirm(`已选 ${images.length} 张，超过 Demo 单批建议上限 ${MAX_BATCH} 张。\n继续可能较慢并挤占共享 GPU。仍要继续？`)) return;
+  const doGrade = $('#doGrade').checked;
+  $('#tabExtract').disabled=false; showView('extract');
+  $('#latencyWrap').style.display='block';
+  $('#btnStart').disabled=true;
+  uniqueQ=[]; timing={done:0,totalSec:0};
+  // 构建提取网格
+  const eg=$('#extGrid'); eg.innerHTML='';
+  images.forEach((im,i)=>{
+    const d=document.createElement('div'); d.className='thumb'; d.id='ex'+i;
+    d.innerHTML=`<img src="${im.url}"><span class="dot queued"></span><span class="lab">${im.name||('#'+(i+1))}</span>`;
+    eg.appendChild(d);
+  });
+  let done=0;
+  for(let i=0;i<images.length;i++){
+    const im=images[i];
+    setDot(i,'running');
+    setText('extMsg', `识别中… ${i+1}/${images.length}：${im.name||''}`);
+    const t0=performance.now();
+    try{
+      const fd=new FormData();
+      fd.append('image', im.file);
+      fd.append('do_grade', doGrade?'true':'false');
+      fd.append('batch_token', BATCH_TOKEN);
+      const r=await fetch('/api/observe-demo/extract',{method:'POST',body:fd});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const j=await r.json();
+      const sec=(performance.now()-t0)/1000;
+      timing.done++; timing.totalSec+=sec;
+      im.questions=j.questions||[];
+      if(!j.is_study_material){ setDot(i,'skip'); }
+      else if(j.low_quality || !im.questions.length){ setDot(i,'low'); }
+      else { setDot(i,'done'); mergeQuestions(im); }
+    }catch(e){
+      setDot(i,'fail');
+    }
+    done++;
+    const pct=Math.round(done/images.length*100);
+    $('#bar').style.width=pct+'%';
+    $('#stProg').innerHTML='提取 <b>'+done+'/'+images.length+'</b>';
+    updateLatency(done);
+  }
+  setText('extMsg', `完成：${images.length} 张照片 → ${uniqueQ.length} 道去重题目。`);
+  $('#stDedup').innerHTML='去重 <b>'+images.length+'→'+uniqueQ.length+'</b>';
+  if(uniqueQ.length){
+    $('#tabRestore').disabled=false; $('#tabBlank').disabled=false; $('#btnPrint').disabled=false;
+    renderRestore(); renderBlank();
+    showView('restore');
+  } else {
+    $('#restoreBody').innerHTML='<div class="empty">这批照片里没找到能用的题目，可能都是空白/无关画面，换一批含课本或试卷的照片试试。</div>';
+    $('#tabRestore').disabled=false; showView('restore');
+  }
+}
+
+function setDot(i,cls){ const d=$('#ex'+i+' .dot'); if(d) d.className='dot '+cls; }
+
+/* ---------- 题级去重 ---------- */
+function hexHam(a,b){
+  if(!a||!b) return 64;
+  try{ let x=BigInt('0x'+a)^BigInt('0x'+b),c=0; while(x){c+=Number(x&1n);x>>=1n;} return c; }
+  catch(e){ return 64; }
+}
+function mergeQuestions(im){
+  for(const q of im.questions){
+    if(!q.stem || !q.stem.trim()) continue;
+    // 精确指纹命中 → 跳过
+    if(q.fingerprint && uniqueQ.some(u=>u.fingerprint && u.fingerprint===q.fingerprint)) continue;
+    // 近似 simhash 命中 → 跳过（保留先到的）
+    if(q.simhash && uniqueQ.some(u=>hexHam(u.simhash,q.simhash)<=Q_SIM_HAMMING)) continue;
+    uniqueQ.push(Object.assign({}, q, {srcUrl: im.url}));
+  }
+}
+
+/* ---------- 算力·延迟 ---------- */
+function updateLatency(done){
+  setText('lqUnique', uniqueQ.length);
+  setText('lqDone', timing.done);
+  const avg = timing.done? (timing.totalSec/timing.done):0;
+  setText('lqAvg', avg? avg.toFixed(1):'–');
+  setText('lqTotal', Math.round(timing.totalSec));
+  const left = images.length-done;
+  setText('lqEta', (left>0 && avg)? Math.round(left*avg)+' 秒':'完成');
+}
+
+/* ---------- 还原页 ---------- */
+const isUncertain = t => t && (t.indexOf('未识别')>=0);
+function esc(s){ return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function stemHtml(s){
+  return esc(s).replace(/未识别/g,'<span class="uncertain">未识别</span>');
+}
+function optsHtml(q){
+  if(!q.options||!q.options.length) return '';
+  return '<ul class="opts">'+q.options.map(o=>`<li><b>${esc(o.label)}.</b> ${esc(o.text)}</li>`).join('')+'</ul>';
+}
+function renderRestore(){
+  const b=$('#restoreBody');
+  b.innerHTML='<p class="note">还原页 = 印刷题干语义重排 + <b>强制并排原图核验</b>。受模型限制不做像素级抠图；含图题只标“见原图”，不重绘几何图；不渲染学生手写作答。</p>';
+  uniqueQ.forEach((q,i)=>{
+    const card=document.createElement('div'); card.className='qcard';
+    const grade = q.verdict? `<span class="badge b-${q.verdict}">${q.verdict}</span>`:'';
+    card.innerHTML=`
+      <div>
+        <div class="qhead">
+          <span class="qnum">${esc(q.number)||('第'+(i+1)+'题')}</span>
+          ${q.subject?`<span class="pill">${esc(q.subject)}</span>`:''}
+          <span class="pill">${esc(q.qtype)}</span>
+          ${q.has_student_answer?'<span class="pill">含作答</span>':''}
+          ${grade}
+        </div>
+        <div class="stem">${stemHtml(q.stem)}</div>
+        ${optsHtml(q)}
+        ${q.blanks?`<div class="note">填空 ${q.blanks} 处</div>`:''}
+        ${q.figure_note?`<div class="figure">🖼 ${esc(q.figure_note)}</div>`:''}
+      </div>
+      <div class="src">
+        <img src="${q.srcUrl}" onclick="window.open(this.src)">
+        <small>原图（点击放大核对）</small>
+      </div>`;
+    b.appendChild(card);
+  });
+}
+
+/* ---------- 空白卷 ---------- */
+function answerArea(q){
+  if(q.qtype==='选择题' && q.options.length) return ''; // 选项已给，留选即可
+  const n = q.blanks>0 ? q.blanks : (q.qtype==='口算题'?1:(q.qtype==='作文题'?12:4));
+  return '<div>'+Array.from({length:n}).map(()=>'<div class="answerspace"></div>').join('')+'</div>';
+}
+function renderBlank(){
+  const b=$('#blankBody');
+  const subj = (uniqueQ.find(q=>q.subject)||{}).subject||'';
+  let h=`<div class="phead"><span>${esc(subj)||'　'} 　空白练习卷</span><span>姓名______　日期______　得分____</span></div>`;
+  uniqueQ.forEach((q,i)=>{
+    h+=`<div class="bq">
+      <div class="qhead"><span class="qnum">${esc(q.number)||((i+1)+'.')}</span> <span class="pill">${esc(q.qtype)}</span></div>
+      <div class="stem">${stemHtml(q.stem)}</div>
+      ${optsHtml(q)}
+      ${q.figure_note?`<div class="figure">🖼 ${esc(q.figure_note)}（见原图）</div><img src="${q.srcUrl}">`:''}
+      ${answerArea(q)}
+    </div>`;
+  });
+  b.innerHTML=h;
+}
+
+/* ---------- 打印 / 重置 ---------- */
+$('#btnPrint').onclick = ()=>{ if($('#btnPrint').disabled) return; showView('blank'); setTimeout(()=>window.print(),120); };
+$('#btnReset').onclick = ()=>{
+  images.forEach(im=>URL.revokeObjectURL(im.url));
+  images=[]; uniqueQ=[]; timing={done:0,totalSec:0};
+  $('#pickGrid').innerHTML=''; $('#extGrid').innerHTML=''; $('#restoreBody').innerHTML=''; $('#blankBody').innerHTML='';
+  $('#bar').style.width='0'; $('#latencyWrap').style.display='none';
+  ['stSel','stDedup','stProg'].forEach(id=>$('#'+id).innerHTML=id==='stSel'?'已选 <b>0</b>':id==='stDedup'?'去重 <b>0→0</b>':'提取 <b>0/0</b>');
+  ['tabExtract','tabRestore','tabBlank'].forEach(id=>$('#'+id).disabled=true);
+  $('#btnPrint').disabled=true; $('#btnStart').disabled=false; $('#pickActions').style.display='none';
+  showView('pick');
+};
+</script>
+</body>
+</html>

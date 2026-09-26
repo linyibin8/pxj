@@ -1,0 +1,9 @@
+{
+  "status": "failed_eval_gate",
+  "run_count": 1,
+  "executed": true,
+  "executed_run_count": 1,
+  "out": "diagnostics\\question-detector-loop-bootstrap-smoke\\experiment",
+  "plan": "diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\experiment_plan.json",
+  "report": "diagnostics\\question-detector-loop-bootstrap-smoke\\experiment\\experiment_report.json"
+}

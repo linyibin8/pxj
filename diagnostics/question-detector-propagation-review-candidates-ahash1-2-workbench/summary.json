@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-30T06:21:07.426545+00:00",
+  "prelabel_root": "diagnostics\\question-detector-propagation-review-candidates-ahash1-2",
+  "out": "diagnostics\\question-detector-propagation-review-candidates-ahash1-2-workbench",
+  "images": 1,
+  "boxes": 1,
+  "median_boxes_per_image": 1,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Only approved/corrected/accepted/verified boxes should be promoted into detector training."
+  ]
+}

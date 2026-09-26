@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-06-30T04:50:18.758608+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai",
+  "out": "diagnostics\\question-detector-active-batch-kpai-003-quarantine",
+  "candidate_count": 15,
+  "selected_images": 10,
+  "selected_boxes": 32,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 34,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 31
+  },
+  "selection": {
+    "max_per_session": 4,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "005c6d92ef37414ab5d41a5f0ad66656": 1,
+      "0b308a3f04c649bbb09b95d8b99f3422": 1,
+      "1f54b22aed3942caa921fe075593a550": 2,
+      "38a5667468f54f0590409447dcc4369f": 1,
+      "5dd6493c6d9344ee93aabe4d87820137": 1,
+      "6cba53b81ae1479f92ccc27a4190743a": 2,
+      "731a0558d8744fe880cff057da4995dd": 1,
+      "f7a7d1b8d4c4452382320a4db6e5ba6a": 1
+    },
+    "reason_counts": {
+      "dense_text": 2,
+      "flag:few_text_lines": 4,
+      "flag:near_full_page": 5,
+      "flag:page:full_image_fallback": 3,
+      "flag:short_block": 4,
+      "flag:tall_block": 6,
+      "large_box": 2,
+      "multi_box_page": 5,
+      "quarantine": 7,
+      "small_box": 5
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

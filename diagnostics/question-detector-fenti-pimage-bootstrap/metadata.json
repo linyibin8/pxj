@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-07-01T13:38:24.209817+00:00",
+  "inputs": {
+    "prelabel_roots": [
+      "diagnostics\\question-detector-fenti-pimage-prelabel"
+    ],
+    "approved_jsonl": [],
+    "negative_images_dir": []
+  },
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 557,
+      "positive_images": 168,
+      "negative_images": 389,
+      "annotations": 381,
+      "human_reviewed_annotations": 0,
+      "pseudo_annotations": 381,
+      "split_groups": 557
+    },
+    "split_counts": {
+      "train": {
+        "images": 378,
+        "positive_images": 113,
+        "negative_images": 265,
+        "annotations": 267,
+        "groups": 378
+      },
+      "val": {
+        "images": 103,
+        "positive_images": 32,
+        "negative_images": 71,
+        "annotations": 71,
+        "groups": 103
+      },
+      "test": {
+        "images": 76,
+        "positive_images": 23,
+        "negative_images": 53,
+        "annotations": 43,
+        "groups": 76
+      }
+    },
+    "bootstrap": {
+      "min_draft_score": 0.6,
+      "min_area_ratio": 0.002,
+      "max_area_ratio": 0.48,
+      "reject_quality_flags": [
+        "few_text_lines",
+        "near_full_page",
+        "short_block",
+        "single_union_fallback"
+      ],
+      "stats": {
+        "approved": {},
+        "draft": {
+          "accepted_labels": 381,
+          "rejected:low_score": 498,
+          "accepted_images": 168,
+          "rejected:large_area": 217,
+          "rejected:rejected_flag:near_full_page": 205,
+          "rejected:rejected_flag:few_text_lines": 3,
+          "rejected:extreme_aspect": 13
+        },
+        "negative": {}
+      }
+    },
+    "warnings": [
+      {
+        "code": "bootstrap_dataset_not_release_ready",
+        "severity": "warning",
+        "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+      }
+    ]
+  }
+}

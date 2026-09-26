@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-07-01T02:35:29.159168+00:00",
+  "prelabel_root": "diagnostics\\question-segmentation-benchmark-error-mine-degraded-smoke",
+  "out": "diagnostics\\question-segmentation-benchmark-error-mine-degraded-smoke-workbench",
+  "images": 3,
+  "boxes": 25,
+  "high_risk_boxes": 1,
+  "default_rejected_boxes": 1,
+  "median_boxes_per_image": 12,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+  ]
+}

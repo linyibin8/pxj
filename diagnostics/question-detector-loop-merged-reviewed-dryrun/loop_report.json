@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-06-30T04:25:23.693963+00:00",
+  "status": "passed",
+  "out": "diagnostics\\question-detector-loop-merged-reviewed-dryrun",
+  "execute_training": true,
+  "train_dry_run": true,
+  "artifacts": {
+    "merged_reviewed": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\merged_reviewed",
+    "dataset": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+    "cv": "",
+    "experiment": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\experiment",
+    "release_check": "",
+    "error_mining": "",
+    "error_workbench": "",
+    "iteration_report": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\iteration_report"
+  },
+  "steps": [
+    {
+      "name": "merge_reviewed",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_merge_reviewed.py",
+        "diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl",
+        "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl",
+        "--out",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\merged_reviewed",
+        "--clean"
+      ],
+      "started_at": "2026-06-30T04:25:18.322047+00:00",
+      "finished_at": "2026-06-30T04:25:19.023567+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\merge_reviewed.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\merge_reviewed.stderr.txt"
+    },
+    {
+      "name": "dataset",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_dataset.py",
+        "--out",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+        "--split-scope",
+        "session",
+        "--clean",
+        "--reviewed-prelabels",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\merged_reviewed",
+        "--negative-images-dir",
+        "diagnostics\\question-detector-review-candidates-kpai\\negative",
+        "--min-production-negative-images",
+        "50"
+      ],
+      "started_at": "2026-06-30T04:25:19.023567+00:00",
+      "finished_at": "2026-06-30T04:25:23.433510+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\dataset.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\dataset.stderr.txt"
+    },
+    {
+      "name": "experiment",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_experiment_matrix.py",
+        "--out",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\experiment",
+        "--model",
+        "yolo11n.pt",
+        "--imgsz",
+        "416",
+        "--epochs",
+        "1",
+        "--batch",
+        "-1",
+        "--workers",
+        "4",
+        "--eval-score-thresholds",
+        "0.05,0.10,0.20,0.25,0.35,0.50",
+        "--clean",
+        "--dataset",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+        "--allow-unready",
+        "--allow-failed-eval",
+        "--train-dry-run",
+        "--execute"
+      ],
+      "started_at": "2026-06-30T04:25:23.434056+00:00",
+      "finished_at": "2026-06-30T04:25:23.616935+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\experiment.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\experiment.stderr.txt"
+    },
+    {
+      "name": "iteration_report",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_iteration_report.py",
+        "--dataset",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+        "--experiment",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\experiment",
+        "--out",
+        "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\iteration_report",
+        "--clean",
+        "--replay",
+        "diagnostics\\question-observation-replay-kpai-layout-measured"
+      ],
+      "started_at": "2026-06-30T04:25:23.618070+00:00",
+      "finished_at": "2026-06-30T04:25:23.692955+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\iteration_report.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-merged-reviewed-dryrun\\logs\\iteration_report.stderr.txt"
+    }
+  ]
+}

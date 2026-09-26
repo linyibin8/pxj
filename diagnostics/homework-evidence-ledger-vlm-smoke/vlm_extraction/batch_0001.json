@@ -1,0 +1,21 @@
+{
+  "questions": [
+    {
+      "input_index": 1,
+      "evidence_id": "qev_0001",
+      "number": "3",
+      "subject": "math",
+      "question_type": "geometry",
+      "stem_text": "图中三角形 ABC 的面积是 36 平方厘米，AC 长 8 厘米，DE 长 3 厘米，求阴影部分的面积（ADFC 不是正方形）。",
+      "editable_html": "<article><p>3. 图中三角形 ABC 的面积是 36 平方厘米，AC 长 8 厘米，DE 长 3 厘米，求阴影部分的面积（ADFC 不是正方形）。</p></article>",
+      "has_figure": true,
+      "figure_note": "包含几何图形，可见三角形ABC、底边AC上的点B，以及阴影部分。",
+      "svg_draft": "",
+      "confidence": 0.95,
+      "review_flags": [
+        "has_figure"
+      ],
+      "notes": "文字清晰，图形完整。"
+    }
+  ]
+}

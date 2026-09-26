@@ -1,0 +1,63 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-synthetic-dense-layout-dense-prelabel-v2",
+      "candidate_count": 219,
+      "image_count": 10,
+      "full_frame_only_bytes": 1390047,
+      "full_frame_resized_pixels": 16240000
+    }
+  ],
+  "settings": {
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "max_overcrop_ratio": 3.0,
+    "full_max_side": 1600
+  },
+  "counts": {
+    "images": 10,
+    "images_with_candidates": 10,
+    "candidate_count": 219,
+    "gt_box_count": 256,
+    "raw_represented_gt_key_count": 256,
+    "represented_gt_key_count": 256,
+    "duplicate_represented_gt_key_count": 0,
+    "covered_gt_key_count": 197,
+    "missed_gt_key_count": 59,
+    "matched_candidate_count": 202,
+    "reviewed_image_candidate_count": 219,
+    "unmatched_reviewed_candidate_count": 17,
+    "unverified_candidate_count": 0,
+    "overcrop_match_count": 20
+  },
+  "metrics": {
+    "represented_gt_recall": 0.769531,
+    "reviewed_candidate_match_rate": 0.922374,
+    "crop_pixels_vs_full_frame_pixels": 2.158652,
+    "crop_resized_pixels": 35056506,
+    "full_frame_resized_pixels": 16240000,
+    "crop_jpeg_bytes": 3175357,
+    "overcrop_ratio_median": 1.300637,
+    "overcrop_ratio_p90": 2.867033,
+    "overcrop_ratio_max": 9.403151
+  },
+  "quality_flags": {
+    "dense_column_layout": 138,
+    "dense_single_column_layout": 81,
+    "few_text_lines": 138,
+    "page:full_image_fallback": 219
+  },
+  "outputs": {
+    "matches": "matches.jsonl",
+    "missed": "missed_gt.jsonl",
+    "unmatched_reviewed_candidates": "unmatched_reviewed_candidates.jsonl",
+    "unverified_candidates": "unverified_candidates.jsonl",
+    "overcrop": "overcrop_candidates.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  },
+  "ground_truth_manifests": [
+    "diagnostics\\question-detector-synthetic-dense\\annotations\\manifest.jsonl"
+  ],
+  "dataset_root": ""
+}

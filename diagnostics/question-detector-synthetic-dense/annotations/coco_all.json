@@ -1,0 +1,3935 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/diagnostic/phone_dense_18_01_2e8b2cb9.jpg",
+      "width": 1170,
+      "height": 2532,
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 2,
+      "file_name": "images/diagnostic/phone_dense_18_02_24e439c4.jpg",
+      "width": 1170,
+      "height": 2532,
+      "source_filename": "phone_dense_18_02_24e439c4.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 3,
+      "file_name": "images/diagnostic/phone_cap_overflow_24_01_ea584bb0.jpg",
+      "width": 1170,
+      "height": 2532,
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 4,
+      "file_name": "images/diagnostic/phone_cap_overflow_24_02_e2c3f9d5.jpg",
+      "width": 1170,
+      "height": 2532,
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 5,
+      "file_name": "images/diagnostic/ipad_two_column_30_01_8e9731ea.jpg",
+      "width": 2048,
+      "height": 2732,
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 6,
+      "file_name": "images/diagnostic/ipad_two_column_30_02_f9434c5d.jpg",
+      "width": 2048,
+      "height": 2732,
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 7,
+      "file_name": "images/diagnostic/ipad_landscape_three_column_36_01_c220e087.jpg",
+      "width": 2732,
+      "height": 2048,
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 8,
+      "file_name": "images/diagnostic/ipad_landscape_three_column_36_02_e9fdc0dd.jpg",
+      "width": 2732,
+      "height": 2048,
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 9,
+      "file_name": "images/diagnostic/ipad_weak_textless_20_01_155a8456.jpg",
+      "width": 2048,
+      "height": 2732,
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg",
+      "synthetic": true
+    },
+    {
+      "id": 10,
+      "file_name": "images/diagnostic/ipad_weak_textless_20_02_b46b9e37.jpg",
+      "width": 2048,
+      "height": 2732,
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg",
+      "synthetic": true
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        111,
+        299,
+        954,
+        96
+      ],
+      "area": 91584,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:01",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        106,
+        416,
+        956,
+        90
+      ],
+      "area": 86040,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:02",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 3,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        111,
+        532,
+        957,
+        87
+      ],
+      "area": 83259,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:03",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 4,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        110,
+        641,
+        950,
+        91
+      ],
+      "area": 86450,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:04",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 5,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        110,
+        761,
+        952,
+        93
+      ],
+      "area": 88536,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:05",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 6,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        107,
+        873,
+        953,
+        93
+      ],
+      "area": 88629,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:06",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 7,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        111,
+        988,
+        954,
+        90
+      ],
+      "area": 85860,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:07",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 8,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1101,
+        948,
+        88
+      ],
+      "area": 83424,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:08",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 9,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1219,
+        956,
+        91
+      ],
+      "area": 86996,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:09",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 10,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        108,
+        1331,
+        950,
+        93
+      ],
+      "area": 88350,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:10",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 11,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        110,
+        1448,
+        955,
+        95
+      ],
+      "area": 90725,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:11",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 12,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        110,
+        1566,
+        953,
+        90
+      ],
+      "area": 85770,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:12",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 13,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        110,
+        1676,
+        954,
+        95
+      ],
+      "area": 90630,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:13",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 14,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        107,
+        1793,
+        959,
+        93
+      ],
+      "area": 89187,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:14",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 15,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        111,
+        1909,
+        950,
+        90
+      ],
+      "area": 85500,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:15",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 16,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        111,
+        2024,
+        949,
+        88
+      ],
+      "area": 83512,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:16",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 17,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        108,
+        2141,
+        957,
+        91
+      ],
+      "area": 87087,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:17",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 18,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        107,
+        2252,
+        956,
+        88
+      ],
+      "area": 84128,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:1:18",
+      "source_filename": "phone_dense_18_01_2e8b2cb9.jpg"
+    },
+    {
+      "id": 19,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        102,
+        311,
+        964,
+        89
+      ],
+      "area": 85796,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:01",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 20,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        104,
+        426,
+        961,
+        88
+      ],
+      "area": 84568,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:02",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 21,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        105,
+        533,
+        960,
+        91
+      ],
+      "area": 87360,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:03",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 22,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        108,
+        652,
+        965,
+        94
+      ],
+      "area": 90710,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:04",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 23,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        107,
+        762,
+        957,
+        86
+      ],
+      "area": 82302,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:05",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 24,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        103,
+        872,
+        957,
+        90
+      ],
+      "area": 86130,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:06",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 25,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        105,
+        986,
+        959,
+        86
+      ],
+      "area": 82474,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:07",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 26,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        105,
+        1099,
+        966,
+        94
+      ],
+      "area": 90804,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:08",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 27,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        108,
+        1213,
+        964,
+        92
+      ],
+      "area": 88688,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:09",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 28,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        108,
+        1329,
+        956,
+        93
+      ],
+      "area": 88908,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:10",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 29,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1443,
+        965,
+        93
+      ],
+      "area": 89745,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:11",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 30,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        105,
+        1553,
+        965,
+        89
+      ],
+      "area": 85885,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:12",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 31,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1665,
+        956,
+        89
+      ],
+      "area": 85084,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:13",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 32,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        103,
+        1776,
+        957,
+        93
+      ],
+      "area": 89001,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:14",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 33,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        108,
+        1894,
+        961,
+        93
+      ],
+      "area": 89373,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:15",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 34,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        104,
+        2006,
+        965,
+        94
+      ],
+      "area": 90710,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:16",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 35,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        107,
+        2118,
+        958,
+        87
+      ],
+      "area": 83346,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:17",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 36,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        102,
+        2233,
+        966,
+        93
+      ],
+      "area": 89838,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_dense_18:2:18",
+      "source_filename": "phone_dense_18_02_24e439c4.jpg"
+    },
+    {
+      "id": 37,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        82,
+        281,
+        1005,
+        71
+      ],
+      "area": 71355,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:01",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 38,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        87,
+        368,
+        1005,
+        74
+      ],
+      "area": 74370,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:02",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 39,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        86,
+        453,
+        996,
+        67
+      ],
+      "area": 66732,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:03",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 40,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        82,
+        541,
+        1003,
+        68
+      ],
+      "area": 68204,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:04",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 41,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        83,
+        628,
+        1003,
+        69
+      ],
+      "area": 69207,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:05",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 42,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        84,
+        713,
+        1005,
+        73
+      ],
+      "area": 73365,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:06",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 43,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        85,
+        798,
+        999,
+        70
+      ],
+      "area": 69930,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:07",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 44,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        84,
+        888,
+        997,
+        75
+      ],
+      "area": 74775,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:08",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 45,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        84,
+        973,
+        999,
+        73
+      ],
+      "area": 72927,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:09",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 46,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        81,
+        1061,
+        1001,
+        74
+      ],
+      "area": 74074,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:10",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 47,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        87,
+        1150,
+        998,
+        73
+      ],
+      "area": 72854,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:11",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 48,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        81,
+        1234,
+        996,
+        69
+      ],
+      "area": 68724,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:12",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 49,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        82,
+        1320,
+        996,
+        73
+      ],
+      "area": 72708,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:13",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 50,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        83,
+        1413,
+        998,
+        76
+      ],
+      "area": 75848,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:14",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 51,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        82,
+        1497,
+        996,
+        68
+      ],
+      "area": 67728,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:15",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 52,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        84,
+        1583,
+        1006,
+        73
+      ],
+      "area": 73438,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:16",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 53,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        84,
+        1672,
+        997,
+        71
+      ],
+      "area": 70787,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:17",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 54,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        85,
+        1760,
+        1003,
+        69
+      ],
+      "area": 69207,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:18",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 55,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        86,
+        1846,
+        1001,
+        69
+      ],
+      "area": 69069,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:19",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 56,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        82,
+        1932,
+        1000,
+        75
+      ],
+      "area": 75000,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:20",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 57,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        81,
+        2021,
+        998,
+        67
+      ],
+      "area": 66866,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:21",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 58,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        81,
+        2103,
+        1007,
+        72
+      ],
+      "area": 72504,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:22",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 59,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        87,
+        2193,
+        1000,
+        67
+      ],
+      "area": 67000,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:23",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 60,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        87,
+        2282,
+        1001,
+        70
+      ],
+      "area": 70070,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:1:24",
+      "source_filename": "phone_cap_overflow_24_01_ea584bb0.jpg"
+    },
+    {
+      "id": 61,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        102,
+        288,
+        956,
+        74
+      ],
+      "area": 70744,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:01",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 62,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        103,
+        376,
+        963,
+        72
+      ],
+      "area": 69336,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:02",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 63,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        104,
+        462,
+        959,
+        67
+      ],
+      "area": 64253,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:03",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 64,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        108,
+        551,
+        965,
+        75
+      ],
+      "area": 72375,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:04",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 65,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        103,
+        638,
+        960,
+        74
+      ],
+      "area": 71040,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:05",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 66,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        106,
+        725,
+        955,
+        74
+      ],
+      "area": 70670,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:06",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 67,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        104,
+        809,
+        966,
+        76
+      ],
+      "area": 73416,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:07",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 68,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        107,
+        896,
+        956,
+        71
+      ],
+      "area": 67876,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:08",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 69,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        106,
+        984,
+        959,
+        67
+      ],
+      "area": 64253,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:09",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 70,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1072,
+        964,
+        67
+      ],
+      "area": 64588,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:10",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 71,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        107,
+        1157,
+        963,
+        67
+      ],
+      "area": 64521,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:11",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 72,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        107,
+        1244,
+        961,
+        76
+      ],
+      "area": 73036,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:12",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 73,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        108,
+        1331,
+        962,
+        68
+      ],
+      "area": 65416,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:13",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 74,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        102,
+        1418,
+        965,
+        70
+      ],
+      "area": 67550,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:14",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 75,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1503,
+        958,
+        72
+      ],
+      "area": 68976,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:15",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 76,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        102,
+        1592,
+        961,
+        67
+      ],
+      "area": 64387,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:16",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 77,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        107,
+        1679,
+        966,
+        74
+      ],
+      "area": 71484,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:17",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 78,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        106,
+        1766,
+        957,
+        68
+      ],
+      "area": 65076,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:18",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 79,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        104,
+        1852,
+        961,
+        71
+      ],
+      "area": 68231,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:19",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 80,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        107,
+        1941,
+        965,
+        68
+      ],
+      "area": 65620,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:20",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 81,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        102,
+        2027,
+        960,
+        72
+      ],
+      "area": 69120,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:21",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 82,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        102,
+        2112,
+        958,
+        73
+      ],
+      "area": 69934,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:22",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 83,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        108,
+        2202,
+        955,
+        69
+      ],
+      "area": 65895,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:23",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 84,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        103,
+        2292,
+        963,
+        67
+      ],
+      "area": 64521,
+      "iscrowd": 0,
+      "question_key": "synthetic:phone_cap_overflow_24:2:24",
+      "source_filename": "phone_cap_overflow_24_02_e2c3f9d5.jpg"
+    },
+    {
+      "id": 85,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        185,
+        340,
+        809,
+        118
+      ],
+      "area": 95462,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:01",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 86,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        188,
+        485,
+        809,
+        118
+      ],
+      "area": 95462,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:02",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 87,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        190,
+        633,
+        807,
+        121
+      ],
+      "area": 97647,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:03",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 88,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        184,
+        785,
+        806,
+        121
+      ],
+      "area": 97526,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:04",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 89,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        186,
+        928,
+        812,
+        120
+      ],
+      "area": 97440,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:05",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 90,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        190,
+        1076,
+        808,
+        123
+      ],
+      "area": 99384,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:06",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 91,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        187,
+        1220,
+        808,
+        121
+      ],
+      "area": 97768,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:07",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 92,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        186,
+        1371,
+        812,
+        119
+      ],
+      "area": 96628,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:08",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 93,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        185,
+        1516,
+        807,
+        126
+      ],
+      "area": 101682,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:09",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 94,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        187,
+        1664,
+        813,
+        118
+      ],
+      "area": 95934,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:10",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 95,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        190,
+        1814,
+        810,
+        119
+      ],
+      "area": 96390,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:11",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 96,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        185,
+        1957,
+        806,
+        122
+      ],
+      "area": 98332,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:12",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 97,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        190,
+        2107,
+        809,
+        124
+      ],
+      "area": 100316,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:13",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 98,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        190,
+        2253,
+        812,
+        122
+      ],
+      "area": 99064,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:14",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 99,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        186,
+        2398,
+        812,
+        123
+      ],
+      "area": 99876,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:15",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 100,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        339,
+        815,
+        121
+      ],
+      "area": 98615,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:16",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 101,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        487,
+        805,
+        126
+      ],
+      "area": 101430,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:17",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 102,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        633,
+        811,
+        124
+      ],
+      "area": 100564,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:18",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 103,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        785,
+        808,
+        125
+      ],
+      "area": 101000,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:19",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 104,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        927,
+        810,
+        126
+      ],
+      "area": 102060,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:20",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 105,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1052,
+        1076,
+        808,
+        119
+      ],
+      "area": 96152,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:21",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 106,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        1223,
+        806,
+        122
+      ],
+      "area": 98332,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:22",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 107,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        1371,
+        812,
+        120
+      ],
+      "area": 97440,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:23",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 108,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        1515,
+        814,
+        120
+      ],
+      "area": 97680,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:24",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 109,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        1661,
+        808,
+        126
+      ],
+      "area": 101808,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:25",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 110,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        1812,
+        809,
+        118
+      ],
+      "area": 95462,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:26",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 111,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        1956,
+        815,
+        117
+      ],
+      "area": 95355,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:27",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 112,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        2108,
+        814,
+        121
+      ],
+      "area": 98494,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:28",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 113,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        2251,
+        812,
+        118
+      ],
+      "area": 95816,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:29",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 114,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        1052,
+        2401,
+        808,
+        120
+      ],
+      "area": 96960,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:1:30",
+      "source_filename": "ipad_two_column_30_01_8e9731ea.jpg"
+    },
+    {
+      "id": 115,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        172,
+        345,
+        830,
+        122
+      ],
+      "area": 101260,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:01",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 116,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        172,
+        490,
+        826,
+        124
+      ],
+      "area": 102424,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:02",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 117,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        172,
+        641,
+        831,
+        123
+      ],
+      "area": 102213,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:03",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 118,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        168,
+        782,
+        820,
+        123
+      ],
+      "area": 100860,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:04",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 119,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        172,
+        931,
+        827,
+        117
+      ],
+      "area": 96759,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:05",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 120,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        170,
+        1076,
+        830,
+        123
+      ],
+      "area": 102090,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:06",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 121,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        174,
+        1222,
+        830,
+        124
+      ],
+      "area": 102920,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:07",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 122,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        173,
+        1366,
+        827,
+        118
+      ],
+      "area": 97586,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:08",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 123,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        170,
+        1512,
+        830,
+        123
+      ],
+      "area": 102090,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:09",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 124,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        173,
+        1662,
+        822,
+        123
+      ],
+      "area": 101106,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:10",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 125,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        173,
+        1810,
+        822,
+        116
+      ],
+      "area": 95352,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:11",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 126,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        174,
+        1954,
+        825,
+        124
+      ],
+      "area": 102300,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:12",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 127,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        172,
+        2098,
+        824,
+        122
+      ],
+      "area": 100528,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:13",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 128,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        174,
+        2245,
+        830,
+        117
+      ],
+      "area": 97110,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:14",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 129,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        174,
+        2391,
+        820,
+        119
+      ],
+      "area": 97580,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:15",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 130,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1049,
+        349,
+        828,
+        121
+      ],
+      "area": 100188,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:16",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 131,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1052,
+        493,
+        825,
+        124
+      ],
+      "area": 102300,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:17",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 132,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        638,
+        827,
+        116
+      ],
+      "area": 95932,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:18",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 133,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1049,
+        788,
+        831,
+        121
+      ],
+      "area": 100551,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:19",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 134,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        930,
+        821,
+        125
+      ],
+      "area": 102625,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:20",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 135,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        1075,
+        825,
+        120
+      ],
+      "area": 99000,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:21",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 136,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1049,
+        1223,
+        827,
+        118
+      ],
+      "area": 97586,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:22",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 137,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        1366,
+        831,
+        125
+      ],
+      "area": 103875,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:23",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 138,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        1516,
+        820,
+        121
+      ],
+      "area": 99220,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:24",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 139,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1049,
+        1660,
+        831,
+        116
+      ],
+      "area": 96396,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:25",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 140,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        1810,
+        830,
+        125
+      ],
+      "area": 103750,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:26",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 141,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1049,
+        1950,
+        826,
+        123
+      ],
+      "area": 101598,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:27",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 142,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        2099,
+        820,
+        118
+      ],
+      "area": 96760,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:28",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 143,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        2243,
+        829,
+        116
+      ],
+      "area": 96164,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:29",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 144,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        1052,
+        2392,
+        831,
+        124
+      ],
+      "area": 103044,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_two_column_30:2:30",
+      "source_filename": "ipad_two_column_30_02_f9434c5d.jpg"
+    },
+    {
+      "id": 145,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        220,
+        280,
+        709,
+        124
+      ],
+      "area": 87916,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:01",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 146,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        221,
+        413,
+        710,
+        121
+      ],
+      "area": 85910,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:02",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 147,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        223,
+        546,
+        717,
+        128
+      ],
+      "area": 91776,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:03",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 148,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        220,
+        680,
+        711,
+        124
+      ],
+      "area": 88164,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:04",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 149,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        219,
+        816,
+        718,
+        121
+      ],
+      "area": 86878,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:05",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 150,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        222,
+        955,
+        718,
+        123
+      ],
+      "area": 88314,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:06",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 151,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        222,
+        1087,
+        718,
+        126
+      ],
+      "area": 90468,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:07",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 152,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        224,
+        1221,
+        714,
+        119
+      ],
+      "area": 84966,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:08",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 153,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        220,
+        1357,
+        710,
+        120
+      ],
+      "area": 85200,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:09",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 154,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        225,
+        1492,
+        715,
+        124
+      ],
+      "area": 88660,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:10",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 155,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        222,
+        1624,
+        719,
+        127
+      ],
+      "area": 91313,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:11",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 156,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        225,
+        1764,
+        720,
+        126
+      ],
+      "area": 90720,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:12",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 157,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1008,
+        274,
+        714,
+        127
+      ],
+      "area": 90678,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:13",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 158,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        415,
+        716,
+        119
+      ],
+      "area": 85204,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:14",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 159,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1008,
+        549,
+        713,
+        121
+      ],
+      "area": 86273,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:15",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 160,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        684,
+        713,
+        123
+      ],
+      "area": 87699,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:16",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 161,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1012,
+        814,
+        709,
+        128
+      ],
+      "area": 90752,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:17",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 162,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1011,
+        954,
+        720,
+        119
+      ],
+      "area": 85680,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:18",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 163,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1010,
+        1087,
+        718,
+        127
+      ],
+      "area": 91186,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:19",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 164,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        1223,
+        715,
+        122
+      ],
+      "area": 87230,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:20",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 165,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        1358,
+        718,
+        123
+      ],
+      "area": 88314,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:21",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 166,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1009,
+        1495,
+        716,
+        126
+      ],
+      "area": 90216,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:22",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 167,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        1626,
+        710,
+        128
+      ],
+      "area": 90880,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:23",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 168,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1011,
+        1759,
+        720,
+        123
+      ],
+      "area": 88560,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:24",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 169,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1797,
+        280,
+        718,
+        121
+      ],
+      "area": 86878,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:25",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 170,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1794,
+        413,
+        712,
+        120
+      ],
+      "area": 85440,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:26",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 171,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1795,
+        549,
+        712,
+        123
+      ],
+      "area": 87576,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:27",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 172,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1793,
+        681,
+        709,
+        124
+      ],
+      "area": 87916,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:28",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 173,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1793,
+        816,
+        717,
+        120
+      ],
+      "area": 86040,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:29",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 174,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1794,
+        955,
+        717,
+        124
+      ],
+      "area": 88908,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:30",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 175,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1799,
+        1089,
+        719,
+        126
+      ],
+      "area": 90594,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:31",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 176,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1796,
+        1219,
+        715,
+        125
+      ],
+      "area": 89375,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:32",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 177,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1796,
+        1357,
+        711,
+        123
+      ],
+      "area": 87453,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:33",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 178,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1793,
+        1490,
+        719,
+        125
+      ],
+      "area": 89875,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:34",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 179,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1799,
+        1624,
+        710,
+        124
+      ],
+      "area": 88040,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:35",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 180,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        1796,
+        1765,
+        712,
+        121
+      ],
+      "area": 86152,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:1:36",
+      "source_filename": "ipad_landscape_three_column_36_01_c220e087.jpg"
+    },
+    {
+      "id": 181,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        226,
+        247,
+        708,
+        127
+      ],
+      "area": 89916,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:01",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 182,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        223,
+        391,
+        713,
+        127
+      ],
+      "area": 90551,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:02",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 183,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        225,
+        530,
+        710,
+        125
+      ],
+      "area": 88750,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:03",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 184,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        225,
+        673,
+        717,
+        124
+      ],
+      "area": 88908,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:04",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 185,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        224,
+        812,
+        717,
+        127
+      ],
+      "area": 91059,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:05",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 186,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        221,
+        947,
+        708,
+        126
+      ],
+      "area": 89208,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:06",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 187,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        221,
+        1090,
+        709,
+        129
+      ],
+      "area": 91461,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:07",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 188,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        222,
+        1231,
+        707,
+        132
+      ],
+      "area": 93324,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:08",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 189,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        221,
+        1370,
+        713,
+        125
+      ],
+      "area": 89125,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:09",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 190,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        222,
+        1511,
+        710,
+        129
+      ],
+      "area": 91590,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:10",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 191,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        225,
+        1651,
+        710,
+        125
+      ],
+      "area": 88750,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:11",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 192,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        221,
+        1793,
+        711,
+        127
+      ],
+      "area": 90297,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:12",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 193,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1009,
+        247,
+        708,
+        123
+      ],
+      "area": 87084,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:13",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 194,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1010,
+        387,
+        709,
+        132
+      ],
+      "area": 93588,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:14",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 195,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        530,
+        708,
+        126
+      ],
+      "area": 89208,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:15",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 196,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1008,
+        671,
+        711,
+        126
+      ],
+      "area": 89586,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:16",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 197,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1009,
+        810,
+        709,
+        132
+      ],
+      "area": 93588,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:17",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 198,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1008,
+        953,
+        712,
+        132
+      ],
+      "area": 93984,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:18",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 199,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1009,
+        1090,
+        717,
+        126
+      ],
+      "area": 90342,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:19",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 200,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1012,
+        1230,
+        708,
+        131
+      ],
+      "area": 92748,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:20",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 201,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1011,
+        1367,
+        713,
+        128
+      ],
+      "area": 91264,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:21",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 202,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1007,
+        1508,
+        708,
+        127
+      ],
+      "area": 89916,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:22",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 203,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1012,
+        1647,
+        712,
+        123
+      ],
+      "area": 87576,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:23",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 204,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1010,
+        1787,
+        714,
+        126
+      ],
+      "area": 89964,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:24",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 205,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1792,
+        252,
+        717,
+        131
+      ],
+      "area": 93927,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:25",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 206,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1791,
+        390,
+        707,
+        132
+      ],
+      "area": 93324,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:26",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 207,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1797,
+        529,
+        716,
+        124
+      ],
+      "area": 88784,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:27",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 208,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1796,
+        667,
+        716,
+        129
+      ],
+      "area": 92364,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:28",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 209,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1796,
+        809,
+        716,
+        132
+      ],
+      "area": 94512,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:29",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 210,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1797,
+        947,
+        714,
+        130
+      ],
+      "area": 92820,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:30",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 211,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1795,
+        1088,
+        716,
+        124
+      ],
+      "area": 88784,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:31",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 212,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1795,
+        1231,
+        716,
+        126
+      ],
+      "area": 90216,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:32",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 213,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1794,
+        1373,
+        710,
+        123
+      ],
+      "area": 87330,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:33",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 214,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1795,
+        1507,
+        709,
+        129
+      ],
+      "area": 91461,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:34",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 215,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1795,
+        1649,
+        712,
+        130
+      ],
+      "area": 92560,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:35",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 216,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        1797,
+        1793,
+        712,
+        127
+      ],
+      "area": 90424,
+      "iscrowd": 0,
+      "question_key": "synthetic:ipad_landscape_three_column_36:2:36",
+      "source_filename": "ipad_landscape_three_column_36_02_e9fdc0dd.jpg"
+    },
+    {
+      "id": 217,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        179,
+        346,
+        816,
+        190
+      ],
+      "area": 155040,
+      "iscrowd": 0,
+      "question_key": "layout:1:87,127,398,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 218,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        176,
+        563,
+        814,
+        190
+      ],
+      "area": 154660,
+      "iscrowd": 0,
+      "question_key": "layout:2:86,206,397,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 219,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        178,
+        784,
+        816,
+        192
+      ],
+      "area": 156672,
+      "iscrowd": 0,
+      "question_key": "layout:3:87,287,398,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 220,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        175,
+        1005,
+        817,
+        194
+      ],
+      "area": 158498,
+      "iscrowd": 0,
+      "question_key": "layout:4:85,368,399,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 221,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        177,
+        1221,
+        822,
+        193
+      ],
+      "area": 158646,
+      "iscrowd": 0,
+      "question_key": "layout:5:86,447,401,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 222,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        179,
+        1437,
+        824,
+        198
+      ],
+      "area": 163152,
+      "iscrowd": 0,
+      "question_key": "layout:6:87,526,402,72:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 223,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        178,
+        1657,
+        819,
+        190
+      ],
+      "area": 155610,
+      "iscrowd": 0,
+      "question_key": "layout:7:87,607,400,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 224,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        174,
+        1881,
+        820,
+        193
+      ],
+      "area": 158260,
+      "iscrowd": 0,
+      "question_key": "layout:8:85,689,400,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 225,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        178,
+        2100,
+        816,
+        192
+      ],
+      "area": 156672,
+      "iscrowd": 0,
+      "question_key": "layout:9:87,769,398,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 226,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        179,
+        2319,
+        822,
+        192
+      ],
+      "area": 157824,
+      "iscrowd": 0,
+      "question_key": "layout:10:87,849,401,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 227,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        344,
+        824,
+        195
+      ],
+      "area": 160680,
+      "iscrowd": 0,
+      "question_key": "layout:11:512,126,402,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 228,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        566,
+        814,
+        196
+      ],
+      "area": 159544,
+      "iscrowd": 0,
+      "question_key": "layout:12:514,207,397,72:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 229,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1052,
+        784,
+        824,
+        193
+      ],
+      "area": 159032,
+      "iscrowd": 0,
+      "question_key": "layout:13:514,287,402,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 230,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        1002,
+        825,
+        191
+      ],
+      "area": 157575,
+      "iscrowd": 0,
+      "question_key": "layout:14:514,367,403,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 231,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        1219,
+        825,
+        198
+      ],
+      "area": 163350,
+      "iscrowd": 0,
+      "question_key": "layout:15:514,446,403,72:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 232,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        1439,
+        822,
+        198
+      ],
+      "area": 162756,
+      "iscrowd": 0,
+      "question_key": "layout:16:513,527,401,72:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 233,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        1658,
+        823,
+        193
+      ],
+      "area": 158839,
+      "iscrowd": 0,
+      "question_key": "layout:17:513,607,402,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 234,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1047,
+        1877,
+        823,
+        191
+      ],
+      "area": 157193,
+      "iscrowd": 0,
+      "question_key": "layout:18:511,687,402,70:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 235,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        2096,
+        825,
+        196
+      ],
+      "area": 161700,
+      "iscrowd": 0,
+      "question_key": "layout:19:513,767,403,72:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 236,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        2319,
+        825,
+        195
+      ],
+      "area": 160875,
+      "iscrowd": 0,
+      "question_key": "layout:20:512,849,403,71:notext",
+      "source_filename": "ipad_weak_textless_20_01_155a8456.jpg"
+    },
+    {
+      "id": 237,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        151,
+        321,
+        850,
+        196
+      ],
+      "area": 166600,
+      "iscrowd": 0,
+      "question_key": "layout:1:74,117,415,72:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 238,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        151,
+        542,
+        850,
+        202
+      ],
+      "area": 171700,
+      "iscrowd": 0,
+      "question_key": "layout:2:74,198,415,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 239,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        153,
+        771,
+        850,
+        203
+      ],
+      "area": 172550,
+      "iscrowd": 0,
+      "question_key": "layout:3:75,282,415,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 240,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        150,
+        992,
+        843,
+        197
+      ],
+      "area": 166071,
+      "iscrowd": 0,
+      "question_key": "layout:4:73,363,412,72:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 241,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        153,
+        1218,
+        841,
+        202
+      ],
+      "area": 169882,
+      "iscrowd": 0,
+      "question_key": "layout:5:75,446,411,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 242,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        154,
+        1446,
+        840,
+        199
+      ],
+      "area": 167160,
+      "iscrowd": 0,
+      "question_key": "layout:6:75,529,410,73:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 243,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        150,
+        1667,
+        845,
+        202
+      ],
+      "area": 170690,
+      "iscrowd": 0,
+      "question_key": "layout:7:73,610,413,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 244,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        150,
+        1893,
+        846,
+        195
+      ],
+      "area": 164970,
+      "iscrowd": 0,
+      "question_key": "layout:8:73,693,413,71:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 245,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        150,
+        2122,
+        849,
+        203
+      ],
+      "area": 172347,
+      "iscrowd": 0,
+      "question_key": "layout:9:73,777,415,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 246,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        151,
+        2341,
+        839,
+        201
+      ],
+      "area": 168639,
+      "iscrowd": 0,
+      "question_key": "layout:10:74,857,410,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 247,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        319,
+        841,
+        204
+      ],
+      "area": 171564,
+      "iscrowd": 0,
+      "question_key": "layout:11:514,117,411,75:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 248,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        545,
+        841,
+        198
+      ],
+      "area": 166518,
+      "iscrowd": 0,
+      "question_key": "layout:12:513,199,411,72:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 249,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1050,
+        772,
+        845,
+        204
+      ],
+      "area": 172380,
+      "iscrowd": 0,
+      "question_key": "layout:13:513,283,413,75:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 250,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        992,
+        846,
+        196
+      ],
+      "area": 165816,
+      "iscrowd": 0,
+      "question_key": "layout:14:515,363,413,72:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 251,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        1219,
+        840,
+        197
+      ],
+      "area": 165480,
+      "iscrowd": 0,
+      "question_key": "layout:15:515,446,410,72:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 252,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        1442,
+        842,
+        195
+      ],
+      "area": 164190,
+      "iscrowd": 0,
+      "question_key": "layout:16:515,528,411,71:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 253,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1051,
+        1667,
+        841,
+        200
+      ],
+      "area": 168200,
+      "iscrowd": 0,
+      "question_key": "layout:17:513,610,411,73:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 254,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1048,
+        1894,
+        848,
+        204
+      ],
+      "area": 172992,
+      "iscrowd": 0,
+      "question_key": "layout:18:512,693,414,75:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 255,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1054,
+        2122,
+        842,
+        201
+      ],
+      "area": 169242,
+      "iscrowd": 0,
+      "question_key": "layout:19:515,777,411,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    },
+    {
+      "id": 256,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        1053,
+        2347,
+        846,
+        202
+      ],
+      "area": 170892,
+      "iscrowd": 0,
+      "question_key": "layout:20:514,859,413,74:notext",
+      "source_filename": "ipad_weak_textless_20_02_b46b9e37.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ],
+  "info": {
+    "description": "Synthetic dense diagnostic fixture; not production training data."
+  }
+}

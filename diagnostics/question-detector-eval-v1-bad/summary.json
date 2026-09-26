@@ -1,0 +1,111 @@
+{
+  "primary_threshold": 0.5,
+  "thresholds": {
+    "0.50": {
+      "gt_count": 17,
+      "pred_count": 16,
+      "matched": 15,
+      "missed": 2,
+      "false_positive": 1,
+      "precision": 0.9375,
+      "recall": 0.8824,
+      "f1": 0.9091,
+      "mean_matched_iou": 1.0,
+      "problem_images": {
+        "1": {
+          "file_name": "images/test/57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+          "matches": [],
+          "false_positives": [
+            {
+              "pred_index": 0,
+              "score": 0.8833333353201548,
+              "bbox": [
+                640.0,
+                1069.0,
+                1607.0,
+                349.0
+              ],
+              "best_iou": 0.300704658134919
+            }
+          ],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                527.0,
+                703.0,
+                1358.0,
+                971.0
+              ],
+              "question_key": "6有31天的月份是大月有911月都有30天2月份的天30天的月份是小月2月数不一"
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                140.0,
+                669.0,
+                1607.0,
+                349.0
+              ],
+              "question_key": "135781012都有月31天4"
+            }
+          ]
+        }
+      }
+    },
+    "0.75": {
+      "gt_count": 17,
+      "pred_count": 16,
+      "matched": 15,
+      "missed": 2,
+      "false_positive": 1,
+      "precision": 0.9375,
+      "recall": 0.8824,
+      "f1": 0.9091,
+      "mean_matched_iou": 1.0,
+      "problem_images": {
+        "1": {
+          "file_name": "images/test/57e0922420c1c1f5_f472f00ba1db4a43bbb41330d54477a8_4d9c14bc5b1944df875532ae73dcd83d_f4c28b66b5a945.jpg",
+          "matches": [],
+          "false_positives": [
+            {
+              "pred_index": 0,
+              "score": 0.8833333353201548,
+              "bbox": [
+                640.0,
+                1069.0,
+                1607.0,
+                349.0
+              ],
+              "best_iou": 0.300704658134919
+            }
+          ],
+          "missed": [
+            {
+              "gt_index": 0,
+              "bbox": [
+                527.0,
+                703.0,
+                1358.0,
+                971.0
+              ],
+              "question_key": "6有31天的月份是大月有911月都有30天2月份的天30天的月份是小月2月数不一"
+            },
+            {
+              "gt_index": 1,
+              "bbox": [
+                140.0,
+                669.0,
+                1607.0,
+                349.0
+              ],
+              "question_key": "135781012都有月31天4"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pass_recall_95": false,
+  "pass_precision_90": true
+}

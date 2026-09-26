@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-06-30T15:38:39.557008+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-001",
+  "candidate_count": 557,
+  "selected_images": 5,
+  "selected_boxes": 120,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 82,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 42,
+    "no_boxes": 1
+  },
+  "selection": {
+    "max_per_session": 4,
+    "max_boxes_total": 120,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "2154c8578d1443929a1825907f5e6cf6": 1,
+      "4dd68b59b935466195b05543c884ff15": 2,
+      "6818143990c546fcb999a04621adc0be": 1,
+      "f7a7d1b8d4c4452382320a4db6e5ba6a": 1
+    },
+    "reason_counts": {
+      "dense_text": 2,
+      "flag:few_text_lines": 5,
+      "flag:page:full_image_fallback": 5,
+      "multi_box_page": 5,
+      "small_box": 5
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

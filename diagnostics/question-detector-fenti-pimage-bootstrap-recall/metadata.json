@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-07-01T13:39:45.953295+00:00",
+  "inputs": {
+    "prelabel_roots": [
+      "diagnostics\\question-detector-fenti-pimage-prelabel"
+    ],
+    "approved_jsonl": [],
+    "negative_images_dir": []
+  },
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 557,
+      "positive_images": 200,
+      "negative_images": 357,
+      "annotations": 562,
+      "human_reviewed_annotations": 0,
+      "pseudo_annotations": 562,
+      "split_groups": 557
+    },
+    "split_counts": {
+      "train": {
+        "images": 378,
+        "positive_images": 133,
+        "negative_images": 245,
+        "annotations": 390,
+        "groups": 378
+      },
+      "val": {
+        "images": 103,
+        "positive_images": 37,
+        "negative_images": 66,
+        "annotations": 94,
+        "groups": 103
+      },
+      "test": {
+        "images": 76,
+        "positive_images": 30,
+        "negative_images": 46,
+        "annotations": 78,
+        "groups": 76
+      }
+    },
+    "bootstrap": {
+      "min_draft_score": 0.45,
+      "min_area_ratio": 0.002,
+      "max_area_ratio": 0.62,
+      "reject_quality_flags": [
+        "few_text_lines",
+        "near_full_page",
+        "short_block",
+        "single_union_fallback"
+      ],
+      "stats": {
+        "approved": {},
+        "draft": {
+          "accepted_labels": 562,
+          "rejected:low_score": 136,
+          "accepted_images": 200,
+          "rejected:large_area": 92,
+          "rejected:rejected_flag:near_full_page": 307,
+          "rejected:rejected_flag:short_block": 4,
+          "rejected:rejected_flag:few_text_lines": 127,
+          "rejected:extreme_aspect": 87,
+          "rejected:tiny_side": 2
+        },
+        "negative": {}
+      }
+    },
+    "warnings": [
+      {
+        "code": "bootstrap_dataset_not_release_ready",
+        "severity": "warning",
+        "detail": "This dataset contains pseudo labels and is forced to model_training_ready=false. Use it for exploration and active learning only."
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+ "count": 3,
+ "questions": [
+  {
+   "id": "1",
+   "text": "一、看拼音，写词语。chuán sháo xiào tìng diàn zi qí dǎo 船  小  跳 起 垫 子 祈 祷 bào mǔ huá xiào gù yòng mǎ tóu yí tài 保 姆 哗 笑 雇 佣 码 头 仪 态 yuǎn tiào bān dèng líng dang tī dǎ huī fù 远 眺 板 凳 铃 铛 踢 打 恢 复 tiě guàn shèng chù shǔ yú chéng jì tíng bó 铁 罐 胜 地 属 于 成 绩 停 泊 lǎng zhào duān zhuāng yǎn dēng tǎ zàn xǔ 朗 照 端 庄 遮 掩 灯 塔 赞 许 zǔ dǎng wēi ní sī shǒu máng jiǎo luàn 阻 挡 威 尼 斯 手 忙 脚 乱",
+   "type": "fill",
+   "bbox": [
+    332,
+    183,
+    620,
+    566
+   ],
+   "nbox": [
+    0.2075,
+    0.2033,
+    0.3875,
+    0.6289
+   ]
+  },
+  {
+   "id": "2",
+   "text": "2. liáo kuò 列车经过 辽 阔 的草原和静谧的贝加尔湖，到达莫斯科。一路上，我看到了自",
+   "type": "fill",
+   "bbox": [
+    332,
+    582,
+    620,
+    638
+   ],
+   "nbox": [
+    0.2075,
+    0.6467,
+    0.3875,
+    0.7089
+   ]
+  },
+  {
+   "id": "3",
+   "text": "3. fēi chí jùn mǎ mián yáng yǎo he 由 飞 驰 的 骏 马 ，悠闲吃草的 绵 羊 ，不停 吆 喝 的 骏 cù yōng 牧羊人，以及纵横交错的铁轨。白日里，人们 簇 拥 在窗边，欣赏窗外的美景。夜 chén shuì 晚，火车上的人们纷纷陷入了 沉 睡 。",
+   "type": "fill",
+   "bbox": [
+    332,
+    642,
+    620,
+    876
+   ],
+   "nbox": [
+    0.2075,
+    0.7133,
+    0.3875,
+    0.9733
+   ]
+  }
+ ],
+ "_meta": {
+  "w": 1920,
+  "h": 1080,
+  "sent_w": 1600,
+  "sent_h": 900,
+  "sec": 11.1,
+  "finish": "stop"
+ }
+}

@@ -1,0 +1,1979 @@
+{
+  "info": {
+    "description": "PXJ question detector CV fold 2 all",
+    "version": "cv1",
+    "generated_at": "2026-06-30T06:01:50.690194+00:00",
+    "source_dataset": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact"
+  },
+  "images": [
+    {
+      "id": 3,
+      "file_name": "images/train/138ac138412f5dac__7aac04fbb7133ff1_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "train",
+      "split_key": "3bfe41336fa84b39b3fb917c412e457c",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+      "source_filename": "3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 6,
+      "file_name": "images/train/6bc3c3dd60527d6e__17e0893dcd1909a3_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "train",
+      "split_key": "379f8544b02542c6afdc5a56788605e7",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "source_filename": "379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 7,
+      "file_name": "images/train/1f6c07e94505543f__1937f6b09fdf070d_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f30bc72842f540.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f30bc72842f5406ebac45d0bce4d1325.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f30bc72842f5406ebac45d0bce4d1325.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 11,
+      "file_name": "images/train/0806a95e61aeacf3__26ac30f4ecab3297_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b4175640.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b41756402aa57c15b2d4a4b299.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_ae6d45b41756402aa57c15b2d4a4b299.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 13,
+      "file_name": "images/train/31cef637216e220e__2d39dc9e21be4e10_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804db4bb9f20708f13ac09.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_4d7ae3baf5804db4bb9f20708f13ac09.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 18,
+      "file_name": "images/train/a2cc09c62e33e5b4__3c1497a6ade2b2ea_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_a62e7f1b98714ce4ba7d614374516bcb.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 20,
+      "file_name": "images/train/90f3302bbcc6e9fa__4152f5cae8991281_3bd516fa79e355ec_f4054bcce9c1766d_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "source_filename": "3bd516fa79e355ec_f4054bcce9c1766d_6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b9.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 21,
+      "file_name": "images/train/786348d5b846dbfb__41df1c2446a3b166_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b45a020b6176c2c20d9.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6ce30a02cf6b4b45a020b6176c2c20d9.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 23,
+      "file_name": "images/train/af1206d428cf8e6b__457f7d11be6dd2bc_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade6848.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_7441574ade68483da825ce42a1c7ca81.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 28,
+      "file_name": "images/train/46b29a43da1de396__5be2898544785a05_3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "3352f09b2537c729",
+      "source_key": "reviewed_prelabel:3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26",
+      "source_filename": "3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 30,
+      "file_name": "images/train/c9fdee75043a3fc9__63afb4448d9db62d_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "5550267ee5ca4f01914ac5c705f4c74c",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4fb4b9782045b5810865.jpg",
+      "source_filename": "5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_ef5e58cf3d3b4fb4b9782045b5810865.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 31,
+      "file_name": "images/train/bfa1cfe52a6a4aa8__667b01af4ec3f83f_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864ea5964e3d1e7b8af0b8.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_6748c853de864ea5964e3d1e7b8af0b8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 32,
+      "file_name": "images/train/09963d166f1d922b__6da26a10bfe0a026_e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643019d286e968ff533b7.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_9f2d6d9ea0884fc3bd2a53fc89854826_bd4a9dfde71643019d286e968ff533b7.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 33,
+      "file_name": "images/train/9412378d4455b8f2__6ec0fc07f72a184a_1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb69360846.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "1babc6ec51dd4448a30ae26a8dbcfe1f",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb693608463e9e14ae46d5ddc6ca.jpg",
+      "source_filename": "1babc6ec51dd4448a30ae26a8dbcfe1f_ec94a56997dd4a6db6dcc25ab9a3d3ae_dc89eb693608463e9e14ae46d5ddc6ca.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 36,
+      "file_name": "images/train/97f4490315bc6a1d__78abc9cec683460c_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c9905091648.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "5550267ee5ca4f01914ac5c705f4c74c",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c990509164853bcd5efe5a8496ce2.jpg",
+      "source_filename": "5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_a21c990509164853bcd5efe5a8496ce2.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 40,
+      "file_name": "images/train/964ea40746c67d33__85e706f7e37e8f83_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d40.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d4046a1f7384187b991fd.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_375da7a08e6d4046a1f7384187b991fd.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 41,
+      "file_name": "images/train/de28a8f313a42c0c__865b8b047211e0d6_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b747.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b7474b9c435dbcd634c86a.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_fd8da340a4b7474b9c435dbcd634c86a.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 42,
+      "file_name": "images/train/8d5fccbdb83ef62e__87ead53619c6e671_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544c7bedd286e542b93a9.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544c7bedd286e542b93a9.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 44,
+      "file_name": "images/train/4847b29e8ae44e1f__8b3bfb567bfd89eb_e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "e0243d0aa8e54be2b6d434f9cebe5024",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49e7a0b528cf19df5705.jpg",
+      "source_filename": "e0243d0aa8e54be2b6d434f9cebe5024_f594cde6bebf418ba7a0107ff11c8fb7_b5f25257359d49e7a0b528cf19df5705.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 46,
+      "file_name": "images/train/a3d1026b2cd776e8__9418ef6c102e071c_5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "train",
+      "split_key": "5417041672e14628af2d7e587202d90e",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "source_filename": "5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 47,
+      "file_name": "images/train/8db5a33e9054a490__950f6af4ff39ac5e_d492203cb82a4cc1_d82621fd1de40df8_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b789.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "0091c3c060dc4fabb579ff041d856fb2",
+      "source_key": "reviewed_prelabel:7a52a0b7895148e886837854efe660be",
+      "source_filename": "d492203cb82a4cc1_d82621fd1de40df8_0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 48,
+      "file_name": "images/train/f4d1003d1af9e6d4__97a5c9bef739858d_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541e587a814ed6cda6b25.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_c6702f74888541e587a814ed6cda6b25.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 50,
+      "file_name": "images/train/52e780b90c459257__9bb22490abebee11_5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "5550267ee5ca4f01914ac5c705f4c74c",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e62923a2c0ead5548d9.jpg",
+      "source_filename": "5550267ee5ca4f01914ac5c705f4c74c_373f34db49e2452391523f61e0dad86e_dfbf9207a0b84e62923a2c0ead5548d9.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 52,
+      "file_name": "images/train/f972a53cf5ea508f__9d9c89644276eb2f_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f0554998314646.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f05549983146460fa285bcfd008e20aa.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_f05549983146460fa285bcfd008e20aa.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 53,
+      "file_name": "images/train/3027de9fbf476c9c__a32037c7557f3fc3_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "train",
+      "split_key": "fbbe6f5e26db40abb735d4b4efac3df8",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "source_filename": "fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 54,
+      "file_name": "images/train/2fcc8fa1f3978d82__a5053a612742b239_1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_990a5ce0a4af44.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "1babc6ec51dd4448a30ae26a8dbcfe1f",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_990a5ce0a4af44218df4f575fad1918f.jpg",
+      "source_filename": "1babc6ec51dd4448a30ae26a8dbcfe1f_6de89fa774d1471591b588958ec74472_990a5ce0a4af44218df4f575fad1918f.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 59,
+      "file_name": "images/train/05502717b090bc23__ae79ab62d15f4e2f_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_dc3c51bc91f147.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_dc3c51bc91f147e99090f3975096a81d.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_dc3c51bc91f147e99090f3975096a81d.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 60,
+      "file_name": "images/train/4f8b786dc9941416__b199b646c5c69940_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c8d8dd945299fc492e6.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_0b86b960d1884c8d8dd945299fc492e6.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 61,
+      "file_name": "images/train/8ff02938662ae944__b9a27694845715b6_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845fea4607ad1be776e2e.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_62573860bad845fea4607ad1be776e2e.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 63,
+      "file_name": "images/train/228df4a3fda6f165__bc2c4477005df3de_5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "5550267ee5ca4f01914ac5c705f4c74c",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a77937b891091c091cd.jpg",
+      "source_filename": "5550267ee5ca4f01914ac5c705f4c74c_315787f452294167bce5fba39a4509d0_7f2fcc7427024a77937b891091c091cd.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 65,
+      "file_name": "images/train/c676d65fa975bd31__c962e2ff260ed0f2_080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794da4bab8896f1f1eeb23.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_a2895dbc6f8046589fb22f9a062b61b7_f9ce832097794da4bab8896f1f1eeb23.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 66,
+      "file_name": "images/train/8755ab5a374d5633__d5cfc6072b9d71ce_080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc44.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc4448838e6aadf0b3fd34.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_276f6bd5c2c945c2878dc6c24eefaf41_dbdf0bdc6cbc4448838e6aadf0b3fd34.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 67,
+      "file_name": "images/train/87c59541cffd284f__e308ed7036c48203_080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "080ba36428c64a3698f28510e6e87955",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44f08492672acbc3109e.jpg",
+      "source_filename": "080ba36428c64a3698f28510e6e87955_210d3623c69a4c5295a60788fabb4109_7afadd01145a44f08492672acbc3109e.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 71,
+      "file_name": "images/train/90e7eb44178491ed__2b2cd29e8ac66378_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04bd0ab60a063b20ceada.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_6bf1a76cadc04bd0ab60a063b20ceada.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 72,
+      "file_name": "images/train/ffa745fa76b2d68a__47458c71efd58571_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff4919854d2c391d61bcd8.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff4919854d2c391d61bcd8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 73,
+      "file_name": "images/train/3b4e42daf1d7e04f__4c0d9d0abe28ae6a_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_7cd37e7464a94f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_7cd37e7464a94f638d6ba4bb0f52e3a6.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_7cd37e7464a94f638d6ba4bb0f52e3a6.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 74,
+      "file_name": "images/train/e37dc6b6785488b3__4ff336e5988c208a_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "train",
+      "split_key": "b8e26671dfc145a3a5c521c5971db4a5",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "source_filename": "b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 75,
+      "file_name": "images/train/7e88158ae094b8c4__5cd2ba50d9763778_3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b9ebdef276016bbfd9f.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_2f375b1fe80b45878be8415918e7f850_fc7e4294c6cc4b9ebdef276016bbfd9f.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 76,
+      "file_name": "images/train/f42be6afe97571f0__6ad611f992cc0c1e_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_25697f28b85740b5912eb5d4786c963f.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 78,
+      "file_name": "images/train/55dfc8f036fa6354__7c23033581a4b316_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_bef0d878469247.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_bef0d8784692476495049bed65f52bc8.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_bef0d8784692476495049bed65f52bc8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 79,
+      "file_name": "images/train/4316bb4a295a4eeb__a4dc5c0c00c43ddc_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a04be3ed273929cbd5b.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a04be3ed273929cbd5b.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 82,
+      "file_name": "images/train/8c729690860b635b__b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4cc8a30877b31647f007.jpg",
+      "source_filename": "91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4cc8a30877b31647f007.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 83,
+      "file_name": "images/train/404f8805095460f5__b2974545aa3b4996_599c65086818a8c9_b04a9ada1d6c0fbd_bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "reviewed_prelabel:df794af96c0e4650aafdd201597f8623",
+      "source_filename": "599c65086818a8c9_b04a9ada1d6c0fbd_bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 1,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed"
+      ]
+    },
+    {
+      "id": 84,
+      "file_name": "images/train/3d79bb9f2ef53295__c79b61ad5aab3e59_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c489bbee200386727962b.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 85,
+      "file_name": "images/train/bbf986da5c9d2821__dcbad9b33559cc5a_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece45.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "3c06e705248e4093b5e4a0bbf8f864b6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece456abc3e95dc094e6fe8.jpg",
+      "source_filename": "3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_db893a544ece456abc3e95dc094e6fe8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 86,
+      "file_name": "images/train/5df08d0eb69a7337__e01da21302e3e928_9d45fe8a311d3fce_e737e433135eb1ca_91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e5.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc",
+      "source_key": "reviewed_prelabel:744c6a57e562485bb220f20b7339025d",
+      "source_filename": "9d45fe8a311d3fce_e737e433135eb1ca_91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b733.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 87,
+      "file_name": "images/train/b22449c3cc2ed6db__f232779639817bd4_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_d8ebea2bef1f4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_d8ebea2bef1f4f91b64a7cfc50919ee6.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_d8ebea2bef1f4f91b64a7cfc50919ee6.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 88,
+      "file_name": "images/train/2cd1a7a6d883f5e6__f4805346cf11010f_91cf7b7586424ce3a308b42daf0ee2fc_dd2f5d1903ec4117b33a02e08f0b7179_43ba1101c2b944.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\91cf7b7586424ce3a308b42daf0ee2fc_dd2f5d1903ec4117b33a02e08f0b7179_43ba1101c2b9449c90c44f69e310def0.jpg",
+      "source_filename": "91cf7b7586424ce3a308b42daf0ee2fc_dd2f5d1903ec4117b33a02e08f0b7179_43ba1101c2b9449c90c44f69e310def0.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 89,
+      "file_name": "images/train/f7806a13c08605ad__f7dbdb4f774922e4_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b82544.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "train",
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg",
+      "source_filename": "bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b825445a89f937aa6cc6b9f0.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 1,
+      "file_name": "images/val/78469665846c86ae__3a086344426e3f06_caf309019d9cb6a6_52c32de44722cc04_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:a1b072dbd80348609b9f3094cb9c9479",
+      "source_filename": "caf309019d9cb6a6_52c32de44722cc04_f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c8.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 1,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed"
+      ]
+    },
+    {
+      "id": 2,
+      "file_name": "images/val/ee3a3b5cbca20f22__41bd608206083e1f_c8821fcfc9fcc6dc_3ba77ada0db6da74_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "val",
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "source_filename": "c8821fcfc9fcc6dc_3ba77ada0db6da74_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce4.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 4,
+      "file_name": "images/test/f47af17d2a3c812e__0d30acec9f0d24ba_7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a.jpg",
+      "width": 3200,
+      "height": 1104,
+      "split": "test",
+      "split_key": "7b52307769aa2a81",
+      "source_key": "reviewed_prelabel:7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c",
+      "source_filename": "7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 5,
+      "file_name": "images/test/909cac66ecd2553f__1331882f31199d39_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45f8bd5a6afef79e37d1.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 8,
+      "file_name": "images/test/753279e5aa6aa99b__1d1b428ce7baaed1_2c748f99b26a3540_f197b2027c52a307_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c.jpg",
+      "width": 3200,
+      "height": 1104,
+      "split": "test",
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "source_filename": "2c748f99b26a3540_f197b2027c52a307_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e016.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl",
+      "label_count": 2,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ]
+    },
+    {
+      "id": 9,
+      "file_name": "images/test/3fcf00468a0b0a2e__24d3bdff8e3870f2_4dd68b59b935466195b05543c884ff15_eb93b8bcf0d641c69c8a4d5a97309d50_b22703e662484c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_eb93b8bcf0d641c69c8a4d5a97309d50_b22703e662484c8d9b747aacdefc4125.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_eb93b8bcf0d641c69c8a4d5a97309d50_b22703e662484c8d9b747aacdefc4125.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 10,
+      "file_name": "images/test/39299a0442636b16__261aff75faf46673_9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "9739d42380894e228318d05d0f6767a7",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg",
+      "source_filename": "9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 12,
+      "file_name": "images/test/08509df0229bbfd3__271943e09ea9abd6_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4cbfa8b7438220ec1ad1.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 14,
+      "file_name": "images/test/22597f442426b087__2e69d9986d0cf440_b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f499a2e3c72d300b5ef.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_667270b9e3cc4f499a2e3c72d300b5ef.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 15,
+      "file_name": "images/test/1f695d2bdf878fb8__3251d020c3150251_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_017a8b65990e49.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_017a8b65990e493d8324b985b3014596.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_017a8b65990e493d8324b985b3014596.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 16,
+      "file_name": "images/test/913210f37e21eea4__32de8f2296eb0f9d_b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d41.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d411a9bb10211a3c3e500.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d411a9bb10211a3c3e500.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 17,
+      "file_name": "images/test/6b59b682ad3efe8c__3a1a80f0d4a03072_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045e58bbf2e9c2ae37734.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045e58bbf2e9c2ae37734.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 19,
+      "file_name": "images/test/f3200c240ae58f65__4050f23be19eba27_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed45.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed450d9a33331b519e626d.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed450d9a33331b519e626d.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 22,
+      "file_name": "images/test/a071dbb2c02f7a81__43897b8159895fa8_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "width": 3200,
+      "height": 1800,
+      "split": "test",
+      "split_key": "214e4c656cd948fa9db51d9972291cc1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "source_filename": "214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 24,
+      "file_name": "images/test/df363f0ee9fcdaad__4aa9c0c9ac19c6ff_b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab9976845.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab99768457592342c9f708c56ac.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 25,
+      "file_name": "images/test/95044e0b949dacd9__4bd0c64661fbb5b0_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ad01c2e0f9794b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ad01c2e0f9794bd2a6f2bc98d405994b.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ad01c2e0f9794bd2a6f2bc98d405994b.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 26,
+      "file_name": "images/test/fdf0a4515d7f2980__4e2a3a9e7cc34605_4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e4f878a60a5b92da162.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e4f878a60a5b92da162.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 27,
+      "file_name": "images/test/8a675569b930712b__51779ecdfe75c1f4_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f79581abf74b4d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f79581abf74b4d6ab4cf3d870036c4ce.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f79581abf74b4d6ab4cf3d870036c4ce.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 29,
+      "file_name": "images/test/959f5275e93310fc__60c55207832ce8a4_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4fb6831ef5acfe9c9675.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4fb6831ef5acfe9c9675.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 34,
+      "file_name": "images/test/71d386c1e680eda2__76fccc988fe00885_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040f1b974d6d71471ac02.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040f1b974d6d71471ac02.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 35,
+      "file_name": "images/test/2b4e587c74ecc1d7__77d0e695b5d4d2bf_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_256b74e7dbf845.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_256b74e7dbf8451d8dc8d963dc181b8c.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_256b74e7dbf8451d8dc8d963dc181b8c.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 37,
+      "file_name": "images/test/0dd5634a4dbd1583__795544e0f78d507e_b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c138d538802d99b0072.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_fc5e699878a94fe594bf4b30fcd20813_e3e4b44e4b2a4c138d538802d99b0072.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 38,
+      "file_name": "images/test/13ea06f7dd078c85__80ef2de71e693675_4dd68b59b935466195b05543c884ff15_efc6a1935b5143cb97a0358fa3585a74_47c2a43d787143.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_efc6a1935b5143cb97a0358fa3585a74_47c2a43d787143edb7b3f210b58edaf3.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_efc6a1935b5143cb97a0358fa3585a74_47c2a43d787143edb7b3f210b58edaf3.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 39,
+      "file_name": "images/test/bc88741d49f0356e__819c1bcb6b3d163d_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c53478c9783f70b07a3b8e8.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c53478c9783f70b07a3b8e8.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 43,
+      "file_name": "images/test/0ee3604b68e6139a__88a2fe55b53c5d94_b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d56af60f5b1cc5f377e.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d56af60f5b1cc5f377e.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 45,
+      "file_name": "images/test/0cf216d086e2e4d2__8c01d3741cdc94d4_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84ae5bdaaa3db3bc56722.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84ae5bdaaa3db3bc56722.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 49,
+      "file_name": "images/test/5c4dde810e3639cd__9a2aaf65d3ac17d8_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b38a17a8862f18bd2a1.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b38a17a8862f18bd2a1.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 51,
+      "file_name": "images/test/09e0d955b6da2624__9c909fd7337a5e68_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149e8b2cc8c8af5ddb3c0.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_ece30d1f23f149e8b2cc8c8af5ddb3c0.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 55,
+      "file_name": "images/test/548a12f571b29b85__a78125c1372f034a_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f7c8c1f168854f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f7c8c1f168854f90be9051e01932bdd2.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_f7c8c1f168854f90be9051e01932bdd2.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 56,
+      "file_name": "images/test/c5bab58baff9eb5f__a9163093d233bd28_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141b6bb44441e4396ce77.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141b6bb44441e4396ce77.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 57,
+      "file_name": "images/test/7c9504d809c8e8bf__abe1d7daf09ac480_b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_a08c1531d93e4e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_a08c1531d93e4e6aa158e31fd016ebf3.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_0763967f76724af893f19e1af2e03116_a08c1531d93e4e6aa158e31fd016ebf3.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 58,
+      "file_name": "images/test/4932f5d6b482039c__acc695430c346ce0_4dd68b59b935466195b05543c884ff15_ef6f8a2348c94201a835c5f26d3a1486_986da65e0bfe41.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_ef6f8a2348c94201a835c5f26d3a1486_986da65e0bfe41618aeb4c4571f6d956.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_ef6f8a2348c94201a835c5f26d3a1486_986da65e0bfe41618aeb4c4571f6d956.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 62,
+      "file_name": "images/test/a920b288935c9465__ba911c4756c5ef9f_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd146.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd1469d84a61b20c8756126.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 64,
+      "file_name": "images/test/48bc0fadbf0663a0__bd272220132f4f15_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_07ebf4e98bba4f.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_07ebf4e98bba4ffba46c0a4e6114d0cc.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_07ebf4e98bba4ffba46c0a4e6114d0cc.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 68,
+      "file_name": "images/test/e720b1b8d3ad6f49__e8e85b60514195e6_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_9bfaa60139704a.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "b6f8a6accd404bfc9fb291b15cb44f09",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_9bfaa60139704a4188db5cdc9b801ef6.jpg",
+      "source_filename": "b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_9bfaa60139704a4188db5cdc9b801ef6.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 69,
+      "file_name": "images/test/e2cda8785fb47d19__f9f417ffa3829502_2154c8578d1443929a1825907f5e6cf6_6ad1dfdac8294ee3b2bc4042b532c122_a53200d2737d4e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "2154c8578d1443929a1825907f5e6cf6",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\2154c8578d1443929a1825907f5e6cf6_6ad1dfdac8294ee3b2bc4042b532c122_a53200d2737d4e279ffb0bdbcc6f9342.jpg",
+      "source_filename": "2154c8578d1443929a1825907f5e6cf6_6ad1dfdac8294ee3b2bc4042b532c122_a53200d2737d4e279ffb0bdbcc6f9342.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 70,
+      "file_name": "images/test/b93544eb985419ab__fd406a37da0c5aaf_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d740.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "4dd68b59b935466195b05543c884ff15",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d7406b9769681114685c57.jpg",
+      "source_filename": "4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_1ac1d97cc7d7406b9769681114685c57.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 77,
+      "file_name": "images/test/34eb57daae6baf78__7bc9649f42cb8961_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_e7c3ca3a9d1f47fd90579523cebe022e.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 80,
+      "file_name": "images/test/a167c393886a1fdf__a860fc028776231a_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_3c8bd7989ce040489d302a2ee4b0f30c_60a8f02ad12342e6948de219df9409d3.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    },
+    {
+      "id": 81,
+      "file_name": "images/test/06ce65bce8af6d4b__aa35f6f9bdbe3fda_7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046.jpg",
+      "width": 1920,
+      "height": 1080,
+      "split": "test",
+      "split_key": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1",
+      "source_key": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative:diagnostics\\question-detector-review-candidates-kpai\\negative\\7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046f4bf10ec3e75083ba5.jpg",
+      "source_filename": "7203fbb8dd6f4f6aa3ba9ae3cc37d2f1_bc1dc1869baf4ae0a97d101d9ea207b1_02bf1de20df046f4bf10ec3e75083ba5.jpg",
+      "origin": "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:empty_page"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 8,
+      "image_id": 20,
+      "category_id": 1,
+      "bbox": [
+        173,
+        0,
+        1443,
+        946
+      ],
+      "area": 1365078,
+      "iscrowd": 0,
+      "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 9,
+      "image_id": 20,
+      "category_id": 1,
+      "bbox": [
+        475,
+        949,
+        1137,
+        26
+      ],
+      "area": 29562,
+      "iscrowd": 0,
+      "question_key": "reviewed:7ed0d6607c6b4a1a97ac1a8e3b953c9b:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "6f1372c64b274a46be1c3ee7ee38dd96",
+      "source_key": "reviewed_prelabel:7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 10,
+      "image_id": 28,
+      "category_id": 1,
+      "bbox": [
+        196,
+        0,
+        1573,
+        619
+      ],
+      "area": 973687,
+      "iscrowd": 0,
+      "question_key": "reviewed:3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "3352f09b2537c729",
+      "source_key": "reviewed_prelabel:3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 11,
+      "image_id": 28,
+      "category_id": 1,
+      "bbox": [
+        453,
+        601,
+        1214,
+        213
+      ],
+      "area": 258582,
+      "iscrowd": 0,
+      "question_key": "reviewed:3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "3352f09b2537c729",
+      "source_key": "reviewed_prelabel:3352f09b2537c729_523d7c15e2469603_7181373df331fbd6_0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 12,
+      "image_id": 47,
+      "category_id": 1,
+      "bbox": [
+        196,
+        0,
+        1573,
+        619
+      ],
+      "area": 973687,
+      "iscrowd": 0,
+      "question_key": "reviewed:7a52a0b7895148e886837854efe660be:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "0091c3c060dc4fabb579ff041d856fb2",
+      "source_key": "reviewed_prelabel:7a52a0b7895148e886837854efe660be",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 13,
+      "image_id": 47,
+      "category_id": 1,
+      "bbox": [
+        453,
+        601,
+        1214,
+        213
+      ],
+      "area": 258582,
+      "iscrowd": 0,
+      "question_key": "reviewed:7a52a0b7895148e886837854efe660be:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "0091c3c060dc4fabb579ff041d856fb2",
+      "source_key": "reviewed_prelabel:7a52a0b7895148e886837854efe660be",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 14,
+      "image_id": 83,
+      "category_id": 1,
+      "bbox": [
+        425,
+        270,
+        957,
+        808
+      ],
+      "area": 773256,
+      "iscrowd": 0,
+      "question_key": "reviewed:df794af96c0e4650aafdd201597f8623:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "bb68c98c9ca44664b1582da1b6c2251b",
+      "source_key": "reviewed_prelabel:df794af96c0e4650aafdd201597f8623",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 15,
+      "image_id": 86,
+      "category_id": 1,
+      "bbox": [
+        512,
+        0,
+        1063,
+        63
+      ],
+      "area": 66969,
+      "iscrowd": 0,
+      "question_key": "reviewed:744c6a57e562485bb220f20b7339025d:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc",
+      "source_key": "reviewed_prelabel:744c6a57e562485bb220f20b7339025d",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 16,
+      "image_id": 86,
+      "category_id": 1,
+      "bbox": [
+        237,
+        62,
+        1348,
+        1018
+      ],
+      "area": 1372264,
+      "iscrowd": 0,
+      "question_key": "reviewed:744c6a57e562485bb220f20b7339025d:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "91cf7b7586424ce3a308b42daf0ee2fc",
+      "source_key": "reviewed_prelabel:744c6a57e562485bb220f20b7339025d",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        358,
+        0,
+        1013,
+        843
+      ],
+      "area": 853959,
+      "iscrowd": 0,
+      "question_key": "reviewed:a1b072dbd80348609b9f3094cb9c9479:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:a1b072dbd80348609b9f3094cb9c9479",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 2,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        233,
+        63,
+        1473,
+        106
+      ],
+      "area": 156138,
+      "iscrowd": 0,
+      "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 3,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        235,
+        184,
+        1472,
+        621
+      ],
+      "area": 914112,
+      "iscrowd": 0,
+      "question_key": "reviewed:3a844b21e6de497da4dbc5a4ce48baac:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+      "source_key": "reviewed_prelabel:3a844b21e6de497da4dbc5a4ce48baac",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 4,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        43,
+        267,
+        693,
+        706
+      ],
+      "area": 489258,
+      "iscrowd": 0,
+      "question_key": "reviewed:7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "7b52307769aa2a81",
+      "source_key": "reviewed_prelabel:7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 5,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        165,
+        960,
+        571,
+        144
+      ],
+      "area": 82224,
+      "iscrowd": 0,
+      "question_key": "reviewed:7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "7b52307769aa2a81",
+      "source_key": "reviewed_prelabel:7b52307769aa2a81_53c92264d2de7576_9afacaee25785f88_1f54b22aed3942caa921fe075593a550_qa_021e0fb43c",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 6,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        43,
+        267,
+        693,
+        706
+      ],
+      "area": 489258,
+      "iscrowd": 0,
+      "question_key": "reviewed:021e0fb43c534d91987da51e01694d8f:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 7,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        165,
+        960,
+        571,
+        144
+      ],
+      "area": 82224,
+      "iscrowd": 0,
+      "question_key": "reviewed:021e0fb43c534d91987da51e01694d8f:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed",
+        "shape_risk_human_reviewed"
+      ],
+      "split_key": "1f54b22aed3942caa921fe075593a550",
+      "source_key": "reviewed_prelabel:021e0fb43c534d91987da51e01694d8f",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-merged-reviewed-next-propagated-exact\\annotations\\approved_boxes.jsonl"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

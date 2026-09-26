@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "3",
+      "text": "算一算，说一说。 一共有多少只小鸡？",
+      "student_answer": "4x5x3=60(只) 一共有60只 20 20x3",
+      "uncertain": false
+    },
+    {
+      "index": 2,
+      "number": "",
+      "text": "一共有多少只小鸡？",
+      "student_answer": "4x5+3=23 一共有23只",
+      "uncertain": false
+    }
+  ]
+}

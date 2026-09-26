@@ -1,0 +1,213 @@
+{
+  "generated_at": "2026-06-30T01:59:40.362381+00:00",
+  "label_strategy": "v3_safe",
+  "split_scope": "batch",
+  "min_confidence": 0.0,
+  "category": "question_block",
+  "source_count": 112,
+  "positive_source_count": 0,
+  "negative_image_count": 112,
+  "annotation_count": 0,
+  "review_count": 0,
+  "include_review_labels": false,
+  "split_counts": {
+    "train": {
+      "images": 88,
+      "positive_images": 0,
+      "negative_images": 88,
+      "annotations": 0
+    },
+    "val": {
+      "images": 14,
+      "positive_images": 0,
+      "negative_images": 14,
+      "annotations": 0
+    },
+    "test": {
+      "images": 10,
+      "positive_images": 0,
+      "negative_images": 10,
+      "annotations": 0
+    }
+  },
+  "skipped": {},
+  "area": {
+    "min": 0,
+    "max": 0,
+    "mean": 0
+  },
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": false,
+      "model_training_ready": false,
+      "has_error": true
+    },
+    "counts": {
+      "source_images": 112,
+      "positive_images": 0,
+      "negative_images": 112,
+      "empty_page_images": 112,
+      "annotations": 0,
+      "review": 0,
+      "skipped": {},
+      "split_groups": 62,
+      "source_rows": 0,
+      "review_ratio": 0.0
+    },
+    "split_counts": {
+      "train": {
+        "images": 88,
+        "positive_images": 0,
+        "negative_images": 88,
+        "annotations": 0,
+        "groups": 51
+      },
+      "val": {
+        "images": 14,
+        "positive_images": 0,
+        "negative_images": 14,
+        "annotations": 0,
+        "groups": 6
+      },
+      "test": {
+        "images": 10,
+        "positive_images": 0,
+        "negative_images": 10,
+        "annotations": 0,
+        "groups": 5
+      }
+    },
+    "strata_counts": {
+      "by_origin": {
+        "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3": 112
+      },
+      "by_negative_kind": {
+        "empty_page": 112
+      },
+      "by_quality_flag": {
+        "negative:empty_page": 112,
+        "negative_sample": 112
+      }
+    },
+    "leakage": {
+      "split_group_overlaps": {},
+      "exact_cross_split_images": [],
+      "near_duplicate_threshold": 4,
+      "near_duplicate_cross_split_pairs": [
+        {
+          "distance": 3,
+          "left": "images/test/1e09a0072a035565_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff49.jpg",
+          "left_split": "test",
+          "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+          "right_split": "train"
+        },
+        {
+          "distance": 4,
+          "left": "images/test/4047440fa4195f68_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b82544.jpg",
+          "left_split": "test",
+          "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+          "right_split": "train"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/16c23e20adbab590_b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab9976845.jpg",
+          "left_split": "train",
+          "right": "images/val/a42ffccb9c61dc38_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 2,
+          "left": "images/train/225548921eb1ab80_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+          "left_split": "train",
+          "right": "images/val/021fe28d26f1fb18_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/61b3eba6065fd7b1_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84a.jpg",
+          "left_split": "train",
+          "right": "images/val/20dc07c8be7fdc45_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/a2ba2887b4947b41_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg",
+          "left_split": "train",
+          "right": "images/val/a2a866386e31cc1e_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg",
+          "right_split": "val"
+        },
+        {
+          "distance": 4,
+          "left": "images/train/ee30ec61c9ddb4cc_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b.jpg",
+          "left_split": "train",
+          "right": "images/val/a6030c3e94a1b193_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd146.jpg",
+          "right_split": "val"
+        }
+      ]
+    },
+    "minimums": {
+      "production_images": 300,
+      "production_annotations": 1000,
+      "production_negative_images": 0,
+      "production_split_groups": 50,
+      "max_review_ratio": 0.15
+    },
+    "warnings": [
+      {
+        "code": "near_duplicate_cross_split",
+        "severity": "warning",
+        "detail": "7 cross-split image pairs have aHash distance <= 4."
+      },
+      {
+        "code": "too_few_images",
+        "severity": "warning",
+        "detail": "112 source images; target >= 300 for model selection."
+      },
+      {
+        "code": "too_few_annotations",
+        "severity": "warning",
+        "detail": "0 annotations; target >= 1000 for model selection."
+      },
+      {
+        "code": "empty_split",
+        "severity": "error",
+        "detail": "train has 88 images and 0 annotations."
+      },
+      {
+        "code": "empty_split",
+        "severity": "error",
+        "detail": "val has 14 images and 0 annotations."
+      },
+      {
+        "code": "empty_split",
+        "severity": "error",
+        "detail": "test has 10 images and 0 annotations."
+      }
+    ]
+  },
+  "inputs": {
+    "diagnostics": [],
+    "sqlite": [
+      "D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3"
+    ],
+    "empty_page_manifests": [],
+    "negative_image_dirs": [],
+    "include_sqlite_empty_pages": true,
+    "sqlite_empty_page_mode": "textless",
+    "data_dir": "D:\\AI\\kpai\\backend\\data"
+  },
+  "outputs": {
+    "coco": "annotations/coco_*.json",
+    "yolo": "images/{split}, labels/{split}, yolo_dataset.yaml",
+    "createml": "annotations/createml_*.json",
+    "jsonl": "annotations/manifest.jsonl",
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "review": "annotations/review.jsonl",
+    "preview": "preview_contact_sheet.jpg",
+    "audit": "audit.json"
+  },
+  "notes": [
+    "These are weak labels exported from production crop/rect evidence.",
+    "Use manual review before final model training, especially for low-confidence and near-full-page labels."
+  ]
+}

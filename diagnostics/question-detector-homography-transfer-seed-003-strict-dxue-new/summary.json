@@ -1,0 +1,27 @@
+{
+  "teacher_package": "diagnostics\\question-detector-ai-teacher-seed-003",
+  "image_dir": "D:\\AI\\fenti\\pimage",
+  "out": "diagnostics\\question-detector-homography-transfer-seed-003-strict-dxue-new",
+  "settings": {
+    "max_side": 1600,
+    "nfeatures": 6000,
+    "ratio": 0.76,
+    "min_matches": 45,
+    "min_inliers": 32,
+    "min_inlier_ratio": 0.28
+  },
+  "stats": {
+    "no_homography": 1,
+    "seeds": 7,
+    "skipped_seed_image": 7,
+    "weak_homography_rejected": 1
+  },
+  "outputs": {
+    "candidate_boxes": "candidate_boxes.jsonl",
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "preview": "homography_transfer_preview.jpg"
+  },
+  "notes": [
+    "Homography transfers are review candidates only; do not train before visual approval."
+  ]
+}

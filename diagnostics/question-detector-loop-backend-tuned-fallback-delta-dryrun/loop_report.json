@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-06-30T13:40:59.223863+00:00",
+  "status": "passed",
+  "out": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun",
+  "execute_training": true,
+  "train_dry_run": true,
+  "artifacts": {
+    "merged_reviewed": "",
+    "dataset": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact",
+    "cv": "",
+    "experiment": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment",
+    "release_check": "",
+    "error_mining": "",
+    "error_workbench": "",
+    "iteration_report": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\iteration_report"
+  },
+  "steps": [
+    {
+      "name": "experiment",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_experiment_matrix.py",
+        "--out",
+        "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment",
+        "--model",
+        "yolo11n.pt",
+        "--imgsz",
+        "416",
+        "--epochs",
+        "1",
+        "--batch",
+        "4",
+        "--workers",
+        "0",
+        "--eval-score-thresholds",
+        "0.05,0.10,0.20,0.25,0.35,0.50",
+        "--clean",
+        "--dataset",
+        "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact",
+        "--device",
+        "cpu",
+        "--allow-unready",
+        "--allow-failed-eval",
+        "--train-dry-run",
+        "--execute"
+      ],
+      "started_at": "2026-06-30T13:40:58.889284+00:00",
+      "finished_at": "2026-06-30T13:40:59.112020+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\logs\\experiment.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\logs\\experiment.stderr.txt"
+    },
+    {
+      "name": "iteration_report",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_iteration_report.py",
+        "--dataset",
+        "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact",
+        "--experiment",
+        "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment",
+        "--out",
+        "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\iteration_report",
+        "--clean",
+        "--replay",
+        "diagnostics\\question-observation-replay-kpai-layout-measured-v5-dense-gated",
+        "--replay",
+        "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated",
+        "--review-workbench",
+        "diagnostics\\question-detector-review-workbench-fallback-delta-kpai-backend-tuned",
+        "--review-workbench",
+        "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned"
+      ],
+      "started_at": "2026-06-30T13:40:59.113692+00:00",
+      "finished_at": "2026-06-30T13:40:59.223316+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\logs\\iteration_report.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\logs\\iteration_report.stderr.txt"
+    }
+  ]
+}

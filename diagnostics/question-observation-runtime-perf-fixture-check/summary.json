@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-06-30T16:06:35.372426+00:00",
+  "record_count": 6,
+  "frame_count": 39,
+  "cached_frame_count": 31,
+  "ocr_frame_count": 8,
+  "fresh_ocr_ratio": 0.205128,
+  "attached_crop_file_count": 0,
+  "analysis_duration_ms": {
+    "p50": 92.0,
+    "p95": 114.5,
+    "max": 118.0
+  },
+  "question_crop_server_duration_ms": {
+    "p50": 22.5,
+    "p95": 30.0,
+    "max": 31.0
+  },
+  "thresholds": {
+    "min_records": 5,
+    "max_analysis_p50_ms": 120.0,
+    "max_analysis_p95_ms": 300.0,
+    "max_server_p95_ms": 250.0,
+    "max_fresh_ocr_ratio": 0.75,
+    "max_attached_crop_files": 0
+  },
+  "records_sample": [
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 62.0,
+      "cached_frame_count": 4,
+      "ocr_frame_count": 1,
+      "frame_count": 5,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 18.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    },
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 74.0,
+      "cached_frame_count": 5,
+      "ocr_frame_count": 1,
+      "frame_count": 6,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 21.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    },
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 88.0,
+      "cached_frame_count": 4,
+      "ocr_frame_count": 2,
+      "frame_count": 6,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 24.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    },
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 96.0,
+      "cached_frame_count": 6,
+      "ocr_frame_count": 1,
+      "frame_count": 7,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 19.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    },
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 104.0,
+      "cached_frame_count": 5,
+      "ocr_frame_count": 2,
+      "frame_count": 7,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 27.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    },
+    {
+      "source": "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl",
+      "analysis_duration_ms": 118.0,
+      "cached_frame_count": 7,
+      "ocr_frame_count": 1,
+      "frame_count": 8,
+      "attached_crop_file_count": 0,
+      "question_crop_server_duration_ms": 31.0,
+      "total_duration_ms": NaN,
+      "coreml_model_loaded_frame_count": 0,
+      "fallback_to_ocr_frame_count": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "minimum runtime records",
+      "passed": true,
+      "detail": "Need enough live/simulator runtime records.",
+      "values": {
+        "record_count": 6
+      }
+    },
+    {
+      "name": "rect-only upload",
+      "passed": true,
+      "detail": "Observation upload should not attach question crop JPEG files.",
+      "values": {
+        "attached_crop_file_count": 0
+      }
+    },
+    {
+      "name": "analysis p50 latency",
+      "passed": true,
+      "detail": "Local observation analysis p50 must stay within budget.",
+      "values": {
+        "p50": 92.0
+      }
+    },
+    {
+      "name": "analysis p95 latency",
+      "passed": true,
+      "detail": "Local observation analysis p95 must stay within budget.",
+      "values": {
+        "p95": 114.5
+      }
+    },
+    {
+      "name": "server crop p95 latency",
+      "passed": true,
+      "detail": "Backend canonical crop expansion p95 must stay within budget.",
+      "values": {
+        "p95": 30.0
+      }
+    },
+    {
+      "name": "fresh OCR ratio",
+      "passed": true,
+      "detail": "Batch upload should mostly reuse cached live-scan segmentation instead of rerunning OCR.",
+      "values": {
+        "fresh_ocr_ratio": 0.20512820512820512
+      }
+    }
+  ],
+  "passed": true,
+  "evidence_kind": "fixture",
+  "inputs": [
+    "diagnostics\\question-observation-runtime-perf-fixture\\runtime_samples.jsonl"
+  ]
+}

@@ -1,0 +1,2810 @@
+{
+  "source": "diagnostics\\question-detector-review-backlog-risk-section-top1",
+  "generated_at": "2026-06-30T14:08:56.025090+00:00",
+  "items": [
+    {
+      "image": "images/001_active_731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg",
+      "source_candidate": "positive/731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "5ba25ff3e2164513aff37ab6185feafd",
+        "session_id": "731a0558d8744fe880cff057da4995dd",
+        "batch_id": "qa",
+        "qa_event_id": "6b58ec1ea4834c5b8fe9e130ef1839b1",
+        "needs_box_label": true
+      },
+      "width": 4800,
+      "height": 3600,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 2342,
+            "y": 1203,
+            "width": 963,
+            "height": 130
+          },
+          "score": 0.3306,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 2304,
+            "y": 1330,
+            "width": 1001,
+            "height": 123
+          },
+          "score": 0.2502,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "short_block",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 2362,
+            "y": 1430,
+            "width": 943,
+            "height": 209
+          },
+          "score": 0.4602,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 2410,
+            "y": 1656,
+            "width": 895,
+            "height": 134
+          },
+          "score": 0.3294,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1145,
+            "y": 2050,
+            "width": 1701,
+            "height": 130
+          },
+          "score": 0.3501,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 2424,
+            "y": 2270,
+            "width": 881,
+            "height": 130
+          },
+          "score": 0.3284,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1773,
+            "y": 2863,
+            "width": 1533,
+            "height": 65
+          },
+          "score": 0.5003,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 334,
+          "y": 191,
+          "width": 630,
+          "height": 663,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.2916666666666667,
+        "line_box_count": 13,
+        "draft_box_count": 7,
+        "quarantine_reasons": [
+          "many_fragmented_short_blocks"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 2342,
+              "y": 1203,
+              "width": 963,
+              "height": 130
+            },
+            "score": 0.3306,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 2304,
+              "y": 1330,
+              "width": 1001,
+              "height": 123
+            },
+            "score": 0.2502,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "short_block",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 2362,
+              "y": 1430,
+              "width": 943,
+              "height": 209
+            },
+            "score": 0.4602,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 2410,
+              "y": 1656,
+              "width": 895,
+              "height": 134
+            },
+            "score": 0.3294,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1145,
+              "y": 2050,
+              "width": 1701,
+              "height": 130
+            },
+            "score": 0.3501,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 2424,
+              "y": 2270,
+              "width": 881,
+              "height": 130
+            },
+            "score": 0.3284,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1773,
+              "y": 2863,
+              "width": 1533,
+              "height": 65
+            },
+            "score": 0.5003,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "short_block",
+              "page:bright_page"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00001:731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00001:001_active_731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+    },
+    {
+      "image": "images/002_active_1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg",
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "2464db09780548feb9d182f798692c62",
+        "session_id": "1f54b22aed3942caa921fe075593a550",
+        "batch_id": "qa",
+        "qa_event_id": "03d8cb0fe49344d5a4574846c4211238",
+        "needs_box_label": true
+      },
+      "width": 2136,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1275,
+            "y": 1447,
+            "width": 859,
+            "height": 427
+          },
+          "score": 0.69,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1275,
+            "y": 2039,
+            "width": 722,
+            "height": 121
+          },
+          "score": 0.3631,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1275,
+            "y": 2192,
+            "width": 818,
+            "height": 395
+          },
+          "score": 0.76,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1275,
+            "y": 2574,
+            "width": 720,
+            "height": 249
+          },
+          "score": 0.5741,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1394,
+            "y": 2873,
+            "width": 725,
+            "height": 123
+          },
+          "score": 0.3644,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1721,
+            "y": 2994,
+            "width": 414,
+            "height": 121
+          },
+          "score": 0.3383,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1369,
+            "y": 3152,
+            "width": 766,
+            "height": 48
+          },
+          "score": 0.3644,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 558,
+          "y": 633,
+          "width": 376,
+          "height": 767,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 18,
+        "draft_box_count": 7,
+        "quarantine_reasons": [
+          "many_fragmented_short_blocks"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 1275,
+              "y": 1447,
+              "width": 859,
+              "height": 427
+            },
+            "score": 0.69,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1275,
+              "y": 2039,
+              "width": 722,
+              "height": 121
+            },
+            "score": 0.3631,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1275,
+              "y": 2192,
+              "width": 818,
+              "height": 395
+            },
+            "score": 0.76,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1275,
+              "y": 2574,
+              "width": 720,
+              "height": 249
+            },
+            "score": 0.5741,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1394,
+              "y": 2873,
+              "width": 725,
+              "height": 123
+            },
+            "score": 0.3644,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1721,
+              "y": 2994,
+              "width": 414,
+              "height": 121
+            },
+            "score": 0.3383,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1369,
+              "y": 3152,
+              "width": 766,
+              "height": 48
+            },
+            "score": 0.3644,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "short_block",
+              "page:bright_page"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00002:1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00002:002_active_1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+    },
+    {
+      "image": "images/003_fallback_delta_016_1331882f31199d39_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 111,
+            "width": 1291,
+            "height": 140
+          },
+          "score": 0.6398,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:a201f29426ea49d003664ab3179b3947e93b5585:1",
+          "candidate_id": "e2a840f8b7eafc0d",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 340,
+            "width": 1093,
+            "height": 476
+          },
+          "score": 0.82,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:a201f29426ea49d003664ab3179b3947e93b5585:2",
+          "candidate_id": "444e95286e4c233d",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 837,
+            "width": 1015,
+            "height": 32
+          },
+          "score": 0.2578,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:a201f29426ea49d003664ab3179b3947e93b5585:3",
+          "candidate_id": "e5008da7ca65fc08",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "few_text_lines",
+            "page:bright_page",
+            "short_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 3,
+        "crop_area": 0.353728,
+        "max_crop_area": 0.250901,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00016:016_1331882f31199d39_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00003:003_fallback_delta_016_1331882f31199d39_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_e2cc470d3f7e45.jpg"
+    },
+    {
+      "image": "images/004_fallback_delta_017_819c1bcb6b3d163d_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 70,
+            "width": 1070,
+            "height": 45
+          },
+          "score": 0.3566,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8da26d5001bb6e62e52159131141273b3eb937c5:1",
+          "candidate_id": "124cd8fa95a6e686",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 181,
+            "width": 1358,
+            "height": 491
+          },
+          "score": 0.82,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8da26d5001bb6e62e52159131141273b3eb937c5:2",
+          "candidate_id": "f6252083530993c0",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 140,
+            "y": 668,
+            "width": 1101,
+            "height": 93
+          },
+          "score": 0.8094,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8da26d5001bb6e62e52159131141273b3eb937c5:3",
+          "candidate_id": "e73f8cce3651dcd0",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 3,
+        "crop_area": 0.394156,
+        "max_crop_area": 0.321556,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00017:017_819c1bcb6b3d163d_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00004:004_fallback_delta_017_819c1bcb6b3d163d_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg"
+    },
+    {
+      "image": "images/005_fallback_delta_018_60c55207832ce8a4_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 88,
+            "width": 1060,
+            "height": 49
+          },
+          "score": 0.36,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:d4a0bb108623f89890304d7533627dff06efe81f:1",
+          "candidate_id": "7ac27b74c1537df0",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 204,
+            "width": 1344,
+            "height": 494
+          },
+          "score": 0.82,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:d4a0bb108623f89890304d7533627dff06efe81f:2",
+          "candidate_id": "b6ff55afdcda2d4e",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 695,
+            "width": 1153,
+            "height": 100
+          },
+          "score": 0.8214,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:d4a0bb108623f89890304d7533627dff06efe81f:3",
+          "candidate_id": "2a18926c7ec15f4f",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 3,
+        "crop_area": 0.400837,
+        "max_crop_area": 0.320185,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00018:018_60c55207832ce8a4_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00005:005_fallback_delta_018_60c55207832ce8a4_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg"
+    },
+    {
+      "image": "images/006_fallback_delta_019_88a2fe55b53c5d94_b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 296,
+            "y": 110,
+            "width": 1137,
+            "height": 64
+          },
+          "score": 0.4951,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:5e6cf4b00e31a1a1329898798dcc0d6ccaf8f345:1",
+          "candidate_id": "25fa2c2606d309f6",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 147,
+            "y": 247,
+            "width": 1100,
+            "height": 288
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:5e6cf4b00e31a1a1329898798dcc0d6ccaf8f345:2",
+          "candidate_id": "91757d29c3895a4d",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 147,
+            "y": 554,
+            "width": 1286,
+            "height": 144
+          },
+          "score": 0.8899,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:5e6cf4b00e31a1a1329898798dcc0d6ccaf8f345:3",
+          "candidate_id": "668f2cf845625d26",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 147,
+            "y": 746,
+            "width": 1066,
+            "height": 122
+          },
+          "score": 0.8333,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:5e6cf4b00e31a1a1329898798dcc0d6ccaf8f345:4",
+          "candidate_id": "668adf204d51eb04",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "no_large_question_crop",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "no_large_question_crop",
+        "after_reason": "",
+        "candidate_count": 4,
+        "crop_area": 0.339894,
+        "max_crop_area": 0.152778,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00019:019_88a2fe55b53c5d94_b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00006:006_fallback_delta_019_88a2fe55b53c5d94_b6f8a6accd404bfc9fb291b15cb44f09_37af35bdb2d24a6880578fb4d986299e_5a5396a05d004d.jpg"
+    },
+    {
+      "image": "images/007_fallback_delta_015_271943e09ea9abd6_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 117,
+            "y": 63,
+            "width": 1024,
+            "height": 44
+          },
+          "score": 0.3536,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:9768cd05216826f9e3bce6425b2cfe6f7675f1c2:1",
+          "candidate_id": "46d68b93fe96b557",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 117,
+            "y": 188,
+            "width": 1140,
+            "height": 483
+          },
+          "score": 0.82,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:9768cd05216826f9e3bce6425b2cfe6f7675f1c2:2",
+          "candidate_id": "b20342e6ae9d7050",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 117,
+            "y": 667,
+            "width": 1125,
+            "height": 108
+          },
+          "score": 0.8317,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:9768cd05216826f9e3bce6425b2cfe6f7675f1c2:3",
+          "candidate_id": "1ebbc0b4fcc4a9d9",
+          "quality_flags": [
+            "all_weak_crop_keys",
+            "fallback_delta_removed",
+            "page:bright_page"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "all_weak_crop_keys",
+        "after_reason": "",
+        "candidate_count": 3,
+        "crop_area": 0.34586,
+        "max_crop_area": 0.265538,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00015:015_271943e09ea9abd6_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00007:007_fallback_delta_015_271943e09ea9abd6_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg"
+    },
+    {
+      "image": "images/008_active_5dd6493c6d9344ee93aabe4d87820137_qa_790b1d0390b845c7a787c978d1b6db36.jpg",
+      "source_candidate": "positive/5dd6493c6d9344ee93aabe4d87820137_qa_790b1d0390b845c7a787c978d1b6db36.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "790b1d0390b845c7a787c978d1b6db36",
+        "session_id": "5dd6493c6d9344ee93aabe4d87820137",
+        "batch_id": "qa",
+        "qa_event_id": "030203030b0643068e19fa82566de2e6",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 145,
+            "y": 52,
+            "width": 1698,
+            "height": 155
+          },
+          "score": 0.7098,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:full_image_fallback"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 77,
+            "y": 219,
+            "width": 1395,
+            "height": 112
+          },
+          "score": 0.7543,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:full_image_fallback"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1061,
+            "y": 328,
+            "width": 782,
+            "height": 53
+          },
+          "score": 0.2488,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "short_block",
+            "page:full_image_fallback"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 1034,
+            "y": 376,
+            "width": 809,
+            "height": 59
+          },
+          "score": 0.3322,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:full_image_fallback"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 875,
+            "y": 431,
+            "width": 968,
+            "height": 67
+          },
+          "score": 0.457,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:full_image_fallback"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 77,
+            "y": 494,
+            "width": 1766,
+            "height": 543
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:full_image_fallback"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 56,
+          "y": 31,
+          "width": 1288,
+          "height": 725,
+          "source": "full_image_fallback"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 84,
+        "draft_box_count": 6,
+        "quarantine_reasons": [
+          "page_rect_fallback"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 145,
+              "y": 52,
+              "width": 1698,
+              "height": 155
+            },
+            "score": 0.7098,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:full_image_fallback"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 77,
+              "y": 219,
+              "width": 1395,
+              "height": 112
+            },
+            "score": 0.7543,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:full_image_fallback"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1061,
+              "y": 328,
+              "width": 782,
+              "height": 53
+            },
+            "score": 0.2488,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "short_block",
+              "page:full_image_fallback"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 1034,
+              "y": 376,
+              "width": 809,
+              "height": 59
+            },
+            "score": 0.3322,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:full_image_fallback"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 875,
+              "y": 431,
+              "width": 968,
+              "height": 67
+            },
+            "score": 0.457,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:full_image_fallback"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 77,
+              "y": 494,
+              "width": 1766,
+              "height": 543
+            },
+            "score": 0.9,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:full_image_fallback"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00003:5dd6493c6d9344ee93aabe4d87820137_qa_790b1d0390b845c7a787c978d1b6db36.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00008:008_active_5dd6493c6d9344ee93aabe4d87820137_qa_790b1d0390b845c7a787c978d1b6db36.jpg"
+    },
+    {
+      "image": "images/009_active_9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg",
+      "source_candidate": "positive/9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "cda7fa47ddc3462baf0638c7ec7f15af",
+        "session_id": "9b2b7f197f064c52961c557b4bea5ec8",
+        "batch_id": "qa",
+        "qa_event_id": "e082dd0e3d76452eaab28cbe0939db2e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 484,
+            "y": 104,
+            "width": 804,
+            "height": 88
+          },
+          "score": 0.4878,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 315,
+            "width": 852,
+            "height": 78
+          },
+          "score": 0.554,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 389,
+            "width": 1083,
+            "height": 185
+          },
+          "score": 0.8929,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 575,
+            "width": 1083,
+            "height": 126
+          },
+          "score": 0.6214,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 717,
+            "width": 853,
+            "height": 56
+          },
+          "score": 0.3511,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1090,
+            "y": 835,
+            "width": 451,
+            "height": 77
+          },
+          "score": 0.4533,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 334,
+          "y": 76,
+          "width": 790,
+          "height": 700,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 24,
+        "draft_box_count": 6,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00001:9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00009:009_active_9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg"
+    },
+    {
+      "image": "images/010_fallback_delta_014_76fccc988fe00885_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 354,
+            "width": 879,
+            "height": 465
+          },
+          "score": 0.82,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:fbd5a92a841db627bcb39b2171795cd4115ddf26:1",
+          "candidate_id": "cfedc28d70ebda0e",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "page:bright_page",
+            "sparse_low_coverage_crops",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 805,
+            "width": 879,
+            "height": 274
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:fbd5a92a841db627bcb39b2171795cd4115ddf26:2",
+          "candidate_id": "127f593098d32dd0",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "page:bright_page",
+            "sparse_low_coverage_crops"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "sparse_low_coverage_crops",
+        "after_reason": "",
+        "candidate_count": 2,
+        "crop_area": 0.313263,
+        "max_crop_area": 0.197114,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00014:014_76fccc988fe00885_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00010:010_fallback_delta_014_76fccc988fe00885_b6f8a6accd404bfc9fb291b15cb44f09_7f4a043a7487408199b9b35833088814_07a230f48ae040.jpg"
+    },
+    {
+      "image": "images/011_fallback_delta_013_32de8f2296eb0f9d_b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d41.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1367,
+            "y": 0,
+            "width": 455,
+            "height": 571
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8fc07f02c9618901785cfbeda8f925274e7e66d1:1",
+          "candidate_id": "60f07f94efd70d4b",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "page:bright_page",
+            "sparse_low_coverage_crops"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        },
+        {
+          "bbox_px": {
+            "x": 1367,
+            "y": 564,
+            "width": 553,
+            "height": 516
+          },
+          "score": 0.9,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8fc07f02c9618901785cfbeda8f925274e7e66d1:2",
+          "candidate_id": "9094d1693157a056",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "page:bright_page",
+            "sparse_low_coverage_crops"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "sparse_low_coverage_crops",
+        "after_reason": "",
+        "candidate_count": 2,
+        "crop_area": 0.262902,
+        "max_crop_area": 0.13761,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00013:013_32de8f2296eb0f9d_b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d41.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00011:011_fallback_delta_013_32de8f2296eb0f9d_b6f8a6accd404bfc9fb291b15cb44f09_56c45d308346418098a248c79e6de846_29426093812d41.jpg"
+    },
+    {
+      "image": "images/012_active_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg",
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "8864865ecf52448b96f6907281a97f45",
+        "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+        "batch_id": "qa",
+        "qa_event_id": "23cd12d680924ea8b81be61ada67b14a",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 7,
+            "y": 74,
+            "width": 1045,
+            "height": 63
+          },
+          "score": 0.3532,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 170,
+            "width": 1044,
+            "height": 276
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 450,
+            "width": 1326,
+            "height": 629
+          },
+          "score": 0.82,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 35,
+          "width": 967,
+          "height": 752,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 114,
+        "draft_box_count": 3,
+        "quarantine_reasons": [
+          "edge_dominant_dense_layout"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 7,
+              "y": 74,
+              "width": 1045,
+              "height": 63
+            },
+            "score": 0.3532,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "few_text_lines",
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 0,
+              "y": 170,
+              "width": 1044,
+              "height": 276
+            },
+            "score": 0.9,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 0,
+              "y": 450,
+              "width": 1326,
+              "height": 629
+            },
+            "score": 0.82,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "page:bright_page"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00004:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00012:012_active_f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+    },
+    {
+      "image": "images/013_fallback_delta_001_4050f23be19eba27_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed45.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 891,
+            "y": 464,
+            "width": 1029,
+            "height": 616
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:666d9dc7ca80fb8b75597f40c3df22c56d98824b:1",
+          "candidate_id": "52d7d0a68ef02e5f",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.305682,
+        "max_crop_area": 0.305682,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00001:001_4050f23be19eba27_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed45.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00013:013_fallback_delta_001_4050f23be19eba27_4dd68b59b935466195b05543c884ff15_9db099c581b24a49828df2456d7db46a_5d143aeaf6ed45.jpg"
+    },
+    {
+      "image": "images/014_fallback_delta_002_17e0893dcd1909a3_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1239,
+            "y": 862,
+            "width": 1961,
+            "height": 937
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:af995662890ea77bb742796c01021d7836eb6f6c:1",
+          "candidate_id": "8dd8ea8f151f574b",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.319003,
+        "max_crop_area": 0.319003,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00002:002_17e0893dcd1909a3_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00014:014_fallback_delta_002_17e0893dcd1909a3_379f8544b02542c6afdc5a56788605e7_single_48db9ebca5cf46bda6838716d22f4fe8.jpg"
+    },
+    {
+      "image": "images/015_fallback_delta_003_87ead53619c6e671_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 136,
+            "width": 1171,
+            "height": 610
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:2e53091d57691f68fea643f65fa3559094f07613:1",
+          "candidate_id": "7ab85ccf9d5b6d90",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.344478,
+        "max_crop_area": 0.344478,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00003:003_87ead53619c6e671_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00015:015_fallback_delta_003_87ead53619c6e671_e0243d0aa8e54be2b6d434f9cebe5024_4314d0f7ea694e9180d0c34c4f4f122b_7208a44695d544.jpg"
+    },
+    {
+      "image": "images/016_fallback_delta_004_261aff75faf46673_9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1207,
+            "y": 786,
+            "width": 1993,
+            "height": 1013
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:5ca4ec35a8bb6ba3c70fc32fe7f32f6441606db9:1",
+          "candidate_id": "7a588272cbad2f97",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.350505,
+        "max_crop_area": 0.350505,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00004:004_261aff75faf46673_9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00016:016_fallback_delta_004_261aff75faf46673_9739d42380894e228318d05d0f6767a7_single_925ff45f13df4a6881b5991d33b5086a.jpg"
+    },
+    {
+      "image": "images/017_fallback_delta_005_43897b8159895fa8_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1275,
+            "y": 727,
+            "width": 1925,
+            "height": 1072
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:b59ae7d0c57ccc8ccd843ca33a9bde5c137cdbdc:1",
+          "candidate_id": "162b57bdeef823dd",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.358264,
+        "max_crop_area": 0.358264,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00005:005_43897b8159895fa8_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00017:017_fallback_delta_005_43897b8159895fa8_214e4c656cd948fa9db51d9972291cc1_single_ba30c38103d74a02bfc13e0412c09edc.jpg"
+    },
+    {
+      "image": "images/018_fallback_delta_006_3a1a80f0d4a03072_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 687,
+            "y": 459,
+            "width": 1233,
+            "height": 620
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:7597f8bb483b84059fc4a5b381613a91d43f4e88:1",
+          "candidate_id": "2b21a83a539ca4f3",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.368663,
+        "max_crop_area": 0.368663,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00006:006_3a1a80f0d4a03072_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00018:018_fallback_delta_006_3a1a80f0d4a03072_4dd68b59b935466195b05543c884ff15_5460bbe3f77045219ba2a5e7c8078c33_ea2af8e92aa045.jpg"
+    },
+    {
+      "image": "images/019_fallback_delta_007_9418ef6c102e071c_5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1147,
+            "y": 759,
+            "width": 2053,
+            "height": 1040
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:ca313c77ee8be7a28421d9fe831877b2c4be9970:1",
+          "candidate_id": "40475e467d8f319d",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.37068,
+        "max_crop_area": 0.37068,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00007:007_9418ef6c102e071c_5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00019:019_fallback_delta_007_9418ef6c102e071c_5417041672e14628af2d7e587202d90e_single_d359e46113b14d078d06415a2bdac1f3.jpg"
+    },
+    {
+      "image": "images/020_fallback_delta_008_4e2a3a9e7cc34605_4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 520,
+            "y": 402,
+            "width": 1148,
+            "height": 677
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:9521dc7d4bc3fa2ddaaeac4a566bf5d44448d07d:1",
+          "candidate_id": "fc280b4cee109596",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.374805,
+        "max_crop_area": 0.374805,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00008:008_4e2a3a9e7cc34605_4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00020:020_fallback_delta_008_4e2a3a9e7cc34605_4dd68b59b935466195b05543c884ff15_872544ded14a46d8aa6be578ad3d7b6a_71960ace32744e.jpg"
+    },
+    {
+      "image": "images/021_fallback_delta_009_4ff336e5988c208a_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 779,
+            "y": 763,
+            "width": 2146,
+            "height": 1035
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:cdb1044a0f396880e5163b1a18d1b320d08455cc:1",
+          "candidate_id": "c84a5dae4de7c414",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.385609,
+        "max_crop_area": 0.385609,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00009:009_4ff336e5988c208a_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00021:021_fallback_delta_009_4ff336e5988c208a_b8e26671dfc145a3a5c521c5971db4a5_single_7df494415fa6466398fdc657d87ab726.jpg"
+    },
+    {
+      "image": "images/022_fallback_delta_010_a32037c7557f3fc3_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1125,
+            "y": 681,
+            "width": 2075,
+            "height": 1118
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:482707604d9b956bf96e283393fe130286779af7:1",
+          "candidate_id": "2fd2ed8040a62682",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.402752,
+        "max_crop_area": 0.402752,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00010:010_a32037c7557f3fc3_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00022:022_fallback_delta_010_a32037c7557f3fc3_fbbe6f5e26db40abb735d4b4efac3df8_single_e5473433e96f40dda60973c4b01af7a0.jpg"
+    },
+    {
+      "image": "images/023_fallback_delta_011_7aac04fbb7133ff1_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 3200,
+      "height": 1800,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1017,
+            "y": 711,
+            "width": 2183,
+            "height": 1088
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:8c7211015dbc9f94c4e1a0cb5d45f6af80fa469d:1",
+          "candidate_id": "baf9fa7ab1e3c873",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.412344,
+        "max_crop_area": 0.412344,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00011:011_7aac04fbb7133ff1_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00023:023_fallback_delta_011_7aac04fbb7133ff1_3bfe41336fa84b39b3fb917c412e457c_single_3b766d87852d48c5af0a3657d993e39b.jpg"
+    },
+    {
+      "image": "images/024_fallback_delta_012_b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+      "source_candidate": "",
+      "candidate": {},
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1108,
+            "y": 14,
+            "width": 812,
+            "height": 1066
+          },
+          "score": 0.74,
+          "source": "fallback_delta_candidate",
+          "question_key": "layout:c28769b726c567390f046f1be54ab49183c99927:1",
+          "candidate_id": "c031fc821ba8775e",
+          "quality_flags": [
+            "fallback_delta_removed",
+            "near_full_page",
+            "page:bright_page",
+            "single_low_coverage_crop",
+            "tall_block"
+          ],
+          "default_review_status": "pending",
+          "suggested_review_action": "Verify this crop covers every visible question; add or correct boxes if the removed full-frame fallback would have found more."
+        }
+      ],
+      "metadata": {
+        "source": "policy_delta_legacy_to_current",
+        "before_reason": "single_low_coverage_crop",
+        "after_reason": "",
+        "candidate_count": 1,
+        "crop_area": 0.417435,
+        "max_crop_area": 0.417435,
+        "backlog_source_kind": "fallback_delta",
+        "backlog_source_workbench": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+        "backlog_source_review_id": "00012:012_b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00024:024_fallback_delta_012_b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg"
+    },
+    {
+      "image": "images/025_active_0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "source_candidate": "positive/0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "40d33d925d6041beb6d4a596cebdda95",
+        "session_id": "0b308a3f04c649bbb09b95d8b99f3422",
+        "batch_id": "qa",
+        "qa_event_id": "9dbb1475e2614f9bbfb0df45efde556f",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 498,
+            "y": 133,
+            "width": 860,
+            "height": 868
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 498,
+            "y": 1037,
+            "width": 760,
+            "height": 43
+          },
+          "score": 0.4444,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 363,
+          "y": 77,
+          "width": 704,
+          "height": 710,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 51,
+        "draft_box_count": 2,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00007:0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00025:025_active_0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg"
+    },
+    {
+      "image": "images/026_active_62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg",
+      "source_candidate": "positive/62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "e020bff6bbab405e97adf21eb6af022f",
+        "session_id": "62f789a2bca9426097b607fb27aff5bd",
+        "batch_id": "qa",
+        "qa_event_id": "d930f74685ee49eaa944bce1684a3361",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 2400,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1097,
+            "width": 1013,
+            "height": 277
+          },
+          "score": 0.655,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1333,
+            "width": 1013,
+            "height": 1067
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 957,
+          "y": 480,
+          "width": 443,
+          "height": 570,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 41,
+        "draft_box_count": 2,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00002:62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00026:026_active_62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg"
+    },
+    {
+      "image": "images/027_active_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "18c5d8aa9bde473d8c94a5baef7c170a",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "8be77c61035b4122ad9e8f68c7770e1d",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 192,
+            "y": 177,
+            "width": 900,
+            "height": 902
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 140,
+          "y": 129,
+          "width": 656,
+          "height": 658,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 58,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00006:6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00027:027_active_6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg"
+    },
+    {
+      "image": "images/028_active_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6228913911284b4ba41d981c5a67d651",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "7b32d897307f45a6bb99050c97574c8f",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 22,
+            "width": 656,
+            "height": 1042
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 478,
+          "height": 776,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 259,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00004:6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00028:028_active_6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg"
+    },
+    {
+      "image": "images/029_active_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a873342bf7794651bdb2aeea78b75dc7",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "8c1efaa770ac434bbf1104e99d375d78",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 440,
+            "y": 0,
+            "width": 908,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 321,
+          "y": 0,
+          "width": 662,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 83,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00010:6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00029:029_active_6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg"
+    },
+    {
+      "image": "images/030_active_6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c3d25bc5c0b74811ba4dbc1279bd5dfd",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "4386d8367d1a4e7195560221a5cf8749",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 29,
+            "y": 0,
+            "width": 1891,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 21,
+          "y": 0,
+          "width": 1379,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 74,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00003:6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00030:030_active_6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg"
+    },
+    {
+      "image": "images/031_active_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c815366268e74c599389ed5226ccbdf5",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "7d12d5ff12bd43ac870891d68cd44939",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 149,
+            "y": 0,
+            "width": 1037,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 109,
+          "y": 0,
+          "width": 756,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 132,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00005:6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00031:031_active_6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg"
+    },
+    {
+      "image": "images/032_active_92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg",
+      "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "f3580650dc0e4723b447b0f1302a4cd6",
+        "session_id": "92b9447f4a8f43858a6a2a20324c1769",
+        "batch_id": "qa",
+        "qa_event_id": "6255392ae5b14a56b063a5517052d70e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 492,
+            "y": 196,
+            "width": 1105,
+            "height": 883
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 347,
+          "y": 136,
+          "width": 818,
+          "height": 651,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 82,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00007:92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00032:032_active_92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg"
+    },
+    {
+      "image": "images/033_active_e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg",
+      "source_candidate": "positive/e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a02919eb27a04579bf414506c010d0ce",
+        "session_id": "e203520478f34e8cac8691e78f5db6b2",
+        "batch_id": "qa",
+        "qa_event_id": "041418017ecc4c02b93ac98508e30063",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 93,
+            "y": 389,
+            "width": 1713,
+            "height": 690
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 68,
+          "y": 167,
+          "width": 1249,
+          "height": 620,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 89,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00008:e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00033:033_active_e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg"
+    },
+    {
+      "image": "images/034_active_e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg",
+      "source_candidate": "positive/e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "0bfc73df24ce4a379cb5e59726bc20a1",
+        "session_id": "e65858e27a964eac83306022bfff0238",
+        "batch_id": "b9f26eceae694953bf4301b2ae4e9b7d",
+        "qa_event_id": "fff13824fa704c1db4dc03ae763e22c2",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 284,
+            "y": 144,
+            "width": 1240,
+            "height": 935
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 207,
+          "y": 105,
+          "width": 915,
+          "height": 682,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 18,
+        "draft_box_count": 1,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00009:e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00034:034_active_e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg"
+    },
+    {
+      "image": "images/035_active_005c6d92ef37414ab5d41a5f0ad66656_qa_443a14839b95475c82a8bc5d9691dd99.jpg",
+      "source_candidate": "positive/005c6d92ef37414ab5d41a5f0ad66656_qa_443a14839b95475c82a8bc5d9691dd99.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "443a14839b95475c82a8bc5d9691dd99",
+        "session_id": "005c6d92ef37414ab5d41a5f0ad66656",
+        "batch_id": "qa",
+        "qa_event_id": "ae56750914e547e298a60b020faf81b2",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 970,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 128,
+            "y": 37,
+            "width": 2944,
+            "height": 896
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:full_image_fallback"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 56,
+          "y": 16,
+          "width": 1288,
+          "height": 392,
+          "source": "full_image_fallback"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 28,
+        "draft_box_count": 1,
+        "quarantine_reasons": [
+          "page_rect_fallback"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 128,
+              "y": 37,
+              "width": 2944,
+              "height": 896
+            },
+            "score": 0.74,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "near_full_page",
+              "page:full_image_fallback"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00005:005c6d92ef37414ab5d41a5f0ad66656_qa_443a14839b95475c82a8bc5d9691dd99.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00035:035_active_005c6d92ef37414ab5d41a5f0ad66656_qa_443a14839b95475c82a8bc5d9691dd99.jpg"
+    },
+    {
+      "image": "images/036_active_1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg",
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "10e96c54a3c84c00b60e8b5050c5bdac",
+        "session_id": "1f54b22aed3942caa921fe075593a550",
+        "batch_id": "qa",
+        "qa_event_id": "7cac9e0201384bea8a9af14d5dc33165",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 955,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 128,
+            "y": 37,
+            "width": 2944,
+            "height": 880
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:full_image_fallback"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 56,
+          "y": 16,
+          "width": 1288,
+          "height": 385,
+          "source": "full_image_fallback"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 23,
+        "draft_box_count": 1,
+        "quarantine_reasons": [
+          "page_rect_fallback"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 128,
+              "y": 37,
+              "width": 2944,
+              "height": 880
+            },
+            "score": 0.74,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "tall_block",
+              "near_full_page",
+              "page:full_image_fallback"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00006:1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00036:036_active_1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+    },
+    {
+      "image": "images/037_active_38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg",
+      "source_candidate": "positive/38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a919188589e94a1b8b9be3c381bfbc0f",
+        "session_id": "38a5667468f54f0590409447dcc4369f",
+        "batch_id": "qa",
+        "qa_event_id": "aa4eaf16619f4fc099f8c8bc242a07e3",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 470,
+            "y": 21,
+            "width": 1277,
+            "height": 346
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 470,
+            "y": 344,
+            "width": 1277,
+            "height": 144
+          },
+          "score": 0.83,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        },
+        {
+          "bbox_px": {
+            "x": 536,
+            "y": 480,
+            "width": 1151,
+            "height": 152
+          },
+          "score": 0.795,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ]
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 343,
+          "y": 15,
+          "width": 931,
+          "height": 452,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 29,
+        "draft_box_count": 3,
+        "quarantine_reasons": [
+          "wide_top_band_likely_keyboard_or_table"
+        ],
+        "rejected_draft_boxes": [
+          {
+            "bbox_px": {
+              "x": 470,
+              "y": 21,
+              "width": 1277,
+              "height": 346
+            },
+            "score": 0.9,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 470,
+              "y": 344,
+              "width": 1277,
+              "height": 144
+            },
+            "score": 0.83,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          },
+          {
+            "bbox_px": {
+              "x": 536,
+              "y": 480,
+              "width": 1151,
+              "height": 152
+            },
+            "score": 0.795,
+            "source": "layout_prelabel",
+            "quality_flags": [
+              "page:bright_page"
+            ]
+          }
+        ],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+        "backlog_source_review_id": "00008:38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+      },
+      "annotation_status": "manual_page_review_required",
+      "review_id": "00037:037_active_38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+    },
+    {
+      "image": "images/038_active_8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg",
+      "source_candidate": "positive/8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "47a6f8d5d42a4736a3263795b2b70692",
+        "session_id": "8ede7fe639cb4ba5941e690217c0d6a6",
+        "batch_id": "qa",
+        "qa_event_id": "241ff2991b7a479baa61ae5638eec449",
+        "needs_box_label": true
+      },
+      "width": 4800,
+      "height": 1804,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1755,
+            "y": 0,
+            "width": 3045,
+            "height": 885
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 2047,
+            "y": 1378,
+            "width": 2753,
+            "height": 425
+          },
+          "score": 0.83,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 512,
+          "y": 0,
+          "width": 888,
+          "height": 526,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.2916666666666667,
+        "line_box_count": 18,
+        "draft_box_count": 2,
+        "quarantine_reasons": [],
+        "backlog_source_kind": "active",
+        "backlog_source_workbench": "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+        "backlog_source_review_id": "00010:8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg"
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00038:038_active_8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg"
+    }
+  ]
+}

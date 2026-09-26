@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXJ Question Box Review</title>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --panel:#ffffff; --line:#d8dde6; --ink:#1c2430; --muted:#687386; --ok:#178c4f; --bad:#b42318; --wait:#9a6700; --blue:#1d5fd1; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+button, input, select, textarea { font: inherit; }
+button { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+button:hover { border-color: #9aa6b6; }
+button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+button.good { background: #eaf7ef; color: var(--ok); border-color: #9fd8b8; }
+button.bad { background: #fff0ee; color: var(--bad); border-color: #f2aaa3; }
+button.warn { background: #fff7e0; color: var(--wait); border-color: #e9ca75; }
+.app { display: grid; grid-template-columns: 310px minmax(480px, 1fr) 330px; gap: 10px; height: 100vh; padding: 10px; }
+.panel { min-height: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.topbar { display:flex; align-items:center; gap:8px; padding:10px; border-bottom:1px solid var(--line); background:#fff; }
+.topbar strong { margin-right:auto; }
+.list { overflow:auto; height: calc(100% - 102px); }
+.row { display:grid; grid-template-columns: 74px 1fr; gap:8px; padding:8px; border-bottom:1px solid #eef1f5; cursor:pointer; }
+.row.active { background:#eaf2ff; }
+.row img { width:74px; height:52px; object-fit:cover; border:1px solid var(--line); border-radius:4px; background:#eee; }
+.row-title { font-size:12px; word-break:break-all; }
+.row-meta { color:var(--muted); font-size:12px; margin-top:3px; }
+.stats { padding:8px 10px; color:var(--muted); border-bottom:1px solid var(--line); }
+.stage-wrap { height: calc(100% - 52px); overflow:auto; display:flex; align-items:flex-start; justify-content:center; padding:14px; }
+.stage { position:relative; display:inline-block; line-height:0; background:#e9edf3; box-shadow:0 1px 4px rgba(0,0,0,.12); }
+.stage img { display:block; max-width:min(100%, 1120px); max-height:calc(100vh - 96px); width:auto; height:auto; }
+.box { position:absolute; border:3px solid var(--wait); background:rgba(255,190,0,.08); cursor:pointer; line-height:1; }
+.box.approved { border-color:var(--ok); background:rgba(23,140,79,.10); }
+.box.corrected { border-color:var(--blue); background:rgba(29,95,209,.10); }
+.box.rejected { border-color:var(--bad); background:rgba(180,35,24,.10); }
+.box.selected { outline:3px solid #111827; outline-offset:2px; }
+.box span { position:absolute; top:2px; left:3px; background:rgba(255,255,255,.85); border-radius:3px; padding:1px 4px; font-size:12px; color:#111827; }
+.side { height:100%; overflow:auto; padding:10px; }
+.box-card { border:1px solid var(--line); border-radius:8px; padding:10px; margin-bottom:10px; }
+.box-card.selected { border-color:#111827; box-shadow:0 0 0 2px rgba(17,24,39,.12); }
+.box-head { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.box-head strong { margin-right:auto; }
+.badge { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:2px 7px; font-size:12px; color:var(--muted); margin:2px 3px 2px 0; }
+.grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin:8px 0; }
+.grid label { display:block; color:var(--muted); font-size:11px; }
+.grid input { width:100%; border:1px solid var(--line); border-radius:5px; padding:5px; }
+textarea { width:100%; min-height:110px; border:1px solid var(--line); border-radius:6px; padding:8px; }
+.muted { color:var(--muted); }
+.small { font-size:12px; }
+.footer-actions { display:flex; flex-wrap:wrap; gap:8px; padding:10px; border-top:1px solid var(--line); background:#fff; }
+</style>
+</head>
+<body>
+<script id="review-data" type="application/json">{"source": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog\\wave-001", "generated_at": "2026-06-30T14:58:06.615748+00:00", "items": [{"image": "images/e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg", "source_candidate": "positive/e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg", "candidate": {"candidate_kind": "qa_recognized_question", "image_id": "541743357fb948bdbe9cbdd51bcb7aa6", "session_id": "e90a6847977f4dbc8d831b5c401bb200", "batch_id": "qa", "qa_event_id": "441aa81be0ba4a80996b8d1521556967", "needs_box_label": true}, "width": 1920, "height": 1080, "boxes": [{"bbox_px": {"x": 66, "y": 25, "width": 1520, "height": 1055}, "score": 0.74, "source": "layout_prelabel", "quality_flags": ["tall_block", "near_full_page", "page:bright_page"], "annotation_status": "draft_review_required"}], "metadata": {"page_rect_processing": {"x": 48, "y": 0, "width": 1108, "height": 787, "source": "bright_page"}, "processing_scale": 0.7291666666666666, "line_box_count": 143, "draft_box_count": 1, "quarantine_reasons": []}, "annotation_status": "draft_review_required", "review_id": "00001:e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg"}]}</script>
+<div class="app">
+  <section class="panel">
+    <div class="topbar"><strong>Review Queue</strong><button id="prevBtn">Prev</button><button id="nextBtn">Next</button></div>
+    <div class="stats" id="stats"></div>
+    <div class="list" id="imageList"></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong id="imageTitle">Image</strong><button class="good" id="approveImageBtn">Approve visible</button><button class="bad" id="rejectImageBtn">Reject visible</button></div>
+    <div class="stage-wrap"><div class="stage" id="stage"><img id="mainImage" alt=""></div></div>
+  </section>
+  <section class="panel">
+    <div class="topbar"><strong>Boxes</strong><button class="primary" id="downloadApprovedBtn">approved JSONL</button><button id="downloadDecisionsBtn">decisions JSON</button></div>
+    <div class="side">
+      <p class="muted small">Normal boxes export when approved, accepted, corrected, or verified. Default-rejected false positives export only when corrected or verified.</p>
+      <div id="boxList"></div>
+      <h4>Notes</h4>
+      <textarea id="imageNote" placeholder="Optional image-level note"></textarea>
+    </div>
+  </section>
+</div>
+<script>
+const data = JSON.parse(document.getElementById('review-data').textContent);
+let current = 0;
+let selectedBox = 0;
+const decisions = {};
+for (const item of data.items) {
+  decisions[item.review_id] = { image: item.image, note: '', boxes: item.boxes.map((box) => ({ status: box.default_review_status || 'pending', bbox_px: {...box.bbox_px}, note: '' })) };
+}
+const imageList = document.getElementById('imageList');
+const boxList = document.getElementById('boxList');
+const stage = document.getElementById('stage');
+const mainImage = document.getElementById('mainImage');
+const stats = document.getElementById('stats');
+const imageTitle = document.getElementById('imageTitle');
+const imageNote = document.getElementById('imageNote');
+
+function statusClass(status) {
+  return ['approved','accepted','verified'].includes(status) ? 'approved' : (status === 'corrected' ? 'corrected' : (status === 'rejected' ? 'rejected' : 'pending'));
+}
+function trainingDefaultRejected(box) {
+  return box.training_export_default === false || box.requires_correction_for_training === true || box.error_kind === 'false_positive';
+}
+function counts() {
+  let approved = 0, rejected = 0, pending = 0, corrected = 0, boxes = 0;
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    for (const box of d.boxes) {
+      boxes++;
+      if (box.status === 'corrected') corrected++;
+      if (['approved','accepted','corrected','verified'].includes(box.status)) approved++;
+      else if (box.status === 'rejected') rejected++;
+      else pending++;
+    }
+  }
+  return { approved, rejected, pending, corrected, boxes };
+}
+function renderStats() {
+  const c = counts();
+  stats.textContent = `${data.items.length} images | ${c.boxes} boxes | ${c.approved} approved | ${c.rejected} rejected | ${c.pending} pending`;
+}
+function renderImageList() {
+  imageList.innerHTML = '';
+  data.items.forEach((item, index) => {
+    const d = decisions[item.review_id];
+    const approved = d.boxes.filter((box) => ['approved','accepted','corrected','verified'].includes(box.status)).length;
+    const rejected = d.boxes.filter((box) => box.status === 'rejected').length;
+    const row = document.createElement('div');
+    row.className = 'row' + (index === current ? ' active' : '');
+    row.onclick = () => { current = index; selectedBox = 0; render(); };
+    row.innerHTML = `<img src="${item.image}"><div><div class="row-title">${item.image.split('/').pop()}</div><div class="row-meta">${item.boxes.length} boxes | ${approved} ok | ${rejected} no</div></div>`;
+    imageList.appendChild(row);
+  });
+}
+function renderStage() {
+  const item = data.items[current];
+  const d = decisions[item.review_id];
+  mainImage.src = item.image;
+  imageTitle.textContent = item.image.split('/').pop();
+  imageNote.value = d.note || '';
+  stage.querySelectorAll('.box').forEach((node) => node.remove());
+  d.boxes.forEach((decision, index) => {
+    const box = document.createElement('div');
+    const b = decision.bbox_px;
+    box.className = `box ${statusClass(decision.status)} ${index === selectedBox ? 'selected' : ''}`;
+    box.style.left = `${b.x / item.width * 100}%`;
+    box.style.top = `${b.y / item.height * 100}%`;
+    box.style.width = `${b.width / item.width * 100}%`;
+    box.style.height = `${b.height / item.height * 100}%`;
+    box.innerHTML = `<span>${index + 1}</span>`;
+    box.onclick = (event) => { event.stopPropagation(); selectedBox = index; render(); };
+    stage.appendChild(box);
+  });
+}
+function boxControls(item, index) {
+  const original = item.boxes[index];
+  const decision = decisions[item.review_id].boxes[index];
+  const b = decision.bbox_px;
+  const flags = (original.quality_flags || []).map((flag) => `<span class="badge">${flag}</span>`).join('');
+  const guidance = original.suggested_review_action ? `<div class="small muted">review: ${original.suggested_review_action}</div>` : '';
+  return `<div class="box-card ${index === selectedBox ? 'selected' : ''}" data-index="${index}">
+    <div class="box-head"><strong>#${index + 1}</strong><span class="badge">${decision.status}</span><button class="good" data-action="approved">Approve</button><button class="warn" data-action="corrected">Corrected</button><button class="bad" data-action="rejected">Reject</button></div>
+    <div class="small muted">score ${Number(original.score || 0).toFixed(3)} | ${original.source || 'box'}</div>
+    ${guidance}
+    <div>${flags}</div>
+    <div class="grid">
+      <div><label>x</label><input data-field="x" type="number" value="${Math.round(b.x)}"></div>
+      <div><label>y</label><input data-field="y" type="number" value="${Math.round(b.y)}"></div>
+      <div><label>w</label><input data-field="width" type="number" value="${Math.round(b.width)}"></div>
+      <div><label>h</label><input data-field="height" type="number" value="${Math.round(b.height)}"></div>
+    </div>
+    <textarea data-field="note" placeholder="Box note">${decision.note || ''}</textarea>
+  </div>`;
+}
+function renderBoxes() {
+  const item = data.items[current];
+  boxList.innerHTML = item.boxes.map((_, index) => boxControls(item, index)).join('');
+  boxList.querySelectorAll('.box-card').forEach((card) => {
+    const index = Number(card.dataset.index);
+    card.onclick = () => { selectedBox = index; render(); };
+    card.querySelectorAll('button[data-action]').forEach((btn) => {
+      btn.onclick = (event) => {
+        event.stopPropagation();
+        decisions[item.review_id].boxes[index].status = btn.dataset.action;
+        selectedBox = index;
+        render();
+      };
+    });
+    card.querySelectorAll('input[data-field]').forEach((input) => {
+      input.onchange = () => {
+        decisions[item.review_id].boxes[index].bbox_px[input.dataset.field] = Math.max(0, Number(input.value || 0));
+        if (decisions[item.review_id].boxes[index].status === 'pending') decisions[item.review_id].boxes[index].status = 'corrected';
+        renderStage();
+        renderStats();
+      };
+    });
+    const note = card.querySelector('textarea[data-field="note"]');
+    note.onchange = () => { decisions[item.review_id].boxes[index].note = note.value; };
+  });
+}
+function render() {
+  renderStats();
+  renderImageList();
+  renderStage();
+  renderBoxes();
+}
+function setImageStatus(status) {
+  const item = data.items[current];
+  decisions[item.review_id].boxes.forEach((box, index) => {
+    if (['approved','accepted','verified'].includes(status) && trainingDefaultRejected(item.boxes[index])) return;
+    box.status = status;
+  });
+  render();
+}
+function approvedRows() {
+  const rows = [];
+  for (const item of data.items) {
+    const d = decisions[item.review_id];
+    const boxes = [];
+    d.boxes.forEach((decision, index) => {
+      if (!['approved','accepted','corrected','verified'].includes(decision.status)) return;
+      if (trainingDefaultRejected(item.boxes[index]) && !['corrected','verified'].includes(decision.status)) return;
+      boxes.push({...item.boxes[index], bbox_px: decision.bbox_px, annotation_status: decision.status, review_note: decision.note || ''});
+    });
+    if (boxes.length) {
+      const {review_id, ...base} = item;
+      rows.push({...base, boxes, annotation_status: 'approved', review_note: d.note || ''});
+    }
+  }
+  return rows;
+}
+function download(filename, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+document.getElementById('prevBtn').onclick = () => { current = Math.max(0, current - 1); selectedBox = 0; render(); };
+document.getElementById('nextBtn').onclick = () => { current = Math.min(data.items.length - 1, current + 1); selectedBox = 0; render(); };
+document.getElementById('approveImageBtn').onclick = () => setImageStatus('approved');
+document.getElementById('rejectImageBtn').onclick = () => setImageStatus('rejected');
+imageNote.onchange = () => { decisions[data.items[current].review_id].note = imageNote.value; };
+document.getElementById('downloadDecisionsBtn').onclick = () => download('question_box_decisions.json', JSON.stringify({version:1, source:data.source, generated_at:new Date().toISOString(), decisions}, null, 2), 'application/json');
+document.getElementById('downloadApprovedBtn').onclick = () => download('approved_boxes.jsonl', approvedRows().map((row) => JSON.stringify(row)).join('\n') + '\n', 'application/x-jsonlines');
+document.addEventListener('keydown', (event) => {
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+  const item = data.items[current];
+  if (event.key === 'a') decisions[item.review_id].boxes[selectedBox].status = 'approved';
+  if (event.key === 'c') decisions[item.review_id].boxes[selectedBox].status = 'corrected';
+  if (event.key === 'r') decisions[item.review_id].boxes[selectedBox].status = 'rejected';
+  if (event.key === 'ArrowRight') current = Math.min(data.items.length - 1, current + 1);
+  if (event.key === 'ArrowLeft') current = Math.max(0, current - 1);
+  render();
+});
+render();
+</script>
+</body>
+</html>

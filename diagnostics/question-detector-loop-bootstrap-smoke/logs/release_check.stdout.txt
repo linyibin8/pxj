@@ -1,0 +1,6 @@
+{
+  "release_ready": false,
+  "hard_failures": 11,
+  "warnings": 2,
+  "report": "diagnostics\\question-detector-loop-bootstrap-smoke\\release_check\\release_check.json"
+}

@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-30T05:43:56.129887+00:00",
+  "inputs": [
+    "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl",
+    "diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl"
+  ],
+  "approved_statuses": [
+    "accepted",
+    "approved",
+    "corrected",
+    "verified"
+  ],
+  "dedupe_iou": 0.95,
+  "conflict_iou": 0.45,
+  "stats": {
+    "accepted_boxes": 12,
+    "deduped_boxes": 2,
+    "images": 7
+  },
+  "conflict_count": 0,
+  "conflicts": [],
+  "outputs": {
+    "approved_boxes": "annotations/approved_boxes.jsonl",
+    "root_approved_boxes": "approved_boxes.jsonl",
+    "contact_sheet": "preview_contact_sheet.jpg"
+  }
+}

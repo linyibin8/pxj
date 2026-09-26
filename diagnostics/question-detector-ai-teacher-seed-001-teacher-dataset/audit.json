@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-07-01T23:59:09.347286+00:00",
+  "teacher_package": "diagnostics\\question-detector-ai-teacher-seed-001",
+  "out": "diagnostics\\question-detector-ai-teacher-seed-001-teacher-dataset",
+  "counts": {
+    "images": 2,
+    "annotations": 8
+  },
+  "splits": {
+    "train": {
+      "images": 1,
+      "annotations": 3
+    },
+    "val": {
+      "images": 1,
+      "annotations": 5
+    },
+    "test": {
+      "images": 0,
+      "annotations": 0
+    }
+  },
+  "readiness": {
+    "pilot_eval_ready": false,
+    "model_training_ready": false,
+    "has_error": true
+  },
+  "warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "2 images; target >= 300."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "8 annotations; target >= 1000."
+    },
+    {
+      "code": "empty_split",
+      "severity": "error",
+      "detail": "test has 0 images and 0 annotations."
+    }
+  ]
+}

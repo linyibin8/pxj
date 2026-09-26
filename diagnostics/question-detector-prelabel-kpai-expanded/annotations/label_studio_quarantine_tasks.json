@@ -1,0 +1,92 @@
+[
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "edge_dominant_dense_layout"
+      ],
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_8864865ecf52448b96f6907281a97f45.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "wide_top_band_likely_keyboard_or_table"
+      ],
+      "source_candidate": "positive/38a5667468f54f0590409447dcc4369f_qa_a919188589e94a1b8b9be3c381bfbc0f.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/731a0558d8744fe880cff057da4995dd_qa_5ba25ff3e2164513aff37ab6185feafd.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "many_fragmented_short_blocks"
+      ],
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_2464db09780548feb9d182f798692c62.jpg"
+    }
+  },
+  {
+    "data": {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_quarantine_v1",
+        "score": 0,
+        "result": []
+      }
+    ],
+    "meta": {
+      "quarantine_reasons": [
+        "page_rect_fallback"
+      ],
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_10e96c54a3c84c00b60e8b5050c5bdac.jpg"
+    }
+  }
+]

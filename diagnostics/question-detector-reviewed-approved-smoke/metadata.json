@@ -1,0 +1,181 @@
+{
+  "generated_at": "2026-06-30T02:46:04.665343+00:00",
+  "label_strategy": "v3_safe",
+  "split_scope": "session",
+  "min_confidence": 0.0,
+  "category": "question_block",
+  "source_count": 87,
+  "positive_source_count": 7,
+  "negative_image_count": 80,
+  "annotation_count": 11,
+  "review_count": 2,
+  "include_review_labels": false,
+  "split_counts": {
+    "train": {
+      "images": 70,
+      "positive_images": 3,
+      "negative_images": 67,
+      "annotations": 6
+    },
+    "val": {
+      "images": 12,
+      "positive_images": 1,
+      "negative_images": 11,
+      "annotations": 1
+    },
+    "test": {
+      "images": 5,
+      "positive_images": 3,
+      "negative_images": 2,
+      "annotations": 4
+    }
+  },
+  "skipped": {
+    "duplicate_label": 2
+  },
+  "area": {
+    "min": 0.014256,
+    "max": 0.941315,
+    "mean": 0.373025
+  },
+  "audit": {
+    "readiness": {
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false
+    },
+    "counts": {
+      "source_images": 87,
+      "positive_images": 7,
+      "negative_images": 80,
+      "empty_page_images": 80,
+      "annotations": 11,
+      "review": 2,
+      "skipped": {
+        "duplicate_label": 2
+      },
+      "split_groups": 21,
+      "source_rows": 13,
+      "review_ratio": 0.1538,
+      "risky_label_count": 0,
+      "risky_label_ratio": 0.0
+    },
+    "split_counts": {
+      "train": {
+        "images": 70,
+        "positive_images": 3,
+        "negative_images": 67,
+        "annotations": 6,
+        "groups": 16
+      },
+      "val": {
+        "images": 12,
+        "positive_images": 1,
+        "negative_images": 11,
+        "annotations": 1,
+        "groups": 3
+      },
+      "test": {
+        "images": 5,
+        "positive_images": 3,
+        "negative_images": 2,
+        "annotations": 4,
+        "groups": 2
+      }
+    },
+    "strata_counts": {
+      "by_origin": {
+        "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative": 80,
+        "reviewed_prelabel:diagnostics\\question-detector-prelabel-kpai\\annotations\\approved_boxes_smoke.jsonl": 7
+      },
+      "by_negative_kind": {
+        "empty_page": 80
+      },
+      "by_quality_flag": {
+        "human_reviewed": 7,
+        "near_full_page_human_reviewed": 1,
+        "negative:empty_page": 80,
+        "negative_sample": 80,
+        "shape_risk_human_reviewed": 4
+      }
+    },
+    "leakage": {
+      "split_group_overlaps": {},
+      "exact_cross_split_images": [],
+      "near_duplicate_threshold": 4,
+      "near_duplicate_cross_split_pairs": [
+        {
+          "distance": 2,
+          "left": "images/test/b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+          "left_split": "test",
+          "right": "images/train/a4dc5c0c00c43ddc_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+          "right_split": "train"
+        }
+      ]
+    },
+    "minimums": {
+      "production_images": 300,
+      "production_annotations": 1000,
+      "production_negative_images": 1,
+      "production_split_groups": 50,
+      "max_review_ratio": 0.15,
+      "max_risky_label_ratio": 0.15
+    },
+    "warnings": [
+      {
+        "code": "near_duplicate_cross_split",
+        "severity": "warning",
+        "detail": "1 cross-split image pairs have aHash distance <= 4."
+      },
+      {
+        "code": "too_few_images",
+        "severity": "warning",
+        "detail": "87 source images; target >= 300 for model selection."
+      },
+      {
+        "code": "too_few_annotations",
+        "severity": "warning",
+        "detail": "11 annotations; target >= 1000 for model selection."
+      },
+      {
+        "code": "too_few_split_groups",
+        "severity": "warning",
+        "detail": "21 split groups; target >= 50 for held-out evaluation."
+      },
+      {
+        "code": "high_review_ratio",
+        "severity": "warning",
+        "detail": "review ratio is 0.154; target <= 0.15."
+      }
+    ]
+  },
+  "inputs": {
+    "diagnostics": [],
+    "sqlite": [],
+    "reviewed_prelabels": [
+      "diagnostics\\question-detector-prelabel-kpai\\annotations\\approved_boxes_smoke.jsonl"
+    ],
+    "approved_label_statuses": "approved,accepted,corrected,verified",
+    "empty_page_manifests": [],
+    "negative_image_dirs": [
+      "diagnostics\\question-detector-review-candidates-kpai\\negative"
+    ],
+    "include_sqlite_empty_pages": false,
+    "sqlite_empty_page_mode": "textless",
+    "data_dir": ""
+  },
+  "outputs": {
+    "coco": "annotations/coco_*.json",
+    "yolo": "images/{split}, labels/{split}, yolo_dataset.yaml",
+    "createml": "annotations/createml_*.json",
+    "jsonl": "annotations/manifest.jsonl",
+    "image_manifest": "annotations/image_manifest.jsonl",
+    "review": "annotations/review.jsonl",
+    "preview": "preview_contact_sheet.jpg",
+    "audit": "audit.json"
+  },
+  "notes": [
+    "These are weak labels exported from production crop/rect evidence.",
+    "Use manual review before final model training, especially for low-confidence and near-full-page labels."
+  ]
+}

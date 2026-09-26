@@ -1,0 +1,50 @@
+{
+  "baseline": {
+    "count": 20,
+    "bad": 4,
+    "height_min": 95,
+    "height_median": 496.5,
+    "height_max": 1326,
+    "ratio_median": 3.2,
+    "ratio_max": 9.75,
+    "area_median": 0.2107,
+    "crop_ms_total": 5.52,
+    "crop_ms_each": 0.276
+  },
+  "minbox": {
+    "count": 20,
+    "bad": 3,
+    "height_min": 234,
+    "height_median": 843.5,
+    "height_max": 1674,
+    "ratio_median": 2.1799999999999997,
+    "ratio_max": 4.96,
+    "area_median": 0.41555,
+    "crop_ms_total": 9.44,
+    "crop_ms_each": 0.472
+  },
+  "column": {
+    "count": 20,
+    "bad": 3,
+    "height_min": 268,
+    "height_median": 963.5,
+    "height_max": 1674,
+    "ratio_median": 1.41,
+    "ratio_max": 7.33,
+    "area_median": 0.33899999999999997,
+    "crop_ms_total": 8.63,
+    "crop_ms_each": 0.431
+  },
+  "pageband": {
+    "count": 20,
+    "bad": 4,
+    "height_min": 301,
+    "height_median": 1091.5,
+    "height_max": 1674,
+    "ratio_median": 1.88,
+    "ratio_max": 6.82,
+    "area_median": 0.5998,
+    "crop_ms_total": 12.54,
+    "crop_ms_each": 0.627
+  }
+}

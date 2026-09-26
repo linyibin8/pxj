@@ -8,3 +8,4 @@
 - [部署文档](DEPLOYMENT.md)：后端、域名、Nginx、TestFlight 和 GitHub 发布流程。
 - [测试文档](TESTING.md)：冒烟、回归、发布前检查和当前已验证结果。
 - [流程图](FLOW_DIAGRAMS.md)：学习、拍题、答疑、部署和发布流程。
+- [作业证据账本独立功能方案](HOMEWORK_EVIDENCE_LEDGER_PLAN.md)：少拍少传、题目证据追踪、可编辑数字题卡、Mac 模拟与 TestFlight 灰度计划。

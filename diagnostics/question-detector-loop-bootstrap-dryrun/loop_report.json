@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-06-30T04:11:22.268608+00:00",
+  "status": "passed",
+  "out": "diagnostics\\question-detector-loop-bootstrap-dryrun",
+  "execute_training": true,
+  "train_dry_run": true,
+  "artifacts": {
+    "dataset": "diagnostics\\question-detector-bootstrap-kpai-smoke",
+    "cv": "",
+    "experiment": "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment",
+    "release_check": "",
+    "error_mining": "",
+    "error_workbench": "",
+    "iteration_report": "diagnostics\\question-detector-loop-bootstrap-dryrun\\iteration_report"
+  },
+  "steps": [
+    {
+      "name": "experiment",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_experiment_matrix.py",
+        "--out",
+        "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment",
+        "--model",
+        "yolo11n.pt,yolo11s.pt",
+        "--imgsz",
+        "416,640",
+        "--epochs",
+        "1",
+        "--batch",
+        "-1",
+        "--workers",
+        "4",
+        "--eval-score-thresholds",
+        "0.05,0.10,0.20,0.25,0.35,0.50",
+        "--clean",
+        "--dataset",
+        "diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "--allow-unready",
+        "--allow-failed-eval",
+        "--train-dry-run",
+        "--execute"
+      ],
+      "started_at": "2026-06-30T04:11:21.605278+00:00",
+      "finished_at": "2026-06-30T04:11:22.169206+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-bootstrap-dryrun\\logs\\experiment.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-bootstrap-dryrun\\logs\\experiment.stderr.txt"
+    },
+    {
+      "name": "iteration_report",
+      "command": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "D:\\AI\\pxj\\scripts\\question_detector_iteration_report.py",
+        "--dataset",
+        "diagnostics\\question-detector-bootstrap-kpai-smoke",
+        "--experiment",
+        "diagnostics\\question-detector-loop-bootstrap-dryrun\\experiment",
+        "--out",
+        "diagnostics\\question-detector-loop-bootstrap-dryrun\\iteration_report",
+        "--clean",
+        "--replay",
+        "diagnostics\\question-observation-replay-kpai-layout-measured"
+      ],
+      "started_at": "2026-06-30T04:11:22.173224+00:00",
+      "finished_at": "2026-06-30T04:11:22.268608+00:00",
+      "returncode": 0,
+      "status": "passed",
+      "stdout": "diagnostics\\question-detector-loop-bootstrap-dryrun\\logs\\iteration_report.stdout.txt",
+      "stderr": "diagnostics\\question-detector-loop-bootstrap-dryrun\\logs\\iteration_report.stderr.txt"
+    }
+  ]
+}

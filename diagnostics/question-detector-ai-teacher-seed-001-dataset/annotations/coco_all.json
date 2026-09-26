@@ -1,0 +1,183 @@
+{
+  "info": {
+    "description": "PXJ weak question-region detector dataset",
+    "version": "v1",
+    "generated_at": "2026-07-01T23:57:35.836482+00:00"
+  },
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/train/f3f657dbbb75a62c_0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "width": 4800,
+      "height": 3600,
+      "split": "train",
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "source_key": "reviewed_prelabel:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925",
+      "source_filename": "0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl",
+      "label_count": 3,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed"
+      ]
+    },
+    {
+      "id": 2,
+      "file_name": "images/val/16b4d425bdd941e1_0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "source_key": "reviewed_prelabel:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba",
+      "source_filename": "0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl",
+      "label_count": 3,
+      "is_negative": false,
+      "negative_kind": "",
+      "quality_flags": [
+        "human_reviewed"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        560,
+        175,
+        3300,
+        770
+      ],
+      "area": 2541000,
+      "iscrowd": 0,
+      "question_key": "reviewed:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "source_key": "reviewed_prelabel:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        835,
+        3570,
+        800
+      ],
+      "area": 2856000,
+      "iscrowd": 0,
+      "question_key": "reviewed:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925:2",
+      "question_index": 2,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "source_key": "reviewed_prelabel:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 3,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        1610,
+        3570,
+        1160
+      ],
+      "area": 4141200,
+      "iscrowd": 0,
+      "question_key": "reviewed:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925:3",
+      "question_index": 3,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "source_key": "reviewed_prelabel:0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        805,
+        245,
+        850,
+        300
+      ],
+      "area": 255000,
+      "iscrowd": 0,
+      "question_key": "reviewed:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba:1",
+      "question_index": 1,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "source_key": "reviewed_prelabel:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 5,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        760,
+        775,
+        930,
+        265
+      ],
+      "area": 246450,
+      "iscrowd": 0,
+      "question_key": "reviewed:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba:3",
+      "question_index": 3,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "source_key": "reviewed_prelabel:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    },
+    {
+      "id": 6,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        720,
+        1295,
+        1020,
+        355
+      ],
+      "area": 362100,
+      "iscrowd": 0,
+      "question_key": "reviewed:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba:5",
+      "question_index": 5,
+      "confidence": 1.0,
+      "quality_flags": [
+        "human_reviewed"
+      ],
+      "split_key": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "source_key": "reviewed_prelabel:0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba",
+      "origin": "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

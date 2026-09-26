@@ -1,0 +1,111 @@
+{
+  "readiness": {
+    "pilot_eval_ready": false,
+    "model_training_ready": false,
+    "has_error": true
+  },
+  "counts": {
+    "source_images": 2,
+    "positive_images": 2,
+    "negative_images": 0,
+    "empty_page_images": 0,
+    "annotations": 6,
+    "review": 2,
+    "skipped": {
+      "duplicate_label": 2
+    },
+    "split_groups": 2,
+    "raw_split_groups": 2,
+    "source_rows": 8,
+    "review_ratio": 0.25,
+    "risky_label_count": 0,
+    "risky_label_ratio": 0.0
+  },
+  "split_counts": {
+    "train": {
+      "images": 1,
+      "positive_images": 1,
+      "negative_images": 0,
+      "annotations": 3,
+      "groups": 1,
+      "raw_groups": 1
+    },
+    "val": {
+      "images": 1,
+      "positive_images": 1,
+      "negative_images": 0,
+      "annotations": 3,
+      "groups": 1,
+      "raw_groups": 1
+    },
+    "test": {
+      "images": 0,
+      "positive_images": 0,
+      "negative_images": 0,
+      "annotations": 0,
+      "groups": 0,
+      "raw_groups": 0
+    }
+  },
+  "strata_counts": {
+    "by_origin": {
+      "reviewed_prelabel:diagnostics\\question-detector-ai-teacher-seed-001\\annotations\\approved_boxes.jsonl": 2
+    },
+    "by_negative_kind": {},
+    "by_quality_flag": {
+      "human_reviewed": 2
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_severity": "error",
+    "near_duplicate_cross_split_pairs": [],
+    "split_grouping": {
+      "enabled": true,
+      "original_group_count": 2,
+      "clustered_group_count": 2,
+      "merged_group_count": 0,
+      "near_duplicate_threshold": 4,
+      "exact_duplicate_group_links": [],
+      "near_duplicate_group_links": [],
+      "merged_clusters": []
+    }
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 0,
+    "production_split_groups": 50,
+    "max_review_ratio": 0.15,
+    "max_risky_label_ratio": 0.15
+  },
+  "warnings": [
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "2 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "6 annotations; target >= 1000 for model selection."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "2 split groups; target >= 50 for held-out evaluation."
+    },
+    {
+      "code": "empty_split",
+      "severity": "error",
+      "detail": "test has 0 images and 0 annotations."
+    },
+    {
+      "code": "high_review_ratio",
+      "severity": "warning",
+      "detail": "review ratio is 0.250; target <= 0.15."
+    }
+  ]
+}

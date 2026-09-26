@@ -1,0 +1,6 @@
+{"review_id": "teacher:dxue_test_images_00030_639dee4c0fce8925", "cohort": "oblique_single_page_seed", "prediction_index": 3, "score": 0.78, "bbox": [0.0, 2434.0, 4568.0, 1166.0], "best_any_iou": 0.1451}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "prediction_index": 0, "score": 0.78, "bbox": [195.0, 186.0, 1074.0, 284.0], "best_any_iou": 0.2291}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "prediction_index": 1, "score": 0.78, "bbox": [195.0, 479.0, 1074.0, 326.0], "best_any_iou": 0.2454}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "prediction_index": 2, "score": 0.78, "bbox": [195.0, 681.0, 1074.0, 361.0], "best_any_iou": 0.2702}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "prediction_index": 3, "score": 0.78, "bbox": [195.0, 939.0, 1074.0, 671.0], "best_any_iou": 0.1901}
+{"review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba", "cohort": "oblique_two_page_right_page_seed", "prediction_index": 4, "score": 0.35, "bbox": [195.0, 354.0, 1074.0, 261.0], "best_any_iou": 0.1984}

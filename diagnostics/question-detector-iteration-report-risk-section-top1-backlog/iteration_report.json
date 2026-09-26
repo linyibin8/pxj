@@ -1,0 +1,307 @@
+{
+  "generated_at": "2026-06-30T16:07:37.335890+00:00",
+  "inputs": {
+    "datasets": [
+      "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact"
+    ],
+    "experiments": [
+      "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment"
+    ],
+    "release_checks": [
+      "diagnostics\\question-detector-release-check-risk-section-top1-propagated-only"
+    ],
+    "replays": [
+      "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated"
+    ],
+    "strategy_selections": [
+      "diagnostics\\question-observation-strategy-selection-risk-section-top1"
+    ],
+    "training_plans": [
+      "diagnostics\\question-detector-training-readiness-plan-risk-section-top1"
+    ],
+    "review_queues": [
+      "diagnostics\\question-detector-review-queue-risk-section-top1"
+    ],
+    "error_mining": [],
+    "review_workbenches": []
+  },
+  "datasets": [
+    {
+      "path": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json",
+      "pilot_eval_ready": true,
+      "model_training_ready": false,
+      "has_error": false,
+      "counts": {
+        "source_images": 89,
+        "positive_images": 9,
+        "negative_images": 80,
+        "annotations": 16,
+        "human_reviewed_annotations": 16,
+        "pseudo_annotations": 0,
+        "split_groups": 20
+      },
+      "targets": {
+        "source_images": 300,
+        "annotations": 1000,
+        "split_groups": 50,
+        "negative_images": 50
+      },
+      "gaps": {
+        "source_images": 211,
+        "annotations": 984,
+        "split_groups": 30,
+        "negative_images": 0
+      },
+      "pseudo_ratio": 0.0,
+      "is_bootstrap": false,
+      "warning_count": 3
+    }
+  ],
+  "experiments": [
+    {
+      "path": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment\\experiment_report.json",
+      "status": "passed",
+      "run_count": 1,
+      "executed_run_count": 1,
+      "selection_summary": "",
+      "best_manifest": {
+        "path": "diagnostics\\question-detector-loop-backend-tuned-fallback-delta-dryrun\\experiment\\runs\\question-detector-dataset-merged-reviewed-next-propagated-exact__yolo11n__img416__seed42__ep1\\train_manifest.json",
+        "status": "planned",
+        "model": "yolo11n.pt",
+        "imgsz": 416,
+        "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact",
+        "coreml_artifact": "",
+        "eval_gate_passed": null,
+        "primary_threshold": "0.50",
+        "gt_count": 0,
+        "pred_count": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_per_image": 0.0,
+        "missed_question_rate": 1.0
+      },
+      "manifest_status_counts": {
+        "planned": 1
+      }
+    }
+  ],
+  "release_checks": [
+    {
+      "path": "diagnostics\\question-detector-release-check-risk-section-top1-propagated-only\\release_check.json",
+      "release_ready": false,
+      "hard_failure_count": 5,
+      "warning_count": 2,
+      "hard_failure_categories": {
+        "dataset": 1,
+        "selection": 1,
+        "artifact": 1,
+        "ios": 1,
+        "runtime": 1
+      },
+      "top_hard_failures": [
+        {
+          "category": "dataset",
+          "name": "diagnostics\\question-detector-dataset-merged-reviewed-next-propagated-exact\\audit.json: model_training_ready",
+          "detail": "Dataset audit must report model_training_ready=true before detector selection is considered releasable."
+        },
+        {
+          "category": "selection",
+          "name": "selection summary exists",
+          "detail": "Missing selection_summary.json."
+        },
+        {
+          "category": "artifact",
+          "name": "Core ML artifact exists",
+          "detail": "Selected detector must have an exported QuestionRegionDetector Core ML artifact."
+        },
+        {
+          "category": "ios",
+          "name": "QuestionRegionDetector bundled in iOS app sources",
+          "detail": "iOS target must include QuestionRegionDetector.mlmodel/.mlpackage or compiled .mlmodelc."
+        },
+        {
+          "category": "runtime",
+          "name": "runtime perf evidence supplied",
+          "detail": "Release check requires live/simulator runtime telemetry so local latency, cache reuse, and rect-only transport are gated before iOS promotion."
+        }
+      ]
+    }
+  ],
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-reviewed-propagated-layout-v5-gated\\summary.json",
+      "images": 89,
+      "cross_frame_dedup_boxes": 224,
+      "rect_only_vs_full": 1.004,
+      "full_plus_crop_vs_full": 1.4195,
+      "crop_pixels_vs_full": 0.3751,
+      "layout_median_ms": 24.959,
+      "layout_p95_ms": 35.984
+    }
+  ],
+  "strategy_selections": [
+    {
+      "path": "diagnostics\\question-observation-strategy-selection-risk-section-top1\\strategy_selection.json",
+      "row_count": 24,
+      "best_reviewed_live_strategy": {
+        "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+        "family": "section_sender",
+        "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+        "recall": 1.0,
+        "fallback_image_ratio": 0.02439,
+        "total_pixels_vs_full": 0.76223
+      },
+      "best_propagated_live_strategy": {
+        "strategy_id": "question-observation-replay-reviewed-propagated-layout-v5-gated:ios_sender",
+        "family": "section_sender",
+        "replay": "question-observation-replay-reviewed-propagated-layout-v5-gated",
+        "recall": 1.0,
+        "fallback_image_ratio": 0.202247,
+        "total_pixels_vs_full": 0.810149
+      },
+      "synthetic_stress_row_count": 6
+    }
+  ],
+  "training_plans": [
+    {
+      "path": "diagnostics\\question-detector-training-readiness-plan-risk-section-top1\\training_readiness_plan.json",
+      "model_training_ready": false,
+      "pending_boxes": 1030,
+      "pending_images": 278,
+      "annotations_after_pending": 1046,
+      "remaining_annotation_gap_after_pending": 0,
+      "remaining_image_gap_after_pending": 0,
+      "remaining_split_group_gap_after_pending": 0,
+      "actions": [
+        {
+          "code": "finish_current_review_backlog",
+          "detail": "Review/export the current 1030 pending boxes before training; if approval and dedupe hold, this backlog can cover the production annotation target.",
+          "priority": 1
+        },
+        {
+          "code": "verify_split_group_gain_after_merge",
+          "detail": "Pending review may close the split-group gap only if those groups survive approval/dedup; rerun dataset audit after merge.",
+          "priority": 3
+        },
+        {
+          "code": "respect_release_blockers",
+          "detail": "Do not promote a Core ML detector until release blockers clear.",
+          "priority": 4
+        },
+        {
+          "code": "keep_current_observation_strategy",
+          "detail": "Keep the current reviewed-live observation strategy while the training dataset grows.",
+          "priority": 5
+        },
+        {
+          "code": "preserve_review_provenance",
+          "detail": "Backlog outputs are review queues only; merge only approved/corrected/verified exports into training.",
+          "priority": 6
+        }
+      ]
+    }
+  ],
+  "review_queues": [
+    {
+      "path": "diagnostics\\question-detector-review-queue-risk-section-top1\\review_queue_manifest.json",
+      "index_html": "diagnostics\\question-detector-review-queue-risk-section-top1\\index.html",
+      "workbench_count": 14,
+      "total_boxes": 1030,
+      "pending_boxes": 1030,
+      "approved_boxes": 0,
+      "needs_review_count": 14,
+      "needs_export_count": 0,
+      "merge_command": ""
+    }
+  ],
+  "error_mining": [],
+  "review_workbenches": [],
+  "stage": "model_selection_passed",
+  "next_actions": [
+    {
+      "priority": 5,
+      "code": "respect_release_blockers",
+      "detail": "Do not bundle this detector into iOS until hard release failures are cleared.",
+      "evidence": {
+        "hard_failure_categories": {
+          "dataset": 1,
+          "selection": 1,
+          "artifact": 1,
+          "ios": 1,
+          "runtime": 1
+        },
+        "hard_failure_count": 5
+      }
+    },
+    {
+      "priority": 8,
+      "code": "complete_review_workbenches",
+      "detail": "Review workbenches still have about 1030 boxes without a decisions export.",
+      "evidence": {
+        "pending_boxes": 1030,
+        "review_queues": [
+          {
+            "path": "diagnostics\\question-detector-review-queue-risk-section-top1\\review_queue_manifest.json",
+            "index_html": "diagnostics\\question-detector-review-queue-risk-section-top1\\index.html",
+            "pending_boxes": 1030
+          }
+        ],
+        "workbenches": []
+      }
+    },
+    {
+      "priority": 20,
+      "code": "grow_reviewed_dataset",
+      "detail": "Dataset is not model-training-ready; expand reviewed labels and split groups before release training.",
+      "evidence": {
+        "gaps": {
+          "source_images": 211,
+          "annotations": 984,
+          "split_groups": 30,
+          "negative_images": 0
+        },
+        "counts": {
+          "source_images": 89,
+          "positive_images": 9,
+          "negative_images": 80,
+          "annotations": 16,
+          "human_reviewed_annotations": 16,
+          "pseudo_annotations": 0,
+          "split_groups": 20
+        }
+      }
+    },
+    {
+      "priority": 70,
+      "code": "run_release_gate",
+      "detail": "Experiment matrix passed; run the release readiness gate with replay and iOS artifact evidence.",
+      "evidence": {
+        "selection_summary": ""
+      }
+    },
+    {
+      "priority": 80,
+      "code": "keep_rect_only_upload",
+      "detail": "Replay still supports rect-only upload: low network overhead and lower VLM pixel load than full-frame VLM analysis.",
+      "evidence": {
+        "rect_only_vs_full": 1.004,
+        "crop_pixels_vs_full": 0.3751,
+        "layout_median_ms": 24.959
+      }
+    },
+    {
+      "priority": 82,
+      "code": "keep_best_observation_strategy",
+      "detail": "Strategy selection supports the current reviewed live observation crop strategy.",
+      "evidence": {
+        "strategy_id": "question-observation-replay-kpai-layout-measured-v5-dense-gated:ios_sender",
+        "family": "section_sender",
+        "replay": "question-observation-replay-kpai-layout-measured-v5-dense-gated",
+        "recall": 1.0,
+        "fallback_image_ratio": 0.02439,
+        "total_pixels_vs_full": 0.76223
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-kpai-layout-measured-v4",
+      "candidate_count": 403,
+      "image_count": 41,
+      "full_frame_only_bytes": 8017456,
+      "full_frame_resized_pixels": 58956800
+    }
+  ],
+  "settings": {
+    "min_gt_coverage": 0.85,
+    "min_iou": 0.3,
+    "max_overcrop_ratio": 3.0,
+    "full_max_side": 1600
+  },
+  "counts": {
+    "images": 41,
+    "images_with_candidates": 41,
+    "candidate_count": 403,
+    "gt_box_count": 12,
+    "raw_represented_gt_key_count": 11,
+    "represented_gt_key_count": 11,
+    "duplicate_represented_gt_key_count": 0,
+    "covered_gt_key_count": 7,
+    "missed_gt_key_count": 4,
+    "matched_candidate_count": 10,
+    "reviewed_image_candidate_count": 79,
+    "unmatched_reviewed_candidate_count": 69,
+    "unverified_candidate_count": 324,
+    "overcrop_match_count": 0
+  },
+  "metrics": {
+    "represented_gt_recall": 0.636364,
+    "reviewed_candidate_match_rate": 0.126582,
+    "crop_pixels_vs_full_frame_pixels": 0.693779,
+    "crop_resized_pixels": 40902987,
+    "full_frame_resized_pixels": 58956800,
+    "crop_jpeg_bytes": 6146752,
+    "overcrop_ratio_median": 0.417269,
+    "overcrop_ratio_p90": 0.985456,
+    "overcrop_ratio_max": 0.999999
+  },
+  "quality_flags": {
+    "dense_column_layout": 336,
+    "dense_single_column_layout": 54,
+    "few_text_lines": 175,
+    "near_full_page": 13,
+    "page:bright_page": 403,
+    "tall_block": 13
+  },
+  "outputs": {
+    "matches": "matches.jsonl",
+    "missed": "missed_gt.jsonl",
+    "unmatched_reviewed_candidates": "unmatched_reviewed_candidates.jsonl",
+    "unverified_candidates": "unverified_candidates.jsonl",
+    "overcrop": "overcrop_candidates.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  },
+  "ground_truth_manifests": [
+    "diagnostics\\question-detector-dataset-merged-reviewed-smoke-neardupe-gate\\annotations\\manifest.jsonl"
+  ],
+  "dataset_root": ""
+}

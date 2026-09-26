@@ -1,0 +1,71 @@
+{
+  "replays": [
+    {
+      "path": "diagnostics\\question-observation-replay-synthetic-dense-oracle",
+      "candidate_count": 256,
+      "image_count": 10,
+      "full_frame_only_bytes": 1390047,
+      "full_frame_resized_pixels": 16240000
+    }
+  ],
+  "candidate_count": 256,
+  "image_count": 10,
+  "gt_box_count": 256,
+  "represented_gt_key_count": 256,
+  "full_frame_all_pixels": 16240000,
+  "full_max_side": 1600,
+  "settings": {
+    "max_per_section": [
+      4,
+      6,
+      8,
+      12
+    ],
+    "section_max_side": [
+      900,
+      1000,
+      1200
+    ],
+    "max_sections_per_image": 12,
+    "section_pad_x": 0.01,
+    "section_pad_y": 0.006,
+    "column_gap_threshold": 0.18,
+    "min_gt_coverage": 0.85,
+    "min_section_gt_recall": 0.999,
+    "min_policy_gt_recall": 0.999,
+    "max_total_pixels_vs_full": 1.0,
+    "min_recommendation_section_max_side": 1200
+  },
+  "recommendation": {
+    "strategy_id": "page__side1200",
+    "mode": "page",
+    "max_per_section": 999999,
+    "max_sections_per_image": 12,
+    "section_max_side": 1200,
+    "image_count": 10,
+    "candidate_count": 256,
+    "section_count": 10,
+    "represented_gt_key_count": 256,
+    "section_covered_gt_key_count": 256,
+    "section_gt_recall": 1.0,
+    "policy_covered_gt_key_count": 256,
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 0,
+    "fallback_reason_counts": {},
+    "section_pixels": 9363600,
+    "fallback_full_frame_pixels": 0,
+    "total_vlm_pixels": 9363600,
+    "full_frame_all_pixels": 16240000,
+    "full_frame_gt_image_pixels": 16240000,
+    "section_pixels_vs_full": 0.576576,
+    "total_pixels_vs_full": 0.576576,
+    "total_pixels_vs_full_gt_images": 0.576576,
+    "pixels_per_represented_gt": 36576.562,
+    "pixels_per_section_covered_gt": 36576.562
+  },
+  "outputs": {
+    "strategies": "strategies.jsonl",
+    "per_image": "per_image.jsonl",
+    "summary_md": "summary.md"
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "generated_at": "2026-06-30T16:08:07.920456+00:00",
+  "passed": true,
+  "thresholds": {
+    "min_real_recall": 0.999,
+    "max_real_boxes": 80,
+    "max_real_box_multiplier": 1.2,
+    "max_real_crop_pixels_vs_full": 0.7,
+    "max_real_overcrop_matches": 0,
+    "min_synthetic_recall": 0.999,
+    "min_fallback_recall": 0.999,
+    "max_real_fallback_total_pixels_vs_full": 0.85,
+    "max_propagated_fallback_total_pixels_vs_full": 0.9
+  },
+  "real_candidate_eval": {
+    "path": "diagnostics\\question-observation-candidate-eval-kpai-layout-v5-dense-gated\\summary.json",
+    "candidate_count": 67,
+    "represented_gt_key_count": 11,
+    "covered_gt_key_count": 11,
+    "missed_gt_key_count": 0,
+    "unmatched_reviewed_candidate_count": 0,
+    "unverified_candidate_count": 56,
+    "overcrop_match_count": 0,
+    "represented_gt_recall": 1.0,
+    "crop_pixels_vs_full_frame_pixels": 0.625661,
+    "overcrop_ratio_p90": 1.0,
+    "overcrop_ratio_max": 1.000001
+  },
+  "real_replay": {
+    "path": "diagnostics\\question-observation-replay-kpai-layout-measured-v5-dense-gated\\summary.json",
+    "images": 41,
+    "raw_boxes": 67,
+    "cross_frame_dedup_boxes": 63,
+    "images_with_boxes": 41,
+    "crop_pixels_vs_full_pixels": 0.5584,
+    "small_area_boxes": 9,
+    "near_full_page_boxes": 6,
+    "flag_counts": {
+      "few_text_lines": 4,
+      "near_full_page": 36,
+      "page:bright_page": 67,
+      "short_block": 4,
+      "tall_block": 37
+    },
+    "layout_latency_ms": {
+      "count": 41,
+      "total": 1451.762,
+      "mean": 35.409,
+      "median": 33.892,
+      "p90": 46.111,
+      "p95": 47.799,
+      "max": 66.066
+    }
+  },
+  "real_baseline_replay": {
+    "path": "diagnostics\\question-observation-replay-kpai-layout-measured\\summary.json",
+    "images": 41,
+    "raw_boxes": 67,
+    "cross_frame_dedup_boxes": 63,
+    "images_with_boxes": 41,
+    "crop_pixels_vs_full_pixels": 0.5584,
+    "small_area_boxes": 9,
+    "near_full_page_boxes": 6,
+    "flag_counts": {
+      "few_text_lines": 4,
+      "near_full_page": 36,
+      "page:bright_page": 67,
+      "short_block": 4,
+      "tall_block": 37
+    },
+    "layout_latency_ms": {
+      "count": 41,
+      "total": 1367.956,
+      "mean": 33.365,
+      "median": 30.896,
+      "p90": 40.563,
+      "p95": 60.686,
+      "max": 118.829
+    }
+  },
+  "synthetic_candidate_eval": {
+    "path": "diagnostics\\question-observation-candidate-eval-synthetic-dense-layout-dense-prelabel-v5-gated\\summary.json",
+    "candidate_count": 283,
+    "represented_gt_key_count": 256,
+    "covered_gt_key_count": 256,
+    "missed_gt_key_count": 0,
+    "unmatched_reviewed_candidate_count": 19,
+    "unverified_candidate_count": 0,
+    "overcrop_match_count": 0,
+    "represented_gt_recall": 1.0,
+    "crop_pixels_vs_full_frame_pixels": 1.96038,
+    "overcrop_ratio_p90": 1.377941,
+    "overcrop_ratio_max": 2.130331
+  },
+  "synthetic_stress": {
+    "path": "diagnostics\\question-detector-synthetic-dense-stress-check-dense-prelabel-v5-gated-backend-tuned\\stress_check.json",
+    "stress_ready": true,
+    "transport_ready": true,
+    "detector_ready": true,
+    "hard_failure_count": 0,
+    "warning_count": 2
+  },
+  "real_fallback_tune": {
+    "path": "diagnostics\\question-observation-fallback-tune-kpai-layout-v5-dense-gated-backend-tuned\\summary.json",
+    "image_count": 41,
+    "represented_gt_key_count": 11,
+    "crop_only_gt_recall": 1.0,
+    "policy_id": "backend_current",
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 7,
+    "fallback_image_ratio": 0.170732,
+    "total_pixels_vs_full": 0.784856,
+    "fallback_reason_counts": {
+      "no_large_question_crop": 1,
+      "single_low_coverage_crop": 3,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "legacy_fallback_image_count": 14,
+    "legacy_total_pixels_vs_full": 0.958488,
+    "delta_fallback_removed_image_count": 7,
+    "delta_fallback_added_image_count": 0,
+    "delta_fallback_removed_with_gt_count": 1,
+    "delta_fallback_removed_with_crop_missed_gt_count": 0,
+    "delta_review_queue_images": 6,
+    "delta_review_queue_boxes": 11
+  },
+  "propagated_fallback_tune": {
+    "path": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+    "image_count": 89,
+    "represented_gt_key_count": 16,
+    "crop_only_gt_recall": 1.0,
+    "policy_id": "backend_current",
+    "policy_gt_recall": 1.0,
+    "fallback_image_count": 34,
+    "fallback_image_ratio": 0.382022,
+    "total_pixels_vs_full": 0.819493,
+    "fallback_reason_counts": {
+      "no_crops": 18,
+      "no_large_question_crop": 3,
+      "single_low_coverage_crop": 10,
+      "sparse_low_coverage_crops": 2,
+      "tiny_crop_coverage": 1
+    },
+    "legacy_fallback_image_count": 57,
+    "legacy_total_pixels_vs_full": 1.07142,
+    "delta_fallback_removed_image_count": 23,
+    "delta_fallback_added_image_count": 0,
+    "delta_fallback_removed_with_gt_count": 4,
+    "delta_fallback_removed_with_crop_missed_gt_count": 0,
+    "delta_review_queue_images": 19,
+    "delta_review_queue_boxes": 32
+  },
+  "checks": [
+    {
+      "category": "real",
+      "name": "real reviewed recall is preserved",
+      "passed": true,
+      "detail": "Real reviewed replay recall must stay >= 0.999.",
+      "values": {
+        "path": "diagnostics\\question-observation-candidate-eval-kpai-layout-v5-dense-gated\\summary.json",
+        "candidate_count": 67,
+        "represented_gt_key_count": 11,
+        "covered_gt_key_count": 11,
+        "missed_gt_key_count": 0,
+        "unmatched_reviewed_candidate_count": 0,
+        "unverified_candidate_count": 56,
+        "overcrop_match_count": 0,
+        "represented_gt_recall": 1.0,
+        "crop_pixels_vs_full_frame_pixels": 0.625661,
+        "overcrop_ratio_p90": 1.0,
+        "overcrop_ratio_max": 1.000001
+      }
+    },
+    {
+      "category": "real",
+      "name": "real candidate count is not inflated",
+      "passed": true,
+      "detail": "Real replay candidate count must stay <= 80; dense over-triggering caused a 403-box regression before gating.",
+      "values": {
+        "candidate_count": 67,
+        "limit": 80,
+        "baseline_raw_boxes": 67
+      }
+    },
+    {
+      "category": "real",
+      "name": "real crop pixel cost is bounded",
+      "passed": true,
+      "detail": "Real replay crop pixels should stay <= 0.7x full-frame pixels.",
+      "values": {
+        "path": "diagnostics\\question-observation-replay-kpai-layout-measured-v5-dense-gated\\summary.json",
+        "images": 41,
+        "raw_boxes": 67,
+        "cross_frame_dedup_boxes": 63,
+        "images_with_boxes": 41,
+        "crop_pixels_vs_full_pixels": 0.5584,
+        "small_area_boxes": 9,
+        "near_full_page_boxes": 6,
+        "flag_counts": {
+          "few_text_lines": 4,
+          "near_full_page": 36,
+          "page:bright_page": 67,
+          "short_block": 4,
+          "tall_block": 37
+        },
+        "layout_latency_ms": {
+          "count": 41,
+          "total": 1451.762,
+          "mean": 35.409,
+          "median": 33.892,
+          "p90": 46.111,
+          "p95": 47.799,
+          "max": 66.066
+        }
+      }
+    },
+    {
+      "category": "real",
+      "name": "real overcrop hard cases are absent",
+      "passed": true,
+      "detail": "Real reviewed replay should have <= 0 overcrop hard cases.",
+      "values": {
+        "path": "diagnostics\\question-observation-candidate-eval-kpai-layout-v5-dense-gated\\summary.json",
+        "candidate_count": 67,
+        "represented_gt_key_count": 11,
+        "covered_gt_key_count": 11,
+        "missed_gt_key_count": 0,
+        "unmatched_reviewed_candidate_count": 0,
+        "unverified_candidate_count": 56,
+        "overcrop_match_count": 0,
+        "represented_gt_recall": 1.0,
+        "crop_pixels_vs_full_frame_pixels": 0.625661,
+        "overcrop_ratio_p90": 1.0,
+        "overcrop_ratio_max": 1.000001
+      }
+    },
+    {
+      "category": "synthetic",
+      "name": "synthetic dense recall is preserved",
+      "passed": true,
+      "detail": "Synthetic dense recall must stay >= 0.999.",
+      "values": {
+        "path": "diagnostics\\question-observation-candidate-eval-synthetic-dense-layout-dense-prelabel-v5-gated\\summary.json",
+        "candidate_count": 283,
+        "represented_gt_key_count": 256,
+        "covered_gt_key_count": 256,
+        "missed_gt_key_count": 0,
+        "unmatched_reviewed_candidate_count": 19,
+        "unverified_candidate_count": 0,
+        "overcrop_match_count": 0,
+        "represented_gt_recall": 1.0,
+        "crop_pixels_vs_full_frame_pixels": 1.96038,
+        "overcrop_ratio_p90": 1.377941,
+        "overcrop_ratio_max": 2.130331
+      }
+    },
+    {
+      "category": "synthetic",
+      "name": "synthetic dense stress gate passes",
+      "passed": true,
+      "detail": "Synthetic dense stress check must be ready; warnings are allowed when section sender evidence makes cap-only diagnostics non-blocking.",
+      "values": {
+        "path": "diagnostics\\question-detector-synthetic-dense-stress-check-dense-prelabel-v5-gated-backend-tuned\\stress_check.json",
+        "stress_ready": true,
+        "transport_ready": true,
+        "detector_ready": true,
+        "hard_failure_count": 0,
+        "warning_count": 2
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "KPAI backend fallback recall is preserved",
+      "passed": true,
+      "detail": "KPAI backend fallback policy recall must stay >= 0.999.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-kpai-layout-v5-dense-gated-backend-tuned\\summary.json",
+        "image_count": 41,
+        "represented_gt_key_count": 11,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 7,
+        "fallback_image_ratio": 0.170732,
+        "total_pixels_vs_full": 0.784856,
+        "fallback_reason_counts": {
+          "no_large_question_crop": 1,
+          "single_low_coverage_crop": 3,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 14,
+        "legacy_total_pixels_vs_full": 0.958488,
+        "delta_fallback_removed_image_count": 7,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 1,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 6,
+        "delta_review_queue_boxes": 11
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "KPAI backend fallback cost is bounded",
+      "passed": true,
+      "detail": "KPAI backend fallback total pixels must stay <= 0.85x full-frame pixels.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-kpai-layout-v5-dense-gated-backend-tuned\\summary.json",
+        "image_count": 41,
+        "represented_gt_key_count": 11,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 7,
+        "fallback_image_ratio": 0.170732,
+        "total_pixels_vs_full": 0.784856,
+        "fallback_reason_counts": {
+          "no_large_question_crop": 1,
+          "single_low_coverage_crop": 3,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 14,
+        "legacy_total_pixels_vs_full": 0.958488,
+        "delta_fallback_removed_image_count": 7,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 1,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 6,
+        "delta_review_queue_boxes": 11
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "KPAI fallback delta has no known GT miss",
+      "passed": true,
+      "detail": "Images that no longer receive legacy full-frame fallback must not include represented GT missed by crops.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-kpai-layout-v5-dense-gated-backend-tuned\\summary.json",
+        "image_count": 41,
+        "represented_gt_key_count": 11,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 7,
+        "fallback_image_ratio": 0.170732,
+        "total_pixels_vs_full": 0.784856,
+        "fallback_reason_counts": {
+          "no_large_question_crop": 1,
+          "single_low_coverage_crop": 3,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 14,
+        "legacy_total_pixels_vs_full": 0.958488,
+        "delta_fallback_removed_image_count": 7,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 1,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 6,
+        "delta_review_queue_boxes": 11
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "propagated backend fallback recall is preserved",
+      "passed": true,
+      "detail": "Propagated backend fallback policy recall must stay >= 0.999.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 57,
+        "legacy_total_pixels_vs_full": 1.07142,
+        "delta_fallback_removed_image_count": 23,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 4,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 19,
+        "delta_review_queue_boxes": 32
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "propagated backend fallback cost is bounded",
+      "passed": true,
+      "detail": "Propagated backend fallback total pixels must stay <= 0.9x full-frame pixels.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 57,
+        "legacy_total_pixels_vs_full": 1.07142,
+        "delta_fallback_removed_image_count": 23,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 4,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 19,
+        "delta_review_queue_boxes": 32
+      }
+    },
+    {
+      "category": "fallback",
+      "name": "propagated fallback delta has no known GT miss",
+      "passed": true,
+      "detail": "Images that no longer receive legacy full-frame fallback must not include represented GT missed by crops.",
+      "values": {
+        "path": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\summary.json",
+        "image_count": 89,
+        "represented_gt_key_count": 16,
+        "crop_only_gt_recall": 1.0,
+        "policy_id": "backend_current",
+        "policy_gt_recall": 1.0,
+        "fallback_image_count": 34,
+        "fallback_image_ratio": 0.382022,
+        "total_pixels_vs_full": 0.819493,
+        "fallback_reason_counts": {
+          "no_crops": 18,
+          "no_large_question_crop": 3,
+          "single_low_coverage_crop": 10,
+          "sparse_low_coverage_crops": 2,
+          "tiny_crop_coverage": 1
+        },
+        "legacy_fallback_image_count": 57,
+        "legacy_total_pixels_vs_full": 1.07142,
+        "delta_fallback_removed_image_count": 23,
+        "delta_fallback_added_image_count": 0,
+        "delta_fallback_removed_with_gt_count": 4,
+        "delta_fallback_removed_with_crop_missed_gt_count": 0,
+        "delta_review_queue_images": 19,
+        "delta_review_queue_boxes": 32
+      }
+    }
+  ],
+  "failures": []
+}

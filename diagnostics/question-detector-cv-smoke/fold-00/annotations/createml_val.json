@@ -1,0 +1,48 @@
+[
+  {
+    "image": "images/val/25ea3f745a386e28__24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1486.5,
+          "y": 545.5,
+          "width": 1491.0,
+          "height": 399.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1425.0,
+          "y": 1104.5,
+          "width": 1486.0,
+          "height": 971.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/c5848a357311fac4__c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1468.5,
+          "y": 502.5,
+          "width": 1463.0,
+          "height": 467.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1370.0,
+          "y": 1107.5,
+          "width": 1580.0,
+          "height": 971.0
+        }
+      }
+    ]
+  }
+]

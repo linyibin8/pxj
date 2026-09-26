@@ -1,0 +1,253 @@
+[
+  {
+    "id": "q_qev_0001",
+    "evidence_ids": [
+      "qev_0001"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 1",
+    "editable_html": "<article><h2>Evidence 1</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0001.jpg\" alt=\"qev_0001\"><figcaption>qev_0001 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0001.jpg",
+        "source_evidence_id": "qev_0001"
+      }
+    ],
+    "confidence": 0.6028,
+    "review_flags": [
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0002",
+    "evidence_ids": [
+      "qev_0002"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 2",
+    "editable_html": "<article><h2>Evidence 2</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0002.jpg\" alt=\"qev_0002\"><figcaption>qev_0002 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0002.jpg",
+        "source_evidence_id": "qev_0002"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0003",
+    "evidence_ids": [
+      "qev_0003"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 3",
+    "editable_html": "<article><h2>Evidence 3</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0003.jpg\" alt=\"qev_0003\"><figcaption>qev_0003 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0003.jpg",
+        "source_evidence_id": "qev_0003"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0004",
+    "evidence_ids": [
+      "qev_0004"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 4",
+    "editable_html": "<article><h2>Evidence 4</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0004.jpg\" alt=\"qev_0004\"><figcaption>qev_0004 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0004.jpg",
+        "source_evidence_id": "qev_0004"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0005",
+    "evidence_ids": [
+      "qev_0005"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 5",
+    "editable_html": "<article><h2>Evidence 5</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0005.jpg\" alt=\"qev_0005\"><figcaption>qev_0005 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0005.jpg",
+        "source_evidence_id": "qev_0005"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0006",
+    "evidence_ids": [
+      "qev_0006"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 6",
+    "editable_html": "<article><h2>Evidence 6</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0006.jpg\" alt=\"qev_0006\"><figcaption>qev_0006 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0006.jpg",
+        "source_evidence_id": "qev_0006"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0007",
+    "evidence_ids": [
+      "qev_0007"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 7",
+    "editable_html": "<article><h2>Evidence 7</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0007.jpg\" alt=\"qev_0007\"><figcaption>qev_0007 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0007.jpg",
+        "source_evidence_id": "qev_0007"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0008",
+    "evidence_ids": [
+      "qev_0008"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 8",
+    "editable_html": "<article><h2>Evidence 8</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0008.jpg\" alt=\"qev_0008\"><figcaption>qev_0008 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0008.jpg",
+        "source_evidence_id": "qev_0008"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  },
+  {
+    "id": "q_qev_0009",
+    "evidence_ids": [
+      "qev_0009"
+    ],
+    "number": "",
+    "subject": "unknown",
+    "question_type": "evidence",
+    "stem_text": "Evidence 9",
+    "editable_html": "<article><h2>Evidence 9</h2><p>This card is generated from the best visual evidence crop. Text extraction and figure vectorization are intentionally separate later steps.</p><figure><img src=\"crops/qev_0009.jpg\" alt=\"qev_0009\"><figcaption>qev_0009 · seen 1 times</figcaption></figure></article>",
+    "figure_assets": [
+      {
+        "type": "raster",
+        "filename": "crops/qev_0009.jpg",
+        "source_evidence_id": "qev_0009"
+      }
+    ],
+    "confidence": 0.52,
+    "review_flags": [
+      "section_crop",
+      "needs_text_extraction",
+      "raster_figure_evidence",
+      "vlm_not_run",
+      "needs_review"
+    ],
+    "source_input_index": 0,
+    "extraction_notes": "fallback evidence card; VLM extraction not run"
+  }
+]

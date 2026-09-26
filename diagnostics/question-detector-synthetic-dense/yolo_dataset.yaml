@@ -1,0 +1,10 @@
+{
+  "path": "diagnostics\\question-detector-synthetic-dense",
+  "train": "images/diagnostic",
+  "val": "images/diagnostic",
+  "test": "images/diagnostic",
+  "names": {
+    "0": "question_block"
+  },
+  "diagnostic_only": true
+}

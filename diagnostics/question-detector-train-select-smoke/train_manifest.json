@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-06-30T00:00:00+00:00",
+  "dataset": "diagnostics\\question-detector-cv-smoke\\fold-00",
+  "model": "oracle-smoke",
+  "name": "question-block",
+  "train": {
+    "imgsz": 768
+  },
+  "status": "trained",
+  "best_pt": "",
+  "coreml_artifact": "",
+  "eval": {}
+}

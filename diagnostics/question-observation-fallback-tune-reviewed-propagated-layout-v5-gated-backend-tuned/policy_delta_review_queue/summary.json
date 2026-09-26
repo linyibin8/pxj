@@ -1,0 +1,12 @@
+{
+  "images": 19,
+  "boxes": 32,
+  "source": "fallback_removed_no_gt",
+  "notes": [
+    "This queue targets old-policy full-frame fallbacks removed by backend-tuned policy.",
+    "Rows have no represented GT in the current reviewed manifest, so review is needed to harden fallback precision/recall evidence."
+  ],
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl"
+  }
+}

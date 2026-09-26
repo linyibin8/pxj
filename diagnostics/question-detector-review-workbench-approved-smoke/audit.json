@@ -1,0 +1,103 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 85,
+    "positive_images": 5,
+    "negative_images": 80,
+    "empty_page_images": 80,
+    "annotations": 8,
+    "review": 0,
+    "skipped": {},
+    "split_groups": 20,
+    "source_rows": 8,
+    "review_ratio": 0.0,
+    "risky_label_count": 0,
+    "risky_label_ratio": 0.0
+  },
+  "split_counts": {
+    "train": {
+      "images": 69,
+      "positive_images": 2,
+      "negative_images": 67,
+      "annotations": 4,
+      "groups": 15
+    },
+    "val": {
+      "images": 12,
+      "positive_images": 1,
+      "negative_images": 11,
+      "annotations": 1,
+      "groups": 3
+    },
+    "test": {
+      "images": 4,
+      "positive_images": 2,
+      "negative_images": 2,
+      "annotations": 3,
+      "groups": 2
+    }
+  },
+  "strata_counts": {
+    "by_origin": {
+      "negative_dir:diagnostics\\question-detector-review-candidates-kpai\\negative": 80,
+      "reviewed_prelabel:diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl": 5
+    },
+    "by_negative_kind": {
+      "empty_page": 80
+    },
+    "by_quality_flag": {
+      "human_reviewed": 5,
+      "negative:empty_page": 80,
+      "negative_sample": 80,
+      "shape_risk_human_reviewed": 3
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_cross_split_pairs": [
+      {
+        "distance": 2,
+        "left": "images/test/b1b596912acbf7b7_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+        "left_split": "test",
+        "right": "images/train/a4dc5c0c00c43ddc_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+        "right_split": "train"
+      }
+    ]
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 1,
+    "production_split_groups": 50,
+    "max_review_ratio": 0.15,
+    "max_risky_label_ratio": 0.15
+  },
+  "warnings": [
+    {
+      "code": "near_duplicate_cross_split",
+      "severity": "warning",
+      "detail": "1 cross-split image pairs have aHash distance <= 4."
+    },
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "85 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "8 annotations; target >= 1000 for model selection."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "20 split groups; target >= 50 for held-out evaluation."
+    }
+  ]
+}

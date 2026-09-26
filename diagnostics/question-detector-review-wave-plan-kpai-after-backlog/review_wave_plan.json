@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-06-30T14:58:06.618743+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog",
+  "max_waves": 4,
+  "limit_per_wave": 24,
+  "include_quarantine": true,
+  "build_workbenches": true,
+  "exhausted": true,
+  "total_selected_images": 1,
+  "total_selected_boxes": 1,
+  "waves": [
+    {
+      "wave": 1,
+      "root": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog\\wave-001",
+      "candidate_count": 4,
+      "selected_images": 1,
+      "selected_boxes": 1,
+      "skipped": {
+        "already_approved_image": 9,
+        "already_queued_image": 42
+      },
+      "selection": {
+        "max_per_session": 4,
+        "ahash_threshold": 4,
+        "session_counts": {
+          "e90a6847977f4dbc8d831b5c401bb200": 1
+        },
+        "reason_counts": {
+          "dense_text": 1,
+          "flag:near_full_page": 1,
+          "flag:tall_block": 1,
+          "large_box": 1
+        }
+      },
+      "workbench": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog\\wave-001-workbench",
+      "workbench_summary": {
+        "generated_at": "2026-06-30T14:58:06.618743+00:00",
+        "prelabel_root": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog\\wave-001",
+        "out": "diagnostics\\question-detector-review-wave-plan-kpai-after-backlog\\wave-001-workbench",
+        "images": 1,
+        "boxes": 1,
+        "high_risk_boxes": 0,
+        "default_rejected_boxes": 0,
+        "median_boxes_per_image": 1,
+        "include_quarantine": false,
+        "outputs": {
+          "html": "index.html",
+          "review_data": "review_data.json"
+        },
+        "notes": [
+          "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+          "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+        ]
+      }
+    }
+  ],
+  "inputs": {
+    "exclude_approved_jsonl": [
+      "diagnostics\\question-detector-active-batch-kpai-001-workbench\\approved_boxes_smoke.jsonl",
+      "diagnostics\\question-detector-review-workbench-kpai\\approved_boxes_smoke.jsonl"
+    ],
+    "exclude_queued_root": [
+      "diagnostics\\question-detector-active-batch-kpai-001",
+      "diagnostics\\question-detector-active-batch-kpai-002",
+      "diagnostics\\question-detector-active-batch-kpai-003-quarantine",
+      "diagnostics\\question-detector-review-backlog-risk-section-top1"
+    ]
+  },
+  "notes": [
+    "Wave outputs are review queues, not approved training data.",
+    "If exhausted=true and total_selected_boxes is small, generate more prelabels from a larger historical candidate pool."
+  ]
+}

@@ -1,0 +1,626 @@
+[
+  {
+    "data": {
+      "image": "images/0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.76,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 10.208333333333334,
+              "y": 0.0,
+              "width": 81.92708333333333,
+              "height": 57.31481481481482,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 23.59375,
+              "y": 55.648148148148145,
+              "width": 63.22916666666667,
+              "height": 19.72222222222222,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.76
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.76,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 10.208333333333334,
+              "y": 0.0,
+              "width": 81.92708333333333,
+              "height": 57.31481481481482,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 23.59375,
+              "y": 55.648148148148145,
+              "width": 63.22916666666667,
+              "height": 19.72222222222222,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.76
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597f8623.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 22.135416666666664,
+              "y": 25.0,
+              "width": 49.84375,
+              "height": 74.81481481481481,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 18.645833333333332,
+              "y": 0.0,
+              "width": 52.760416666666664,
+              "height": 78.05555555555556,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 12.135416666666666,
+              "y": 5.833333333333333,
+              "width": 76.71875,
+              "height": 9.814814814814815,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.5973
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 12.239583333333332,
+              "y": 17.037037037037038,
+              "width": 76.66666666666667,
+              "height": 57.49999999999999,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 0.0,
+              "y": 0.0,
+              "width": 94.21875,
+              "height": 99.9074074074074,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 12.135416666666666,
+              "y": 5.833333333333333,
+              "width": 76.71875,
+              "height": 9.814814814814815,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.5973
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 12.239583333333332,
+              "y": 17.037037037037038,
+              "width": 76.66666666666667,
+              "height": 57.49999999999999,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 9.010416666666666,
+              "y": 0.0,
+              "width": 75.15625,
+              "height": 87.5925925925926,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 24.739583333333336,
+              "y": 87.87037037037037,
+              "width": 59.21875,
+              "height": 2.4074074074074074,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.5011
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/b3f939e2fbee43acbe7bd5e2c7c1b434_qa_d820dc9fc85d4d31b20919462041d065.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 19.739583333333332,
+              "y": 7.87037037037037,
+              "width": 60.62499999999999,
+              "height": 92.03703703703704,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.867,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 8.020833333333334,
+              "y": 22.22222222222222,
+              "width": 46.145833333333336,
+              "height": 63.51851851851852,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 8.020833333333334,
+              "y": 86.20370370370371,
+              "width": 44.01041666666667,
+              "height": 13.61111111111111,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.867
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 20.416666666666668,
+              "y": 19.444444444444446,
+              "width": 65.0,
+              "height": 62.59259259259259,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 20.416666666666668,
+              "y": 88.42592592592592,
+              "width": 50.208333333333336,
+              "height": 3.0555555555555554,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.6177
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 25.937500000000004,
+              "y": 12.314814814814815,
+              "width": 44.79166666666667,
+              "height": 80.37037037037037,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 25.937500000000004,
+              "y": 96.01851851851852,
+              "width": 39.58333333333333,
+              "height": 3.981481481481482,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.4444
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 15.833333333333332,
+              "y": 0.0,
+              "width": 67.13541666666667,
+              "height": 76.94444444444444,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 19.791666666666664,
+              "y": 26.944444444444443,
+              "width": 62.760416666666664,
+              "height": 65.0,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 31.979166666666664,
+              "y": 94.81481481481482,
+              "width": 50.572916666666664,
+              "height": 5.092592592592593,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.651
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 57.86458333333333,
+              "y": 39.351851851851855,
+              "width": 42.135416666666664,
+              "height": 60.55555555555555,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "image": "images/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg"
+    },
+    "predictions": [
+      {
+        "model_version": "layout_prelabel_v1",
+        "score": 0.74,
+        "result": [
+          {
+            "id": "draft-1",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 30.78125,
+              "y": 33.14814814814815,
+              "width": 52.65625000000001,
+              "height": 6.944444444444445,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.5023
+          },
+          {
+            "id": "draft-2",
+            "from_name": "label",
+            "to_name": "image",
+            "type": "rectanglelabels",
+            "value": {
+              "x": 30.78125,
+              "y": 40.64814814814815,
+              "width": 66.875,
+              "height": 59.25925925925925,
+              "rectanglelabels": [
+                "question_block"
+              ]
+            },
+            "score": 0.74
+          }
+        ]
+      }
+    ]
+  }
+]

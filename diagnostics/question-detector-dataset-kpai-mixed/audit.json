@@ -1,0 +1,175 @@
+{
+  "readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "counts": {
+    "source_images": 120,
+    "positive_images": 8,
+    "negative_images": 112,
+    "empty_page_images": 112,
+    "annotations": 17,
+    "review": 3,
+    "skipped": {
+      "review_risk": 3
+    },
+    "split_groups": 65,
+    "source_rows": 20,
+    "review_ratio": 0.15,
+    "risky_label_count": 0,
+    "risky_label_ratio": 0.0
+  },
+  "split_counts": {
+    "train": {
+      "images": 92,
+      "positive_images": 4,
+      "negative_images": 88,
+      "annotations": 9,
+      "groups": 52
+    },
+    "val": {
+      "images": 16,
+      "positive_images": 2,
+      "negative_images": 14,
+      "annotations": 4,
+      "groups": 7
+    },
+    "test": {
+      "images": 12,
+      "positive_images": 2,
+      "negative_images": 10,
+      "annotations": 4,
+      "groups": 6
+    }
+  },
+  "strata_counts": {
+    "by_origin": {
+      "diagnostics:diagnostics\\crop-f472\\data": 8,
+      "sqlite_empty:D:\\AI\\kpai\\backend\\data\\accounts\\c92a0e4ea0244cd281d8224a72639c9d.sqlite3": 112
+    },
+    "by_negative_kind": {
+      "empty_page": 112
+    },
+    "by_quality_flag": {
+      "negative:empty_page": 112,
+      "negative_sample": 112
+    }
+  },
+  "leakage": {
+    "split_group_overlaps": {},
+    "exact_cross_split_images": [],
+    "near_duplicate_threshold": 4,
+    "near_duplicate_cross_split_pairs": [
+      {
+        "distance": 3,
+        "left": "images/test/1e09a0072a035565_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_6079b9cc3aff49.jpg",
+        "left_split": "test",
+        "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+        "right_split": "train"
+      },
+      {
+        "distance": 4,
+        "left": "images/test/4047440fa4195f68_bb68c98c9ca44664b1582da1b6c2251b_9873a9046e98462fa2053b87d1f81fa1_a9000b30b82544.jpg",
+        "left_split": "test",
+        "right": "images/train/8a93ce704458547c_bb68c98c9ca44664b1582da1b6c2251b_38bb212b2ac0464ca82c6be32fc9ce27_5d62cc35f71c48.jpg",
+        "right_split": "train"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+        "left_split": "train",
+        "right": "images/val/24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 1,
+        "left": "images/train/020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+        "left_split": "train",
+        "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/16c23e20adbab590_b6f8a6accd404bfc9fb291b15cb44f09_c46d89729c7c41f9925c25e507afa69c_6a275ab9976845.jpg",
+        "left_split": "train",
+        "right": "images/val/a42ffccb9c61dc38_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_5e05d9f41c5347.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 2,
+        "left": "images/train/225548921eb1ab80_91cf7b7586424ce3a308b42daf0ee2fc_8123b3ab37854b48adb8bb55a15a611b_3161c311fc4a4c.jpg",
+        "left_split": "train",
+        "right": "images/val/021fe28d26f1fb18_3c06e705248e4093b5e4a0bbf8f864b6_85c35faa0ab741fc9a7175be2657e856_6ee0da37ec534a.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/61b3eba6065fd7b1_b6f8a6accd404bfc9fb291b15cb44f09_c60eb1e716b448d8906587950cb69479_41b7f222bde84a.jpg",
+        "left_split": "train",
+        "right": "images/val/20dc07c8be7fdc45_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_681123832bc141.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+        "left_split": "train",
+        "right": "images/val/24c50dba78e33993_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_c763be5440384d.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 3,
+        "left": "images/train/6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+        "left_split": "train",
+        "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/a2ba2887b4947b41_b6f8a6accd404bfc9fb291b15cb44f09_5b9389e1ba9d4fbba279c338a845e495_4aebbdc9a51e4c.jpg",
+        "left_split": "train",
+        "right": "images/val/a2a866386e31cc1e_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_6f3e235d208d4f.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 2,
+        "left": "images/train/bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+        "left_split": "train",
+        "right": "images/val/c66d7a40e448a96e_f472f00ba1db4a43bbb41330d54477a8_af9117c0dbee40c69419f7ddf86be1a6_36c6efb58f8945.jpg",
+        "right_split": "val"
+      },
+      {
+        "distance": 4,
+        "left": "images/train/ee30ec61c9ddb4cc_b6f8a6accd404bfc9fb291b15cb44f09_5aab139f7b4d44d2976d121a5aad9e48_227877ac4f404b.jpg",
+        "left_split": "train",
+        "right": "images/val/a6030c3e94a1b193_b6f8a6accd404bfc9fb291b15cb44f09_679511b94a04494d9dc507bf16dc5e24_8471e5e7fcd146.jpg",
+        "right_split": "val"
+      }
+    ]
+  },
+  "minimums": {
+    "production_images": 300,
+    "production_annotations": 1000,
+    "production_negative_images": 0,
+    "production_split_groups": 50,
+    "max_review_ratio": 0.15,
+    "max_risky_label_ratio": 0.15
+  },
+  "warnings": [
+    {
+      "code": "near_duplicate_cross_split",
+      "severity": "warning",
+      "detail": "12 cross-split image pairs have aHash distance <= 4."
+    },
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "120 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "17 annotations; target >= 1000 for model selection."
+    }
+  ]
+}

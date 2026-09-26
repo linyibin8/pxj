@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-06-30T14:08:49.537419+00:00",
+  "out": "diagnostics\\question-detector-review-backlog-risk-section-top1",
+  "workbenches": [
+    "diagnostics\\question-detector-active-batch-kpai-002-workbench",
+    "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench",
+    "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+    "diagnostics\\question-detector-propagation-review-candidates-ahash1-2-workbench"
+  ],
+  "candidate_images": 40,
+  "selected_images": 38,
+  "selected_boxes": 80,
+  "limit": 64,
+  "selection": {
+    "ahash_threshold": 2,
+    "candidate_source_counts": {
+      "active": 20,
+      "fallback_delta": 19,
+      "propagation": 1
+    },
+    "source_counts": {
+      "active": 19,
+      "fallback_delta": 19
+    },
+    "reason_counts": {
+      "flag:fallback_delta_removed": 19,
+      "flag:few_text_lines": 9,
+      "flag:near_full_page": 24,
+      "flag:page:bright_page": 35,
+      "flag:short_block": 5,
+      "flag:tall_block": 30,
+      "large_candidate": 28,
+      "low_confidence": 10,
+      "small_candidate": 12,
+      "source:active": 19,
+      "source:fallback_delta": 19
+    },
+    "skip_reason_counts": {
+      "exact_duplicate_image": 1,
+      "near_duplicate_image": 1,
+      "selected": 38
+    }
+  },
+  "skipped_by_root": {
+    "diagnostics\\question-detector-active-batch-kpai-002-workbench": {},
+    "diagnostics\\question-detector-active-batch-kpai-003-quarantine-workbench": {},
+    "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned": {},
+    "diagnostics\\question-detector-propagation-review-candidates-ahash1-2-workbench": {}
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_backlog": "annotations/ranked_backlog.jsonl",
+    "contact_sheet": "review_backlog_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a prioritized review queue, not approved training data.",
+    "Build a workbench from this root, review boxes, then export approved JSONL."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-30T13:25:44.567565+00:00",
+  "prelabel_root": "diagnostics\\question-observation-fallback-tune-reviewed-propagated-layout-v5-gated-backend-tuned\\policy_delta_review_queue",
+  "out": "diagnostics\\question-detector-review-workbench-fallback-delta-propagated-backend-tuned",
+  "images": 19,
+  "boxes": 32,
+  "high_risk_boxes": 0,
+  "default_rejected_boxes": 0,
+  "median_boxes_per_image": 1,
+  "include_quarantine": false,
+  "outputs": {
+    "html": "index.html",
+    "review_data": "review_data.json"
+  },
+  "notes": [
+    "Open index.html, review boxes, then download question_box_decisions.json or approved_boxes.jsonl.",
+    "Normal boxes can be exported when approved/corrected/accepted/verified; default-rejected false positives require corrected or verified."
+  ]
+}

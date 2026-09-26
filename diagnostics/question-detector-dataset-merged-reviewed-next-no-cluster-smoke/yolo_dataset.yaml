@@ -1,0 +1,9 @@
+{
+  "path": "D:\\AI\\pxj\\diagnostics\\question-detector-dataset-merged-reviewed-next-no-cluster-smoke",
+  "train": "images/train",
+  "val": "images/val",
+  "test": "images/test",
+  "names": {
+    "0": "question_block"
+  }
+}

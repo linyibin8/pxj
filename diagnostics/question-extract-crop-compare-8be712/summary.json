@@ -1,0 +1,17 @@
+{
+  "generated_at_unix": 1783068938.8093863,
+  "source_image": "diagnostics\\question-detector-fenti-pimage-bootstrap-recall\\images\\test\\8be712d6396fab1c_dxue_test_images_00038_31ed82e22f6ddc08_75efd590dfb314d1.jpg",
+  "full_question_count": 10,
+  "segment_question_count": 10,
+  "crop_count": 10,
+  "crop_question_count": 19,
+  "outputs": {
+    "source": "source.jpg",
+    "full_image": "full_image.json",
+    "segmentation": "segmentation.json",
+    "segmentation_preview": "segmentation_preview.jpg",
+    "crops_manifest": "crops_manifest.json",
+    "crop_questions_combined": "crop_questions_combined.json",
+    "comparison_report": "comparison_report.md"
+  }
+}

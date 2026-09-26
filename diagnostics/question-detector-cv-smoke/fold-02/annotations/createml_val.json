@@ -1,0 +1,103 @@
+[
+  {
+    "image": "images/val/138ac138412f5dac__020ae221e7aea6d2_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_a633b08fa35b45.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1369.0,
+          "y": 301.5,
+          "width": 1726.0,
+          "height": 585.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1401.0,
+          "y": 540.0,
+          "width": 1632.0,
+          "height": 502.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1321.5,
+          "y": 902.0,
+          "width": 1625.0,
+          "height": 1544.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/f47af17d2a3c812e__6ffd877e3ca64df3_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_4b0837ff4ae44c.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1426.0,
+          "y": 590.5,
+          "width": 1576.0,
+          "height": 545.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1339.5,
+          "y": 1181.5,
+          "width": 1573.0,
+          "height": 971.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/909cac66ecd2553f__b7562a4fff0e8ef1_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_48eeb3ee342f48.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 958.5,
+          "y": 485.5,
+          "width": 1917.0,
+          "height": 971.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1175.0,
+          "y": 875.5,
+          "width": 1440.0,
+          "height": 313.0
+        }
+      }
+    ]
+  },
+  {
+    "image": "images/val/6bc3c3dd60527d6e__bd4f3c4ab9ce5029_f472f00ba1db4a43bbb41330d54477a8_efd452130898498eb55a72d3ce7290c4_79e5c25d1ad646.jpg",
+    "annotations": [
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1496.0,
+          "y": 513.5,
+          "width": 1472.0,
+          "height": 465.0
+        }
+      },
+      {
+        "label": "question_block",
+        "coordinates": {
+          "x": 1454.5,
+          "y": 896.5,
+          "width": 1349.0,
+          "height": 1555.0
+        }
+      }
+    ]
+  }
+]

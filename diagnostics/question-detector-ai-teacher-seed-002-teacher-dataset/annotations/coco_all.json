@@ -1,0 +1,417 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/train/e8100c159f1c19_0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "width": 4800,
+      "height": 3600,
+      "split": "train",
+      "review_id": "teacher:dxue_test_images_00030_639dee4c0fce8925",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-002\\images\\0001_82114588e313_dxue_test_images_00030_639dee4c0fce8925.jpg",
+      "label_count": 3
+    },
+    {
+      "id": 2,
+      "file_name": "images/val/9ad652e570b877_0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-002\\images\\0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 3,
+      "file_name": "images/val/f8aaf69b45259b_0003_47d68847434d_dxue_test_images_00032_2f376e4125b13f33.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_verified:dxue_test_images_00032_2f376e4125b13f33",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-002\\images\\0003_47d68847434d_dxue_test_images_00032_2f376e4125b13f33.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 4,
+      "file_name": "images/val/d6fcc582309af0_0004_1ae8c99ca7db_dxue_test_images_00034_5fe5f35d63b63f44.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_verified:dxue_test_images_00034_5fe5f35d63b63f44",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-002\\images\\0004_1ae8c99ca7db_dxue_test_images_00034_5fe5f35d63b63f44.jpg",
+      "label_count": 5
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        560,
+        175,
+        3300,
+        770
+      ],
+      "area": 2541000,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        835,
+        3570,
+        800
+      ],
+      "area": 2856000,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 3,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        510,
+        1610,
+        3570,
+        1160
+      ],
+      "area": 4141200,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "single_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        805,
+        245,
+        850,
+        300
+      ],
+      "area": 255000,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 5,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        780,
+        550,
+        890,
+        220
+      ],
+      "area": 195800,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 6,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        760,
+        775,
+        930,
+        265
+      ],
+      "area": 246450,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 7,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        735,
+        1035,
+        970,
+        265
+      ],
+      "area": 257050,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 8,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        720,
+        1295,
+        1020,
+        355
+      ],
+      "area": 362100,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "bottom_near_edge",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 9,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        767,
+        166,
+        870,
+        375
+      ],
+      "area": 326250,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 10,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        750,
+        484,
+        902,
+        285
+      ],
+      "area": 257070,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 11,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        736,
+        715,
+        937,
+        323
+      ],
+      "area": 302651,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 12,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        719,
+        979,
+        969,
+        314
+      ],
+      "area": 304266,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 13,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        711,
+        1238,
+        1013,
+        392
+      ],
+      "area": 397096,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "bottom_near_edge",
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 14,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        734,
+        175,
+        873,
+        360
+      ],
+      "area": 314280,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 15,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        721,
+        487,
+        907,
+        277
+      ],
+      "area": 251239,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 16,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        709,
+        714,
+        945,
+        320
+      ],
+      "area": 302400,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 17,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        694,
+        975,
+        980,
+        318
+      ],
+      "area": 311640,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 18,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        689,
+        1233,
+        1027,
+        404
+      ],
+      "area": 414908,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "bottom_near_edge",
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

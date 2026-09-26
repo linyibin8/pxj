@@ -1,0 +1,34 @@
+{
+  "info": {
+    "description": "PXJ weak question-region detector dataset",
+    "version": "v1",
+    "generated_at": "2026-06-30T01:41:52.468235+00:00"
+  },
+  "images": [
+    {
+      "id": 9,
+      "file_name": "images/val/21c20c637a32f0f2_contact_sheet.jpg",
+      "width": 1300,
+      "height": 1100,
+      "split": "val",
+      "split_key": "negative-smoke:contact-sheet",
+      "source_key": "empty_manifest:diagnostics\\negative-smoke-empty-pages.jsonl:diagnostics\\6dca70735ad448b19828e729202b1f87\\contact_sheet.jpg",
+      "source_filename": "contact_sheet.jpg",
+      "origin": "empty_manifest:diagnostics\\negative-smoke-empty-pages.jsonl",
+      "label_count": 0,
+      "is_negative": true,
+      "negative_kind": "smoke_empty_page",
+      "quality_flags": [
+        "negative_sample",
+        "negative:smoke_empty_page"
+      ]
+    }
+  ],
+  "annotations": [],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

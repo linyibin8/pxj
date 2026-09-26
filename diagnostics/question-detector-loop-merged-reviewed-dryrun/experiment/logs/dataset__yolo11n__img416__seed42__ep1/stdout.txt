@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-30T04:25:23.592757+00:00",
+  "dataset": "D:\\AI\\pxj\\diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset",
+  "dataset_yaml": "D:\\AI\\pxj\\diagnostics\\question-detector-loop-merged-reviewed-dryrun\\dataset\\yolo_dataset.yaml",
+  "audit_readiness": {
+    "pilot_eval_ready": true,
+    "model_training_ready": false,
+    "has_error": false
+  },
+  "audit_warnings": [
+    {
+      "code": "near_duplicate_cross_split",
+      "severity": "warning",
+      "detail": "2 cross-split image pairs have aHash distance <= 4."
+    },
+    {
+      "code": "too_few_images",
+      "severity": "warning",
+      "detail": "87 source images; target >= 300 for model selection."
+    },
+    {
+      "code": "too_few_annotations",
+      "severity": "warning",
+      "detail": "12 annotations; target >= 1000 for model selection."
+    },
+    {
+      "code": "too_few_split_groups",
+      "severity": "warning",
+      "detail": "22 split groups; target >= 50 for held-out evaluation."
+    }
+  ],
+  "model": "yolo11n.pt",
+  "name": "question-block",
+  "train": {
+    "epochs": 1,
+    "imgsz": 416,
+    "batch": -1,
+    "device": "",
+    "patience": 20,
+    "workers": 4,
+    "seed": 42,
+    "optimizer": ""
+  },
+  "export_coreml": false,
+  "predict_test": true,
+  "prediction_conf": 0.05,
+  "prediction": {
+    "requested_conf": 0.25,
+    "effective_conf": 0.05,
+    "adjusted_for_score_sweep": true
+  },
+  "allow_unready": true,
+  "eval_gate": {
+    "thresholds": "0.5,0.75",
+    "min_recall": 0.95,
+    "min_precision": 0.9,
+    "max_fp_per_image": 0.05,
+    "score_thresholds": "0.05,0.10,0.20,0.25,0.35,0.50",
+    "allow_failed_eval": true
+  },
+  "status": "planned"
+}

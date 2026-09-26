@@ -1,0 +1,590 @@
+{
+  "images": [
+    {
+      "id": 2,
+      "file_name": "images/val/b1cb7f812f2051_0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher:dxue_test_images_00031_a2ca36c4408bf3ba",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-003\\images\\0002_cadf9e057031_dxue_test_images_00031_a2ca36c4408bf3ba.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 3,
+      "file_name": "images/val/31c2b179a90757_0003_47d68847434d_dxue_test_images_00032_2f376e4125b13f33.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_verified:dxue_test_images_00032_2f376e4125b13f33",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-003\\images\\0003_47d68847434d_dxue_test_images_00032_2f376e4125b13f33.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 4,
+      "file_name": "images/val/e0f324a723c3ec_0004_1ae8c99ca7db_dxue_test_images_00034_5fe5f35d63b63f44.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_verified:dxue_test_images_00034_5fe5f35d63b63f44",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-003\\images\\0004_1ae8c99ca7db_dxue_test_images_00034_5fe5f35d63b63f44.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 6,
+      "file_name": "images/val/1b49fd68811d17_0006_92d96c8972b2_dxue_test_images_00037_bf260ecec01a1a41.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_manual_left_page:dxue_test_images_00037_bf260ecec01a1a41",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-003\\images\\0006_92d96c8972b2_dxue_test_images_00037_bf260ecec01a1a41.jpg",
+      "label_count": 5
+    },
+    {
+      "id": 7,
+      "file_name": "images/val/54363138038db6_0007_75efd590dfb3_dxue_test_images_00038_31ed82e22f6ddc08.jpg",
+      "width": 2232,
+      "height": 1674,
+      "split": "val",
+      "review_id": "teacher_manual_left_page:dxue_test_images_00038_31ed82e22f6ddc08",
+      "source_image": "diagnostics\\question-detector-ai-teacher-seed-003\\images\\0007_75efd590dfb3_dxue_test_images_00038_31ed82e22f6ddc08.jpg",
+      "label_count": 5
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        805,
+        245,
+        850,
+        300
+      ],
+      "area": 255000,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 2,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        780,
+        550,
+        890,
+        220
+      ],
+      "area": 195800,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 3,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        760,
+        775,
+        930,
+        265
+      ],
+      "area": 246450,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 4,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        735,
+        1035,
+        970,
+        265
+      ],
+      "area": 257050,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 5,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        720,
+        1295,
+        1020,
+        355
+      ],
+      "area": 362100,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "right_page",
+        "complete_visible",
+        "bottom_near_edge",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 6,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        767,
+        166,
+        870,
+        375
+      ],
+      "area": 326250,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 7,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        750,
+        484,
+        902,
+        285
+      ],
+      "area": 257070,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 8,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        736,
+        715,
+        937,
+        323
+      ],
+      "area": 302651,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 9,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        719,
+        979,
+        969,
+        314
+      ],
+      "area": 304266,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 10,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        711,
+        1238,
+        1013,
+        392
+      ],
+      "area": 397096,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "bottom_near_edge",
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 11,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        734,
+        175,
+        873,
+        360
+      ],
+      "area": 314280,
+      "iscrowd": 0,
+      "question_label": "6",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 12,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        721,
+        487,
+        907,
+        277
+      ],
+      "area": 251239,
+      "iscrowd": 0,
+      "question_label": "7",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 13,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        709,
+        714,
+        945,
+        320
+      ],
+      "area": 302400,
+      "iscrowd": 0,
+      "question_label": "8",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 14,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        694,
+        975,
+        980,
+        318
+      ],
+      "area": 311640,
+      "iscrowd": 0,
+      "question_label": "9",
+      "quality_flags": [
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 15,
+      "image_id": 4,
+      "category_id": 1,
+      "bbox": [
+        689,
+        1233,
+        1027,
+        404
+      ],
+      "area": 414908,
+      "iscrowd": 0,
+      "question_label": "10",
+      "quality_flags": [
+        "bottom_near_edge",
+        "complete_visible",
+        "homography_transfer_candidate",
+        "right_page",
+        "codex_visual_verified",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 16,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        500,
+        250,
+        1000,
+        160
+      ],
+      "area": 160000,
+      "iscrowd": 0,
+      "question_label": "1",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 17,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        500,
+        410,
+        1000,
+        130
+      ],
+      "area": 130000,
+      "iscrowd": 0,
+      "question_label": "2",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 18,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        455,
+        540,
+        1045,
+        210
+      ],
+      "area": 219450,
+      "iscrowd": 0,
+      "question_label": "3",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 19,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        420,
+        750,
+        1080,
+        180
+      ],
+      "area": 194400,
+      "iscrowd": 0,
+      "question_label": "4",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 20,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        400,
+        930,
+        1100,
+        290
+      ],
+      "area": 319000,
+      "iscrowd": 0,
+      "question_label": "5",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 21,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        515,
+        235,
+        935,
+        145
+      ],
+      "area": 135575,
+      "iscrowd": 0,
+      "question_label": "1",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 22,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        515,
+        380,
+        935,
+        130
+      ],
+      "area": 121550,
+      "iscrowd": 0,
+      "question_label": "2",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 23,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        510,
+        510,
+        940,
+        205
+      ],
+      "area": 192700,
+      "iscrowd": 0,
+      "question_label": "3",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 24,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        510,
+        715,
+        940,
+        150
+      ],
+      "area": 141000,
+      "iscrowd": 0,
+      "question_label": "4",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    },
+    {
+      "id": 25,
+      "image_id": 7,
+      "category_id": 1,
+      "bbox": [
+        505,
+        865,
+        945,
+        290
+      ],
+      "area": 274050,
+      "iscrowd": 0,
+      "question_label": "5",
+      "quality_flags": [
+        "left_page",
+        "complete_visible",
+        "codex_visual_verified",
+        "manual_box",
+        "tightened_no_overlap",
+        "ai_teacher"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "question_block"
+    }
+  ]
+}

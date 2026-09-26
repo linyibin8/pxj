@@ -1,0 +1,175 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "number": "2",
+      "text": "2. 填一填。",
+      "student_answer": "54 x 4 = 216\nx 50 4\n4 200 16\n200 + 16 = 216\n\n91 x 9 = 819\nx 9 1\n9 810 9\n810 + 9 = 819\n\n102 x 7 = 714\nx 100 2\n7 700 14\n700 + 14 = 714\n一共有23只",
+      "uncertain": false,
+      "crop_file": "crop_01.jpg",
+      "source_segment_index": 1
+    },
+    {
+      "index": 2,
+      "number": "3",
+      "text": "3. 算一算，说一说。",
+      "student_answer": "一共有60只",
+      "uncertain": false,
+      "crop_file": "crop_01.jpg",
+      "source_segment_index": 1
+    },
+    {
+      "index": 1,
+      "number": "3",
+      "text": "算一算，说一说。 一共有多少只小鸡？",
+      "student_answer": "4x5x3=60(只) 一共有60只 20 20x3",
+      "uncertain": false,
+      "crop_file": "crop_02.jpg",
+      "source_segment_index": 2
+    },
+    {
+      "index": 2,
+      "number": "",
+      "text": "一共有多少只小鸡？",
+      "student_answer": "4x5+3=23 一共有23只",
+      "uncertain": false,
+      "crop_file": "crop_02.jpg",
+      "source_segment_index": 2
+    },
+    {
+      "index": 1,
+      "number": "1.",
+      "text": "300 x 6 = 1800\n15 x 6 = 90\n315 x 6 = 1890\n400 x 7 = 2800\n7 x 7 = 49\n407 x 7 = 2849\n500 x 3 = 1500\n40 x 3 = 120\n540 x 3 = 1620\n用竖式计算，说一说竖式每一步的意思。",
+      "student_answer": "1800\n90\n1890\n2800\n49\n2849\n1500\n120\n1620\n1470",
+      "uncertain": false,
+      "crop_file": "crop_03.jpg",
+      "source_segment_index": 3
+    },
+    {
+      "index": 1,
+      "number": "",
+      "text": "用竖式计算，说一说竖式每一步的意思。",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_04.jpg",
+      "source_segment_index": 4
+    },
+    {
+      "index": 2,
+      "number": "",
+      "text": "216 x 4 =",
+      "student_answer": "864",
+      "uncertain": false,
+      "crop_file": "crop_04.jpg",
+      "source_segment_index": 4
+    },
+    {
+      "index": 3,
+      "number": "",
+      "text": "53 x 8 =",
+      "student_answer": "424",
+      "uncertain": false,
+      "crop_file": "crop_04.jpg",
+      "source_segment_index": 4
+    },
+    {
+      "index": 4,
+      "number": "",
+      "text": "490 x 3 =",
+      "student_answer": "1470",
+      "uncertain": false,
+      "crop_file": "crop_04.jpg",
+      "source_segment_index": 4
+    },
+    {
+      "index": 5,
+      "number": "",
+      "text": "607 x 5 =",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_04.jpg",
+      "source_segment_index": 4
+    },
+    {
+      "index": 1,
+      "number": "",
+      "text": "53 x 8 = 424",
+      "student_answer": "53 x 8 424",
+      "uncertain": false,
+      "crop_file": "crop_05.jpg",
+      "source_segment_index": 5
+    },
+    {
+      "index": 2,
+      "number": "",
+      "text": "490 x 3 = 1470",
+      "student_answer": "490 x 3 1380 1470",
+      "uncertain": false,
+      "crop_file": "crop_05.jpg",
+      "source_segment_index": 5
+    },
+    {
+      "index": 3,
+      "number": "",
+      "text": "607 x 5 = 3035",
+      "student_answer": "607 x 5 3035",
+      "uncertain": false,
+      "crop_file": "crop_05.jpg",
+      "source_segment_index": 5
+    },
+    {
+      "index": 1,
+      "number": "7",
+      "text": "算一算，比一比，你发现了什么？你能写出两组类似的算式吗？\n12 x 6 16 x 2\n14 x 5 15 x 4\n25 x 4 24 x 5\n16 x 5 15 x 6",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_06.jpg",
+      "source_segment_index": 6
+    },
+    {
+      "index": 2,
+      "number": "8",
+      "text": "哪两个数相乘的积最接近圈中的数？",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_06.jpg",
+      "source_segment_index": 6
+    },
+    {
+      "index": 8,
+      "number": "8",
+      "text": "哪两个数相乘的积最接近圈中的数？把它们连起来。 1200 621 3 9 489 148 2 316 2000 4 8 5 385",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_07.jpg",
+      "source_segment_index": 7
+    },
+    {
+      "index": 1,
+      "number": "9",
+      "text": "这些南瓜能一次运走吗?",
+      "student_answer": "65×8=520(个)",
+      "uncertain": false,
+      "crop_file": "crop_08.jpg",
+      "source_segment_index": 8
+    },
+    {
+      "index": 1,
+      "number": "10.",
+      "text": "胜利小学 5 名老师带领 88",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_09.jpg",
+      "source_segment_index": 9
+    },
+    {
+      "index": 10,
+      "number": "10.",
+      "text": "胜利小学5名老师带领88名学生参观科技馆，用500元买门票，够不够？实际花了多少元？ 成人票8元 学生票5元",
+      "student_answer": "",
+      "uncertain": false,
+      "crop_file": "crop_10.jpg",
+      "source_segment_index": 10
+    }
+  ]
+}

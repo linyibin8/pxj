@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-06-30T15:38:52.447519+00:00",
+  "prelabel_root": "diagnostics\\question-detector-prelabel-kpai-observation-expanded",
+  "out": "diagnostics\\question-detector-review-wave-plan-kpai-observation-expanded-boxcap120\\wave-002",
+  "candidate_count": 552,
+  "selected_images": 8,
+  "selected_boxes": 120,
+  "limit": 24,
+  "include_quarantine": true,
+  "excluded_approved_images": 8,
+  "excluded_queued_images": 87,
+  "skipped": {
+    "already_approved_image": 9,
+    "already_queued_image": 47,
+    "no_boxes": 1
+  },
+  "selection": {
+    "max_per_session": 4,
+    "max_boxes_total": 120,
+    "ahash_threshold": 4,
+    "session_counts": {
+      "2154c8578d1443929a1825907f5e6cf6": 2,
+      "5dd6493c6d9344ee93aabe4d87820137": 1,
+      "6818143990c546fcb999a04621adc0be": 1,
+      "731a0558d8744fe880cff057da4995dd": 1,
+      "b6f8a6accd404bfc9fb291b15cb44f09": 2,
+      "f7a7d1b8d4c4452382320a4db6e5ba6a": 1
+    },
+    "reason_counts": {
+      "dense_text": 2,
+      "flag:few_text_lines": 7,
+      "flag:near_full_page": 1,
+      "flag:page:full_image_fallback": 7,
+      "flag:short_block": 1,
+      "flag:tall_block": 1,
+      "large_box": 1,
+      "multi_box_page": 7,
+      "quarantine": 2,
+      "small_box": 7
+    }
+  },
+  "outputs": {
+    "draft_boxes": "annotations/draft_boxes.jsonl",
+    "ranked_candidates": "annotations/ranked_candidates.jsonl",
+    "contact_sheet": "active_batch_contact_sheet.jpg"
+  },
+  "notes": [
+    "This is a review-prioritization batch, not ground truth.",
+    "Open this root with question_detector_review_workbench.py, then export approved boxes."
+  ]
+}

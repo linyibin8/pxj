@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-06-30T06:01:12.485763+00:00",
+  "inputs": [
+    "diagnostics\\question-detector-merged-reviewed-next\\annotations\\approved_boxes.jsonl",
+    "diagnostics\\question-detector-merged-reviewed-next\\approved_boxes.jsonl",
+    "diagnostics\\question-detector-propagated-reviewed-next-exact-ahash\\annotations\\approved_boxes.jsonl",
+    "diagnostics\\question-detector-propagated-reviewed-next-exact-ahash\\approved_boxes.jsonl"
+  ],
+  "approved_statuses": [
+    "accepted",
+    "approved",
+    "corrected",
+    "verified"
+  ],
+  "dedupe_iou": 0.95,
+  "conflict_iou": 0.45,
+  "stats": {
+    "accepted_boxes": 16,
+    "deduped_boxes": 16,
+    "images": 9
+  },
+  "conflict_count": 0,
+  "conflicts": [],
+  "outputs": {
+    "approved_boxes": "annotations/approved_boxes.jsonl",
+    "root_approved_boxes": "approved_boxes.jsonl",
+    "contact_sheet": "preview_contact_sheet.jpg"
+  }
+}

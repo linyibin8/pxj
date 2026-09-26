@@ -1,0 +1,2620 @@
+{
+  "source": "diagnostics\\question-detector-prelabel-kpai",
+  "generated_at": "2026-06-30T03:06:50.682408+00:00",
+  "items": [
+    {
+      "image": "images/0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+      "source_candidate": "positive/0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "7a52a0b7895148e886837854efe660be",
+        "session_id": "0091c3c060dc4fabb579ff041d856fb2",
+        "batch_id": "qa",
+        "qa_event_id": "e3244ab02b474c28b1270f251f0e4238",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 196,
+            "y": 0,
+            "width": 1573,
+            "height": 619
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 453,
+            "y": 601,
+            "width": 1214,
+            "height": 213
+          },
+          "score": 0.76,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 143,
+          "y": 0,
+          "width": 1147,
+          "height": 593,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 38,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00001:0091c3c060dc4fabb579ff041d856fb2_qa_7a52a0b7895148e886837854efe660be.jpg"
+    },
+    {
+      "image": "images/0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+      "source_candidate": "positive/0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "f1a9ce2e26a44264983dc16f2582371f",
+        "session_id": "0091c3c060dc4fabb579ff041d856fb2",
+        "batch_id": "qa",
+        "qa_event_id": "b672f7df285f4b138c25c5db55c286f1",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 196,
+            "y": 0,
+            "width": 1573,
+            "height": 619
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 453,
+            "y": 601,
+            "width": 1214,
+            "height": 213
+          },
+          "score": 0.76,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 143,
+          "y": 0,
+          "width": 1147,
+          "height": 593,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 38,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00002:0091c3c060dc4fabb579ff041d856fb2_qa_f1a9ce2e26a44264983dc16f2582371f.jpg"
+    },
+    {
+      "image": "images/bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597f8623.jpg",
+      "source_candidate": "positive/bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597f8623.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "df794af96c0e4650aafdd201597f8623",
+        "session_id": "bb68c98c9ca44664b1582da1b6c2251b",
+        "batch_id": "qa",
+        "qa_event_id": "7c1e0c30502c444baa0cd2118fb09cf8",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 425,
+            "y": 270,
+            "width": 957,
+            "height": 808
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 310,
+          "y": 197,
+          "width": 698,
+          "height": 590,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 35,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00003:bb68c98c9ca44664b1582da1b6c2251b_qa_df794af96c0e4650aafdd201597f8623.jpg"
+    },
+    {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg",
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a1b072dbd80348609b9f3094cb9c9479",
+        "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+        "batch_id": "f30228ebb50a4ad4abea6616d3c2c819",
+        "qa_event_id": "c5957d74b0a04811bc11211dd265ab57",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 358,
+            "y": 0,
+            "width": 1013,
+            "height": 843
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 261,
+          "y": 0,
+          "width": 762,
+          "height": 615,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 28,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00004:f7a7d1b8d4c4452382320a4db6e5ba6a_f30228ebb50a4ad4abea6616d3c2c819_a1b072dbd80348609b9f3094cb9c9479.jpg"
+    },
+    {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "3a844b21e6de497da4dbc5a4ce48baac",
+        "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+        "batch_id": "qa",
+        "qa_event_id": "25a751e6496c43348a8845d36bd7d6d5",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 233,
+            "y": 63,
+            "width": 1473,
+            "height": 106
+          },
+          "score": 0.5973,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 235,
+            "y": 184,
+            "width": 1472,
+            "height": 621
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 170,
+          "y": 46,
+          "width": 1074,
+          "height": 541,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 130,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00005:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg"
+    },
+    {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg",
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "aa434e0f4d954a439a9fcbd07e346208",
+        "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+        "batch_id": "qa",
+        "qa_event_id": "8a1e3c8940854b62bde3b1528204830e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1809,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 1319,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 33,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00006:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_aa434e0f4d954a439a9fcbd07e346208.jpg"
+    },
+    {
+      "image": "images/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+      "source_candidate": "positive/f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "3a844b21e6de497da4dbc5a4ce48baac",
+        "session_id": "f7a7d1b8d4c4452382320a4db6e5ba6a",
+        "batch_id": "qa",
+        "qa_event_id": "de1156e11e6a448d9155fa23ef36f802",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 233,
+            "y": 63,
+            "width": 1473,
+            "height": 106
+          },
+          "score": 0.5973,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 235,
+            "y": 184,
+            "width": 1472,
+            "height": 621
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 170,
+          "y": 46,
+          "width": 1074,
+          "height": 541,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 130,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00007:f7a7d1b8d4c4452382320a4db6e5ba6a_qa_3a844b21e6de497da4dbc5a4ce48baac.jpg"
+    },
+    {
+      "image": "images/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+      "source_candidate": "positive/6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "7ed0d6607c6b4a1a97ac1a8e3b953c9b",
+        "session_id": "6f1372c64b274a46be1c3ee7ee38dd96",
+        "batch_id": "qa",
+        "qa_event_id": "206ad563d79048738e5ee792aefdcb94",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 173,
+            "y": 0,
+            "width": 1443,
+            "height": 946
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 475,
+            "y": 949,
+            "width": 1137,
+            "height": 26
+          },
+          "score": 0.5011,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 126,
+          "y": 0,
+          "width": 1052,
+          "height": 711,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 70,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00008:6f1372c64b274a46be1c3ee7ee38dd96_qa_7ed0d6607c6b4a1a97ac1a8e3b953c9b.jpg"
+    },
+    {
+      "image": "images/b3f939e2fbee43acbe7bd5e2c7c1b434_qa_d820dc9fc85d4d31b20919462041d065.jpg",
+      "source_candidate": "positive/b3f939e2fbee43acbe7bd5e2c7c1b434_qa_d820dc9fc85d4d31b20919462041d065.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "d820dc9fc85d4d31b20919462041d065",
+        "session_id": "b3f939e2fbee43acbe7bd5e2c7c1b434",
+        "batch_id": "qa",
+        "qa_event_id": "905ee7ba97c7438ab9f8e578e63c40e2",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 379,
+            "y": 85,
+            "width": 1164,
+            "height": 994
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 276,
+          "y": 62,
+          "width": 849,
+          "height": 725,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 87,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00009:b3f939e2fbee43acbe7bd5e2c7c1b434_qa_d820dc9fc85d4d31b20919462041d065.jpg"
+    },
+    {
+      "image": "images/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg",
+      "source_candidate": "positive/b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a68bbfd28ca44af48e259ccbecbf6b87",
+        "session_id": "b6f8a6accd404bfc9fb291b15cb44f09",
+        "batch_id": "qa",
+        "qa_event_id": "8892e8f3be394cb68ea1f3ee05718b53",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 240,
+            "width": 886,
+            "height": 686
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 154,
+            "y": 931,
+            "width": 845,
+            "height": 147
+          },
+          "score": 0.867,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 112,
+          "y": 175,
+          "width": 646,
+          "height": 611,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 123,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00010:b6f8a6accd404bfc9fb291b15cb44f09_qa_a68bbfd28ca44af48e259ccbecbf6b87.jpg"
+    },
+    {
+      "image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg",
+      "source_candidate": "positive/0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "747fdccfaede4f57974a26e1272f44a2",
+        "session_id": "0b308a3f04c649bbb09b95d8b99f3422",
+        "batch_id": "qa",
+        "qa_event_id": "462bb9d8c99d4d0fa86047a727f4b9eb",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 392,
+            "y": 210,
+            "width": 1248,
+            "height": 676
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 392,
+            "y": 955,
+            "width": 964,
+            "height": 33
+          },
+          "score": 0.6177,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 286,
+          "y": 153,
+          "width": 910,
+          "height": 567,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 46,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00011:0b308a3f04c649bbb09b95d8b99f3422_qa_747fdccfaede4f57974a26e1272f44a2.jpg"
+    },
+    {
+      "image": "images/0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "source_candidate": "positive/0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "40d33d925d6041beb6d4a596cebdda95",
+        "session_id": "0b308a3f04c649bbb09b95d8b99f3422",
+        "batch_id": "qa",
+        "qa_event_id": "9dbb1475e2614f9bbfb0df45efde556f",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 498,
+            "y": 133,
+            "width": 860,
+            "height": 868
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 498,
+            "y": 1037,
+            "width": 760,
+            "height": 43
+          },
+          "score": 0.4444,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 363,
+          "y": 77,
+          "width": 704,
+          "height": 710,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 51,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00012:0b308a3f04c649bbb09b95d8b99f3422_qa_40d33d925d6041beb6d4a596cebdda95.jpg"
+    },
+    {
+      "image": "images/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg",
+      "source_candidate": "positive/299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a35c8ac7f7d54023a2920cd27419af2e",
+        "session_id": "299631775fad422bbff9c20c17f84b9b",
+        "batch_id": "qa",
+        "qa_event_id": "e208eb138078482ab519524ce7dd6d2b",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 304,
+            "y": 0,
+            "width": 1289,
+            "height": 831
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 35,
+          "y": 0,
+          "width": 1127,
+          "height": 606,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 15,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00013:299631775fad422bbff9c20c17f84b9b_qa_a35c8ac7f7d54023a2920cd27419af2e.jpg"
+    },
+    {
+      "image": "images/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg",
+      "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "02b50ee51b774bd99bb52e6bad5b61ba",
+        "session_id": "4dd68b59b935466195b05543c884ff15",
+        "batch_id": "qa",
+        "qa_event_id": "04b4fa579f34430096417a9b84b99a82",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 380,
+            "y": 291,
+            "width": 1205,
+            "height": 702
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 614,
+            "y": 1024,
+            "width": 971,
+            "height": 55
+          },
+          "score": 0.651,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 277,
+          "y": 212,
+          "width": 879,
+          "height": 575,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 38,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00014:4dd68b59b935466195b05543c884ff15_qa_02b50ee51b774bd99bb52e6bad5b61ba.jpg"
+    },
+    {
+      "image": "images/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg",
+      "source_candidate": "positive/4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "fd0adcd34d804270a2cecb396fc7e77b",
+        "session_id": "4dd68b59b935466195b05543c884ff15",
+        "batch_id": "5963f1c158f54da9b6d53f649c61ac00",
+        "qa_event_id": "7f6c9170642a4a2c861d3565a7be47ab",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1111,
+            "y": 425,
+            "width": 809,
+            "height": 654
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 693,
+          "y": 310,
+          "width": 707,
+          "height": 477,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 28,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00015:4dd68b59b935466195b05543c884ff15_5963f1c158f54da9b6d53f649c61ac00_fd0adcd34d804270a2cecb396fc7e77b.jpg"
+    },
+    {
+      "image": "images/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg",
+      "source_candidate": "positive/4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "875123b1500841b8b73988afbcfe4018",
+        "session_id": "4fc2166073dc422e8955928006267d5c",
+        "batch_id": "qa",
+        "qa_event_id": "8fde7979ecc744178d93571902aa73b0",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 591,
+            "y": 358,
+            "width": 1011,
+            "height": 75
+          },
+          "score": 0.5023,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 591,
+            "y": 439,
+            "width": 1284,
+            "height": 640
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 431,
+          "y": 261,
+          "width": 936,
+          "height": 526,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 48,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00016:4fc2166073dc422e8955928006267d5c_qa_875123b1500841b8b73988afbcfe4018.jpg"
+    },
+    {
+      "image": "images/91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg",
+      "source_candidate": "positive/91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "744c6a57e562485bb220f20b7339025d",
+        "session_id": "91cf7b7586424ce3a308b42daf0ee2fc",
+        "batch_id": "qa",
+        "qa_event_id": "d00352caa7d74bc99a40e4e58541c0a5",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 512,
+            "y": 0,
+            "width": 1063,
+            "height": 63
+          },
+          "score": 0.3511,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 237,
+            "y": 62,
+            "width": 1348,
+            "height": 1018
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 173,
+          "y": 0,
+          "width": 983,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 104,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00017:91cf7b7586424ce3a308b42daf0ee2fc_qa_744c6a57e562485bb220f20b7339025d.jpg"
+    },
+    {
+      "image": "images/1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg",
+      "source_candidate": "positive/1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "b75e65aac8e24a28b7ef17053fd57d95",
+        "session_id": "1ae7762e4aff44faa7d7b75a0962e50f",
+        "batch_id": "qa",
+        "qa_event_id": "c16806720f31460a9e32d3627a53ac2e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1061,
+            "height": 1001
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 774,
+          "height": 730,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 122,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00018:1ae7762e4aff44faa7d7b75a0962e50f_qa_b75e65aac8e24a28b7ef17053fd57d95.jpg"
+    },
+    {
+      "image": "images/e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg",
+      "source_candidate": "positive/e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a02919eb27a04579bf414506c010d0ce",
+        "session_id": "e203520478f34e8cac8691e78f5db6b2",
+        "batch_id": "qa",
+        "qa_event_id": "041418017ecc4c02b93ac98508e30063",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 93,
+            "y": 389,
+            "width": 1713,
+            "height": 690
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 68,
+          "y": 167,
+          "width": 1249,
+          "height": 620,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 89,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00019:e203520478f34e8cac8691e78f5db6b2_qa_a02919eb27a04579bf414506c010d0ce.jpg"
+    },
+    {
+      "image": "images/e90a6847977f4dbc8d831b5c401bb200_qa_6165eef1c04e4b2aba207310559b0240.jpg",
+      "source_candidate": "positive/e90a6847977f4dbc8d831b5c401bb200_qa_6165eef1c04e4b2aba207310559b0240.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6165eef1c04e4b2aba207310559b0240",
+        "session_id": "e90a6847977f4dbc8d831b5c401bb200",
+        "batch_id": "qa",
+        "qa_event_id": "79319b34ff9b43fa9d2f0678c5ec40ad",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 66,
+            "y": 25,
+            "width": 1520,
+            "height": 1055
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 48,
+          "y": 0,
+          "width": 1108,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 143,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00020:e90a6847977f4dbc8d831b5c401bb200_qa_6165eef1c04e4b2aba207310559b0240.jpg"
+    },
+    {
+      "image": "images/e90a6847977f4dbc8d831b5c401bb200_qa_6bb79bb86dfc4c53b234834f77bf6ef6.jpg",
+      "source_candidate": "positive/e90a6847977f4dbc8d831b5c401bb200_qa_6bb79bb86dfc4c53b234834f77bf6ef6.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6bb79bb86dfc4c53b234834f77bf6ef6",
+        "session_id": "e90a6847977f4dbc8d831b5c401bb200",
+        "batch_id": "qa",
+        "qa_event_id": "e63c51df7c804a36ba9b7b13e893677d",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 66,
+            "y": 25,
+            "width": 1520,
+            "height": 1055
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 48,
+          "y": 0,
+          "width": 1108,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 143,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00021:e90a6847977f4dbc8d831b5c401bb200_qa_6bb79bb86dfc4c53b234834f77bf6ef6.jpg"
+    },
+    {
+      "image": "images/e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg",
+      "source_candidate": "positive/e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "541743357fb948bdbe9cbdd51bcb7aa6",
+        "session_id": "e90a6847977f4dbc8d831b5c401bb200",
+        "batch_id": "qa",
+        "qa_event_id": "441aa81be0ba4a80996b8d1521556967",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 66,
+            "y": 25,
+            "width": 1520,
+            "height": 1055
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 48,
+          "y": 0,
+          "width": 1108,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 143,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00022:e90a6847977f4dbc8d831b5c401bb200_qa_541743357fb948bdbe9cbdd51bcb7aa6.jpg"
+    },
+    {
+      "image": "images/0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg",
+      "source_candidate": "positive/0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "0f2d7da82fe5441ebcaf1fbb1a82718d",
+        "session_id": "0d13b5cc951a43b695ce14ad124a3248",
+        "batch_id": "qa",
+        "qa_event_id": "0075cd58f897418ea5ecffcaeca9905b",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 566,
+            "y": 88,
+            "width": 1064,
+            "height": 117
+          },
+          "score": 0.5416,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 185,
+            "y": 228,
+            "width": 1445,
+            "height": 852
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 135,
+          "y": 64,
+          "width": 1054,
+          "height": 723,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 102,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00023:0d13b5cc951a43b695ce14ad124a3248_qa_0f2d7da82fe5441ebcaf1fbb1a82718d.jpg"
+    },
+    {
+      "image": "images/92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg",
+      "source_candidate": "positive/92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "f3580650dc0e4723b447b0f1302a4cd6",
+        "session_id": "92b9447f4a8f43858a6a2a20324c1769",
+        "batch_id": "qa",
+        "qa_event_id": "6255392ae5b14a56b063a5517052d70e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 492,
+            "y": 196,
+            "width": 1105,
+            "height": 883
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 347,
+          "y": 136,
+          "width": 818,
+          "height": 651,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 82,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00024:92b9447f4a8f43858a6a2a20324c1769_qa_f3580650dc0e4723b447b0f1302a4cd6.jpg"
+    },
+    {
+      "image": "images/9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg",
+      "source_candidate": "positive/9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "cda7fa47ddc3462baf0638c7ec7f15af",
+        "session_id": "9b2b7f197f064c52961c557b4bea5ec8",
+        "batch_id": "qa",
+        "qa_event_id": "e082dd0e3d76452eaab28cbe0939db2e",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 484,
+            "y": 104,
+            "width": 804,
+            "height": 88
+          },
+          "score": 0.4878,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 315,
+            "width": 852,
+            "height": 78
+          },
+          "score": 0.554,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 389,
+            "width": 1083,
+            "height": 185
+          },
+          "score": 0.8929,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 575,
+            "width": 1083,
+            "height": 126
+          },
+          "score": 0.6214,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 458,
+            "y": 717,
+            "width": 853,
+            "height": 56
+          },
+          "score": 0.3511,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1090,
+            "y": 835,
+            "width": 451,
+            "height": 77
+          },
+          "score": 0.4533,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 334,
+          "y": 76,
+          "width": 790,
+          "height": 700,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 24,
+        "draft_box_count": 6,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00025:9b2b7f197f064c52961c557b4bea5ec8_qa_cda7fa47ddc3462baf0638c7ec7f15af.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "8a246b8920be4b648edc4dfc01044e59",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "4d2c6cc5ecf249cda4ee773e51e867e1",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1622,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 1183,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 63,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00026:6cba53b81ae1479f92ccc27a4190743a_qa_8a246b8920be4b648edc4dfc01044e59.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "bcf46387e5cb4334a8421753c28e892b",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "b84b4b8a19c34b209064ad265f6c9782",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1296,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 945,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 54,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00027:6cba53b81ae1479f92ccc27a4190743a_qa_bcf46387e5cb4334a8421753c28e892b.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "a873342bf7794651bdb2aeea78b75dc7",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "8c1efaa770ac434bbf1104e99d375d78",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 440,
+            "y": 0,
+            "width": 908,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 321,
+          "y": 0,
+          "width": 662,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 83,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00028:6cba53b81ae1479f92ccc27a4190743a_qa_a873342bf7794651bdb2aeea78b75dc7.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "167dcd39ee794007b51fd40fa0b95155",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "9f3088ba92d44374842fbcf2e547594a",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1303,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 950,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 32,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00029:6cba53b81ae1479f92ccc27a4190743a_qa_167dcd39ee794007b51fd40fa0b95155.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c3d25bc5c0b74811ba4dbc1279bd5dfd",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "4386d8367d1a4e7195560221a5cf8749",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 29,
+            "y": 0,
+            "width": 1891,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 21,
+          "y": 0,
+          "width": 1379,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 74,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00030:6cba53b81ae1479f92ccc27a4190743a_qa_c3d25bc5c0b74811ba4dbc1279bd5dfd.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "18c5d8aa9bde473d8c94a5baef7c170a",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "8be77c61035b4122ad9e8f68c7770e1d",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 192,
+            "y": 177,
+            "width": 900,
+            "height": 902
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 140,
+          "y": 129,
+          "width": 656,
+          "height": 658,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 58,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00031:6cba53b81ae1479f92ccc27a4190743a_qa_18c5d8aa9bde473d8c94a5baef7c170a.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "8f5284c0abc545c99b2ec7c90bdc6406",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "7bb9f011fb424661a2ad6d7aadb7923b",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 457,
+            "y": 0,
+            "width": 1463,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 333,
+          "y": 0,
+          "width": 1067,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 23,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00032:6cba53b81ae1479f92ccc27a4190743a_qa_8f5284c0abc545c99b2ec7c90bdc6406.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c815366268e74c599389ed5226ccbdf5",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "7d12d5ff12bd43ac870891d68cd44939",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 149,
+            "y": 0,
+            "width": 1037,
+            "height": 1079
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 109,
+          "y": 0,
+          "width": 756,
+          "height": 787,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 132,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00033:6cba53b81ae1479f92ccc27a4190743a_qa_c815366268e74c599389ed5226ccbdf5.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6ca4a077eef340769efa5304c541ee48",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "910e3c26430d40429870515e7c3b4f7d",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 22,
+            "width": 656,
+            "height": 1042
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 478,
+          "height": 776,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 259,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00034:6cba53b81ae1479f92ccc27a4190743a_qa_6ca4a077eef340769efa5304c541ee48.jpg"
+    },
+    {
+      "image": "images/6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+      "source_candidate": "positive/6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6228913911284b4ba41d981c5a67d651",
+        "session_id": "6cba53b81ae1479f92ccc27a4190743a",
+        "batch_id": "qa",
+        "qa_event_id": "7b32d897307f45a6bb99050c97574c8f",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 22,
+            "width": 656,
+            "height": 1042
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 478,
+          "height": 776,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 259,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00035:6cba53b81ae1479f92ccc27a4190743a_qa_6228913911284b4ba41d981c5a67d651.jpg"
+    },
+    {
+      "image": "images/e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg",
+      "source_candidate": "positive/e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "0bfc73df24ce4a379cb5e59726bc20a1",
+        "session_id": "e65858e27a964eac83306022bfff0238",
+        "batch_id": "b9f26eceae694953bf4301b2ae4e9b7d",
+        "qa_event_id": "fff13824fa704c1db4dc03ae763e22c2",
+        "needs_box_label": true
+      },
+      "width": 1920,
+      "height": 1080,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 284,
+            "y": 144,
+            "width": 1240,
+            "height": 935
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 207,
+          "y": 105,
+          "width": 915,
+          "height": 682,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.7291666666666666,
+        "line_box_count": 18,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00036:e65858e27a964eac83306022bfff0238_b9f26eceae694953bf4301b2ae4e9b7d_0bfc73df24ce4a379cb5e59726bc20a1.jpg"
+    },
+    {
+      "image": "images/3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg",
+      "source_candidate": "positive/3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "28e24c6718b847eaa5ac724a00470ec4",
+        "session_id": "3114c9419bb64914a5d7ce9813383276",
+        "batch_id": "qa",
+        "qa_event_id": "551e8d3c79394eea877e5f970783b658",
+        "needs_box_label": true
+      },
+      "width": 2263,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 2263,
+            "height": 1568
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 990,
+          "height": 686,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 41,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00037:3114c9419bb64914a5d7ce9813383276_qa_28e24c6718b847eaa5ac724a00470ec4.jpg"
+    },
+    {
+      "image": "images/2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+      "source_candidate": "positive/2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c4ca7fb15dc84881b38cf3998d9b2e20",
+        "session_id": "2433f3e755ae40519113cc010c00e6d3",
+        "batch_id": "qa",
+        "qa_event_id": "498ee6e6451c499ea48e6ae6b4803e52",
+        "needs_box_label": true
+      },
+      "width": 2594,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 1305,
+            "width": 1840,
+            "height": 683
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 1968,
+            "width": 1529,
+            "height": 521
+          },
+          "score": 0.865,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 2475,
+            "width": 1840,
+            "height": 539
+          },
+          "score": 0.795,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 752,
+            "y": 3040,
+            "width": 1451,
+            "height": 142
+          },
+          "score": 0.364,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 329,
+          "y": 571,
+          "width": 805,
+          "height": 829,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 33,
+        "draft_box_count": 4,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00038:2433f3e755ae40519113cc010c00e6d3_qa_c4ca7fb15dc84881b38cf3998d9b2e20.jpg"
+    },
+    {
+      "image": "images/2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+      "source_candidate": "positive/2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "aede395827a8455487ce2ddc55c06b83",
+        "session_id": "2433f3e755ae40519113cc010c00e6d3",
+        "batch_id": "qa",
+        "qa_event_id": "3f4aae372914491990aeefb7a2e51d4c",
+        "needs_box_label": true
+      },
+      "width": 2211,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1351,
+            "y": 2464,
+            "width": 859,
+            "height": 281
+          },
+          "score": 0.795,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1351,
+            "y": 2715,
+            "width": 793,
+            "height": 222
+          },
+          "score": 0.62,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 1351,
+            "y": 2942,
+            "width": 779,
+            "height": 215
+          },
+          "score": 0.62,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 591,
+          "y": 1078,
+          "width": 376,
+          "height": 316,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 11,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00039:2433f3e755ae40519113cc010c00e6d3_qa_aede395827a8455487ce2ddc55c06b83.jpg"
+    },
+    {
+      "image": "images/62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg",
+      "source_candidate": "positive/62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "6f652a7f841647318fcb9e49bb3b47a2",
+        "session_id": "62f789a2bca9426097b607fb27aff5bd",
+        "batch_id": "qa",
+        "qa_event_id": "91e019e575524abf9f1011c1b1f89792",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 2400,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1097,
+            "width": 1013,
+            "height": 277
+          },
+          "score": 0.655,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1333,
+            "width": 1013,
+            "height": 1067
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 957,
+          "y": 480,
+          "width": 443,
+          "height": 570,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 41,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00040:62f789a2bca9426097b607fb27aff5bd_qa_6f652a7f841647318fcb9e49bb3b47a2.jpg"
+    },
+    {
+      "image": "images/62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg",
+      "source_candidate": "positive/62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "e020bff6bbab405e97adf21eb6af022f",
+        "session_id": "62f789a2bca9426097b607fb27aff5bd",
+        "batch_id": "qa",
+        "qa_event_id": "d930f74685ee49eaa944bce1684a3361",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 2400,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1097,
+            "width": 1013,
+            "height": 277
+          },
+          "score": 0.655,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 2187,
+            "y": 1333,
+            "width": 1013,
+            "height": 1067
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 957,
+          "y": 480,
+          "width": 443,
+          "height": 570,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 41,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00041:62f789a2bca9426097b607fb27aff5bd_qa_e020bff6bbab405e97adf21eb6af022f.jpg"
+    },
+    {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "c18e03c3e3494c01bec8785d1bf71682",
+        "session_id": "1f54b22aed3942caa921fe075593a550",
+        "batch_id": "qa",
+        "qa_event_id": "6427cf1ef58c408ab7b8fe91f628b8a1",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 1553,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 395,
+            "y": 69,
+            "width": 2805,
+            "height": 910
+          },
+          "score": 0.82,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 825,
+            "y": 891,
+            "width": 2290,
+            "height": 398
+          },
+          "score": 0.62,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 395,
+            "y": 1223,
+            "width": 2713,
+            "height": 329
+          },
+          "score": 0.83,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 173,
+          "y": 30,
+          "width": 1227,
+          "height": 649,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 22,
+        "draft_box_count": 3,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00042:1f54b22aed3942caa921fe075593a550_qa_c18e03c3e3494c01bec8785d1bf71682.jpg"
+    },
+    {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "7447eac1ed3741f8af63748d64c4ee87",
+        "session_id": "1f54b22aed3942caa921fe075593a550",
+        "batch_id": "qa",
+        "qa_event_id": "6243d97d8bb646138d211abc87a9f259",
+        "needs_box_label": true
+      },
+      "width": 2958,
+      "height": 1290,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 2094,
+            "y": 245,
+            "width": 775,
+            "height": 539
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 991,
+          "y": 116,
+          "width": 367,
+          "height": 255,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.47329276538201487,
+        "line_box_count": 17,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00043:1f54b22aed3942caa921fe075593a550_qa_7447eac1ed3741f8af63748d64c4ee87.jpg"
+    },
+    {
+      "image": "images/1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+      "source_candidate": "positive/1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "021e0fb43c534d91987da51e01694d8f",
+        "session_id": "1f54b22aed3942caa921fe075593a550",
+        "batch_id": "qa",
+        "qa_event_id": "80dcf12aa4b640cfa144f34835b96898",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 1104,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 43,
+            "y": 267,
+            "width": 693,
+            "height": 706
+          },
+          "score": 0.67,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 165,
+            "y": 960,
+            "width": 571,
+            "height": 144
+          },
+          "score": 0.4736,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "short_block",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 117,
+          "width": 322,
+          "height": 366,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 10,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00044:1f54b22aed3942caa921fe075593a550_qa_021e0fb43c534d91987da51e01694d8f.jpg"
+    },
+    {
+      "image": "images/8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg",
+      "source_candidate": "positive/8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "47a6f8d5d42a4736a3263795b2b70692",
+        "session_id": "8ede7fe639cb4ba5941e690217c0d6a6",
+        "batch_id": "qa",
+        "qa_event_id": "241ff2991b7a479baa61ae5638eec449",
+        "needs_box_label": true
+      },
+      "width": 4800,
+      "height": 1804,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 1755,
+            "y": 0,
+            "width": 3045,
+            "height": 885
+          },
+          "score": 0.9,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 2047,
+            "y": 1378,
+            "width": 2753,
+            "height": 425
+          },
+          "score": 0.83,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 512,
+          "y": 0,
+          "width": 888,
+          "height": 526,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.2916666666666667,
+        "line_box_count": 18,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00045:8ede7fe639cb4ba5941e690217c0d6a6_qa_47a6f8d5d42a4736a3263795b2b70692.jpg"
+    },
+    {
+      "image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg",
+      "source_candidate": "positive/005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "e5f421d571d941fe879a1f2c0c70ccd8",
+        "session_id": "005c6d92ef37414ab5d41a5f0ad66656",
+        "batch_id": "qa",
+        "qa_event_id": "3f8cf8813f574bf09e923ccbe26cbb49",
+        "needs_box_label": true
+      },
+      "width": 2154,
+      "height": 3200,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 334,
+            "y": 0,
+            "width": 1778,
+            "height": 258
+          },
+          "score": 0.3717,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "few_text_lines",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        },
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 192,
+            "width": 2153,
+            "height": 2994
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 942,
+          "height": 1400,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 46,
+        "draft_box_count": 2,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00046:005c6d92ef37414ab5d41a5f0ad66656_qa_e5f421d571d941fe879a1f2c0c70ccd8.jpg"
+    },
+    {
+      "image": "images/005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg",
+      "source_candidate": "positive/005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg",
+      "candidate": {
+        "candidate_kind": "qa_recognized_question",
+        "image_id": "80aee0caa4e24a128f27c9cb9c306600",
+        "session_id": "005c6d92ef37414ab5d41a5f0ad66656",
+        "batch_id": "qa",
+        "qa_event_id": "5eb7ac3192e34c899eed75b9251245d0",
+        "needs_box_label": true
+      },
+      "width": 3200,
+      "height": 1024,
+      "boxes": [
+        {
+          "bbox_px": {
+            "x": 0,
+            "y": 0,
+            "width": 1022,
+            "height": 761
+          },
+          "score": 0.74,
+          "source": "layout_prelabel",
+          "quality_flags": [
+            "tall_block",
+            "near_full_page",
+            "page:bright_page"
+          ],
+          "annotation_status": "draft_review_required"
+        }
+      ],
+      "metadata": {
+        "page_rect_processing": {
+          "x": 0,
+          "y": 0,
+          "width": 447,
+          "height": 333,
+          "source": "bright_page"
+        },
+        "processing_scale": 0.4375,
+        "line_box_count": 11,
+        "draft_box_count": 1,
+        "quarantine_reasons": []
+      },
+      "annotation_status": "draft_review_required",
+      "review_id": "00047:005c6d92ef37414ab5d41a5f0ad66656_qa_80aee0caa4e24a128f27c9cb9c306600.jpg"
+    }
+  ]
+}

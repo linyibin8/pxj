@@ -1,0 +1,11 @@
+{
+  "questions": [
+    {
+      "index": 8,
+      "number": "8",
+      "text": "哪两个数相乘的积最接近圈中的数？把它们连起来。 1200 621 3 9 489 148 2 316 2000 4 8 5 385",
+      "student_answer": "",
+      "uncertain": false
+    }
+  ]
+}

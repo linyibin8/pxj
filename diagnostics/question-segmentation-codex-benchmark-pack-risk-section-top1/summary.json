@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-07-01T02:31:44.720643+00:00",
+  "benchmark_manifest": "diagnostics\\question-detector-review-priority-risk-section-top1\\codex_benchmark_manifest.jsonl",
+  "review_priority": "diagnostics\\question-detector-review-priority-risk-section-top1\\review_priority.json",
+  "image_count": 40,
+  "draft_reference_boxes": 299,
+  "missing_images": 0,
+  "outputs": {
+    "benchmark_manifest": "benchmark_manifest.jsonl",
+    "codex_prompt": "codex_prompt.md",
+    "prediction_template": "codex_predictions_template.jsonl",
+    "draft_reference": "draft_reference_boxes.jsonl",
+    "readme": "README.md",
+    "eval_commands": "eval_commands.md"
+  }
+}

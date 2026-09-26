@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-07-01T02:31:44.922759+00:00",
+  "label": "draft_pack_self_check",
+  "benchmark_manifest": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\benchmark_manifest.jsonl",
+  "iou_threshold": 0.5,
+  "image_count": 40,
+  "input_audit": {
+    "reference": {
+      "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\draft_reference_boxes.jsonl",
+      "rows": 40,
+      "unmatched_rows": [],
+      "matched_images": 40,
+      "missing_images": []
+    },
+    "predictions": {
+      "path": "diagnostics\\question-segmentation-codex-benchmark-pack-risk-section-top1\\draft_reference_boxes.jsonl",
+      "rows": 40,
+      "unmatched_rows": [],
+      "matched_images": 40,
+      "missing_images": []
+    }
+  },
+  "overall": {
+    "reference_boxes": 299,
+    "prediction_boxes": 299,
+    "matched_boxes": 299,
+    "missed_boxes": 0,
+    "false_positive_boxes": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "count_delta": 0
+  },
+  "by_cohort": {
+    "active_capture": {
+      "reference_boxes": 12,
+      "prediction_boxes": 12,
+      "matched_boxes": 12,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "active_quarantine": {
+      "reference_boxes": 28,
+      "prediction_boxes": 28,
+      "matched_boxes": 28,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "dense_layout": {
+      "reference_boxes": 168,
+      "prediction_boxes": 168,
+      "matched_boxes": 168,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "fallback_delta": {
+      "reference_boxes": 20,
+      "prediction_boxes": 20,
+      "matched_boxes": 20,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    },
+    "observation_unverified": {
+      "reference_boxes": 71,
+      "prediction_boxes": 71,
+      "matched_boxes": 71,
+      "missed_boxes": 0,
+      "false_positive_boxes": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_delta": 0
+    }
+  }
+}
